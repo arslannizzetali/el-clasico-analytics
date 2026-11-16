@@ -1,4 +1,4 @@
-"""Ham veriyi indirme ve okuma. İndirilen her dosya data/raw altında saklanır; varsa tekrar indirilmez."""
+"""Download and read the raw data. Every downloaded file is cached under data/raw and never fetched twice."""
 import json
 import os
 import time
@@ -12,8 +12,8 @@ FIRST_SEASON = '2005'
 
 
 def fetch(path, dest, retries=5, wait=2.0):
-    """BASE/path adresini dest dosyasına indirir. Ağ hatasında artan beklemeyle yeniden dener.
-    Yarım kalan indirme kalıcı dosyayı bozmasın diye önce geçici dosyaya yazar."""
+    """Download BASE/path to dest, retrying network errors with a growing wait.
+    Writes to a temporary file first so an interrupted download never leaves a broken cache file."""
     if os.path.exists(dest):
         return dest
     os.makedirs(os.path.dirname(dest), exist_ok=True)
@@ -38,8 +38,8 @@ def load_json(path, dest_name, raw=RAW):
 
 
 def clasico_matches(raw=RAW):
-    """2005/06'dan itibaren açık verideki Real Madrid-Barcelona La Liga maçları, tarihe göre sıralı.
-    Her maça sezon adı 'season' alanı olarak eklenir."""
+    """Real Madrid - Barcelona La Liga matches in the open data from 2005/06 on, sorted by date.
+    The season name is added to each match as 'season'."""
     comps = load_json('competitions.json', 'c.json', raw)
     out = []
     for c in comps:
@@ -52,6 +52,6 @@ def clasico_matches(raw=RAW):
 
 
 def events(match_id, raw=RAW, max_period=2):
-    """Maçın olayları (uzatma devreleri hariç), dosyadaki sırayla."""
+    """A match's events in file order, extra time excluded."""
     ev = load_json(f'events/{match_id}.json', f'{match_id}.json', raw)
     return [e for e in ev if e['period'] <= max_period]

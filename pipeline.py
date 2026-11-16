@@ -1,9 +1,9 @@
-"""Bütün zinciri sırayla çalıştırır: veri indirme + dönüştürme + doğrulama.
+"""Runs the whole chain in order: download, transform, validate.
 
-    python3 pipeline.py              # data/processed altına yazar
-    python3 pipeline.py /tmp/cikti   # başka bir klasöre yazar
+    python3 pipeline.py              # writes to data/processed
+    python3 pipeline.py /tmp/out     # writes to another folder
 
-İlk çalıştırmada StatsBomb açık verisi data/raw altına indirilir (birkaç dakika); sonra önbellekten okunur.
+The first run downloads the StatsBomb open data to data/raw (a few minutes); later runs read the cache.
 """
 import os
 import subprocess
@@ -11,7 +11,7 @@ import sys
 import time
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-STEPS = ['build.py', 'losses.py', 'strips.py', 'game_state.py', 'kayiplar.py']
+STEPS = ['build.py', 'losses.py', 'strips.py', 'game_state.py', 'uncertainty.py', 'loss_table.py']
 
 
 def main():
@@ -21,9 +21,9 @@ def main():
         s = time.time()
         r = subprocess.run([sys.executable, os.path.join(ROOT, 'scripts', step), *out])
         if r.returncode != 0:
-            sys.exit(f'{step} başarısız oldu (çıkış kodu {r.returncode})')
-        print(f'  ({step} {time.time() - s:.0f} sn)')
-    print(f'Tamam: {len(STEPS)} adım, {time.time() - t0:.0f} sn')
+            sys.exit(f'{step} failed (exit code {r.returncode})')
+        print(f'  ({step} {time.time() - s:.0f} s)')
+    print(f'Done: {len(STEPS)} steps, {time.time() - t0:.0f} s')
 
 
 if __name__ == '__main__':

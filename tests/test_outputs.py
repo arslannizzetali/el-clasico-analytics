@@ -1,5 +1,4 @@
-"""data/processed çıktıları için tutarlılık testleri. Önce `python3 pipeline.py` çalıştırılmış olmalı;
-çıktılar yoksa testler atlanır."""
+"""Consistency tests on data/processed. Run `python3 pipeline.py` first; skipped if the outputs are missing."""
 import collections
 import os
 import sys
@@ -11,10 +10,11 @@ from clasico.events import zone  # noqa: E402
 from clasico.output import read_json, read_rows  # noqa: E402
 
 P = lambda name: os.path.join(PROCESSED, name)  # noqa: E731
-READY = all(os.path.exists(P(f)) for f in ('match_team.json', 'shots.json', 'losses_ds.json', 'strips.json', 'game_state.json'))
+FILES = ('match_team.json', 'shots.json', 'losses_ds.json', 'strips.json', 'game_state.json', 'uncertainty.json')
+READY = all(os.path.exists(P(f)) for f in FILES)
 
 
-@unittest.skipUnless(READY, 'önce pipeline.py çalıştırılmalı')
+@unittest.skipUnless(READY, 'run pipeline.py first')
 class Outputs(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -23,6 +23,7 @@ class Outputs(unittest.TestCase):
         cls.L = read_rows(P('losses_ds.json'))
         cls.ST = read_json(P('strips.json'))
         cls.G = read_rows(P('game_state.json'))
+        cls.U = read_rows(P('uncertainty.json'))
 
     def test_29_matches_two_rows_each(self):
         self.assertEqual(len({m['match_id'] for m in self.M}), 29)
@@ -42,9 +43,9 @@ class Outputs(unittest.TestCase):
             self.assertEqual(m['open_play_shots'], first[(m['match_id'], m['team'])])
 
     def test_shot_goals_do_not_exceed_score(self):
-        g = collections.Counter((s['match_id'], s['team']) for s in self.S if s['outcome'] == 'Gol')
+        g = collections.Counter((s['match_id'], s['team']) for s in self.S if s['outcome'] == 'Goal')
         for m in self.M:
-            self.assertLessEqual(g[(m['match_id'], m['team'])], m['goals_for'])   # penaltı ve kendi kalesine gol listede yok
+            self.assertLessEqual(g[(m['match_id'], m['team'])], m['goals_for'])   # penalties and own goals are not in the list
 
     def test_rates_are_in_range(self):
         for m in self.M:
@@ -54,20 +55,20 @@ class Outputs(unittest.TestCase):
     def test_losses_and_strips_line_up(self):
         self.assertEqual(len(self.L), len(self.ST))
         for l, s in zip(self.L, self.ST):
-            self.assertEqual((l['match'], l['team'], l['player']), (s['mac'], s['topu_kaptiran_takim'], s['oyuncu']))
-            self.assertEqual(zone(l['x'], l['y']), s['bolge'])
+            self.assertEqual((l['match'], l['team'], l['player']), (s['match'], s['losing_team'], s['player']))
+            self.assertEqual(zone(l['x'], l['y']), s['zone'])
 
     def test_strip_totals_match_metric(self):
         n = collections.Counter((l['match_id'], l['team']) for l in self.L)
         for m in self.M:
-            # takımın söktüğü top = rakibin kontrolden sonra kaptırdığı top
+            # balls a team stripped = balls its opponent lost after a controlled touch
             self.assertEqual(m['balls_stripped'], n[(m['match_id'], m['opponent'])])
 
     def test_loss_shot_fields(self):
         for l in self.L:
             self.assertEqual(l['shot'] == 1, l['shot_x'] is not None)
             if l['goal']:
-                self.assertEqual(l['result'], 'Gol')
+                self.assertEqual(l['result'], 'Goal')
 
     def test_game_state_partitions_matches(self):
         F = ('open_play_shots', 'passes_before_shot_sum', 'pressures', 'pressures_won_5s', 'opp_buildup_passes', 'def_actions', 'opp_controls', 'balls_stripped')
@@ -83,7 +84,23 @@ class Outputs(unittest.TestCase):
             self.assertTrue(85 <= mins[(m['match_id'], m['team'])] <= 105)
         g = {(r['match_id'], r['team'], r['state']): r['minutes'] for r in self.G}
         for mid in {m['match_id'] for m in self.M}:
-            self.assertAlmostEqual(g[(mid, TEAMS[0], 'Önde')], g[(mid, TEAMS[1], 'Geride')], delta=0.05)
+            self.assertAlmostEqual(g[(mid, TEAMS[0], 'Ahead')], g[(mid, TEAMS[1], 'Behind')], delta=0.05)
+
+    def test_intervals_contain_their_estimate(self):
+        for r in self.U:
+            self.assertLessEqual(r['lo'], r['value'] + 0.01, r['key'])
+            self.assertGreaterEqual(r['hi'], r['value'] - 0.01, r['key'])
+            if r['kind'] == 'change':
+                self.assertEqual(r['clear'], 1 if r['lo'] > 0 or r['hi'] < 0 else r['clear'], r['key'])
+
+    def test_period_estimates_match_dashboard_totals(self):
+        by = collections.defaultdict(list)
+        for m in self.M:
+            by[(m['team'], m['period'])].append(m)
+        for r in self.U:
+            if r['kind'] == 'period' and r['state'] == 'All' and r['metric'] == 'ppda':
+                rs = by[(r['team'], r['period'])]
+                self.assertAlmostEqual(r['value'], sum(x['opp_buildup_passes'] for x in rs) / sum(x['def_actions'] for x in rs), places=2)
 
 
 if __name__ == '__main__':

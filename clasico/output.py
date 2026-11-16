@@ -1,5 +1,5 @@
-"""Çıktı yazma. Dashboard'a giden JSON dosyaları {rows, meta} biçiminde: meta, satırları üreten kodu
-taşır; dashboard'da her sayının hangi kodla hesaplandığı görülebilsin."""
+"""Writing outputs. JSON files sent to the dashboard are {rows, meta}: meta carries the code that produced
+the rows, so the dashboard can show how every number was computed."""
 import json
 import os
 
@@ -14,7 +14,7 @@ def _text(path):
 def code_meta(script_path):
     files = [script_path, os.path.join(ROOT, 'clasico', 'events.py')]
     meta = [{'label': os.path.relpath(f, ROOT), 'value': _text(f), 'type': 'code', 'lang': 'python'} for f in files]
-    return meta + [{'label': 'Girdi', 'value': SOURCE}]
+    return meta + [{'label': 'Input', 'value': SOURCE}]
 
 
 def read_json(path):

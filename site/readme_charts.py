@@ -1,4 +1,4 @@
-"""README için üç bulgu grafiği (SVG, sadece standart kütüphane): docs/img/*.svg
+"""Three finding charts for the README (SVG, standard library only): docs/img/*.svg
 
     python3 site/readme_charts.py
 """
@@ -24,7 +24,7 @@ def ratio(rows, a, b, k=1):
 
 
 def line_chart(title, subtitle, series, ymax, note, path, w=720, h=380):
-    """series: [(etiket, renk, [4 değer], kalın?)]"""
+    """series: [(label, colour, [4 values], bold?)]"""
     L, R, T, B = 56, 150, 86, 64
     x = lambda i: L + i * (w - L - R) / (len(PERIODS) - 1)  # noqa: E731
     y = lambda v: T + (h - T - B) * (1 - v / ymax)  # noqa: E731
@@ -38,7 +38,7 @@ def line_chart(title, subtitle, series, ymax, note, path, w=720, h=380):
         o.append(f'<text x="{L - 10}" y="{y(t) + 4:.1f}" font-size="12" fill="{MUTED}" text-anchor="end">{t}</text>')
     for i, p in enumerate(PERIODS):
         o.append(f'<text x="{x(i):.1f}" y="{h - B + 24}" font-size="12.5" fill="{MUTED}" text-anchor="middle">{p}</text>')
-    # iki seri: her dönemde değeri yüksek olanın etiketi üstte, düşük olanınki altta
+    # two series: in each period the higher value's label goes above, the lower one's below
     for s_i, (label, color, vals, bold) in enumerate(series):
         pts = ' '.join(f'{x(i):.1f},{y(v):.1f}' for i, v in enumerate(vals))
         o.append(f'<polyline points="{pts}" fill="none" stroke="{color}" stroke-width="{3.5 if bold else 2.5}" stroke-linejoin="round" stroke-linecap="round"/>')
@@ -47,7 +47,7 @@ def line_chart(title, subtitle, series, ymax, note, path, w=720, h=380):
             dy = -12 if v >= other else 21
             o.append(f'<circle cx="{x(i):.1f}" cy="{y(v):.1f}" r="{5.5 if bold else 4.5}" fill="{color}" stroke="{BG}" stroke-width="2"/>')
             o.append(f'<text x="{x(i):.1f}" y="{y(v) + dy:.1f}" font-size="12.5" font-weight="600" fill="{color}" text-anchor="middle">{fmt(v)}</text>')
-    # seri adları sağda, birbirine en az 18 px uzak
+    # series names on the right, at least 18 px apart
     ends = sorted(((y(v[-1]), lab, col) for lab, col, v, _ in series))
     if ends[1][0] - ends[0][0] < 18:
         mid = (ends[0][0] + ends[1][0]) / 2
@@ -61,7 +61,7 @@ def line_chart(title, subtitle, series, ymax, note, path, w=720, h=380):
 
 
 def zone_chart(L, path, w=720, h=346):
-    """Kayıp bölgesine göre rakip şutuyla bitme oranı, iki takım yan yana."""
+    """Share of losses ending in an opponent shot, by zone, both teams side by side."""
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" {FONT}>',
          f'<rect width="{w}" height="{h}" rx="12" fill="{BG}"/>',
          f'<text x="24" y="36" font-size="19" font-weight="600" fill="{INK}">Where losing the ball costs a shot</text>',
@@ -79,7 +79,7 @@ def zone_chart(L, path, w=720, h=346):
         o.append(f'<text x="{ox + pw}" y="{oy - 10}" font-size="11.5" fill="{MUTED}" text-anchor="end">attacking →</text>')
         for z in range(1, 10):
             c, lane = (z - 1) // 3, (z - 1) % 3
-            zx, zy = ox + c * pw / 3, oy + lane * ph / 3   # dashboard ile aynı yön
+            zx, zy = ox + c * pw / 3, oy + lane * ph / 3   # same orientation as the dashboard
             pct = 100 * s[z] / n[z] if n[z] else 0
             few = n[z] < 20
             op = 0.06 + 0.8 * min(pct, 15) / 15
@@ -106,7 +106,7 @@ def main():
                14, '29 La Liga Clásicos, 2005-2021 · StatsBomb Open Data · first shot of each possession, set pieces excluded',
                os.path.join(OUT, 'convergence.svg'))
     ppda_all = [ratio([m for m in M if m['team'] == 'Barcelona' and m['period'] == p], 'opp_buildup_passes', 'def_actions') for p in PERIODS]
-    ppda_lvl = [ratio([g for g in G if g['team'] == 'Barcelona' and g['period'] == p and g['state'] == 'Berabere'], 'opp_buildup_passes', 'def_actions') for p in PERIODS]
+    ppda_lvl = [ratio([g for g in G if g['team'] == 'Barcelona' and g['period'] == p and g['state'] == 'Level'], 'opp_buildup_passes', 'def_actions') for p in PERIODS]
     line_chart("Barcelona's press faded, regardless of the score", 'PPDA: opponent build-up passes per defensive action (higher = less pressure)',
                [('Score level', BLUE, ppda_lvl, True), ('All minutes', GREY, ppda_all, False)],
                22, 'In 2017-21 Barcelona led for only 20% of the minutes, so sitting on a lead does not explain the rise.',

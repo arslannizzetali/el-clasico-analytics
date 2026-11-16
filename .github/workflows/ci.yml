@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Tests and generated files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit and consistency tests
+        run: python -W error::ResourceWarning -m unittest discover -s tests -v
+      - name: Site and README charts are up to date with the data
+        run: |
+          python site/build_site.py
+          python site/readme_charts.py
+          git diff --exit-code docs/
+
+  reproduce:
+    name: Rebuild every output from raw StatsBomb data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Cache raw data
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: statsbomb-raw-v1
+      - name: Run the pipeline into a fresh folder
+        run: python pipeline.py /tmp/rebuilt
+      - name: Outputs match the committed ones byte for byte
+        run: |
+          for f in data/processed/*; do
+            cmp "$f" "/tmp/rebuilt/$(basename "$f")" || { echo "differs: $f"; exit 1; }
+          done
+          echo "all outputs reproduced"

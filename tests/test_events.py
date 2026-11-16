@@ -1,4 +1,4 @@
-"""clasico.events için birim testleri: elle kurulmuş küçük olay dizileriyle, veri indirmeden çalışır."""
+"""Unit tests for clasico.events on small hand-built event sequences; no download needed."""
 import os
 import sys
 import unittest
@@ -24,11 +24,11 @@ class TimeAndZone(unittest.TestCase):
         self.assertEqual(sec({'timestamp': '01:00:00.000'}), 3600)
 
     def test_zone_corners_and_edges(self):
-        self.assertEqual(zone(0, 0), 1)          # kendi üçte biri, alt şerit
-        self.assertEqual(zone(119.9, 79.9), 9)   # rakip üçte biri, üst şerit
-        self.assertEqual(zone(60, 40), 5)        # orta nokta
-        self.assertEqual(zone(40, 0), 4)         # 40 orta sahaya ait
-        self.assertEqual(zone(80, 80 / 3), 8)    # 80 rakip üçte birine, 26,67 orta şeride ait
+        self.assertEqual(zone(0, 0), 1)          # own third, first lane
+        self.assertEqual(zone(119.9, 79.9), 9)   # attacking third, last lane
+        self.assertEqual(zone(60, 40), 5)        # centre spot
+        self.assertEqual(zone(40, 0), 4)         # x = 40 belongs to the middle third
+        self.assertEqual(zone(80, 80 / 3), 8)    # x = 80 attacking third, y = 26.7 middle lane
 
 
 class Strips(unittest.TestCase):
@@ -71,7 +71,7 @@ class Possessions(unittest.TestCase):
                ev(4, 'Pass', team=RMA, possession=2, **{'pass': {}})]
         seqs = possessions(seq)
         self.assertEqual([len(q['es']) for q in seqs], [4, 1])
-        self.assertEqual(passes_before(seqs[0]['es'], seq[3]), 2)   # isabetsiz pas sayılmaz
+        self.assertEqual(passes_before(seqs[0]['es'], seq[3]), 2)   # the incomplete pass is not counted
 
 
 class Score(unittest.TestCase):
@@ -81,10 +81,10 @@ class Score(unittest.TestCase):
                ev(3, 'Own Goal For', team=RMA), ev(4, 'Pass', **{'pass': {}})]
         before, final = score_before(seq, (BAR, RMA))
         self.assertEqual(final, {BAR: 1, RMA: 1})
-        self.assertEqual(game_state(before[1], BAR, RMA), 'Berabere')   # gol olayı eski skorla etiketlenir
-        self.assertEqual(game_state(before[2], BAR, RMA), 'Önde')
-        self.assertEqual(game_state(before[2], RMA, BAR), 'Geride')
-        self.assertEqual(game_state(before[4], BAR, RMA), 'Berabere')
+        self.assertEqual(game_state(before[1], BAR, RMA), 'Level')    # the goal event keeps the old score
+        self.assertEqual(game_state(before[2], BAR, RMA), 'Ahead')
+        self.assertEqual(game_state(before[2], RMA, BAR), 'Behind')
+        self.assertEqual(game_state(before[4], BAR, RMA), 'Level')
 
 
 if __name__ == '__main__':

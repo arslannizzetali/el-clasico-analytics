@@ -26,6 +26,7 @@
 .ec-gsbtn{font:inherit;padding:6px 14px;background:transparent;color:var(--color-fg);border:0;cursor:pointer}
 .ec-gsbtn[aria-pressed=true]{background:#2563eb;color:#fff}
 .ec-dot-goal{width:13px;height:13px;background:var(--color-bad)}
+.ec-band{display:inline-block;width:16px;height:10px;background:#2563eb;opacity:.18;border-radius:2px}
 .ec-zone{display:inline-block;width:14px;height:10px;background:#2563eb;opacity:.55;border-radius:2px}
 .ec-chart{position:relative;min-height:320px}
 .ec-chart text.ec-tick{fill:var(--cds-text-secondary);font-size:var(--cds-font-size-caption);font-family:var(--font-anthropic-sans)}
@@ -52,192 +53,193 @@
 .ec [hidden]{display:none !important}
 </style>
 
-<div class="ec" lang="tr">
+<div class="ec" lang="en">
 
-<header id="baslik">
-<h1 class="ec-title">El Clásico taktik analizi, 2005-2021</h1>
-<p class="ec-lede">Önce takımı ve istatistiği seç; sayfa seçimine göre değişir. En altta seçtiğin maçın raporu var.</p>
-<p class="ec-muted">29 lig maçı, StatsBomb açık olay verisi. Dönem ortalamaları 6-8 maça dayanır.</p>
+<header id="title">
+<h1 class="ec-title">El Clásico tactical analysis, 2005-2021</h1>
+<p class="ec-lede">Pick a team and a metric; the page follows your choice. The match report is at the bottom.</p>
+<p class="ec-muted">29 La Liga matches, StatsBomb open event data. Period averages rest on 6-8 matches; shaded bands show 90% intervals.</p>
 </header>
 
-<section class="ec-card ec-controls" id="secim">
+<section class="ec-card ec-controls" id="controls">
 <div class="ec-row">
-<span class="ec-lbl">Takım</span>
-<div class="ec-seg" role="group" aria-label="Takım">
+<span class="ec-lbl">Team</span>
+<div class="ec-seg" role="group" aria-label="Team">
 <button type="button" class="ec-segbtn" data-team="Barcelona" aria-pressed="true">Barcelona</button>
 <button type="button" class="ec-segbtn" data-team="Real Madrid" aria-pressed="false">Real Madrid</button>
 </div>
 </div>
 <div class="ec-row">
-<span class="ec-lbl">İstatistik</span>
-<select class="dash-select ec-stat" aria-label="İstatistik">
-<optgroup label="Maç maç değişim">
-<option value="passes_per_shot">Şuta kadar pas sayısı</option>
-<option value="conceded_shot_15s_pct">Top kaybından sonra yenen hızlı şut</option>
-<option value="press_success_pct">Baskı verimi</option>
-<option value="stripped_per100">Rakipten sökülen top</option>
-<option value="ppda">Rakibe tanınan pas (PPDA)</option>
+<span class="ec-lbl">Metric</span>
+<select class="dash-select ec-stat" aria-label="Metric">
+<optgroup label="Match by match">
+<option value="passes_per_shot">Passes before a shot</option>
+<option value="conceded_shot_15s_pct">Quick shots conceded after a turnover</option>
+<option value="press_success_pct">Press success</option>
+<option value="stripped_per100">Balls stripped from the receiver</option>
+<option value="ppda">Passes allowed per defensive action (PPDA)</option>
 </optgroup>
-<optgroup label="Saha haritası">
-<option value="losses">Kaptırılan toplar ve yenen goller</option>
-<option value="shots">Şut haritası</option>
-<option value="lossshot">Kayıp yeri ve rakip şutunun yeri</option>
+<optgroup label="Pitch maps">
+<option value="losses">Balls lost and goals conceded</option>
+<option value="shots">Shot map</option>
+<option value="lossshot">Where the ball was lost, where the shot came from</option>
 </optgroup>
 </select>
 </div>
-<p class="ec-muted ec-def" data-def="passes_per_shot">Açık oyunda şutla biten ataklarda, şuttan önce yapılan isabetli pas sayısının ortalaması.</p>
-<p class="ec-muted ec-def" data-def="conceded_shot_15s_pct" hidden>Takımın açık oyunda kaptırdığı toplardan, 15 saniye içinde rakip şutuyla bitenlerin yüzdesi. Düşük olması iyi.</p>
-<p class="ec-muted ec-def" data-def="press_success_pct" hidden>Takımın yaptığı baskılardan, 5 saniye içinde topun kendisine geçmesiyle sonuçlananların yüzdesi.</p>
-<p class="ec-muted ec-def" data-def="stripped_per100" hidden>Rakip oyuncu topu kontrol ettikten sonra elden çıkaramadan kaptırdı: rakibin her 100 top kontrolünde kaç kez. Yüksek değer daha sert baskı demek.</p>
-<p class="ec-muted ec-def" data-def="ppda" hidden>Rakibin kendi sahasından çıkarken, takımın bir top kapma girişimi başına yapabildiği pas. Düşük değer daha yoğun baskı demek.</p>
-<p class="ec-muted ec-def" data-def="losses" hidden>Seçili takımın topu kontrol ettikten sonra kaptırdığı her top ve rakibin bu kayıptan 20 saniye içinde attığı goller. Bir bölgeye tıklayınca o bölgedeki kayıplar listelenir.</p>
-<p class="ec-muted ec-def" data-def="lossshot" hidden>Seçili takımın kontrolden sonra kaptırdığı toplar ile bu kayıplardan sonra 20 saniye içinde rakibin çektiği şutlar, aynı 9 bölgeli sahada. Dönem ve oyuncu seçilebilir.</p>
-<p class="ec-muted ec-def" data-def="shots" hidden>Seçili takımın penaltı dışındaki her şutu. Nokta büyüdükçe pozisyonun gol beklentisi (xG) artar.</p>
+<p class="ec-muted ec-def" data-def="passes_per_shot">Average completed passes before the first shot of an open-play possession.</p>
+<p class="ec-muted ec-def" data-def="conceded_shot_15s_pct" hidden>Share of the team's open-play turnovers followed by an opponent shot within 15 seconds. Lower is better.</p>
+<p class="ec-muted ec-def" data-def="press_success_pct" hidden>Share of the team's pressures followed by its own possession within 5 seconds.</p>
+<p class="ec-muted ec-def" data-def="stripped_per100" hidden>An opponent receives the ball and loses it before releasing it: how often, per 100 opponent controls. Higher means a harder press.</p>
+<p class="ec-muted ec-def" data-def="ppda" hidden>Opponent passes in their own build-up zone per defensive action by the team. Lower means a more intense press.</p>
+<p class="ec-muted ec-def" data-def="losses" hidden>Every ball the team lost after a controlled touch, and the goals the opponent scored within 20 seconds. Click a zone to list its losses.</p>
+<p class="ec-muted ec-def" data-def="lossshot" hidden>Balls the team lost after a controlled touch and the opponent shots that followed within 20 seconds, on the same 9-zone pitch. Filter by period and player.</p>
+<p class="ec-muted ec-def" data-def="shots" hidden>Every non-penalty shot by the team. Bigger dots mean higher expected goals (xG).</p>
 </section>
 
-<section class="ec-card ec-view" id="degisim" data-view="trend">
-<h2 class="ec-h" id="degisim-baslik" data-draw="vtitle">—</h2>
-<p class="ec-find" data-fin="passes_per_shot" data-team="Barcelona" hidden>Guardiola döneminde (2009-13) Barcelona şuta ortalama <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="passes_per_shot">—</b> pasla gidiyordu, 2017-21'de <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="passes_per_shot">—</b>. Skor berabereyken de aynı düşüş var (<b data-draw="pv" data-c="state_period" data-w="2009-13|Barcelona|Berabere" data-f="pps">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Berabere" data-f="pps">—</b>), yani bu skordan bağımsız bir tarz değişikliği.</p>
-<p class="ec-find" data-fin="passes_per_shot" data-team="Real Madrid" hidden>Real Madrid 2005-09'da şuta <b data-draw="pv" data-c="period_team" data-w="2005-09|Real Madrid" data-f="passes_per_shot">—</b> pasla gidiyordu, 2017-21'de <b data-draw="pv" data-c="period_team" data-w="2017-21|Real Madrid" data-f="passes_per_shot">—</b>. Skor berabereyken de artış aynı (<b data-draw="pv" data-c="state_period" data-w="2005-09|Real Madrid|Berabere" data-f="pps">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Real Madrid|Berabere" data-f="pps">—</b>): direkt oyundan daha uzun ataklara geçiş skordan bağımsız.</p>
-<p class="ec-find" data-fin="conceded_shot_15s_pct" data-team="Barcelona" hidden>Barcelona'nın top kayıplarının 15 saniye içinde rakip şutuyla bitme oranı 2013-17'de <b data-draw="pv" data-c="period_team" data-w="2013-17|Barcelona" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b> ile en yüksekteydi; 2017-21'de ise <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b> oldu. Kayıp başına tehlike, baskının zayıfladığı dönemde artmamış.</p>
-<p class="ec-find" data-fin="conceded_shot_15s_pct" data-team="Real Madrid" hidden>Real Madrid'in top kayıplarından hızlı şut yeme oranı 2005-09'da <b data-draw="pv" data-c="period_team" data-w="2005-09|Real Madrid" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b> idi, sonraki üç dönemde <b data-draw="pv" data-c="period_team" data-w="2009-13|Real Madrid" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b>-<b data-draw="pv" data-c="period_team" data-w="2013-17|Real Madrid" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b> bandına indi.</p>
-<p class="ec-find" data-fin="press_success_pct" data-team="Barcelona" hidden>Barcelona'nın baskılarının 5 saniye içinde topu geri getirme oranı 2009-13'te <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="press_success_pct" data-fmt="pct">—</b>, 2017-21'de <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="press_success_pct" data-fmt="pct">—</b>. Berabere anlarda düşüş daha da net: <b data-draw="pv" data-c="state_period" data-w="2009-13|Barcelona|Berabere" data-f="press" data-fmt="pct">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Berabere" data-f="press" data-fmt="pct">—</b>.</p>
-<p class="ec-find" data-fin="press_success_pct" data-team="Real Madrid" hidden>Real Madrid'in baskı verimi Barcelona'nın tersine yükseldi: 2009-13'te <b data-draw="pv" data-c="period_team" data-w="2009-13|Real Madrid" data-f="press_success_pct" data-fmt="pct">—</b>, 2017-21'de <b data-draw="pv" data-c="period_team" data-w="2017-21|Real Madrid" data-f="press_success_pct" data-fmt="pct">—</b>. Berabere anlarda da aynı: <b data-draw="pv" data-c="state_period" data-w="2009-13|Real Madrid|Berabere" data-f="press" data-fmt="pct">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Real Madrid|Berabere" data-f="press" data-fmt="pct">—</b>.</p>
-<p class="ec-find" data-fin="stripped_per100" data-team="Barcelona" hidden>Barcelona rakibin her 100 top kontrolünde 2009-13'te <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="stripped_per100">—</b> kez topu söküyordu, 2017-21'de <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="stripped_per100">—</b>. Skor berabereyken: <b data-draw="pv" data-c="state_period" data-w="2009-13|Barcelona|Berabere" data-f="strip">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Berabere" data-f="strip">—</b>.</p>
-<p class="ec-find" data-fin="stripped_per100" data-team="Real Madrid" hidden>Real Madrid'in topu sökme oranı 2005-09'da <b data-draw="pv" data-c="period_team" data-w="2005-09|Real Madrid" data-f="stripped_per100">—</b>, 2017-21'de <b data-draw="pv" data-c="period_team" data-w="2017-21|Real Madrid" data-f="stripped_per100">—</b>. Berabere anlarda: <b data-draw="pv" data-c="state_period" data-w="2005-09|Real Madrid|Berabere" data-f="strip">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Real Madrid|Berabere" data-f="strip">—</b>.</p>
-<p class="ec-find" data-fin="ppda" data-team="Barcelona" hidden>Barcelona'nın rakibe tanıdığı pas 2009-13'te <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="ppda">—</b>, 2017-21'de <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="ppda">—</b>. Bu, öne geçip geri çekilmekten değil: 2017-21'de Barcelona sürenin sadece <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Önde" data-f="minutes_pct" data-fmt="pct0">—</b> kadarında öndeydi ve skor berabereyken PPDA <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Berabere" data-f="ppda">—</b>.</p>
-<p class="ec-find" data-fin="ppda" data-team="Real Madrid" hidden>Real Madrid'in PPDA'sı dönemler boyunca <b data-draw="pv" data-c="period_team" data-w="2009-13|Real Madrid" data-f="ppda">—</b> ile <b data-draw="pv" data-c="period_team" data-w="2013-17|Real Madrid" data-f="ppda">—</b> arasında kaldı. Berabere anlarda 2005-09'da <b data-draw="pv" data-c="state_period" data-w="2005-09|Real Madrid|Berabere" data-f="ppda">—</b>, 2017-21'de <b data-draw="pv" data-c="state_period" data-w="2017-21|Real Madrid|Berabere" data-f="ppda">—</b>: baskı yoğunluğu büyük ölçüde aynı.</p>
+<section class="ec-card ec-view" id="trend" data-view="trend">
+<h2 class="ec-h" id="trend-title" data-draw="vtitle">—</h2>
+<p class="ec-find" data-fin="passes_per_shot" data-team="Barcelona" hidden>Under Guardiola (2009-13) Barcelona took <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="passes_per_shot">—</b> completed passes to reach a shot; in 2017-21, <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="passes_per_shot">—</b> (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="passes_per_shot|All|Barcelona|2009-13>2017-21" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="passes_per_shot|All|Barcelona|2009-13>2017-21" data-f="hi" data-fmt="sgn">—</b>). The drop is there with the score level too (<b data-draw="pv" data-c="state_period" data-w="2009-13|Barcelona|Level" data-f="pps">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Level" data-f="pps">—</b>), so it is a change of style, not of scoreline.</p>
+<p class="ec-find" data-fin="passes_per_shot" data-team="Real Madrid" hidden>Real Madrid reached a shot after <b data-draw="pv" data-c="period_team" data-w="2005-09|Real Madrid" data-f="passes_per_shot">—</b> passes in 2005-09 and <b data-draw="pv" data-c="period_team" data-w="2017-21|Real Madrid" data-f="passes_per_shot">—</b> in 2017-21 (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="passes_per_shot|All|Real Madrid|2005-09>2017-21" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="passes_per_shot|All|Real Madrid|2005-09>2017-21" data-f="hi" data-fmt="sgn">—</b>). With the score level the rise is similar (<b data-draw="pv" data-c="state_period" data-w="2005-09|Real Madrid|Level" data-f="pps">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Real Madrid|Level" data-f="pps">—</b>) but that interval touches zero.</p>
+<p class="ec-find" data-fin="conceded_shot_15s_pct" data-team="Barcelona" hidden>The share of Barcelona turnovers followed by an opponent shot within 15 seconds peaked in 2013-17 at <b data-draw="pv" data-c="period_team" data-w="2013-17|Barcelona" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b> and was <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b> in 2017-21. Danger per turnover did not rise as the press faded.</p>
+<p class="ec-find" data-fin="conceded_shot_15s_pct" data-team="Real Madrid" hidden>Real Madrid conceded a quick shot after <b data-draw="pv" data-c="period_team" data-w="2005-09|Real Madrid" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b> of turnovers in 2005-09, then <b data-draw="pv" data-c="period_team" data-w="2009-13|Real Madrid" data-f="conceded_shot_15s_pct" data-fmt="pct">—</b> in 2009-13 (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="conceded_shot_15s_pct|All|Real Madrid|2005-09>2009-13" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="conceded_shot_15s_pct|All|Real Madrid|2005-09>2009-13" data-f="hi" data-fmt="sgn">—</b> points), and stayed low afterwards.</p>
+<p class="ec-find" data-fin="press_success_pct" data-team="Barcelona" hidden>Barcelona won the ball back within 5 seconds after <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="press_success_pct" data-fmt="pct">—</b> of pressures in 2009-13 and <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="press_success_pct" data-fmt="pct">—</b> in 2017-21 (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="press_success_pct|All|Barcelona|2009-13>2017-21" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="press_success_pct|All|Barcelona|2009-13>2017-21" data-f="hi" data-fmt="sgn">—</b> points). With the score level the drop is larger: <b data-draw="pv" data-c="state_period" data-w="2009-13|Barcelona|Level" data-f="press" data-fmt="pct">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Level" data-f="press" data-fmt="pct">—</b>.</p>
+<p class="ec-find" data-fin="press_success_pct" data-team="Real Madrid" hidden>Real Madrid moved the other way: <b data-draw="pv" data-c="period_team" data-w="2009-13|Real Madrid" data-f="press_success_pct" data-fmt="pct">—</b> of pressures won the ball back in 2009-13, <b data-draw="pv" data-c="period_team" data-w="2017-21|Real Madrid" data-f="press_success_pct" data-fmt="pct">—</b> in 2017-21 (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="press_success_pct|All|Real Madrid|2009-13>2017-21" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="press_success_pct|All|Real Madrid|2009-13>2017-21" data-f="hi" data-fmt="sgn">—</b> points).</p>
+<p class="ec-find" data-fin="stripped_per100" data-team="Barcelona" hidden>Barcelona took the ball off the receiver <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="stripped_per100">—</b> times per 100 opponent controls in 2009-13 and <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="stripped_per100">—</b> in 2017-21 (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="stripped_per100|All|Barcelona|2009-13>2017-21" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="stripped_per100|All|Barcelona|2009-13>2017-21" data-f="hi" data-fmt="sgn">—</b>). With the score level: <b data-draw="pv" data-c="state_period" data-w="2009-13|Barcelona|Level" data-f="strip">—</b> → <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Level" data-f="strip">—</b>.</p>
+<p class="ec-find" data-fin="stripped_per100" data-team="Real Madrid" hidden>Real Madrid stripped the receiver <b data-draw="pv" data-c="period_team" data-w="2005-09|Real Madrid" data-f="stripped_per100">—</b> times per 100 controls in 2005-09 and <b data-draw="pv" data-c="period_team" data-w="2017-21|Real Madrid" data-f="stripped_per100">—</b> in 2017-21 (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="stripped_per100|All|Real Madrid|2005-09>2017-21" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="stripped_per100|All|Real Madrid|2005-09>2017-21" data-f="hi" data-fmt="sgn">—</b>).</p>
+<p class="ec-find" data-fin="ppda" data-team="Barcelona" hidden>Barcelona allowed <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="ppda">—</b> opponent build-up passes per defensive action in 2009-13 and <b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="ppda">—</b> in 2017-21 (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="ppda|All|Barcelona|2009-13>2017-21" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="ppda|All|Barcelona|2009-13>2017-21" data-f="hi" data-fmt="sgn">—</b>). Sitting on a lead does not explain it: in 2017-21 Barcelona led for only <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Ahead" data-f="minutes_pct" data-fmt="pct0">—</b> of the minutes, and with the score level PPDA was <b data-draw="pv" data-c="state_period" data-w="2017-21|Barcelona|Level" data-f="ppda">—</b>.</p>
+<p class="ec-find" data-fin="ppda" data-team="Real Madrid" hidden>Real Madrid's PPDA stayed between <b data-draw="pv" data-c="period_team" data-w="2009-13|Real Madrid" data-f="ppda">—</b> and <b data-draw="pv" data-c="period_team" data-w="2013-17|Real Madrid" data-f="ppda">—</b> across periods. With the score level it was <b data-draw="pv" data-c="state_period" data-w="2005-09|Real Madrid|Level" data-f="ppda">—</b> in 2005-09 and <b data-draw="pv" data-c="state_period" data-w="2017-21|Real Madrid|Level" data-f="ppda">—</b> in 2017-21 (90% interval of the change <b data-draw="pv" data-c="uncertainty" data-w="ppda|Level|Real Madrid|2005-09>2017-21" data-f="lo" data-fmt="sgn">—</b> to <b data-draw="pv" data-c="uncertainty" data-w="ppda|Level|Real Madrid|2005-09>2017-21" data-f="hi" data-fmt="sgn">—</b>): no clear change in pressing intensity.</p>
 <div class="ec-row ec-gsrow">
-<span class="ec-lbl">Skor durumu</span>
-<div class="ec-seg" role="group" aria-label="Skor durumu">
-<button type="button" class="ec-gsbtn" data-gs="" aria-pressed="true">Tümü</button>
-<button type="button" class="ec-gsbtn" data-gs="Berabere" aria-pressed="false">Berabere</button>
-<button type="button" class="ec-gsbtn" data-gs="Önde" aria-pressed="false">Önde</button>
-<button type="button" class="ec-gsbtn" data-gs="Geride" aria-pressed="false">Geride</button>
+<span class="ec-lbl">Score</span>
+<div class="ec-seg" role="group" aria-label="Score state">
+<button type="button" class="ec-gsbtn" data-gs="" aria-pressed="true">All</button>
+<button type="button" class="ec-gsbtn" data-gs="Level" aria-pressed="false">Level</button>
+<button type="button" class="ec-gsbtn" data-gs="Ahead" aria-pressed="false">Ahead</button>
+<button type="button" class="ec-gsbtn" data-gs="Behind" aria-pressed="false">Behind</button>
 </div>
 </div>
-<p class="ec-muted ec-gsnote" hidden>Bu metrik için skor durumu ayrımı yok; tüm maç gösteriliyor.</p>
+<p class="ec-muted ec-gsnote" hidden>This metric is not split by score state; the whole match is shown.</p>
 <div class="ec-row">
 <span class="ec-key"><i class="ec-dot ec-dot-blue"></i><span data-draw="tn" data-k="own">—</span></span>
-<span class="ec-key"><i class="ec-dot ec-dot-grey"></i><span data-draw="tn" data-k="opp">—</span> (karşılaştırma için)</span>
-<span class="ec-key"><i class="ec-dot ec-dot-hollow"></i>İçi boş: o maçta değer çok az olaya dayanıyor</span>
+<span class="ec-key"><i class="ec-dot ec-dot-grey"></i><span data-draw="tn" data-k="opp">—</span> (for comparison)</span>
+<span class="ec-key"><i class="ec-band"></i>90% interval of the period average</span>
+<span class="ec-key"><i class="ec-dot ec-dot-hollow"></i>Hollow: the match value rests on very few events</span>
 </div>
-<div class="ec-chart" id="degisim-grafik" data-draw="trend" data-source="match_team game_state">—</div>
+<div class="ec-chart" id="trend-chart" data-draw="trend" data-source="match_team game_state uncertainty">—</div>
 <p class="ec-muted" data-draw="gsshare" data-source="game_state">—</p>
-<p class="ec-muted">Her nokta bir maç, yatay çizgi dönem ortalaması (dönemdeki toplamlardan). Skor durumu seçilince her maçın yalnızca o skorda geçen bölümü sayılır: önde, berabere ya da geride. Bir maça tıklayınca aşağıda raporu açılır.</p>
+<p class="ec-muted">Each dot is a match; each line is a period average computed from the period's totals. The shaded band is a 90% interval from resampling the period's matches (all minutes and level score only). With a score state selected, only the part of each match played in that state counts. Click a match to open its report below.</p>
 </section>
 
-<section class="ec-card ec-view" id="kayiplar" data-view="losses" hidden>
-<h2 class="ec-h">Kaptırılan toplar ve yenen goller</h2>
-<p class="ec-find" data-fin="losses" data-team="Barcelona" hidden>Barcelona maç başına kontrolden sonra 2005-09'da <b data-draw="pv" data-c="loss_period" data-w="2005-09|Barcelona" data-f="per_match">—</b>, 2017-21'de <b data-draw="pv" data-c="loss_period" data-w="2017-21|Barcelona" data-f="per_match">—</b> top kaptırdı. 16 yılda bu kayıplardan sadece <b data-draw="pv" data-c="loss_team" data-w="Barcelona" data-f="goals" data-fmt="n0">—</b> gol yedi.</p>
-<p class="ec-find" data-fin="losses" data-team="Real Madrid" hidden>Real Madrid maç başına kontrolden sonra 2005-09'da <b data-draw="pv" data-c="loss_period" data-w="2005-09|Real Madrid" data-f="per_match">—</b>, 2017-21'de <b data-draw="pv" data-c="loss_period" data-w="2017-21|Real Madrid" data-f="per_match">—</b> top kaptırdı. Bu kayıplardan 20 saniye içinde <b data-draw="pv" data-c="loss_team" data-w="Real Madrid" data-f="goals" data-fmt="n0">—</b> gol yedi; Barcelona'nın yediği <b data-draw="pv" data-c="loss_team" data-w="Barcelona" data-f="goals" data-fmt="n0">—</b>.</p>
-<p class="ec-p">Topu kaptıran: <b data-draw="tn" data-k="own">—</b>. Golü atan: <b data-draw="tn" data-k="opp">—</b>.</p>
+<section class="ec-card ec-view" id="losses" data-view="losses" hidden>
+<h2 class="ec-h">Balls lost and goals conceded</h2>
+<p class="ec-find" data-fin="losses" data-team="Barcelona" hidden>Barcelona lost the ball after a controlled touch <b data-draw="pv" data-c="loss_period" data-w="2005-09|Barcelona" data-f="per_match">—</b> times per match in 2005-09 and <b data-draw="pv" data-c="loss_period" data-w="2017-21|Barcelona" data-f="per_match">—</b> in 2017-21. In 16 years only <b data-draw="pv" data-c="loss_team" data-w="Barcelona" data-f="goals" data-fmt="n0">—</b> of these losses led to a goal within 20 seconds.</p>
+<p class="ec-find" data-fin="losses" data-team="Real Madrid" hidden>Real Madrid lost the ball after a controlled touch <b data-draw="pv" data-c="loss_period" data-w="2005-09|Real Madrid" data-f="per_match">—</b> times per match in 2005-09 and <b data-draw="pv" data-c="loss_period" data-w="2017-21|Real Madrid" data-f="per_match">—</b> in 2017-21. These losses led to <b data-draw="pv" data-c="loss_team" data-w="Real Madrid" data-f="goals" data-fmt="n0">—</b> goals within 20 seconds; Barcelona's led to <b data-draw="pv" data-c="loss_team" data-w="Barcelona" data-f="goals" data-fmt="n0">—</b>.</p>
+<p class="ec-p">Losing the ball: <b><span data-draw="tn" data-k="own">—</span></b>. Scoring: <b><span data-draw="tn" data-k="opp">—</span></b>.</p>
 <div class="ec-row">
-<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Kaptırılan top</span>
-<span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Kayıptan 20 sn içinde yenen gol</span>
-<span class="ec-key"><i class="ec-zone"></i>Koyu bölge: maç başına daha çok kayıp</span>
+<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Ball lost</span>
+<span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Goal conceded within 20 s</span>
+<span class="ec-key"><i class="ec-zone"></i>Darker zone: more losses per match</span>
 </div>
 <div class="ec-pitches">
-<div class="ec-pitchbox" id="kayip-2005-09"><h3 class="ec-h3">2005-09</h3><div class="ec-pitch" data-draw="pitch" data-p="2005-09" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2005-09" data-source="losses match_team">—</p></div>
-<div class="ec-pitchbox" id="kayip-2009-13"><h3 class="ec-h3">2009-13</h3><div class="ec-pitch" data-draw="pitch" data-p="2009-13" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2009-13" data-source="losses match_team">—</p></div>
-<div class="ec-pitchbox" id="kayip-2013-17"><h3 class="ec-h3">2013-17</h3><div class="ec-pitch" data-draw="pitch" data-p="2013-17" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2013-17" data-source="losses match_team">—</p></div>
-<div class="ec-pitchbox" id="kayip-2017-21"><h3 class="ec-h3">2017-21</h3><div class="ec-pitch" data-draw="pitch" data-p="2017-21" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2017-21" data-source="losses match_team">—</p></div>
+<div class="ec-pitchbox" id="losses-2005-09"><h3 class="ec-h3">2005-09</h3><div class="ec-pitch" data-draw="pitch" data-p="2005-09" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2005-09" data-source="losses match_team">—</p></div>
+<div class="ec-pitchbox" id="losses-2009-13"><h3 class="ec-h3">2009-13</h3><div class="ec-pitch" data-draw="pitch" data-p="2009-13" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2009-13" data-source="losses match_team">—</p></div>
+<div class="ec-pitchbox" id="losses-2013-17"><h3 class="ec-h3">2013-17</h3><div class="ec-pitch" data-draw="pitch" data-p="2013-17" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2013-17" data-source="losses match_team">—</p></div>
+<div class="ec-pitchbox" id="losses-2017-21"><h3 class="ec-h3">2017-21</h3><div class="ec-pitch" data-draw="pitch" data-p="2017-21" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2017-21" data-source="losses match_team">—</p></div>
 </div>
-<p class="ec-muted">Saha 9 eşit bölgeye bölündü. Takım soldan sağa hücum ediyor. Büyük sayı maç başına kayıp, küçük sayı dönemdeki kayıpların o bölgeye düşen payı. Dönemlerde 6-8 maç olduğu için renk maç başına kayba göre; ölçek dört dönemde aynı.</p>
-<h3 class="ec-h3" id="bolge-listesi" data-draw="zhead">—</h3>
+<p class="ec-muted">The pitch is split into 9 equal zones; the team attacks left to right. The large number is losses per match, the small one the zone's share of the period's losses. Periods have 6-8 matches, so colour follows losses per match, on one scale for all four periods.</p>
+<h3 class="ec-h3" id="zone-list" data-draw="zhead">—</h3>
 <div class="ec-wrap">
 <table class="ec-table" data-source="losses" data-row-key="loss_id">
-<thead><tr><th class="ec-l" data-field="match">Maç</th><th data-field="minute">Dk</th><th class="ec-l" data-field="player">Topu kaptıran</th><th class="ec-l" data-field="kind">Kayıp türü</th><th class="ec-l" data-field="result">Sonuç</th></tr></thead>
+<thead><tr><th class="ec-l" data-field="match">Match</th><th data-field="minute">Min</th><th class="ec-l" data-field="player">Lost by</th><th class="ec-l" data-field="kind">Type</th><th class="ec-l" data-field="result">Result</th></tr></thead>
 <tbody data-draw="zlist"></tbody>
 </table>
 </div>
 </section>
 
-<section class="ec-card ec-view" id="sutlar" data-view="shots" hidden>
-<h2 class="ec-h">Şut haritası</h2>
-<p class="ec-find" data-fin="shots" data-team="Barcelona" hidden>Barcelona şutlarını giderek daha yakından çekiyor: ceza sahası içinden gelen şutların payı 2005-09'da <b data-draw="pv" data-c="shot_period" data-w="2005-09|Barcelona" data-f="box_pct" data-fmt="pct0">—</b>, 2017-21'de <b data-draw="pv" data-c="shot_period" data-w="2017-21|Barcelona" data-f="box_pct" data-fmt="pct0">—</b>. Şut başına xG ise <b data-draw="pv" data-c="shot_period" data-w="2005-09|Barcelona" data-f="xg_per_shot" data-fmt="n2">—</b> ile <b data-draw="pv" data-c="shot_period" data-w="2017-21|Barcelona" data-f="xg_per_shot" data-fmt="n2">—</b> arasında, neredeyse aynı.</p>
-<p class="ec-find" data-fin="shots" data-team="Real Madrid" hidden>Real Madrid maç başına şut sayısını 2005-09'da <b data-draw="pv" data-c="shot_period" data-w="2005-09|Real Madrid" data-f="shots_per_match">—</b>, 2017-21'de <b data-draw="pv" data-c="shot_period" data-w="2017-21|Real Madrid" data-f="shots_per_match">—</b> seviyesine çıkardı; ceza sahası içi payı <b data-draw="pv" data-c="shot_period" data-w="2005-09|Real Madrid" data-f="box_pct" data-fmt="pct0">—</b> → <b data-draw="pv" data-c="shot_period" data-w="2017-21|Real Madrid" data-f="box_pct" data-fmt="pct0">—</b>.</p>
-<p class="ec-p">Şutu çeken: <b data-draw="tn" data-k="own">—</b>. Rakip yarı saha, kale sağda.</p>
+<section class="ec-card ec-view" id="shots" data-view="shots" hidden>
+<h2 class="ec-h">Shot map</h2>
+<p class="ec-find" data-fin="shots" data-team="Barcelona" hidden>Barcelona shot from closer over time: the share of shots from inside the box went from <b data-draw="pv" data-c="shot_period" data-w="2005-09|Barcelona" data-f="box_pct" data-fmt="pct0">—</b> in 2005-09 to <b data-draw="pv" data-c="shot_period" data-w="2017-21|Barcelona" data-f="box_pct" data-fmt="pct0">—</b> in 2017-21, while xG per shot barely moved (<b data-draw="pv" data-c="shot_period" data-w="2005-09|Barcelona" data-f="xg_per_shot" data-fmt="n2">—</b> and <b data-draw="pv" data-c="shot_period" data-w="2017-21|Barcelona" data-f="xg_per_shot" data-fmt="n2">—</b>).</p>
+<p class="ec-find" data-fin="shots" data-team="Real Madrid" hidden>Real Madrid went from <b data-draw="pv" data-c="shot_period" data-w="2005-09|Real Madrid" data-f="shots_per_match">—</b> shots per match in 2005-09 to <b data-draw="pv" data-c="shot_period" data-w="2017-21|Real Madrid" data-f="shots_per_match">—</b> in 2017-21; the share from inside the box went from <b data-draw="pv" data-c="shot_period" data-w="2005-09|Real Madrid" data-f="box_pct" data-fmt="pct0">—</b> to <b data-draw="pv" data-c="shot_period" data-w="2017-21|Real Madrid" data-f="box_pct" data-fmt="pct0">—</b>.</p>
+<p class="ec-p">Shooting: <b><span data-draw="tn" data-k="own">—</span></b>. Opponent half, goal on the right.</p>
 <div class="ec-row">
-<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Şut (büyüklük xG)</span>
-<span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Gol</span>
+<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Shot (size = xG)</span>
+<span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Goal</span>
 </div>
 <div class="ec-pitches">
-<div class="ec-pitchbox" id="sut-2005-09"><h3 class="ec-h3">2005-09</h3><div class="ec-pitch" data-draw="shotpitch" data-p="2005-09" data-source="shots">—</div><p class="ec-muted" data-draw="ssum" data-p="2005-09" data-source="shots">—</p></div>
-<div class="ec-pitchbox" id="sut-2009-13"><h3 class="ec-h3">2009-13</h3><div class="ec-pitch" data-draw="shotpitch" data-p="2009-13" data-source="shots">—</div><p class="ec-muted" data-draw="ssum" data-p="2009-13" data-source="shots">—</p></div>
-<div class="ec-pitchbox" id="sut-2013-17"><h3 class="ec-h3">2013-17</h3><div class="ec-pitch" data-draw="shotpitch" data-p="2013-17" data-source="shots">—</div><p class="ec-muted" data-draw="ssum" data-p="2013-17" data-source="shots">—</p></div>
-<div class="ec-pitchbox" id="sut-2017-21"><h3 class="ec-h3">2017-21</h3><div class="ec-pitch" data-draw="shotpitch" data-p="2017-21" data-source="shots">—</div><p class="ec-muted" data-draw="ssum" data-p="2017-21" data-source="shots">—</p></div>
+<div class="ec-pitchbox" id="shots-2005-09"><h3 class="ec-h3">2005-09</h3><div class="ec-pitch" data-draw="shotpitch" data-p="2005-09" data-source="shots">—</div><p class="ec-muted" data-draw="ssum" data-p="2005-09" data-source="shots">—</p></div>
+<div class="ec-pitchbox" id="shots-2009-13"><h3 class="ec-h3">2009-13</h3><div class="ec-pitch" data-draw="shotpitch" data-p="2009-13" data-source="shots">—</div><p class="ec-muted" data-draw="ssum" data-p="2009-13" data-source="shots">—</p></div>
+<div class="ec-pitchbox" id="shots-2013-17"><h3 class="ec-h3">2013-17</h3><div class="ec-pitch" data-draw="shotpitch" data-p="2013-17" data-source="shots">—</div><p class="ec-muted" data-draw="ssum" data-p="2013-17" data-source="shots">—</p></div>
+<div class="ec-pitchbox" id="shots-2017-21"><h3 class="ec-h3">2017-21</h3><div class="ec-pitch" data-draw="shotpitch" data-p="2017-21" data-source="shots">—</div><p class="ec-muted" data-draw="ssum" data-p="2017-21" data-source="shots">—</p></div>
 </div>
 </section>
 
-<section class="ec-card ec-view" id="kayip-sut" data-view="lossshot" hidden>
-<h2 class="ec-h">Kayıp yeri ve rakip şutunun yeri</h2>
-<p class="ec-find" data-fin="lossshot" data-team="Barcelona" hidden>Barcelona'nın en tehlikeli kayıpları orta sahanın ortasında (bölge 5): buradaki kayıpların <b data-draw="pv" data-c="zone_loss" data-w="Barcelona|5" data-f="shot_pct" data-fmt="pct">—</b> kadarı rakip şutuyla bitiyor, rakip sahadakilerde bu oran %1-4. Ama bu <b data-draw="pv" data-c="zone_loss" data-w="Barcelona|5" data-f="shots" data-fmt="n0">—</b> şutun sadece <b data-draw="pv" data-c="zone_loss" data-w="Barcelona|5" data-f="box" data-fmt="n0">—</b> tanesi ceza sahası içinden; rakip çoğunlukla uzaktan deniyor.</p>
-<p class="ec-find" data-fin="lossshot" data-team="Real Madrid" hidden>Real Madrid'in kayıplarından gelen şutların en çoğu orta sahanın sol kanadındaki (bölge 4) kayıplardan: <b data-draw="pv" data-c="zone_loss" data-w="Real Madrid|4" data-f="shots" data-fmt="n0">—</b> şut. Real'in kayıplarından gelen şutlar daha tehlikeli: <b data-draw="pv" data-c="loss_team" data-w="Real Madrid" data-f="box" data-fmt="n0">—</b> tanesi ceza sahası içinden (Barcelona'da <b data-draw="pv" data-c="loss_team" data-w="Barcelona" data-f="box" data-fmt="n0">—</b>).</p>
-<p class="ec-p">Topu kaptıran: <b><span data-draw="tn" data-k="own">—</span></b>. Şutu çeken: <b><span data-draw="tn" data-k="opp">—</span></b>. İki saha da <span data-draw="tn" data-k="own">—</span> gözünden çizildi: soldan sağa hücum ediyor, kendi kalesi solda. Rakibin şutları bu yüzden sol tarafta.</p>
+<section class="ec-card ec-view" id="loss-shot" data-view="lossshot" hidden>
+<h2 class="ec-h">Where the ball was lost, where the shot came from</h2>
+<p class="ec-find" data-fin="lossshot" data-team="Barcelona" hidden>Barcelona's most costly losses are in central midfield (zone 5): <b data-draw="pv" data-c="zone_loss" data-w="Barcelona|5" data-f="shot_pct" data-fmt="pct">—</b> of them end in an opponent shot, against 1-4% in the attacking third. Yet only <b data-draw="pv" data-c="zone_loss" data-w="Barcelona|5" data-f="box" data-fmt="n0">—</b> of those <b data-draw="pv" data-c="zone_loss" data-w="Barcelona|5" data-f="shots" data-fmt="n0">—</b> shots came from inside the box: the opponent mostly tried from distance.</p>
+<p class="ec-find" data-fin="lossshot" data-team="Real Madrid" hidden>Most shots after Real Madrid losses follow losses on the left of midfield (zone 4): <b data-draw="pv" data-c="zone_loss" data-w="Real Madrid|4" data-f="shots" data-fmt="n0">—</b> shots. Those shots are also more dangerous: <b data-draw="pv" data-c="loss_team" data-w="Real Madrid" data-f="box" data-fmt="n0">—</b> came from inside the box (Barcelona: <b data-draw="pv" data-c="loss_team" data-w="Barcelona" data-f="box" data-fmt="n0">—</b>).</p>
+<p class="ec-p">Losing the ball: <b><span data-draw="tn" data-k="own">—</span></b>. Shooting: <b><span data-draw="tn" data-k="opp">—</span></b>. Both pitches are drawn from <span data-draw="tn" data-k="own">—</span>'s view: attacking left to right, own goal on the left, so opponent shots appear on the left.</p>
 <div class="ec-row">
-<span class="ec-lbl">Dönem</span>
-<select class="dash-select ec-lsp" aria-label="Dönem"><option value="">Tüm dönemler</option><option value="2005-09">2005-09</option><option value="2009-13">2009-13</option><option value="2013-17">2013-17</option><option value="2017-21">2017-21</option></select>
-<span class="ec-lbl">Oyuncu</span>
-<select class="dash-select" data-draw="lsplayer" aria-label="Oyuncu" data-source="losses"></select>
+<span class="ec-lbl">Period</span>
+<select class="dash-select ec-lsp" aria-label="Period"><option value="">All periods</option><option value="2005-09">2005-09</option><option value="2009-13">2009-13</option><option value="2013-17">2013-17</option><option value="2017-21">2017-21</option></select>
+<span class="ec-lbl">Player</span>
+<select class="dash-select" data-draw="lsplayer" aria-label="Player" data-source="losses"></select>
 </div>
 <div class="ec-row">
-<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Kaptırılan top / rakip şutu (büyüklük xG)</span>
-<span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Gol</span>
-<span class="ec-key"><i class="ec-ring"></i><i class="ec-line"></i>Kaybın yeri ve şuta giden yol</span>
+<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Ball lost / opponent shot (size = xG)</span>
+<span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Goal</span>
+<span class="ec-key"><i class="ec-ring"></i><i class="ec-line"></i>Where the ball was lost, and the path to the shot</span>
 </div>
 <div class="ec-pitches">
-<div class="ec-pitchbox" id="kayip-yeri"><h3 class="ec-h3">Topu kaptırdığı yer</h3><div class="ec-pitch" data-draw="lspitch" data-source="losses">—</div><p class="ec-muted" data-draw="lssum" data-source="losses">—</p></div>
-<div class="ec-pitchbox" id="sut-yeri"><h3 class="ec-h3">Rakip şutunun geldiği yer</h3><div class="ec-pitch" data-draw="sspitch" data-source="losses">—</div><p class="ec-muted" data-draw="sssum" data-source="losses">—</p></div>
+<div class="ec-pitchbox" id="loss-place"><h3 class="ec-h3">Where the ball was lost</h3><div class="ec-pitch" data-draw="lspitch" data-source="losses">—</div><p class="ec-muted" data-draw="lssum" data-source="losses">—</p></div>
+<div class="ec-pitchbox" id="shot-place"><h3 class="ec-h3">Where the opponent shot from</h3><div class="ec-pitch" data-draw="sspitch" data-source="losses">—</div><p class="ec-muted" data-draw="sssum" data-source="losses">—</p></div>
 </div>
-<p class="ec-muted">“Topu kaptırdığı yer”: kontrolden sonra kaptırılan her top. Büyük sayı o bölgedeki kayıp, küçük sayı bunlardan rakip şutuyla bitenlerin oranı. “Rakip şutunun geldiği yer”: bu kayıplardan sonra 20 saniye içinde rakibin çektiği şut (birden fazla şut olduysa gol, yoksa en yüksek xG'li olan); büyük sayı o bölgeden gelen şut. İlk sahada bir bölgeye tıklayınca ikincide yalnızca o bölgedeki kayıplardan gelen şutlar kalır.</p>
-<h3 class="ec-h3" id="kayip-sut-listesi" data-draw="lshead">—</h3>
+<p class="ec-muted">“Where the ball was lost”: every ball lost after a controlled touch. The large number is the zone's losses, the small one the share that ended in an opponent shot. “Where the opponent shot from”: the opponent shot within 20 seconds of the loss (the goal if there was one, otherwise the highest-xG shot); the large number is shots from that zone. Click a zone on the first pitch to keep only the shots that followed losses there.</p>
+<h3 class="ec-h3" id="loss-shot-list" data-draw="lshead">—</h3>
 <div class="ec-wrap">
 <table class="ec-table" data-source="losses" data-row-key="loss_id">
-<thead><tr><th class="ec-l" data-field="match">Maç</th><th data-field="minute">Dk</th><th class="ec-l" data-field="player">Topu kaptıran</th><th>Kayıp bölgesi</th><th class="ec-l" data-field="shot_player">Şutu çeken</th><th>Şut bölgesi</th><th class="ec-l" data-field="result">Sonuç</th><th data-field="shot_xg">xG</th></tr></thead>
+<thead><tr><th class="ec-l" data-field="match">Match</th><th data-field="minute">Min</th><th class="ec-l" data-field="player">Lost by</th><th>Loss zone</th><th class="ec-l" data-field="shot_player">Shot by</th><th>Shot zone</th><th class="ec-l" data-field="result">Result</th><th data-field="shot_xg">xG</th></tr></thead>
 <tbody data-draw="lslist"></tbody>
 </table>
 </div>
 </section>
 
-<section class="ec-card" id="mac-raporu">
-<h2 class="ec-h">Maç raporu</h2>
+<section class="ec-card" id="match-report">
+<h2 class="ec-h">Match report</h2>
 <div class="ec-row">
-<select class="dash-select" data-draw="matchsel" aria-label="Maç" data-source="match_team"></select>
+<select class="dash-select" data-draw="matchsel" aria-label="Match" data-source="match_team"></select>
 </div>
-<p class="ec-score" id="mac-skor" data-draw="v" data-t="own" data-f="match" data-k="m" data-fmt="txt">—</p>
-<p class="ec-muted"><span data-draw="tn" data-k="own">—</span>: <span data-draw="v" data-t="own" data-f="formation" data-k="m" data-fmt="txt">—</span>, teknik direktör <span data-draw="v" data-t="own" data-f="coach" data-k="m" data-fmt="txt">—</span>. <span data-draw="tn" data-k="opp">—</span>: <span data-draw="v" data-t="opp" data-f="formation" data-k="m" data-fmt="txt">—</span>, teknik direktör <span data-draw="v" data-t="opp" data-f="coach" data-k="m" data-fmt="txt">—</span>.</p>
-<p class="ec-p" id="mac-ozet-1">Açık oyunda <span data-draw="tn" data-k="own">—</span> şuta ortalama <b data-draw="v" data-t="own" data-f="passes_per_shot" data-k="m">—</b> pasla gitti (<b data-draw="v" data-t="own" data-f="open_play_shots" data-k="m" data-fmt="n0">—</b> atak), <span data-draw="tn" data-k="opp">—</span> <b data-draw="v" data-t="opp" data-f="passes_per_shot" data-k="m">—</b> pasla (<b data-draw="v" data-t="opp" data-f="open_play_shots" data-k="m" data-fmt="n0">—</b> atak).</p>
-<p class="ec-p" id="mac-ozet-2">Akan oyunda <span data-draw="tn" data-k="own">—</span> topu rakibe <b data-draw="v" data-t="own" data-f="turnovers" data-k="m" data-fmt="n0">—</b> kez kaybetti; <b data-draw="v" data-t="own" data-f="conceded_shot_15s" data-k="m" data-fmt="n0">—</b> tanesi 15 saniye içinde <span data-draw="tn" data-k="opp">—</span> şutuyla bitti. <span data-draw="tn" data-k="opp">—</span> <b data-draw="v" data-t="opp" data-f="turnovers" data-k="m" data-fmt="n0">—</b> kez kaybetti; <b data-draw="v" data-t="opp" data-f="conceded_shot_15s" data-k="m" data-fmt="n0">—</b> tanesi <span data-draw="tn" data-k="own">—</span> şutuyla bitti.</p>
-<p class="ec-muted">Top kaybı: topun herhangi bir şekilde rakibe geçmesi (kötü pas, top çıkışı dahil). Aşağıdaki saha bunun bir alt kümesini gösteriyor: oyuncunun topu kontrol ettikten sonra elden çıkaramadan kaptırdığı toplar.</p>
+<p class="ec-score" id="match-score" data-draw="v" data-t="own" data-f="match" data-k="m" data-fmt="txt">—</p>
+<p class="ec-muted"><span data-draw="tn" data-k="own">—</span>: <span data-draw="v" data-t="own" data-f="formation" data-k="m" data-fmt="txt">—</span>, manager <span data-draw="v" data-t="own" data-f="coach" data-k="m" data-fmt="txt">—</span>. <span data-draw="tn" data-k="opp">—</span>: <span data-draw="v" data-t="opp" data-f="formation" data-k="m" data-fmt="txt">—</span>, manager <span data-draw="v" data-t="opp" data-f="coach" data-k="m" data-fmt="txt">—</span>.</p>
+<p class="ec-p" id="match-summary-1">In open play <span data-draw="tn" data-k="own">—</span> reached a shot after <b data-draw="v" data-t="own" data-f="passes_per_shot" data-k="m">—</b> passes on average (<b data-draw="v" data-t="own" data-f="open_play_shots" data-k="m" data-fmt="n0">—</b> possessions), <span data-draw="tn" data-k="opp">—</span> after <b data-draw="v" data-t="opp" data-f="passes_per_shot" data-k="m">—</b> (<b data-draw="v" data-t="opp" data-f="open_play_shots" data-k="m" data-fmt="n0">—</b> possessions).</p>
+<p class="ec-p" id="match-summary-2">In open play <span data-draw="tn" data-k="own">—</span> turned the ball over <b data-draw="v" data-t="own" data-f="turnovers" data-k="m" data-fmt="n0">—</b> times; <b data-draw="v" data-t="own" data-f="conceded_shot_15s" data-k="m" data-fmt="n0">—</b> led to a <span data-draw="tn" data-k="opp">—</span> shot within 15 seconds. <span data-draw="tn" data-k="opp">—</span> turned it over <b data-draw="v" data-t="opp" data-f="turnovers" data-k="m" data-fmt="n0">—</b> times; <b data-draw="v" data-t="opp" data-f="conceded_shot_15s" data-k="m" data-fmt="n0">—</b> led to a <span data-draw="tn" data-k="own">—</span> shot.</p>
+<p class="ec-muted">Turnover: the ball passing to the opponent in any way (a bad pass or the ball going out included). The pitch below shows a subset: balls lost after a controlled touch, before the player could release them.</p>
 
-<h3 class="ec-h3" id="mac-saha">Bu maçta kontrolden sonra kaptırılan toplar: <span data-draw="tn" data-k="own">—</span></h3>
+<h3 class="ec-h3" id="match-pitch">Balls lost after a controlled touch in this match: <span data-draw="tn" data-k="own">—</span></h3>
 <div class="ec-pitch" data-draw="mpitch" data-source="losses">—</div>
 <p class="ec-muted" data-draw="msum" data-source="losses">—</p>
 
-<h3 class="ec-h3" id="mac-karsilastirma">Bu maç ve dönem ortalaması</h3>
-<p class="ec-muted">Dönem: <span data-draw="v" data-t="own" data-f="period" data-k="p" data-fmt="txt">—</span>, <span data-draw="v" data-t="own" data-f="matches" data-k="p" data-fmt="n0">—</span> maçın ortalaması.</p>
+<h3 class="ec-h3" id="match-vs-period">This match against the period average</h3>
+<p class="ec-muted">Period <span data-draw="v" data-t="own" data-f="period" data-k="p" data-fmt="txt">—</span>, average of <span data-draw="v" data-t="own" data-f="matches" data-k="p" data-fmt="n0">—</span> matches.</p>
 <div class="ec-wrap">
 <table class="ec-table">
-<thead><tr><th class="ec-l">Metrik</th><th><span data-draw="tn" data-k="own">—</span></th><th>Dönem ort.</th><th><span data-draw="tn" data-k="opp">—</span></th><th>Dönem ort.</th></tr></thead>
+<thead><tr><th class="ec-l">Metric</th><th><span data-draw="tn" data-k="own">—</span></th><th>Period avg</th><th><span data-draw="tn" data-k="opp">—</span></th><th>Period avg</th></tr></thead>
 <tbody>
-<tr><td class="ec-l">Şutla biten açık oyun atağı</td><td data-draw="v" data-t="own" data-f="open_play_shots" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="open_play_shots" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="open_play_shots" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="open_play_shots" data-k="p">—</td></tr>
-<tr><td class="ec-l">Şuta kadar pas</td><td data-draw="v" data-t="own" data-f="passes_per_shot" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="passes_per_shot" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="passes_per_shot" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="passes_per_shot" data-k="p">—</td></tr>
-<tr><td class="ec-l">Top kaybı (top rakibe geçti)</td><td data-draw="v" data-t="own" data-f="turnovers" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="turnovers" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="turnovers" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="turnovers" data-k="p">—</td></tr>
-<tr><td class="ec-l">Top kaybından sonra 15 sn içinde yenen şut</td><td data-draw="v" data-t="own" data-f="conceded_shot_15s" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="conceded_shot_15s" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="conceded_shot_15s" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="conceded_shot_15s" data-k="p">—</td></tr>
-<tr><td class="ec-l">Top kaybından sonra 8 sn içinde geri kazanma</td><td data-draw="v" data-t="own" data-f="regained_8s_pct" data-k="m" data-fmt="pct">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="regained_8s_pct" data-k="p" data-fmt="pct">—</td><td data-draw="v" data-t="opp" data-f="regained_8s_pct" data-k="m" data-fmt="pct">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="regained_8s_pct" data-k="p" data-fmt="pct">—</td></tr>
-<tr><td class="ec-l">Baskı verimi</td><td data-draw="v" data-t="own" data-f="press_success_pct" data-k="m" data-fmt="pct">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="press_success_pct" data-k="p" data-fmt="pct">—</td><td data-draw="v" data-t="opp" data-f="press_success_pct" data-k="m" data-fmt="pct">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="press_success_pct" data-k="p" data-fmt="pct">—</td></tr>
-<tr><td class="ec-l">Rakibin 100 kontrolünde sökülen top</td><td data-draw="v" data-t="own" data-f="stripped_per100" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="stripped_per100" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="stripped_per100" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="stripped_per100" data-k="p">—</td></tr>
-<tr><td class="ec-l">Rakibe tanınan pas (PPDA)</td><td data-draw="v" data-t="own" data-f="ppda" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="ppda" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="ppda" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="ppda" data-k="p">—</td></tr>
+<tr><td class="ec-l">Open-play possessions ending in a shot</td><td data-draw="v" data-t="own" data-f="open_play_shots" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="open_play_shots" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="open_play_shots" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="open_play_shots" data-k="p">—</td></tr>
+<tr><td class="ec-l">Passes before a shot</td><td data-draw="v" data-t="own" data-f="passes_per_shot" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="passes_per_shot" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="passes_per_shot" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="passes_per_shot" data-k="p">—</td></tr>
+<tr><td class="ec-l">Turnovers (ball to the opponent)</td><td data-draw="v" data-t="own" data-f="turnovers" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="turnovers" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="turnovers" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="turnovers" data-k="p">—</td></tr>
+<tr><td class="ec-l">Shots conceded within 15 s of a turnover</td><td data-draw="v" data-t="own" data-f="conceded_shot_15s" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="conceded_shot_15s" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="conceded_shot_15s" data-k="m" data-fmt="n0">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="conceded_shot_15s" data-k="p">—</td></tr>
+<tr><td class="ec-l">Regained within 8 s of a turnover</td><td data-draw="v" data-t="own" data-f="regained_8s_pct" data-k="m" data-fmt="pct">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="regained_8s_pct" data-k="p" data-fmt="pct">—</td><td data-draw="v" data-t="opp" data-f="regained_8s_pct" data-k="m" data-fmt="pct">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="regained_8s_pct" data-k="p" data-fmt="pct">—</td></tr>
+<tr><td class="ec-l">Press success</td><td data-draw="v" data-t="own" data-f="press_success_pct" data-k="m" data-fmt="pct">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="press_success_pct" data-k="p" data-fmt="pct">—</td><td data-draw="v" data-t="opp" data-f="press_success_pct" data-k="m" data-fmt="pct">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="press_success_pct" data-k="p" data-fmt="pct">—</td></tr>
+<tr><td class="ec-l">Balls stripped per 100 opponent controls</td><td data-draw="v" data-t="own" data-f="stripped_per100" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="stripped_per100" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="stripped_per100" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="stripped_per100" data-k="p">—</td></tr>
+<tr><td class="ec-l">Passes allowed per defensive action (PPDA)</td><td data-draw="v" data-t="own" data-f="ppda" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="own" data-f="ppda" data-k="p">—</td><td data-draw="v" data-t="opp" data-f="ppda" data-k="m">—</td><td class="ec-avg" data-draw="v" data-t="opp" data-f="ppda" data-k="p">—</td></tr>
 </tbody>
 </table>
 </div>
 
-<h3 class="ec-h3" id="mac-ataklar">Şutla biten ataklar: <span data-draw="tn" data-k="own">—</span></h3>
-<p class="ec-muted">Penaltılar hariç her şut, aynı atakta gelen ikinci şutlar (ör. dönen top) dahil. Pas: şuttan önce o atakta yapılan isabetli pas sayısı. Süre: atağın başından şuta kadar geçen saniye. Goller kırmızı.</p>
+<h3 class="ec-h3" id="match-shots">Possessions ending in a shot: <span data-draw="tn" data-k="own">—</span></h3>
+<p class="ec-muted">Every non-penalty shot, including second shots in the same possession (such as rebounds). Passes: completed passes in the possession before the shot. Time: seconds from the start of the possession to the shot. Goals in red.</p>
 <div class="ec-wrap">
 <table class="ec-table" data-source="shots" data-row-key="shot_id">
-<thead><tr><th data-field="minute">Dk</th><th class="ec-l" data-field="player">Oyuncu</th><th data-field="passes_before">Pas</th><th data-field="seconds">Süre</th><th class="ec-l" data-field="start">Başlangıç</th><th class="ec-l" data-field="outcome">Sonuç</th><th data-field="xg">xG</th></tr></thead>
+<thead><tr><th data-field="minute">Min</th><th class="ec-l" data-field="player">Player</th><th data-field="passes_before">Passes</th><th data-field="seconds">Time</th><th class="ec-l" data-field="start">Start</th><th class="ec-l" data-field="outcome">Outcome</th><th data-field="xg">xG</th></tr></thead>
 <tbody data-draw="shots"></tbody>
 </table>
 </div>
@@ -250,20 +252,20 @@
   const BLUE = '#2563eb';
   const PERIODS = ['2005-09', '2009-13', '2013-17', '2017-21'];
   const STATS = {
-    passes_per_shot: {kind: 'trend', fmt: 'n1', label: 'şuta kadar pas sayısı'},
-    conceded_shot_15s_pct: {kind: 'trend', fmt: 'pct', label: 'top kaybından sonra yenen hızlı şut'},
-    press_success_pct: {kind: 'trend', fmt: 'pct', label: 'baskı verimi'},
-    stripped_per100: {kind: 'trend', fmt: 'n1', label: 'rakipten sökülen top (100 kontrolde)'},
-    ppda: {kind: 'trend', fmt: 'n1', label: 'rakibe tanınan pas (PPDA)'},
+    passes_per_shot: {kind: 'trend', fmt: 'n1', label: 'passes before a shot'},
+    conceded_shot_15s_pct: {kind: 'trend', fmt: 'pct', label: 'quick shots conceded after a turnover'},
+    press_success_pct: {kind: 'trend', fmt: 'pct', label: 'press success'},
+    stripped_per100: {kind: 'trend', fmt: 'n1', label: 'balls stripped per 100 opponent controls'},
+    ppda: {kind: 'trend', fmt: 'n1', label: 'passes allowed per defensive action (PPDA)'},
     losses: {kind: 'losses'},
     shots: {kind: 'shots'},
     lossshot: {kind: 'lossshot'},
   };
-  const nf0 = new Intl.NumberFormat('tr-TR', {maximumFractionDigits: 0});
-  const nf1 = new Intl.NumberFormat('tr-TR', {minimumFractionDigits: 1, maximumFractionDigits: 1});
-  const nf2 = new Intl.NumberFormat('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  const nfTick = new Intl.NumberFormat('tr-TR', {maximumFractionDigits: 1});
-  const fmt = (v, f) => v == null || v === '' ? '—' : f === 'txt' ? String(v) : f === 'pct' ? '%' + nf1.format(+v) : f === 'pct0' ? '%' + nf0.format(+v) : f === 'n0' ? nf0.format(+v) : f === 'n2' ? nf2.format(+v) : nf1.format(+v);
+  const nf0 = new Intl.NumberFormat('en-US', {maximumFractionDigits: 0});
+  const nf1 = new Intl.NumberFormat('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+  const nf2 = new Intl.NumberFormat('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  const nfTick = new Intl.NumberFormat('en-US', {maximumFractionDigits: 1});
+  const fmt = (v, f) => v == null || v === '' ? '—' : f === 'txt' ? String(v) : f === 'pct' ? nf1.format(+v) + '%' : f === 'pct0' ? nf0.format(+v) + '%' : f === 'sgn' ? (+v > 0 ? '+' : +v < 0 ? '−' : '') + nf1.format(Math.abs(+v)) : f === 'n0' ? nf0.format(+v) : f === 'n2' ? nf2.format(+v) : nf1.format(+v);
   const enc = (s) => String(s).replace(/[%&=]/g, (c) => '%' + c.charCodeAt(0).toString(16).toUpperCase());
   const opp = (t) => t === 'Barcelona' ? 'Real Madrid' : 'Barcelona';
   const zoneOf = (r) => Math.min(2, Math.floor(+r.x / 40)) * 3 + Math.min(2, Math.floor(+r.y / (80 / 3)));
@@ -275,23 +277,23 @@
   if (S.lp === undefined) S.lp = '';
   if (S.lplayer === undefined) S.lplayer = '';
   if (S.lz === undefined) S.lz = null;
-  if (S.gs === undefined) S.gs = '';
+  if (!['', 'Level', 'Ahead', 'Behind'].includes(S.gs)) S.gs = '';   // also resets a state kept from an older version of the page
   const FORM = {
-    passes_per_shot: {a: 'passes_before_shot_sum', b: 'open_play_shots', k: 1, min: 3, unit: 'atak'},
-    conceded_shot_15s_pct: {a: 'conceded_shot_15s', b: 'turnovers', k: 100, min: 10, unit: 'top kaybı', nogs: true},
-    press_success_pct: {a: 'pressures_won_5s', b: 'pressures', k: 100, min: 20, unit: 'baskı'},
-    stripped_per100: {a: 'balls_stripped', b: 'opp_controls', k: 100, min: 30, unit: 'rakip kontrolü'},
-    ppda: {a: 'opp_buildup_passes', b: 'def_actions', k: 1, min: 5, unit: 'savunma aksiyonu'},
+    passes_per_shot: {a: 'passes_before_shot_sum', b: 'open_play_shots', k: 1, min: 3, unit: 'possessions'},
+    conceded_shot_15s_pct: {a: 'conceded_shot_15s', b: 'turnovers', k: 100, min: 10, unit: 'turnovers', nogs: true},
+    press_success_pct: {a: 'pressures_won_5s', b: 'pressures', k: 100, min: 20, unit: 'pressures'},
+    stripped_per100: {a: 'balls_stripped', b: 'opp_controls', k: 100, min: 30, unit: 'opponent controls'},
+    ppda: {a: 'opp_buildup_passes', b: 'def_actions', k: 1, min: 5, unit: 'defensive actions'},
   };
-  const GSL = {'Berabere': 'skor berabereyken', 'Önde': 'öndeyken', 'Geride': 'gerideyken'};
+  const GSL = {'Level': 'score level', 'Ahead': 'when ahead', 'Behind': 'when behind'};
   const gsOn = () => !!S.gs && !!FORM[S.stat] && !FORM[S.stat].nogs;
   const inBox = (x, y) => +x <= 18 && +y >= 18 && +y <= 62;
   const zoneXY = (x, y) => Math.min(2, Math.floor(+x / 40)) * 3 + Math.min(2, Math.floor(+y / (80 / 3)));
 
   dash.calc('period_team', {
     inputs: ['match_team'],
-    title: 'Dönem ortalamaları',
-    description: 'Her dönem ve takım için maç tablosundan hesaplanan ortalamalar. Oranlar dönemdeki toplamlardan hesaplanır.',
+    title: 'Period averages',
+    description: 'Averages per period and team from the match table. Rates are computed from the period totals.',
     fn: (match_team) => {
       const r1 = (x) => Math.round(x * 10) / 10;
       const sum = (rows, field) => d3.sum(rows, (r) => +r[field]);
@@ -313,8 +315,8 @@
   const r1 = (x) => Math.round(x * 10) / 10;
   dash.calc('state_period', {
     inputs: ['game_state'],
-    title: 'Skor durumuna göre dönem değerleri',
-    description: 'Her dönem, takım ve skor durumu için toplamlardan hesaplanan oranlar ve o durumda geçen sürenin payı.',
+    title: 'Period values by score state',
+    description: 'Rates from totals per period, team and score state, and the share of minutes played in that state.',
     fn: (game_state) => {
       const tot = d3.rollup(game_state, (v) => d3.sum(v, (r) => +r.minutes), (r) => r.period, (r) => r.team);
       return d3.groups(game_state, (r) => r.period, (r) => r.team, (r) => r.state).flatMap(([period, teams]) => teams.flatMap(([team, states]) => states.map(([state, rows]) => {
@@ -330,8 +332,8 @@
   });
   dash.calc('shot_period', {
     inputs: ['shots', 'match_team'],
-    title: 'Dönem şut özeti',
-    description: 'Her dönem ve takım için maç başına şut, şut başına xG ve ceza sahası içinden gelen şutların payı.',
+    title: 'Period shot summary',
+    description: 'Shots per match, xG per shot and the share of shots from inside the box, per period and team.',
     fn: (shots, match_team) => {
       const nm = d3.rollup(match_team, (v) => new Set(v.map((r) => r.match_id)).size, (r) => r.period);
       return d3.groups(shots, (r) => r.period, (r) => r.team).flatMap(([period, teams]) => teams.map(([team, rows]) => ({
@@ -344,8 +346,8 @@
   });
   dash.calc('loss_period', {
     inputs: ['losses', 'match_team'],
-    title: 'Dönem kayıp özeti',
-    description: 'Kontrolden sonra kaptırılan toplar: her dönem ve takım için maç başına sayı, şutla bitme oranı ve yenen gol.',
+    title: 'Period loss summary',
+    description: 'Balls lost after a controlled touch: per match, share ending in a shot and goals conceded, per period and team.',
     fn: (losses, match_team) => {
       const nm = d3.rollup(match_team, (v) => new Set(v.map((r) => r.match_id)).size, (r) => r.period);
       return d3.groups(losses, (r) => r.period, (r) => r.team).flatMap(([period, teams]) => teams.map(([team, rows]) => ({
@@ -356,8 +358,8 @@
   });
   dash.calc('loss_team', {
     inputs: ['losses'],
-    title: 'Takım kayıp özeti',
-    description: 'Kontrolden sonra kaptırılan toplar, 16 yılın toplamı: kayıp, bunlardan gelen farklı şutlar, yenen gol ve ceza sahası içinden gelen şutlar.',
+    title: 'Team loss summary',
+    description: 'Balls lost after a controlled touch over 16 years: losses, distinct shots that followed, goals conceded and shots from inside the box.',
     fn: (losses) => d3.groups(losses, (r) => r.team).map(([team, rows]) => {
       const shots = [...d3.group(rows.filter((r) => +r.shot === 1 && r.shot_x != null), (r) => r.shot_event).values()].map((v) => v[0]);
       return {key: team, team, losses: rows.length, shots: shots.length, goals: d3.sum(rows, (r) => +r.goal), box: shots.filter((r) => +r.shot_x <= 18 && +r.shot_y >= 18 && +r.shot_y <= 62).length};
@@ -365,8 +367,8 @@
   });
   dash.calc('zone_loss', {
     inputs: ['losses'],
-    title: 'Bölgeye göre kayıp ve şut',
-    description: 'Her takım ve 9 bölge için kontrolden sonra kaptırılan top, bunlardan rakip şutuyla bitenler ve o şutlardan ceza sahası içinden olanlar.',
+    title: 'Losses and shots by zone',
+    description: 'Per team and zone: balls lost after a controlled touch, those ending in an opponent shot, and those shots from inside the box.',
     fn: (losses) => d3.groups(losses, (r) => r.team, (r) => 1 + Math.min(2, Math.floor(+r.x / 40)) * 3 + Math.min(2, Math.floor(+r.y / (80 / 3)))).flatMap(([team, zones]) => zones.map(([zone, rows]) => {
       const sh = rows.filter((r) => +r.shot === 1 && r.shot_x != null);
       const uniq = [...d3.group(sh, (r) => r.shot_event).values()].map((v) => v[0]);
@@ -414,7 +416,7 @@
   }
 
   dash.draw('tn', (el) => { el.textContent = el.dataset.k === 'opp' ? opp(S.team) : S.team; });
-  dash.draw('vtitle', (el) => { const st = STATS[S.stat]; el.textContent = S.team + ': ' + (st.label || '') + ', maç maç' + (gsOn() ? ' · ' + GSL[S.gs] : ''); });
+  dash.draw('vtitle', (el) => { const st = STATS[S.stat]; el.textContent = S.team + ': ' + (st.label || '') + ', match by match' + (gsOn() ? ' · ' + GSL[S.gs] : ''); });
   dash.draw('pv', (el) => {
     const d = el.dataset, D = dash.data(d.c);
     if (D.status !== 'ok' || !Array.isArray(D.data)) { el.textContent = '—'; return; }
@@ -442,13 +444,13 @@
 
   dash.draw('trend', (el) => {
     const s = state();
-    if (!s) { el.textContent = dash.data('match_team').status === 'error' ? 'Yüklenemedi' : '—'; return; }
+    if (!s) { el.textContent = dash.data('match_team').status === 'error' ? 'Could not load' : '—'; return; }
     const f = S.stat, st = STATS[f], fm = FORM[f];
     if (!st || st.kind !== 'trend' || !fm) return;
     let src = s.rows;
     if (gsOn()) {
       const G = dash.data('game_state');
-      if (G.status !== 'ok') { el.textContent = G.status === 'error' ? 'Yüklenemedi' : '—'; return; }
+      if (G.status !== 'ok') { el.textContent = G.status === 'error' ? 'Could not load' : '—'; return; }
       src = G.data.filter((r) => r.state === S.gs);
     }
     const val = (a, b) => b > 0 ? fm.k * a / b : null;
@@ -459,16 +461,20 @@
     const byId = d3.group(s.rows, (r) => r.match_id);
     const ptBy = d3.index(pts, (q) => q.id, (q) => q.team);
     const W = Math.max(280, el.clientWidth || 600), H = 320;
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', S.team + ' için ' + st.label + (gsOn() ? ', ' + GSL[S.gs] : '') + ', 29 maç ve dönem ortalamaları');
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', S.team + ': ' + st.label + (gsOn() ? ', ' + GSL[S.gs] : '') + ', 29 matches and period averages');
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
     const perVals = [...perAgg.values()].flatMap((m) => [...m.values()]).filter((v) => v != null);
-    const top = d3.max(pts.filter((q) => q.n >= fm.min).map((q) => q.v).concat(perVals)) || 1;
+    // 90% bootstrap interval of the selected team's period average (uncertainty.py); all minutes and level score only
+    const U = dash.data('uncertainty');
+    const ust = !S.gs ? 'All' : S.gs === 'Level' && !fm.nogs ? 'Level' : null;
+    const bands = U.status === 'ok' && ust ? PERIODS.map((p) => U.data.find((r) => r.key === f + '|' + ust + '|' + S.team + '|' + p)).filter(Boolean) : [];
+    const top = d3.max(pts.filter((q) => q.n >= fm.min).map((q) => q.v).concat(perVals, bands.map((b) => +b.hi))) || 1;
     const y = d3.scaleLinear().domain([0, top * 1.08]).nice(5);
     const ticks = y.ticks(5);
     const probe = svg.append('text').attr('class', 'ec-tick');
     let lw = 0;
-    ticks.forEach((t) => { probe.text(pre + nfTick.format(t)); lw = Math.max(lw, probe.node().getComputedTextLength()); });
+    ticks.forEach((t) => { probe.text(nfTick.format(t) + pre); lw = Math.max(lw, probe.node().getComputedTextLength()); });
     probe.remove();
     const mg = {t: 26, r: 10, b: 24, l: Math.ceil(lw) + 10};
     y.range([H - mg.b, mg.t]);
@@ -476,7 +482,7 @@
     const yc = (v) => y(Math.min(v, ymax));
     const x = d3.scalePoint().domain(ids).range([mg.l + 10, W - mg.r - 10]);
     svg.append('g').selectAll('line').data(ticks).join('line').attr('x1', mg.l).attr('x2', W - mg.r).attr('y1', (t) => y(t)).attr('y2', (t) => y(t)).style('stroke', 'var(--cds-chart-grid)');
-    svg.append('g').selectAll('text').data(ticks).join('text').attr('class', 'ec-tick').attr('x', mg.l - 6).attr('y', (t) => y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text((t) => pre + nfTick.format(t));
+    svg.append('g').selectAll('text').data(ticks).join('text').attr('class', 'ec-tick').attr('x', mg.l - 6).attr('y', (t) => y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text((t) => nfTick.format(t) + pre);
     const periods = d3.groups(s.rows, (r) => r.period).map(([period, rows]) => { const pid = [...new Set(rows.map((r) => r.match_id))]; return {period, x0: x(pid[0]), x1: x(pid[pid.length - 1])}; });
     periods.forEach((p, i) => {
       svg.append('text').attr('class', 'ec-tick').attr('x', (p.x0 + p.x1) / 2).attr('y', 12).attr('text-anchor', 'middle').text(p.period);
@@ -491,6 +497,11 @@
     const selX = x(s.sel[0].match_id);
     svg.append('line').attr('x1', selX).attr('x2', selX).attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-reference)');
     const guide = svg.append('line').attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-axis)').style('display', 'none');
+    const pBy = new Map(periods.map((p) => [p.period, p]));
+    svg.append('g').selectAll('rect').data(bands.filter((b) => pBy.has(b.period))).join('rect')
+      .attr('x', (b) => pBy.get(b.period).x0 - 6).attr('width', (b) => pBy.get(b.period).x1 - pBy.get(b.period).x0 + 12)
+      .attr('y', (b) => yc(+b.hi)).attr('height', (b) => Math.max(1, yc(+b.lo) - yc(+b.hi)))
+      .attr('rx', 3).style('fill', BLUE).style('fill-opacity', 0.13);
     [opp(S.team), S.team].forEach((team) => {
       const mine = team === S.team, color = mine ? BLUE : 'var(--cds-chart-muted)';
       const rows = pts.filter((q) => q.team === team);
@@ -513,7 +524,8 @@
       .on('pointermove pointerdown', (ev) => {
         const id = nearest(ev);
         guide.attr('x1', x(id)).attr('x2', x(id)).style('display', null);
-        T.show(ev, [byId.get(id)[0].match].concat([S.team, opp(S.team)].map((t) => { const q = ptBy.get(id)?.get(t); return t + ': ' + (q ? fmt(r1(q.v), ff) + ' (' + nf0.format(q.n) + ' ' + fm.unit + (q.n < fm.min ? ', az örneklem' : '') + ')' : (gsOn() ? 'bu skorda veri yok' : '—')); })));
+        const bp = bands.find((b) => b.period === byId.get(id)[0].period);
+        T.show(ev, [byId.get(id)[0].match].concat([S.team, opp(S.team)].map((t) => { const q = ptBy.get(id)?.get(t); return t + ': ' + (q ? fmt(r1(q.v), ff) + ' (' + nf0.format(q.n) + ' ' + fm.unit + (q.n < fm.min ? ', small sample' : '') + ')' : (gsOn() ? 'no data in this state' : '—')); }), bp ? [S.team + ' ' + bp.period + ' average ' + fmt(+bp.value, ff) + ', 90% interval ' + fmt(+bp.lo, ff) + '–' + fmt(+bp.hi, ff)] : []));
       })
       .on('pointerleave', () => { T.hide(); guide.style('display', 'none'); })
       .on('click', (ev) => { S.match = nearest(ev); redraw(); });
@@ -523,13 +535,13 @@
     if (!gsOn()) { el.textContent = ''; return; }
     const P = dash.data('state_period');
     if (P.status !== 'ok' || !Array.isArray(P.data)) { el.textContent = '—'; return; }
-    const parts = PERIODS.map((p) => { const r = P.data.find((q) => q.key === p + '|' + S.team + '|' + S.gs); return p + ' %' + (r ? nf0.format(r.minutes_pct) : '—'); });
-    el.textContent = S.team + ' ' + GSL[S.gs] + ' geçen süre: ' + parts.join(' · ') + '. Az süre, az veri demek: o dönemin çizgisini temkinli oku.';
+    const parts = PERIODS.map((p) => { const r = P.data.find((q) => q.key === p + '|' + S.team + '|' + S.gs); return p + ' ' + (r ? nf0.format(r.minutes_pct) + '%' : '—'); });
+    el.textContent = 'Share of minutes for ' + S.team + ' (' + GSL[S.gs] + '): ' + parts.join(' · ') + '. Few minutes means little data: read that period with care.';
   });
 
   dash.draw('pitch', (el) => {
     const L = dash.data('losses');
-    if (L.status !== 'ok') { el.textContent = L.status === 'error' ? 'Yüklenemedi' : '—'; return; }
+    if (L.status !== 'ok') { el.textContent = L.status === 'error' ? 'Could not load' : '—'; return; }
     const team = S.team, p = el.dataset.p;
     const teamRows = L.data.filter((r) => r.team === team);
     const rows = teamRows.filter((r) => r.period === p);
@@ -541,17 +553,17 @@
     const vmax = d3.max([...counts.values()].flatMap((m) => [...m.values()])) || 1;
     const zones = d3.range(9).map((k) => ({k, x0: Math.floor(k / 3) * 40, y0: (k % 3) * 80 / 3, n: 0, g: 0}));
     rows.forEach((r) => { const z = zones[zoneOf(r)]; z.n++; if (+r.goal === 1) z.g++; });
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', p + ' döneminde ' + team + ' takımının kaptırdığı topların 9 bölgedeki yoğunluğu ve yenen goller');
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', team + ' balls lost by zone and goals conceded, ' + p);
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
-    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + team + ' kalesi');
-    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('hücum yönü →');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + team + ' goal');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('attacking →');
     const isSel = (z) => S.sel && S.sel.p === p && S.sel.z === z.k;
     svg.append('g').selectAll('rect').data(zones).join('rect')
       .attr('x', (z) => z.x0).attr('y', (z) => z.y0).attr('width', 40).attr('height', 80 / 3)
       .style('fill', BLUE).style('fill-opacity', (z) => 0.04 + 0.56 * (z.n / nm) / vmax).style('cursor', 'pointer')
       .style('stroke', (z) => isSel(z) ? 'var(--color-fg)' : 'none').attr('stroke-width', 0.9)
-      .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Bölge ' + (z.k + 1) + ' · tıklayınca listele', 'Maç başına ' + nf1.format(z.n / nm) + ' kayıp', nf0.format(z.n) + ' kayıp, ' + nf0.format(nm) + ' maçta (%' + nf1.format(rows.length ? 100 * z.n / rows.length : 0) + ')', nf0.format(z.g) + ' gol yendi']))
+      .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Zone ' + (z.k + 1) + ' · click to list', nf1.format(z.n / nm) + ' losses per match', nf0.format(z.n) + ' losses in ' + nf0.format(nm) + ' matches (' + nf1.format(rows.length ? 100 * z.n / rows.length : 0) + '%)', nf0.format(z.g) + ' goals conceded']))
       .on('pointerleave', T.hide)
       .on('click', (ev, z) => { S.sel = isSel(z) ? null : {p, z: z.k}; dash.draw('pitch'); dash.draw('zhead'); dash.draw('zlist'); });
     const g = svg.append('g').style('pointer-events', 'none');
@@ -561,18 +573,18 @@
     svg.append('g').selectAll('circle').data(rows.filter((r) => +r.goal !== 1)).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', 1.15)
       .style('fill', BLUE).style('opacity', 0.9).style('stroke', 'var(--color-panel)').attr('stroke-width', 0.25)
-      .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + '. dk, ' + r.player, r.kind + (+r.shot === 1 ? ', şutla bitti' : '')]))
+      .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + "' " + r.player, r.kind + (+r.shot === 1 ? ', ended in a shot' : '')]))
       .on('pointerleave', T.hide);
     const lab = svg.append('g');
     zones.forEach((z) => {
       const cx = z.x0 + 20, cy = z.y0 + 80 / 6;
       lab.append('text').attr('class', 'ec-zn').attr('x', cx).attr('y', cy - 0.5).attr('text-anchor', 'middle').text(nf1.format(z.n / nm));
-      lab.append('text').attr('class', 'ec-zs').attr('x', cx).attr('y', cy + 4.2).attr('text-anchor', 'middle').text('%' + nf0.format(rows.length ? 100 * z.n / rows.length : 0));
+      lab.append('text').attr('class', 'ec-zs').attr('x', cx).attr('y', cy + 4.2).attr('text-anchor', 'middle').text(nf0.format(rows.length ? 100 * z.n / rows.length : 0) + '%');
     });
     svg.append('g').selectAll('circle').data(rows.filter((r) => +r.goal === 1)).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', 2.8)
       .style('fill', 'var(--color-bad)').style('stroke', 'var(--color-panel)').attr('stroke-width', 0.7)
-      .on('pointerenter', (ev, r) => T.show(ev, ['GOL: ' + opp(team), r.match, r.minute + '. dk, topu kaptıran ' + r.player, r.kind]))
+      .on('pointerenter', (ev, r) => T.show(ev, ['GOAL: ' + opp(team), r.match, r.minute + "' lost by " + r.player, r.kind]))
       .on('pointerleave', T.hide);
   });
 
@@ -582,14 +594,14 @@
     const M = dash.data('match_team');
     const rows = L.data.filter((r) => r.team === S.team && r.period === el.dataset.p);
     const nm = M.status === 'ok' ? new Set(M.data.filter((r) => r.period === el.dataset.p).map((r) => r.match_id)).size : 0;
-    el.textContent = nf0.format(rows.length) + ' kayıp' + (nm ? ', ' + nf0.format(nm) + ' maçta (maç başına ' + nf1.format(rows.length / nm) + ')' : '') + ' · ' + nf0.format(d3.sum(rows, (r) => +r.shot)) + ' tanesi şutla bitti · ' + nf0.format(d3.sum(rows, (r) => +r.goal)) + ' gol yendi';
+    el.textContent = nf0.format(rows.length) + ' losses' + (nm ? ' in ' + nf0.format(nm) + ' matches (' + nf1.format(rows.length / nm) + ' per match)' : '') + ' · ' + nf0.format(d3.sum(rows, (r) => +r.shot)) + ' ended in a shot · ' + nf0.format(d3.sum(rows, (r) => +r.goal)) + ' goals conceded';
   });
 
   dash.draw('zhead', (el) => {
-    if (!S.sel) { el.textContent = 'Bir bölgeye tıkla; o bölgedeki kayıplar burada listelenir.'; return; }
+    if (!S.sel) { el.textContent = 'Click a zone to list its losses here.'; return; }
     const L = dash.data('losses');
     const n = L.status === 'ok' ? L.data.filter((r) => r.team === S.team && r.period === S.sel.p && zoneOf(r) === S.sel.z).length : 0;
-    el.textContent = 'Bölge ' + (S.sel.z + 1) + ', ' + S.sel.p + ': ' + S.team + ' ' + nf0.format(n) + ' top kaptırdı';
+    el.textContent = 'Zone ' + (S.sel.z + 1) + ', ' + S.sel.p + ': ' + S.team + ' lost the ball ' + nf0.format(n) + ' times';
   });
 
   dash.draw('zlist', (tb) => {
@@ -600,7 +612,7 @@
       const tr = document.createElement('tr');
       tr.dataset.key = r.loss_id;
       if (+r.goal === 1) tr.className = 'ec-goal';
-      [[r.match, 1], [nf0.format(r.minute)], [r.player, 1], [r.kind, 1], [r.result === 'Gol' ? 'Gol yendi' : r.result === 'Şut' ? 'Şut yendi' : 'Tehlike yok', 1]].forEach(([t, l]) => {
+      [[r.match, 1], [nf0.format(r.minute)], [r.player, 1], [r.kind, 1], [r.result === 'Goal' ? 'Goal conceded' : r.result === 'Shot' ? 'Shot conceded' : 'No shot', 1]].forEach(([t, l]) => {
         const td = document.createElement('td'); if (l) td.className = 'ec-l'; td.textContent = t; tr.appendChild(td);
       });
       return tr;
@@ -609,21 +621,21 @@
 
   dash.draw('shotpitch', (el) => {
     const D = dash.data('shots');
-    if (D.status !== 'ok') { el.textContent = D.status === 'error' ? 'Yüklenemedi' : '—'; return; }
+    if (D.status !== 'ok') { el.textContent = D.status === 'error' ? 'Could not load' : '—'; return; }
     const p = el.dataset.p;
-    const rows = D.data.filter((r) => r.team === S.team && r.period === p).sort((a, b) => (a.outcome === 'Gol') - (b.outcome === 'Gol') || b.xg - a.xg);
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '57 -7 67 89').attr('role', 'img').attr('aria-label', p + ' döneminde ' + S.team + ' şutlarının yeri ve gol beklentisi');
+    const rows = D.data.filter((r) => r.team === S.team && r.period === p).sort((a, b) => (a.outcome === 'Goal') - (b.outcome === 'Goal') || b.xg - a.xg);
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '57 -7 67 89').attr('role', 'img').attr('aria-label', S.team + ' shots and expected goals, ' + p);
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
     svg.append('rect').attr('x', 60).attr('width', 60).attr('height', 80).style('fill', BLUE).style('fill-opacity', 0.04);
-    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').style('font-size', '2.2px').text(opp(S.team) + ' kalesi →');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').style('font-size', '2.2px').text(opp(S.team) + ' goal →');
     pitchLines(svg.append('g').style('pointer-events', 'none'), true);
     svg.append('g').selectAll('circle').data(rows).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', (r) => 0.6 + 3.2 * Math.sqrt(+r.xg))
-      .style('fill', (r) => r.outcome === 'Gol' ? 'var(--color-bad)' : BLUE)
+      .style('fill', (r) => r.outcome === 'Goal' ? 'var(--color-bad)' : BLUE)
       .style('fill-opacity', 1)
       .style('stroke', 'var(--color-panel)').attr('stroke-width', 0.35)
-      .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + '. dk, ' + r.player, r.outcome + ' · xG ' + nf2.format(+r.xg) + ' · ' + r.start]))
+      .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + "' " + r.player, r.outcome + ' · xG ' + nf2.format(+r.xg) + ' · ' + r.start]))
       .on('pointerleave', T.hide);
   });
 
@@ -631,8 +643,8 @@
     const D = dash.data('shots');
     if (D.status !== 'ok') { el.textContent = '—'; return; }
     const rows = D.data.filter((r) => r.team === S.team && r.period === el.dataset.p);
-    const xg = d3.sum(rows, (r) => +r.xg), goals = rows.filter((r) => r.outcome === 'Gol').length;
-    el.textContent = nf0.format(rows.length) + ' şut · ' + nf0.format(goals) + ' gol · toplam xG ' + nf1.format(xg) + ' · şut başına xG ' + nf2.format(rows.length ? xg / rows.length : 0);
+    const xg = d3.sum(rows, (r) => +r.xg), goals = rows.filter((r) => r.outcome === 'Goal').length;
+    el.textContent = nf0.format(rows.length) + ' shots · ' + nf0.format(goals) + ' goals · total xG ' + nf1.format(xg) + ' · xG per shot ' + nf2.format(rows.length ? xg / rows.length : 0);
   });
 
   dash.draw('matchsel', (sel) => {
@@ -649,18 +661,18 @@
     const L = dash.data('losses'), s = state();
     if (L.status !== 'ok' || !s) { el.textContent = '—'; return; }
     const rows = L.data.filter((r) => String(r.match_id) === String(S.match) && r.team === S.team);
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', 'Seçili maçta ' + S.team + ' takımının kaptırdığı toplar');
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', 'Balls lost by ' + S.team + ' in the selected match');
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
     svg.append('rect').attr('width', 120).attr('height', 80).style('fill', BLUE).style('fill-opacity', 0.04);
-    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' kalesi');
-    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('hücum yönü →');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' goal');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('attacking →');
     pitchLines(svg.append('g').style('pointer-events', 'none'), false);
     svg.append('g').selectAll('circle').data(rows.slice().sort((a, b) => a.goal - b.goal)).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', (r) => +r.goal === 1 ? 2.8 : +r.shot === 1 ? 1.9 : 1.4)
       .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : BLUE)
       .style('stroke', 'var(--color-panel)').attr('stroke-width', 0.35)
-      .on('pointerenter', (ev, r) => T.show(ev, [r.minute + '. dk, ' + r.player, r.kind + ', ' + (r.result === 'Gol' ? 'gol yendi' : r.result === 'Şut' ? 'şut yendi' : 'tehlike yok')]))
+      .on('pointerenter', (ev, r) => T.show(ev, [r.minute + "' " + r.player, r.kind + ', ' + (r.result === 'Goal' ? 'goal conceded' : r.result === 'Shot' ? 'shot conceded' : 'no shot')]))
       .on('pointerleave', T.hide);
   });
 
@@ -668,7 +680,7 @@
     const L = dash.data('losses');
     if (L.status !== 'ok') { el.textContent = '—'; return; }
     const rows = L.data.filter((r) => String(r.match_id) === String(S.match) && r.team === S.team);
-    el.textContent = 'Kontrolden sonra ' + nf0.format(rows.length) + ' top kaptırıldı; ' + nf0.format(d3.sum(rows, (r) => +r.shot)) + ' tanesi şutla, ' + nf0.format(d3.sum(rows, (r) => +r.goal)) + ' tanesi golle bitti. Büyük mavi nokta: şut yenen kayıp.';
+    el.textContent = nf0.format(rows.length) + ' balls lost after a controlled touch; ' + nf0.format(d3.sum(rows, (r) => +r.shot)) + ' ended in a shot, ' + nf0.format(d3.sum(rows, (r) => +r.goal)) + ' in a goal. Larger blue dot: a loss followed by a shot.';
   });
 
   dash.draw('shots', (tb) => {
@@ -678,15 +690,15 @@
     tb.replaceChildren(...rows.map((r) => {
       const tr = document.createElement('tr');
       tr.dataset.key = r.shot_id;
-      if (r.outcome === 'Gol') tr.className = 'ec-goal';
-      [[nf0.format(r.minute)], [r.player, 1], [nf0.format(r.passes_before)], [nf1.format(r.seconds)], [r.start + (+r.first_in_attack === 0 ? ' · aynı atakta tekrar şut' : ''), 1], [r.outcome, 1], [nf2.format(r.xg)]].forEach(([t, l]) => {
+      if (r.outcome === 'Goal') tr.className = 'ec-goal';
+      [[nf0.format(r.minute)], [r.player, 1], [nf0.format(r.passes_before)], [nf1.format(r.seconds)], [r.start + (+r.first_in_attack === 0 ? ' · second shot in possession' : ''), 1], [r.outcome, 1], [nf2.format(r.xg)]].forEach(([t, l]) => {
         const td = document.createElement('td'); if (l) td.className = 'ec-l'; td.textContent = t; tr.appendChild(td);
       });
       return tr;
     }));
   });
 
-  // ---- Kayıp yeri ve rakip şutunun yeri
+  // ---- Where the ball was lost, where the shot came from
   const lsRows = () => {
     const L = dash.data('losses');
     if (L.status !== 'ok') return null;
@@ -706,7 +718,7 @@
     if (L.status !== 'ok') { sel.replaceChildren(); return; }
     const cnt = d3.rollups(L.data.filter((r) => r.team === S.team && (!S.lp || r.period === S.lp)), (v) => v.length, (r) => r.player).sort((a, b) => b[1] - a[1] || d3.ascending(a[0], b[0]));
     if (S.lplayer && !cnt.some(([p]) => p === S.lplayer)) S.lplayer = '';
-    sel.replaceChildren(new Option('Tüm oyuncular', ''), ...cnt.map(([p, n]) => new Option(p + ' (' + nf0.format(n) + ')', p)));
+    sel.replaceChildren(new Option('All players', ''), ...cnt.map(([p, n]) => new Option(p + ' (' + nf0.format(n) + ')', p)));
     sel.value = S.lplayer;
     sel.onchange = () => { S.lplayer = sel.value; S.lz = null; redrawLS(); };
   });
@@ -717,17 +729,17 @@
     const zones = zones9();
     rows.forEach((r) => { const z = zones[zoneOf(r)]; z.n++; if (+r.shot === 1) z.s++; if (+r.goal === 1) z.g++; });
     const vmax = d3.max(zones, (z) => z.n) || 1;
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', S.team + ' takımının kaptırdığı topların 9 bölgedeki dağılımı');
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', S.team + ' balls lost by zone');
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
-    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' kalesi');
-    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('hücum yönü →');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' goal');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('attacking →');
     const isSel = (z) => S.lz === z.k;
     svg.append('g').selectAll('rect').data(zones).join('rect')
       .attr('x', (z) => z.x0).attr('y', (z) => z.y0).attr('width', 40).attr('height', 80 / 3)
       .style('fill', BLUE).style('fill-opacity', (z) => 0.04 + 0.5 * z.n / vmax).style('cursor', 'pointer')
       .style('stroke', (z) => isSel(z) ? 'var(--color-fg)' : 'none').attr('stroke-width', 0.9)
-      .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Bölge ' + (z.k + 1) + ' · tıklayınca şutları süz', nf0.format(z.n) + ' kayıp', nf0.format(z.s) + ' tanesi şutla bitti (%' + nf1.format(z.n ? 100 * z.s / z.n : 0) + ')', nf0.format(z.g) + ' gol yendi']))
+      .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Zone ' + (z.k + 1) + ' · click to filter shots', nf0.format(z.n) + ' losses', nf0.format(z.s) + ' ended in a shot (' + nf1.format(z.n ? 100 * z.s / z.n : 0) + '%)', nf0.format(z.g) + ' goals conceded']))
       .on('pointerleave', T.hide)
       .on('click', (ev, z) => { S.lz = isSel(z) ? null : z.k; redrawLS(); });
     zoneGrid(svg);
@@ -735,13 +747,13 @@
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', (r) => +r.goal === 1 ? 2.6 : +r.shot === 1 ? 1.8 : 0.85)
       .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : BLUE)
       .style('stroke', 'var(--color-panel)').attr('stroke-width', (r) => +r.shot === 1 ? 0.5 : 0.25)
-      .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + '. dk, ' + r.player, r.kind + ', ' + (r.result === 'Gol' ? 'gol yendi' : r.result === 'Şut' ? 'şut yendi' : 'tehlike yok')]))
+      .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + "' " + r.player, r.kind + ', ' + (r.result === 'Goal' ? 'goal conceded' : r.result === 'Shot' ? 'shot conceded' : 'no shot')]))
       .on('pointerleave', T.hide);
     const lab = svg.append('g');
     zones.forEach((z) => {
       const cx = z.x0 + 20, cy = z.y0 + 80 / 6;
       lab.append('text').attr('class', 'ec-zn').attr('x', cx).attr('y', cy - 0.5).attr('text-anchor', 'middle').text(nf0.format(z.n));
-      lab.append('text').attr('class', 'ec-zs').attr('x', cx).attr('y', cy + 4.2).attr('text-anchor', 'middle').text(z.n < 10 ? 'az veri' : '%' + nf0.format(100 * z.s / z.n) + ' şut');
+      lab.append('text').attr('class', 'ec-zs').attr('x', cx).attr('y', cy + 4.2).attr('text-anchor', 'middle').text(z.n < 10 ? 'few data' : nf0.format(100 * z.s / z.n) + '% shot');
     });
   });
 
@@ -749,7 +761,7 @@
     const rows = lsRows();
     if (!rows) { el.textContent = '—'; return; }
     const s = d3.sum(rows, (r) => +r.shot), g = d3.sum(rows, (r) => +r.goal);
-    el.textContent = nf0.format(rows.length) + ' kayıp · ' + nf0.format(s) + ' tanesi rakip şutuyla bitti (%' + nf1.format(rows.length ? 100 * s / rows.length : 0) + ') · ' + nf0.format(g) + ' gol yendi' + (rows.length < 50 ? ' · az örneklem: yüzdeleri yön göstergesi olarak oku' : '');
+    el.textContent = nf0.format(rows.length) + ' losses · ' + nf0.format(s) + ' ended in an opponent shot (' + nf1.format(rows.length ? 100 * s / rows.length : 0) + '%) · ' + nf0.format(g) + ' goals conceded' + (rows.length < 50 ? ' · small sample: read the shares as direction only' : '');
   });
 
   dash.draw('sspitch', (el) => {
@@ -760,15 +772,15 @@
     const zones = zones9();
     uniq.forEach((r) => { const z = zones[zoneXY(r.shot_x, r.shot_y)]; z.n++; if (+r.goal === 1) z.g++; });
     const vmax = d3.max(zones, (z) => z.n) || 1;
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', S.team + ' kayıplarından sonra ' + opp(S.team) + ' şutlarının geldiği yer');
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', 'Where ' + opp(S.team) + ' shot from after ' + S.team + ' losses');
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
-    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' kalesi');
-    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text(S.team + ' hücum yönü →');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' goal');
+    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text(S.team + ' attacking →');
     svg.append('g').selectAll('rect').data(zones).join('rect')
       .attr('x', (z) => z.x0).attr('y', (z) => z.y0).attr('width', 40).attr('height', 80 / 3)
       .style('fill', BLUE).style('fill-opacity', (z) => 0.04 + 0.5 * z.n / vmax)
-      .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Bölge ' + (z.k + 1), nf0.format(z.n) + ' şut', nf0.format(z.g) + ' gol']))
+      .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Zone ' + (z.k + 1), nf0.format(z.n) + ' shots', nf0.format(z.g) + ' goals']))
       .on('pointerleave', T.hide);
     zoneGrid(svg);
     const ln = svg.append('g').style('pointer-events', 'none');
@@ -782,14 +794,14 @@
       .attr('cx', (r) => +r.shot_x).attr('cy', (r) => +r.shot_y).attr('r', (r) => 1 + 4 * Math.sqrt(+r.shot_xg))
       .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : BLUE)
       .style('stroke', 'var(--color-panel)').attr('stroke-width', 0.35)
-      .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.shot_minute + '. dk, şut: ' + r.shot_player, (r.result === 'Gol' ? 'Gol' : 'Şut') + ' · xG ' + nf2.format(+r.shot_xg), 'Kayıp: ' + r.player + ', bölge ' + (zoneOf(r) + 1)]))
+      .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.shot_minute + "' shot by " + r.shot_player, (r.result === 'Goal' ? 'Goal' : 'Shot') + ' · xG ' + nf2.format(+r.shot_xg), 'Lost by ' + r.player + ', zone ' + (zoneOf(r) + 1)]))
       .on('pointerleave', T.hide);
     const lab = svg.append('g');
     zones.forEach((z) => {
       if (!z.n) return;
       const cx = z.x0 + 20, cy = z.y0 + 80 / 6;
       lab.append('text').attr('class', 'ec-zn').attr('x', cx).attr('y', cy - 0.5).attr('text-anchor', 'middle').text(nf0.format(z.n));
-      lab.append('text').attr('class', 'ec-zs').attr('x', cx).attr('y', cy + 4.2).attr('text-anchor', 'middle').text(nf0.format(z.g) + ' gol');
+      lab.append('text').attr('class', 'ec-zs').attr('x', cx).attr('y', cy + 4.2).attr('text-anchor', 'middle').text(nf0.format(z.g) + (z.g === 1 ? ' goal' : ' goals'));
     });
   });
 
@@ -798,14 +810,14 @@
     if (!rows) { el.textContent = '—'; return; }
     const uniq = [...d3.group(lsShots(rows), (r) => r.shot_event).values()].map((v) => v[0]);
     const xg = d3.sum(uniq, (r) => +r.shot_xg), box = uniq.filter((r) => +r.shot_x <= 18 && +r.shot_y >= 18 && +r.shot_y <= 62).length;
-    el.textContent = (S.lz == null ? '' : 'Bölge ' + (S.lz + 1) + ' kayıplarından: ') + nf0.format(uniq.length) + ' şut · ' + nf0.format(d3.sum(uniq, (r) => +r.goal)) + ' gol · toplam xG ' + nf1.format(xg) + ' · ' + nf0.format(box) + ' tanesi ceza sahası içinden';
+    el.textContent = (S.lz == null ? '' : 'After zone ' + (S.lz + 1) + ' losses: ') + nf0.format(uniq.length) + ' shots · ' + nf0.format(d3.sum(uniq, (r) => +r.goal)) + ' goals · total xG ' + nf1.format(xg) + ' · ' + nf0.format(box) + ' from inside the box';
   });
 
   dash.draw('lshead', (el) => {
     const rows = lsRows();
     if (!rows) { el.textContent = '—'; return; }
     const n = lsShots(rows).length;
-    el.textContent = (S.lz == null ? 'Rakip şutuyla biten kayıplar' : 'Bölge ' + (S.lz + 1) + ' kayıplarından gelen şutlar') + ': ' + nf0.format(n);
+    el.textContent = (S.lz == null ? 'Losses that ended in an opponent shot' : 'Shots after zone ' + (S.lz + 1) + ' losses') + ': ' + nf0.format(n);
   });
 
   dash.draw('lslist', (tb) => {
@@ -816,7 +828,7 @@
       const tr = document.createElement('tr');
       tr.dataset.key = r.loss_id;
       if (+r.goal === 1) tr.className = 'ec-goal';
-      [[r.match, 1], [nf0.format(r.minute)], [r.player, 1], [nf0.format(zoneOf(r) + 1)], [r.shot_player, 1], [nf0.format(zoneXY(r.shot_x, r.shot_y) + 1)], [r.result === 'Gol' ? 'Gol yendi' : 'Şut yendi', 1], [nf2.format(+r.shot_xg)]].forEach(([t, l]) => {
+      [[r.match, 1], [nf0.format(r.minute)], [r.player, 1], [nf0.format(zoneOf(r) + 1)], [r.shot_player, 1], [nf0.format(zoneXY(r.shot_x, r.shot_y) + 1)], [r.result === 'Goal' ? 'Goal conceded' : 'Shot conceded', 1], [nf2.format(+r.shot_xg)]].forEach(([t, l]) => {
         const td = document.createElement('td'); if (l) td.className = 'ec-l'; td.textContent = t; tr.appendChild(td);
       });
       return tr;

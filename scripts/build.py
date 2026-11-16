@@ -1,7 +1,7 @@
-"""1. adım: maç-takım metrikleri (match_team) ve şut listesi (shots).
+"""Step 1: match-team metrics (match_team) and the shot list (shots).
 
-Girdi: StatsBomb açık verisi (yoksa data/raw altına indirilir).
-Çıktı: match_team.json/.csv (maç başına takım başına bir satır), shots.json/.csv (penaltı dışı her şut).
+Input: StatsBomb open data (downloaded to data/raw if missing).
+Output: match_team.json/.csv (one row per team per match), shots.json/.csv (every non-penalty shot).
 """
 import collections
 import csv
@@ -16,13 +16,13 @@ from clasico.events import is_clean_receipt, passes_before, possessions, sec, st
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else PROCESSED
 
-# Açık veride teknik direktörü boş gelen iki maç
+# Two matches whose manager field is empty in the open data
 COACH_FIX = {('2012-10-07', 'Barcelona'): 'Tito Vilanova', ('2013-03-02', 'Barcelona'): 'Tito Vilanova',
              ('2012-10-07', 'Real Madrid'): 'José Mourinho', ('2013-03-02', 'Real Madrid'): 'José Mourinho'}
-START_TR = {'Regular Play': 'Akan oyun', 'From Counter': 'Kontratak', 'From Free Kick': 'Serbest vuruş', 'From Corner': 'Korner',
-            'From Throw In': 'Taç', 'From Goal Kick': 'Aut atışı', 'From Keeper': 'Kaleciden', 'From Kick Off': 'Santra'}
-OUTCOME_TR = {'Goal': 'Gol', 'Saved': 'Kurtarış', 'Off T': 'Dışarı', 'Blocked': 'Blok', 'Post': 'Direk', 'Wayward': 'İsabetsiz',
-              'Saved Off Target': 'Kurtarış', 'Saved to Post': 'Kurtarış (direk)'}
+START = {'Regular Play': 'Open play', 'From Counter': 'Counter', 'From Free Kick': 'Free kick', 'From Corner': 'Corner',
+         'From Throw In': 'Throw-in', 'From Goal Kick': 'Goal kick', 'From Keeper': 'From keeper', 'From Kick Off': 'Kick-off'}
+OUTCOME = {'Goal': 'Goal', 'Saved': 'Saved', 'Off T': 'Off target', 'Blocked': 'Blocked', 'Post': 'Post', 'Wayward': 'Wayward',
+           'Saved Off Target': 'Saved', 'Saved to Post': 'Saved (post)'}
 SET_PIECES = ('From Corner', 'From Free Kick')
 
 
@@ -37,7 +37,7 @@ def manager(team):
 
 
 def match_rows(g, ev, shots_out):
-    """Bir maç için iki takımın metrik satırları; şutları shots_out listesine ekler."""
+    """Metric rows for both teams in one match; appends the shots to shots_out."""
     mid = g['match_id']
     h, a = g['home_team']['home_team_name'], g['away_team']['away_team_name']
     form = {e['team']['name']: str(e['tactics']['formation']) for e in ev if e['type']['name'] == 'Starting XI'}
@@ -45,15 +45,15 @@ def match_rows(g, ev, shots_out):
     goals = {h: g['home_score'], a: g['away_score']}
     label = f"{g['match_date']}  {h} {g['home_score']}-{g['away_score']} {a}"
     row = {t: dict(match_id=mid, date=g['match_date'], season=g['season'], match=label, team=t, opponent=OPP[t],
-                   venue='Ev' if t == h else 'Deplasman', goals_for=goals[t], goals_against=goals[OPP[t]],
+                   venue='Home' if t == h else 'Away', goals_for=goals[t], goals_against=goals[OPP[t]],
                    formation='-'.join(form[t]), coach=coach[t]) for t in OPP}
 
     seqs = possessions(ev)
     A = collections.defaultdict(lambda: collections.defaultdict(list))
     for i, q in enumerate(seqs):
         es = q['es']
-        # Şuta kadar pas: her şut listeye girer, metrik yalnızca atağın ilk şutunu kullanır
-        # (dönen toptan gelen ikinci şut aynı atağın paslarını ikinci kez saymasın diye).
+        # Passes before shot: every shot is listed, but the metric uses only the first shot of a possession
+        # (so a rebound does not count the same possession's passes twice).
         sh = [e for e in es if e['type']['name'] == 'Shot' and e['shot']['type']['name'] != 'Penalty']
         op = q['pp'] not in SET_PIECES
         for k, s0 in enumerate(sh):
@@ -66,7 +66,7 @@ def match_rows(g, ev, shots_out):
                                   player=s0['player']['name'], passes_before=n, seconds=dur, start=q['pp'], open_play=op,
                                   outcome=s0['shot']['outcome']['name'], xg=round(s0['shot']['statsbomb_xg'], 2),
                                   x=round(s0['location'][0], 1), y=round(s0['location'][1], 1), first_in_attack=1 if k == 0 else 0))
-        # Top kaybı: akan oyunda topun rakibe geçmesi. 15 sn içinde rakip şutu, 8 sn içinde geri kazanma.
+        # Turnover: the ball passing to the opponent in open play. Opponent shot within 15 s, regain within 8 s.
         if i > 0 and seqs[i - 1]['team'] != q['team'] and seqs[i - 1]['per'] == q['per'] and q['pp'] in ('Regular Play', 'From Counter'):
             W = q['team']
             L = OPP[W]
@@ -77,7 +77,7 @@ def match_rows(g, ev, shots_out):
                 A[L]['reg'].append(any(e['possession_team']['name'] == L and e['possession'] != q['p'] and sec(e) <= t0 + 8 for e in after))
                 A[L]['shot15'].append(any(e['type']['name'] == 'Shot' and e['team']['name'] == W for e in after))
 
-    # Sökülen top: rakip topu kontrol ettikten sonra elden çıkaramadan kaptırıyor. Baskı yapan takıma yazılır.
+    # Ball strip: the opponent controls the ball and loses it before releasing it. Credited to the pressing team.
     CT = collections.defaultdict(collections.Counter)
     for i, e in enumerate(ev):
         if not is_clean_receipt(e):
@@ -131,8 +131,8 @@ def main():
     for i, r in enumerate(S):
         r['shot_id'] = i + 1
         r['period'] = per[r['match_id']]
-        r['start'] = START_TR[r['start']]
-        r['outcome'] = OUTCOME_TR.get(r['outcome'], r['outcome'])
+        r['start'] = START[r['start']]
+        r['outcome'] = OUTCOME.get(r['outcome'], r['outcome'])
         r['open_play'] = 1 if r['open_play'] else 0
     os.makedirs(OUT, exist_ok=True)
     for name, rows in (('match_team', M), ('shots', S)):
@@ -141,7 +141,7 @@ def main():
             w.writeheader()
             w.writerows(rows)
         write_json(os.path.join(OUT, name + '.json'), rows)
-    print(f'build: {len(M)} maç-takım satırı, {len(S)} şut')
+    print(f'build: {len(M)} match-team rows, {len(S)} shots')
 
 
 if __name__ == '__main__':

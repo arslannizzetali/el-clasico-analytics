@@ -1,8 +1,8 @@
-"""Dashboard'un herkese açık, tek dosyalık statik sürümünü üretir: docs/index.html (GitHub Pages).
+"""Builds the public single-file version of the dashboard: docs/index.html (GitHub Pages).
 
-claude.ai'deki dashboard sayfası (dashboard/index.html) olduğu gibi kullanılır; onun beklediği küçük `dash`
-arayüzü (veri, hesaplama, çizim) burada tarayıcıda taklit edilir ve veri dosyaya gömülür. Böylece iki sürüm
-aynı kodu çalıştırır, sayılar ayrışmaz.
+The working dashboard page (dashboard/index.html) is used as is; the small `dash` API it expects (data,
+calculations, drawings) is provided here in the browser and the data is embedded in the file. Both versions
+therefore run the same code and their numbers cannot drift apart.
 
     python3 site/build_site.py
 """
@@ -62,7 +62,7 @@ SHIM = r"""
     onData(fn) { fn(); }, colors: [], params: () => ({}), setParams() {}, resetParams() {}, setLink() {}, refresh() {},
   };
   window.__dashAll = () => Object.keys(draws).forEach(runDraw);
-  // gizliden görünür olan bölümler (görünüm, takım, skor durumu değişince) yeniden çizilsin
+  // redraw sections that become visible (when the view, team or score state changes)
   const mo = new MutationObserver((list) => { if (list.some((m) => m.attributeName === 'hidden')) requestAnimationFrame(window.__dashAll); });
   window.addEventListener('DOMContentLoaded', () => mo.observe(document.getElementById('dash-root'), {attributes: true, subtree: true, attributeFilter: ['hidden']}));
   let w = 0;
@@ -70,19 +70,21 @@ SHIM = r"""
 })();
 """
 
-FOOT = """<footer class="site-foot">Veri: <a href="https://github.com/statsbomb/open-data">StatsBomb Open Data</a>.
-Bu sayfa, verinin işlendiği Python kodundan üretildi; her metrik ve tanım proje README'sinde.</footer>"""
+FOOT = """<footer class="site-foot">Data: <a href="https://github.com/statsbomb/open-data">StatsBomb Open Data</a>.
+Built from the project's Python pipeline; every metric is defined in the
+<a href="https://github.com/arslannizzetali/el-clasico-analytics">README</a>.</footer>"""
 
 
 def main():
     page = open(os.path.join(ROOT, 'dashboard', 'index.html'), encoding='utf-8').read()
     data = {'match_team': read_json(P('match_team.json')), 'shots': read_json(P('shots.json')),
-            'losses': read_rows(P('losses_ds.json')), 'game_state': read_rows(P('game_state.json'))}
+            'losses': read_rows(P('losses_ds.json')), 'game_state': read_rows(P('game_state.json')),
+            'uncertainty': read_rows(P('uncertainty.json'))}
     i = page.index('<script>')
-    html = ('<!doctype html><html lang="tr"><head><meta charset="utf-8">'
+    html = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>El Clásico taktik analizi, 2005-2021</title>'
-            '<meta name="description" content="29 Real Madrid - Barcelona maçında oyunun 16 yılda nasıl değiştiği: maç maç ve sahada. StatsBomb açık verisi.">'
+            '<title>El Clásico tactical analysis, 2005-2021</title>'
+            '<meta name="description" content="How El Clásico changed over 16 years, match by match and on the pitch: 29 Real Madrid - Barcelona La Liga games, StatsBomb open data.">'
             '<link rel="preconnect" href="https://fonts.googleapis.com">'
             '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">'
             f'<style>{TOKENS}</style>'
@@ -97,7 +99,7 @@ def main():
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, 'w', encoding='utf-8') as fh:
         fh.write(html)
-    print(f'docs/index.html yazıldı ({len(html) / 1e6:.1f} MB)')
+    print(f'docs/index.html written ({len(html) / 1e6:.1f} MB)')
 
 
 if __name__ == '__main__':
