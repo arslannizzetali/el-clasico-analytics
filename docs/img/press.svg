@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect width="720" height="380" rx="12" fill="#ffffff"/>
+<text x="24" y="36" font-size="19" font-weight="600" fill="#15171a">Barcelona's press faded, regardless of the score</text>
+<text x="24" y="60" font-size="13.5" fill="#5c6470">PPDA: opponent build-up passes per defensive action (higher = less pressure)</text>
+<line x1="56" x2="590" y1="316.0" y2="316.0" stroke="#e9ecef"/>
+<text x="46" y="320.0" font-size="12" fill="#5c6470" text-anchor="end">0</text>
+<line x1="56" x2="590" y1="263.7" y2="263.7" stroke="#e9ecef"/>
+<text x="46" y="267.7" font-size="12" fill="#5c6470" text-anchor="end">5</text>
+<line x1="56" x2="590" y1="211.5" y2="211.5" stroke="#e9ecef"/>
+<text x="46" y="215.5" font-size="12" fill="#5c6470" text-anchor="end">10</text>
+<line x1="56" x2="590" y1="159.2" y2="159.2" stroke="#e9ecef"/>
+<text x="46" y="163.2" font-size="12" fill="#5c6470" text-anchor="end">15</text>
+<line x1="56" x2="590" y1="106.9" y2="106.9" stroke="#e9ecef"/>
+<text x="46" y="110.9" font-size="12" fill="#5c6470" text-anchor="end">20</text>
+<text x="56.0" y="340" font-size="12.5" fill="#5c6470" text-anchor="middle">2005-09</text>
+<text x="227.3" y="340" font-size="12.5" fill="#5c6470" text-anchor="middle">2009-13</text>
+<text x="398.7" y="340" font-size="12.5" fill="#5c6470" text-anchor="middle">2013-17</text>
+<text x="570.0" y="340" font-size="12.5" fill="#5c6470" text-anchor="middle">2017-21</text>
+<polyline points="56.0,224.7 227.3,228.1 398.7,192.5 570.0,108.4" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="56.0" cy="224.7" r="5.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="56.0" y="245.7" font-size="12.5" font-weight="600" fill="#2563eb" text-anchor="middle">8.7</text>
+<circle cx="227.3" cy="228.1" r="5.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="227.3" y="249.1" font-size="12.5" font-weight="600" fill="#2563eb" text-anchor="middle">8.4</text>
+<circle cx="398.7" cy="192.5" r="5.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="398.7" y="213.5" font-size="12.5" font-weight="600" fill="#2563eb" text-anchor="middle">11.8</text>
+<circle cx="570.0" cy="108.4" r="5.5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="570.0" y="96.4" font-size="12.5" font-weight="600" fill="#2563eb" text-anchor="middle">19.9</text>
+<polyline points="56.0,211.3 227.3,216.6 398.7,190.3 570.0,129.1" fill="none" stroke="#8b929c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="56.0" cy="211.3" r="4.5" fill="#8b929c" stroke="#ffffff" stroke-width="2"/>
+<text x="56.0" y="199.3" font-size="12.5" font-weight="600" fill="#8b929c" text-anchor="middle">10.0</text>
+<circle cx="227.3" cy="216.6" r="4.5" fill="#8b929c" stroke="#ffffff" stroke-width="2"/>
+<text x="227.3" y="204.6" font-size="12.5" font-weight="600" fill="#8b929c" text-anchor="middle">9.5</text>
+<circle cx="398.7" cy="190.3" r="4.5" fill="#8b929c" stroke="#ffffff" stroke-width="2"/>
+<text x="398.7" y="178.3" font-size="12.5" font-weight="600" fill="#8b929c" text-anchor="middle">12.0</text>
+<circle cx="570.0" cy="129.1" r="4.5" fill="#8b929c" stroke="#ffffff" stroke-width="2"/>
+<text x="570.0" y="150.1" font-size="12.5" font-weight="600" fill="#8b929c" text-anchor="middle">17.9</text>
+<text x="586.0" y="112.4" font-size="13" font-weight="600" fill="#2563eb">Score level</text>
+<text x="586.0" y="133.1" font-size="13" font-weight="600" fill="#8b929c">All minutes</text>
+<text x="24" y="370" font-size="11.5" fill="#5c6470">In 2017-21 Barcelona led for only 20% of the minutes, so sitting on a lead does not explain the rise.</text>
+</svg>

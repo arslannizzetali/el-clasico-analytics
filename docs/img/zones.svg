@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 346" width="720" height="346" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect width="720" height="346" rx="12" fill="#ffffff"/>
+<text x="24" y="36" font-size="19" font-weight="600" fill="#15171a">Where losing the ball costs a shot</text>
+<text x="24" y="60" font-size="13.5" fill="#5c6470">Share of balls lost after a controlled touch that end in an opponent shot within 20 s, by zone</text>
+<text x="24" y="86" font-size="14" font-weight="600" fill="#15171a">Barcelona</text>
+<text x="324" y="86" font-size="11.5" fill="#5c6470" text-anchor="end">attacking →</text>
+<rect x="24.0" y="96.0" width="100.0" height="66.7" fill="#eceef1" stroke="#ffffff" stroke-width="2"/>
+<text x="74.0" y="131.3" font-size="17" font-weight="600" fill="#5c6470" text-anchor="middle">15%</text>
+<text x="74.0" y="148.3" font-size="11" fill="#5c6470" text-anchor="middle">2/13</text>
+<rect x="24.0" y="162.7" width="100.0" height="66.7" fill="#eceef1" stroke="#ffffff" stroke-width="2"/>
+<text x="74.0" y="198.0" font-size="17" font-weight="600" fill="#5c6470" text-anchor="middle">20%</text>
+<text x="74.0" y="215.0" font-size="11" fill="#5c6470" text-anchor="middle">1/5</text>
+<rect x="24.0" y="229.3" width="100.0" height="66.7" fill="#eceef1" stroke="#ffffff" stroke-width="2"/>
+<text x="74.0" y="264.7" font-size="17" font-weight="600" fill="#5c6470" text-anchor="middle">18%</text>
+<text x="74.0" y="281.7" font-size="11" fill="#5c6470" text-anchor="middle">3/17</text>
+<rect x="124.0" y="96.0" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.34" stroke="#ffffff" stroke-width="2"/>
+<text x="174.0" y="131.3" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">5%</text>
+<text x="174.0" y="148.3" font-size="11" fill="#15171a" text-anchor="middle">6/114</text>
+<rect x="124.0" y="162.7" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.73" stroke="#ffffff" stroke-width="2"/>
+<text x="174.0" y="198.0" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">12%</text>
+<text x="174.0" y="215.0" font-size="11" fill="#ffffff" text-anchor="middle">12/96</text>
+<rect x="124.0" y="229.3" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.35" stroke="#ffffff" stroke-width="2"/>
+<text x="174.0" y="264.7" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">6%</text>
+<text x="174.0" y="281.7" font-size="11" fill="#15171a" text-anchor="middle">6/109</text>
+<rect x="224.0" y="96.0" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.25" stroke="#ffffff" stroke-width="2"/>
+<text x="274.0" y="131.3" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">4%</text>
+<text x="274.0" y="148.3" font-size="11" fill="#15171a" text-anchor="middle">5/137</text>
+<rect x="224.0" y="162.7" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.14" stroke="#ffffff" stroke-width="2"/>
+<text x="274.0" y="198.0" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">1%</text>
+<text x="274.0" y="215.0" font-size="11" fill="#15171a" text-anchor="middle">2/139</text>
+<rect x="224.0" y="229.3" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.25" stroke="#ffffff" stroke-width="2"/>
+<text x="274.0" y="264.7" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">4%</text>
+<text x="274.0" y="281.7" font-size="11" fill="#15171a" text-anchor="middle">4/114</text>
+<rect x="24" y="96" width="300" height="200" fill="none" stroke="#8b929c" stroke-width="1.2"/>
+<text x="396" y="86" font-size="14" font-weight="600" fill="#15171a">Real Madrid</text>
+<text x="696" y="86" font-size="11.5" fill="#5c6470" text-anchor="end">attacking →</text>
+<rect x="396.0" y="96.0" width="100.0" height="66.7" fill="#eceef1" stroke="#ffffff" stroke-width="2"/>
+<text x="446.0" y="131.3" font-size="17" font-weight="600" fill="#5c6470" text-anchor="middle">0%</text>
+<text x="446.0" y="148.3" font-size="11" fill="#5c6470" text-anchor="middle">0/16</text>
+<rect x="396.0" y="162.7" width="100.0" height="66.7" fill="#eceef1" stroke="#ffffff" stroke-width="2"/>
+<text x="446.0" y="198.0" font-size="17" font-weight="600" fill="#5c6470" text-anchor="middle">15%</text>
+<text x="446.0" y="215.0" font-size="11" fill="#5c6470" text-anchor="middle">2/13</text>
+<rect x="396.0" y="229.3" width="100.0" height="66.7" fill="#eceef1" stroke="#ffffff" stroke-width="2"/>
+<text x="446.0" y="264.7" font-size="17" font-weight="600" fill="#5c6470" text-anchor="middle">13%</text>
+<text x="446.0" y="281.7" font-size="11" fill="#5c6470" text-anchor="middle">2/15</text>
+<rect x="496.0" y="96.0" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.51" stroke="#ffffff" stroke-width="2"/>
+<text x="546.0" y="131.3" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">8%</text>
+<text x="546.0" y="148.3" font-size="11" fill="#ffffff" text-anchor="middle">10/119</text>
+<rect x="496.0" y="162.7" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.40" stroke="#ffffff" stroke-width="2"/>
+<text x="546.0" y="198.0" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">6%</text>
+<text x="546.0" y="215.0" font-size="11" fill="#15171a" text-anchor="middle">6/93</text>
+<rect x="496.0" y="229.3" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.42" stroke="#ffffff" stroke-width="2"/>
+<text x="546.0" y="264.7" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">7%</text>
+<text x="546.0" y="281.7" font-size="11" fill="#15171a" text-anchor="middle">7/104</text>
+<rect x="596.0" y="96.0" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.21" stroke="#ffffff" stroke-width="2"/>
+<text x="646.0" y="131.3" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">3%</text>
+<text x="646.0" y="148.3" font-size="11" fill="#15171a" text-anchor="middle">4/139</text>
+<rect x="596.0" y="162.7" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.29" stroke="#ffffff" stroke-width="2"/>
+<text x="646.0" y="198.0" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">4%</text>
+<text x="646.0" y="215.0" font-size="11" fill="#15171a" text-anchor="middle">4/92</text>
+<rect x="596.0" y="229.3" width="100.0" height="66.7" fill="#2563eb" fill-opacity="0.26" stroke="#ffffff" stroke-width="2"/>
+<text x="646.0" y="264.7" font-size="17" font-weight="600" fill="#15171a" text-anchor="middle">4%</text>
+<text x="646.0" y="281.7" font-size="11" fill="#15171a" text-anchor="middle">4/105</text>
+<rect x="396" y="96" width="300" height="200" fill="none" stroke="#8b929c" stroke-width="1.2"/>
+<text x="24" y="318" font-size="11.5" fill="#5c6470">29 La Liga Clásicos, 2005-2021 · StatsBomb Open Data. 9 equal zones, seen from the team losing the ball.</text>
+<text x="24" y="334" font-size="11.5" fill="#5c6470">Grey: fewer than 20 losses in the zone, too few to read as a rate.</text>
+</svg>
