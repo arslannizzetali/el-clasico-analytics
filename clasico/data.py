@@ -6,7 +6,11 @@ import urllib.request
 
 from . import RAW
 
-BASE = 'https://raw.githubusercontent.com/statsbomb/open-data/master/data/'
+# The open data are read from one fixed commit of github.com/statsbomb/open-data, not from master, so a later
+# correction by StatsBomb cannot silently change the outputs. To update: set this to a newer commit, delete
+# data/raw, run pipeline.py and commit the regenerated data/processed (the CI cache key follows this value).
+STATSBOMB_SHA = '4b73468fc5b0f1950f9f66fada70ad3a4f9327cb'   # master on 2026-09-07
+BASE = f'https://raw.githubusercontent.com/statsbomb/open-data/{STATSBOMB_SHA}/data/'
 LA_LIGA = 11
 FIRST_SEASON = '2005'
 

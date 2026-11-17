@@ -8,7 +8,9 @@ individual events, matches and pitch locations, and every claim comes with how s
 
 **[Open the interactive dashboard →](https://arslannizzetali.github.io/el-clasico-analytics/)**
 
-Data: [StatsBomb Open Data](https://github.com/statsbomb/open-data). These matches are in the open data because
+Data: [StatsBomb Open Data](https://github.com/statsbomb/open-data), read from the fixed commit
+[`4b73468`](https://github.com/statsbomb/open-data/tree/4b73468fc5b0f1950f9f66fada70ad3a4f9327cb) (master on
+2026-09-07; see [Data version](#data-version)). These matches are in the open data because
 StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Barcelona's league Clásicos.
 
 **Scope.** Every number comes from these 29 matches only. A finding such as "Barcelona pressed less" means *less
@@ -184,6 +186,18 @@ splits summing to match totals, loss and strip tables lining up row by row, inte
 
 CI runs on every push: the tests; a check that the site and charts are up to date with the data; and a full rebuild
 from raw StatsBomb data that must reproduce every committed output byte for byte (the bootstrap uses a fixed seed).
+
+## Data version
+
+The raw files are downloaded from one pinned commit of `statsbomb/open-data`, set once as `STATSBOMB_SHA` in
+[`clasico/data.py`](clasico/data.py). Reading from `master` would let any later correction by StatsBomb change the
+outputs and break CI's byte-for-byte rebuild without a change in this repository. To move to newer data:
+
+1. Set `STATSBOMB_SHA` to the new commit (`git ls-remote https://github.com/statsbomb/open-data refs/heads/master`).
+2. Delete `data/raw` and run `python3 pipeline.py`, then `site/build_site.py` and `site/readme_charts.py`.
+3. Review the changed numbers, update the README text where they moved, and commit `data/processed` and `docs/`.
+
+CI's raw-data cache key contains the SHA, so the new commit is downloaded fresh.
 
 ## Credits
 
