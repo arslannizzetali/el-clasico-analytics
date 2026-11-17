@@ -20,18 +20,21 @@ HEADER = ['match', 'minute', 'losing_team', 'player', 'loss_kind', 'zone', 'resu
 
 
 def main():
-    L = read_rows(os.path.join(OUT, 'losses_ds.json'))
-    S = read_json(os.path.join(OUT, 'strips.json'))
-    assert len(L) == len(S), f'row counts differ: losses {len(L)}, strips {len(S)}'
-    for l, s in zip(L, S):
-        assert (l['match'], l['team'], l['player'], l['kind']) == (s['match'], s['losing_team'], s['player'], s['loss_kind']), f"order broken at loss_id {l['loss_id']}"
+    losses = read_rows(os.path.join(OUT, 'losses_ds.json'))
+    strips = read_json(os.path.join(OUT, 'strips.json'))
+    assert len(losses) == len(strips), f'row counts differ: losses {len(losses)}, strips {len(strips)}'
+    for loss, strip in zip(losses, strips):
+        same = ((loss['match'], loss['team'], loss['player'], loss['kind'])
+                == (strip['match'], strip['losing_team'], strip['player'], strip['loss_kind']))
+        assert same, f"order broken at loss_id {loss['loss_id']}"
     with open(os.path.join(OUT, 'loss_table.csv'), 'w', newline='') as fh:
-        w = csv.writer(fh)
-        w.writerow(HEADER)
-        for l, s in zip(L, S):
-            w.writerow([l['match'], l['minute'], l['team'], l['player'], l['kind'], zone(l['x'], l['y']), l['result'], l['xg'],
-                        s['pressers'], l['period'], l['x'], l['y']])
-    print(f'loss_table: {len(L)} rows')
+        writer = csv.writer(fh)
+        writer.writerow(HEADER)
+        for loss, strip in zip(losses, strips):
+            writer.writerow([loss['match'], loss['minute'], loss['team'], loss['player'], loss['kind'],
+                             zone(loss['x'], loss['y']), loss['result'], loss['xg'],
+                             strip['pressers'], loss['period'], loss['x'], loss['y']])
+    print(f'loss_table: {len(losses)} rows')
 
 
 if __name__ == '__main__':

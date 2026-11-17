@@ -17,131 +17,227 @@ from clasico.events import is_clean_receipt, passes_before, possessions, sec, st
 OUT = sys.argv[1] if len(sys.argv) > 1 else PROCESSED
 
 # Two matches whose manager field is empty in the open data
-COACH_FIX = {('2012-10-07', 'Barcelona'): 'Tito Vilanova', ('2013-03-02', 'Barcelona'): 'Tito Vilanova',
-             ('2012-10-07', 'Real Madrid'): 'José Mourinho', ('2013-03-02', 'Real Madrid'): 'José Mourinho'}
-START = {'Regular Play': 'Open play', 'From Counter': 'Counter', 'From Free Kick': 'Free kick', 'From Corner': 'Corner',
-         'From Throw In': 'Throw-in', 'From Goal Kick': 'Goal kick', 'From Keeper': 'From keeper', 'From Kick Off': 'Kick-off'}
-OUTCOME = {'Goal': 'Goal', 'Saved': 'Saved', 'Off T': 'Off target', 'Blocked': 'Blocked', 'Post': 'Post', 'Wayward': 'Wayward',
-           'Saved Off Target': 'Saved', 'Saved to Post': 'Saved (post)'}
+COACH_FIX = {
+    ('2012-10-07', 'Barcelona'): 'Tito Vilanova',
+    ('2013-03-02', 'Barcelona'): 'Tito Vilanova',
+    ('2012-10-07', 'Real Madrid'): 'José Mourinho',
+    ('2013-03-02', 'Real Madrid'): 'José Mourinho',
+}
+START = {
+    'Regular Play': 'Open play', 'From Counter': 'Counter', 'From Free Kick': 'Free kick',
+    'From Corner': 'Corner', 'From Throw In': 'Throw-in', 'From Goal Kick': 'Goal kick',
+    'From Keeper': 'From keeper', 'From Kick Off': 'Kick-off',
+}
+OUTCOME = {
+    'Goal': 'Goal', 'Saved': 'Saved', 'Off T': 'Off target', 'Blocked': 'Blocked', 'Post': 'Post',
+    'Wayward': 'Wayward', 'Saved Off Target': 'Saved', 'Saved to Post': 'Saved (post)',
+}
 SET_PIECES = ('From Corner', 'From Free Kick')
+OPEN_PLAY_STARTS = ('Regular Play', 'From Counter')
+QUICK_SHOT_WINDOW = 15   # seconds after a turnover in which an opponent shot counts
+REGAIN_WINDOW = 8        # seconds after a turnover in which winning the ball back counts
+PRESS_WIN_WINDOW = 5     # seconds after a pressure in which the pressing team must have the ball
+BUILDUP_MAX_X = 72       # opponent passes at or behind this x are build-up passes (PPDA numerator)
+DEF_ACTION_MIN_X = 48    # defensive actions at or beyond this x count (PPDA denominator)
 
 
 def era(season):
-    y = int(season[:4])
-    return '2005-09' if y < 2009 else '2009-13' if y < 2013 else '2013-17' if y < 2017 else '2017-21'
+    year = int(season[:4])
+    if year < 2009:
+        return '2005-09'
+    if year < 2013:
+        return '2009-13'
+    if year < 2017:
+        return '2013-17'
+    return '2017-21'
 
 
 def manager(team):
-    m = team.get('managers') or []
-    return m[0].get('nickname') or m[0]['name'] if m else ''
+    managers = team.get('managers') or []
+    return managers[0].get('nickname') or managers[0]['name'] if managers else ''
 
 
-def match_rows(g, ev, shots_out):
-    """Metric rows for both teams in one match; appends the shots to shots_out."""
-    mid = g['match_id']
-    h, a = g['home_team']['home_team_name'], g['away_team']['away_team_name']
-    form = {e['team']['name']: str(e['tactics']['formation']) for e in ev if e['type']['name'] == 'Starting XI'}
-    coach = {h: manager(g['home_team']), a: manager(g['away_team'])}
-    goals = {h: g['home_score'], a: g['away_score']}
-    label = f"{g['match_date']}  {h} {g['home_score']}-{g['away_score']} {a}"
-    row = {t: dict(match_id=mid, date=g['match_date'], season=g['season'], match=label, team=t, opponent=OPP[t],
-                   venue='Home' if t == h else 'Away', goals_for=goals[t], goals_against=goals[OPP[t]],
-                   formation='-'.join(form[t]), coach=coach[t]) for t in OPP}
+def is_open_play_shot_event(e):
+    return e['type']['name'] == 'Shot' and e['shot']['type']['name'] != 'Penalty'
 
-    seqs = possessions(ev)
-    A = collections.defaultdict(lambda: collections.defaultdict(list))
-    for i, q in enumerate(seqs):
-        es = q['es']
-        # Passes before shot: every shot is listed, but the metric uses only the first shot of a possession
-        # (so a rebound does not count the same possession's passes twice).
-        sh = [e for e in es if e['type']['name'] == 'Shot' and e['shot']['type']['name'] != 'Penalty']
-        op = q['pp'] not in SET_PIECES
-        for k, s0 in enumerate(sh):
-            t = s0['team']['name']
-            n = passes_before(es, s0)
-            dur = round(sec(s0) - sec(es[0]), 1)
-            if op and k == 0:
-                A[t]['np'].append(n)
-            shots_out.append(dict(match_id=mid, match=label, date=g['match_date'], minute=s0['minute'], team=t,
-                                  player=s0['player']['name'], passes_before=n, seconds=dur, start=q['pp'], open_play=op,
-                                  outcome=s0['shot']['outcome']['name'], xg=round(s0['shot']['statsbomb_xg'], 2),
-                                  x=round(s0['location'][0], 1), y=round(s0['location'][1], 1), first_in_attack=1 if k == 0 else 0))
-        # Turnover: the ball passing to the opponent in open play. Opponent shot within 15 s, regain within 8 s.
-        if i > 0 and seqs[i - 1]['team'] != q['team'] and seqs[i - 1]['per'] == q['per'] and q['pp'] in ('Regular Play', 'From Counter'):
-            W = q['team']
-            L = OPP[W]
-            if next((e for e in es if 'location' in e and e['team']['name'] == W), None):
-                t0 = sec(es[0])
-                after = [e for e in ev if e['period'] == q['per'] and t0 <= sec(e) <= t0 + 15 and e['index'] >= es[0]['index']]
-                A[L]['loss'].append(1)
-                A[L]['reg'].append(any(e['possession_team']['name'] == L and e['possession'] != q['p'] and sec(e) <= t0 + 8 for e in after))
-                A[L]['shot15'].append(any(e['type']['name'] == 'Shot' and e['team']['name'] == W for e in after))
 
-    # Ball strip: the opponent controls the ball and loses it before releasing it. Credited to the pressing team.
-    CT = collections.defaultdict(collections.Counter)
+def base_rows(match, ev):
+    """The identifying fields of both team rows, keyed by team."""
+    home = match['home_team']['home_team_name']
+    away = match['away_team']['away_team_name']
+    formation = {e['team']['name']: str(e['tactics']['formation']) for e in ev if e['type']['name'] == 'Starting XI'}
+    coach = {home: manager(match['home_team']), away: manager(match['away_team'])}
+    goals = {home: match['home_score'], away: match['away_score']}
+    label = f"{match['match_date']}  {home} {match['home_score']}-{match['away_score']} {away}"
+    rows = {}
+    for team in OPP:
+        rows[team] = dict(
+            match_id=match['match_id'], date=match['match_date'], season=match['season'], match=label,
+            team=team, opponent=OPP[team], venue='Home' if team == home else 'Away',
+            goals_for=goals[team], goals_against=goals[OPP[team]],
+            formation='-'.join(formation[team]), coach=coach[team])
+    return rows, label
+
+
+def shot_metrics(match, label, seqs, shots_out):
+    """Passes before each open-play shot, per team; appends every non-penalty shot to shots_out.
+
+    Every shot is listed, but the metric uses only the first shot of a possession
+    (so a rebound does not count the same possession's passes twice)."""
+    passes_per_shot = collections.defaultdict(list)
+    for seq in seqs:
+        events = seq['es']
+        shots = [e for e in events if is_open_play_shot_event(e)]
+        open_play = seq['pp'] not in SET_PIECES
+        for k, shot in enumerate(shots):
+            team = shot['team']['name']
+            n_passes = passes_before(events, shot)
+            duration = round(sec(shot) - sec(events[0]), 1)
+            if open_play and k == 0:
+                passes_per_shot[team].append(n_passes)
+            shots_out.append(dict(
+                match_id=match['match_id'], match=label, date=match['match_date'], minute=shot['minute'],
+                team=team, player=shot['player']['name'], passes_before=n_passes, seconds=duration,
+                start=seq['pp'], open_play=open_play, outcome=shot['shot']['outcome']['name'],
+                xg=round(shot['shot']['statsbomb_xg'], 2),
+                x=round(shot['location'][0], 1), y=round(shot['location'][1], 1),
+                first_in_attack=1 if k == 0 else 0))
+    return passes_per_shot
+
+
+def turnover_metrics(ev, seqs):
+    """Turnover: the ball passing to the opponent in open play. For the team that lost it:
+    one entry per turnover, whether it won the ball back within 8 s, whether the opponent shot within 15 s."""
+    turnovers = collections.defaultdict(lambda: collections.defaultdict(list))
+    for i, seq in enumerate(seqs):
+        if i == 0:
+            continue
+        previous = seqs[i - 1]
+        if previous['team'] == seq['team'] or previous['per'] != seq['per'] or seq['pp'] not in OPEN_PLAY_STARTS:
+            continue
+        events = seq['es']
+        winner = seq['team']
+        loser = OPP[winner]
+        if not any('location' in e and e['team']['name'] == winner for e in events):
+            continue
+        t0 = sec(events[0])
+        after = [e for e in ev if e['period'] == seq['per'] and t0 <= sec(e) <= t0 + QUICK_SHOT_WINDOW
+                 and e['index'] >= events[0]['index']]
+        lost = turnovers[loser]
+        lost['loss'].append(1)
+        lost['reg'].append(any(e['possession_team']['name'] == loser and e['possession'] != seq['p']
+                               and sec(e) <= t0 + REGAIN_WINDOW for e in after))
+        lost['shot15'].append(any(e['type']['name'] == 'Shot' and e['team']['name'] == winner for e in after))
+    return turnovers
+
+
+def strip_metrics(ev):
+    """Ball strip: the opponent controls the ball and loses it before releasing it. Credited to the pressing team."""
+    strips = collections.defaultdict(collections.Counter)
     for i, e in enumerate(ev):
         if not is_clean_receipt(e):
             continue
-        c = CT[OPP[e['team']['name']]]
-        c['ctrl'] += 1
+        counts = strips[OPP[e['team']['name']]]
+        counts['ctrl'] += 1
         if strip_after(ev, i) is not None:
-            c['lost'] += 1
+            counts['lost'] += 1
             x0 = e['location'][0]
-            c['z_att' if x0 < 40 else 'z_mid' if x0 < 80 else 'z_def'] += 1
+            counts['z_att' if x0 < 40 else 'z_mid' if x0 < 80 else 'z_def'] += 1
+    return strips
 
-    ts = [(e['period'], sec(e), e['possession_team']['name']) for e in ev]
+
+def is_defensive_action(e):
+    name = e['type']['name']
+    return name in ('Interception', 'Foul Committed') or (name == 'Duel' and e['duel']['type']['name'] == 'Tackle')
+
+
+def press_metrics(ev, team, possession_times):
+    """Pressures, press success within 5 s and PPDA for one team."""
+    opponent = OPP[team]
+    pressures = [e for e in ev if e['type']['name'] == 'Pressure' and e['team']['name'] == team]
+    opp_passes = [e for e in ev if e['type']['name'] == 'Pass' and e['team']['name'] == opponent]
+    def_actions = [e for e in ev if e['team']['name'] == team and 'location' in e
+                   and e['location'][0] >= DEF_ACTION_MIN_X and is_defensive_action(e)]
+    won = sum(1 for e in pressures
+              if any(period == e['period'] and sec(e) < t <= sec(e) + PRESS_WIN_WINDOW and owner == team
+                     for period, t, owner in possession_times))
+    buildup = sum(1 for e in opp_passes if e['location'][0] <= BUILDUP_MAX_X)
+    return dict(
+        pressures=len(pressures), opp_passes=len(opp_passes), pressures_won_5s=won,
+        press_success_pct=round(100 * won / len(pressures), 1),
+        opp_buildup_passes=buildup, def_actions=len(def_actions),
+        ppda=round(buildup / max(1, len(def_actions)), 1))
+
+
+def match_rows(match, ev, shots_out):
+    """Metric rows for both teams in one match; appends the shots to shots_out."""
+    rows, label = base_rows(match, ev)
+    seqs = possessions(ev)
+    passes_per_shot = shot_metrics(match, label, seqs, shots_out)
+    turnovers = turnover_metrics(ev, seqs)
+    strips = strip_metrics(ev)
+    possession_times = [(e['period'], sec(e), e['possession_team']['name']) for e in ev]
     out = []
-    for T in OPP:
-        r, Opp = row[T], OPP[T]
-        pr = [e for e in ev if e['type']['name'] == 'Pressure' and e['team']['name'] == T]
-        opass = [e for e in ev if e['type']['name'] == 'Pass' and e['team']['name'] == Opp]
-        da = [e for e in ev if e['team']['name'] == T and 'location' in e and e['location'][0] >= 48 and (
-            e['type']['name'] in ('Interception', 'Foul Committed') or (e['type']['name'] == 'Duel' and e['duel']['type']['name'] == 'Tackle'))]
-        ok = sum(1 for e in pr if any(p == e['period'] and sec(e) < tt <= sec(e) + 5 and pt == T for p, tt, pt in ts))
-        buildup = sum(1 for e in opass if e['location'][0] <= 72)
-        np_ = A[T]['np']
-        r.update(passes=sum(1 for e in ev if e['type']['name'] == 'Pass' and e['team']['name'] == T),
-                 open_play_shots=len(np_), passes_before_shot_sum=sum(np_),
-                 passes_per_shot=round(st.mean(np_), 1) if np_ else None,
-                 direct_shots=sum(v <= 2 for v in np_), long_shots=sum(v >= 8 for v in np_),
-                 turnovers=len(A[T]['loss']), conceded_shot_15s=sum(A[T]['shot15']), regained_8s=sum(A[T]['reg']),
-                 pressures=len(pr), opp_passes=len(opass), pressures_won_5s=ok,
-                 press_success_pct=round(100 * ok / len(pr), 1),
-                 opp_buildup_passes=buildup, def_actions=len(da),
-                 ppda=round(buildup / max(1, len(da)), 1),
-                 opp_controls=CT[T]['ctrl'], balls_stripped=CT[T]['lost'], stripped_per100=round(100 * CT[T]['lost'] / CT[T]['ctrl'], 1),
-                 stripped_att_third=CT[T]['z_att'], stripped_mid_third=CT[T]['z_mid'], stripped_def_third=CT[T]['z_def'])
-        out.append(r)
+    for team in OPP:
+        row = rows[team]
+        shot_passes = passes_per_shot[team]
+        lost = turnovers[team]
+        stripped = strips[team]
+        press = press_metrics(ev, team, possession_times)
+        row.update(
+            passes=sum(1 for e in ev if e['type']['name'] == 'Pass' and e['team']['name'] == team),
+            open_play_shots=len(shot_passes), passes_before_shot_sum=sum(shot_passes),
+            passes_per_shot=round(st.mean(shot_passes), 1) if shot_passes else None,
+            direct_shots=sum(v <= 2 for v in shot_passes), long_shots=sum(v >= 8 for v in shot_passes),
+            turnovers=len(lost['loss']), conceded_shot_15s=sum(lost['shot15']), regained_8s=sum(lost['reg']),
+            **press,
+            opp_controls=stripped['ctrl'], balls_stripped=stripped['lost'],
+            stripped_per100=round(100 * stripped['lost'] / stripped['ctrl'], 1),
+            stripped_att_third=stripped['z_att'], stripped_mid_third=stripped['z_mid'],
+            stripped_def_third=stripped['z_def'])
+        out.append(row)
     return out
 
 
+def finish_match_rows(match_team, period_of):
+    for row in match_team:
+        row['period'] = period_of[row['match_id']]
+        if not row['coach']:
+            row['coach'] = COACH_FIX[(row['date'], row['team'])]
+        row['conceded_shot_15s_pct'] = round(100 * row['conceded_shot_15s'] / row['turnovers'], 1)
+        row['regained_8s_pct'] = round(100 * row['regained_8s'] / row['turnovers'], 1)
+        row['key'] = f"{row['match_id']}|{row['team']}"
+
+
+def finish_shots(shots, period_of):
+    shots.sort(key=lambda r: (r['date'], r['minute']))
+    for i, shot in enumerate(shots):
+        shot['shot_id'] = i + 1
+        shot['period'] = period_of[shot['match_id']]
+        shot['start'] = START[shot['start']]
+        shot['outcome'] = OUTCOME.get(shot['outcome'], shot['outcome'])
+        shot['open_play'] = 1 if shot['open_play'] else 0
+
+
+def write_table(name, rows):
+    with open(os.path.join(OUT, name + '.csv'), 'w', newline='') as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+    write_json(os.path.join(OUT, name + '.json'), rows)
+
+
 def main():
-    M, S = [], []
-    for g in data.clasico_matches():
-        M.extend(match_rows(g, data.events(g['match_id']), S))
-    per = {m['match_id']: era(m['season']) for m in M}
-    for m in M:
-        m['period'] = per[m['match_id']]
-        if not m['coach']:
-            m['coach'] = COACH_FIX[(m['date'], m['team'])]
-        m['conceded_shot_15s_pct'] = round(100 * m['conceded_shot_15s'] / m['turnovers'], 1)
-        m['regained_8s_pct'] = round(100 * m['regained_8s'] / m['turnovers'], 1)
-        m['key'] = f"{m['match_id']}|{m['team']}"
-    S.sort(key=lambda r: (r['date'], r['minute']))
-    for i, r in enumerate(S):
-        r['shot_id'] = i + 1
-        r['period'] = per[r['match_id']]
-        r['start'] = START[r['start']]
-        r['outcome'] = OUTCOME.get(r['outcome'], r['outcome'])
-        r['open_play'] = 1 if r['open_play'] else 0
+    match_team, shots = [], []
+    for match in data.clasico_matches():
+        match_team.extend(match_rows(match, data.events(match['match_id']), shots))
+    period_of = {row['match_id']: era(row['season']) for row in match_team}
+    finish_match_rows(match_team, period_of)
+    finish_shots(shots, period_of)
     os.makedirs(OUT, exist_ok=True)
-    for name, rows in (('match_team', M), ('shots', S)):
-        with open(os.path.join(OUT, name + '.csv'), 'w', newline='') as fh:
-            w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
-            w.writeheader()
-            w.writerows(rows)
-        write_json(os.path.join(OUT, name + '.json'), rows)
-    print(f'build: {len(M)} match-team rows, {len(S)} shots')
+    write_table('match_team', match_team)
+    write_table('shots', shots)
+    print(f'build: {len(match_team)} match-team rows, {len(shots)} shots')
 
 
 if __name__ == '__main__':

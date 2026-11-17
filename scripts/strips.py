@@ -20,15 +20,15 @@ PRESS_RADIUS = 12   # StatsBomb units, ~11 m
 LINKED = ('Duel', 'Pressure', 'Interception', 'Foul Committed')
 
 
-def pressers(ev_by_id, press, e, L):
+def pressers(ev_by_id, press, e, loss):
     """Ids of the distinct opponents who went to the ball."""
-    D = OPP[e['team']['name']]
-    t0, t1 = sec(e), sec(L)
+    defending = OPP[e['team']['name']]
+    t0, t1 = sec(e), sec(loss)
     x, y = e['location'][:2]
-    lx, ly = L['location'][:2]
+    lx, ly = loss['location'][:2]
     who = set()
     for p in press:
-        if p['period'] != e['period'] or p['team']['name'] != D:
+        if p['period'] != e['period'] or p['team']['name'] != defending:
             continue
         ps = sec(p)
         pe = ps + p.get('duration', 0)
@@ -36,10 +36,11 @@ def pressers(ev_by_id, press, e, L):
             px, py = 120 - p['location'][0], 80 - p['location'][1]   # flip the opponent's coordinates
             if min(math.hypot(px - x, py - y), math.hypot(px - lx, py - ly)) <= PRESS_RADIUS:
                 who.add(p['player']['id'])
-    for rid in L.get('related_events', []):
-        r = ev_by_id.get(rid)
-        if r and r['team']['name'] == D and r['type']['name'] in LINKED and 'player' in r:
-            who.add(r['player']['id'])
+    for rid in loss.get('related_events', []):
+        related = ev_by_id.get(rid)
+        if (related and related['team']['name'] == defending and related['type']['name'] in LINKED
+                and 'player' in related):
+            who.add(related['player']['id'])
     return who
 
 
@@ -50,25 +51,28 @@ def match_strips(label, period, ev):
     for i, e in enumerate(ev):
         if not is_clean_receipt(e):
             continue
-        L = strip_after(ev, i)
-        if L is None:
+        loss = strip_after(ev, i)
+        if loss is None:
             continue
-        TA = e['team']['name']
-        lx, ly = L['location'][:2]
-        rows.append(dict(match=label, period=period, minute=e['minute'], pressing_team=OPP[TA], losing_team=TA,
-                         player=e['player']['name'], loss_kind=LOSS_KIND[L['type']['name']],
-                         pressers=len(pressers(by_id, press, e, L)), zone=zone(lx, ly), x=round(lx, 1), y=round(ly, 1)))
+        losing_team = e['team']['name']
+        lx, ly = loss['location'][:2]
+        rows.append(dict(match=label, period=period, minute=e['minute'], pressing_team=OPP[losing_team],
+                         losing_team=losing_team, player=e['player']['name'],
+                         loss_kind=LOSS_KIND[loss['type']['name']],
+                         pressers=len(pressers(by_id, press, e, loss)), zone=zone(lx, ly),
+                         x=round(lx, 1), y=round(ly, 1)))
     return rows
 
 
 def main():
-    M = read_json(os.path.join(OUT, 'match_team.json'))
+    match_team = read_json(os.path.join(OUT, 'match_team.json'))
+    matches = sorted({(m['match_id'], m['date'], m['period'], m['match']) for m in match_team}, key=lambda z: z[1])
     rows = []
-    for mid, date, period, label in sorted({(m['match_id'], m['date'], m['period'], m['match']) for m in M}, key=lambda z: z[1]):
+    for mid, _date, period, label in matches:
         rows += match_strips(label, period, data.events(mid))
     write_json(os.path.join(OUT, 'strips.json'), rows)
-    c = collections.Counter(r['pressers'] for r in rows)
-    print(f'strips: {len(rows)} balls stripped; players pressing {dict(sorted(c.items()))}')
+    counts = collections.Counter(r['pressers'] for r in rows)
+    print(f'strips: {len(rows)} balls stripped; players pressing {dict(sorted(counts.items()))}')
 
 
 if __name__ == '__main__':

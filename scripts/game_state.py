@@ -12,11 +12,13 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from clasico import OPP, PROCESSED, data  # noqa: E402
-from clasico.events import STATES, game_state, is_clean_receipt, passes_before, possessions, score_before, sec, strip_after  # noqa: E402
+from clasico.events import (STATES, game_state, is_clean_receipt, passes_before, possessions,  # noqa: E402
+                            score_before, sec, strip_after)
 from clasico.output import read_json, write_rows  # noqa: E402
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else PROCESSED
-FIELDS = ('open_play_shots', 'passes_before_shot_sum', 'pressures', 'pressures_won_5s', 'opp_buildup_passes', 'def_actions', 'opp_controls', 'balls_stripped')
+FIELDS = ('open_play_shots', 'passes_before_shot_sum', 'pressures', 'pressures_won_5s', 'opp_buildup_passes',
+          'def_actions', 'opp_controls', 'balls_stripped')
 
 
 def match_states(ev, final):
@@ -30,63 +32,67 @@ def match_states(ev, final):
         return game_state(before[i], t, OPP[t])
 
     pos = {e['id']: i for i, e in enumerate(ev)}
-    A = {(t, s): collections.Counter() for t in OPP for s in STATES}
+    acc = {(t, s): collections.Counter() for t in OPP for s in STATES}
     # Minutes: timestamps do not always increase in event order, so within each half events are sorted by
     # time and the gap between two consecutive events is credited to the first event's state.
     for per in (1, 2):
         idx = sorted((i for i, e in enumerate(ev) if e['period'] == per), key=lambda i: (sec(ev[i]), ev[i]['index']))
         for a, b in zip(idx, idx[1:]):
             for t in OPP:
-                A[(t, state(a, t))]['seconds'] += sec(ev[b]) - sec(ev[a])
+                acc[(t, state(a, t))]['seconds'] += sec(ev[b]) - sec(ev[a])
     # Passes before shot (first shot of the possession, set pieces excluded)
     for q in possessions(ev):
-        sh = [e for e in q['es'] if e['type']['name'] == 'Shot' and e['shot']['type']['name'] != 'Penalty']
-        if sh and q['pp'] not in ('From Corner', 'From Free Kick'):
-            t = sh[0]['team']['name']
-            c = A[(t, state(pos[sh[0]['id']], t))]
-            c['open_play_shots'] += 1
-            c['passes_before_shot_sum'] += passes_before(q['es'], sh[0])
+        shots = [e for e in q['es'] if e['type']['name'] == 'Shot' and e['shot']['type']['name'] != 'Penalty']
+        if shots and q['pp'] not in ('From Corner', 'From Free Kick'):
+            t = shots[0]['team']['name']
+            counts = acc[(t, state(pos[shots[0]['id']], t))]
+            counts['open_play_shots'] += 1
+            counts['passes_before_shot_sum'] += passes_before(q['es'], shots[0])
     # Press success and PPDA
     ts = [(e['period'], sec(e), e['possession_team']['name']) for e in ev]
     for i, e in enumerate(ev):
-        n, t = e['type']['name'], e['team']['name']
-        if n == 'Pressure':
-            c = A[(t, state(i, t))]
-            c['pressures'] += 1
+        name, t = e['type']['name'], e['team']['name']
+        if name == 'Pressure':
+            counts = acc[(t, state(i, t))]
+            counts['pressures'] += 1
             if any(p == e['period'] and sec(e) < tt <= sec(e) + 5 and pt == t for p, tt, pt in ts):
-                c['pressures_won_5s'] += 1
-        if n == 'Pass' and e['location'][0] <= 72:
-            A[(OPP[t], state(i, OPP[t]))]['opp_buildup_passes'] += 1
-        if 'location' in e and e['location'][0] >= 48 and (n in ('Interception', 'Foul Committed') or (n == 'Duel' and e['duel']['type']['name'] == 'Tackle')):
-            A[(t, state(i, t))]['def_actions'] += 1
+                counts['pressures_won_5s'] += 1
+        if name == 'Pass' and e['location'][0] <= 72:
+            acc[(OPP[t], state(i, OPP[t]))]['opp_buildup_passes'] += 1
+        is_def_action = name in ('Interception', 'Foul Committed') or (
+            name == 'Duel' and e['duel']['type']['name'] == 'Tackle')
+        if 'location' in e and e['location'][0] >= 48 and is_def_action:
+            acc[(t, state(i, t))]['def_actions'] += 1
     # Ball strips: state from the pressing team's view, at the moment of the receipt
     for i, e in enumerate(ev):
         if not is_clean_receipt(e):
             continue
-        D = OPP[e['team']['name']]
-        c = A[(D, state(i, D))]
-        c['opp_controls'] += 1
+        defending = OPP[e['team']['name']]
+        counts = acc[(defending, state(i, defending))]
+        counts['opp_controls'] += 1
         if strip_after(ev, i) is not None:
-            c['balls_stripped'] += 1
-    return A
+            counts['balls_stripped'] += 1
+    return acc
 
 
 def main():
-    M = read_json(os.path.join(OUT, 'match_team.json'))
+    match_team = read_json(os.path.join(OUT, 'match_team.json'))
     rows = []
-    for mid in sorted({m['match_id'] for m in M}):
-        meta = {m['team']: m for m in M if m['match_id'] == mid}
-        A = match_states(data.events(mid), {t: meta[t]['goals_for'] for t in OPP})
-        for (t, s), c in A.items():
+    for mid in sorted({m['match_id'] for m in match_team}):
+        meta = {m['team']: m for m in match_team if m['match_id'] == mid}
+        by_state = match_states(data.events(mid), {t: meta[t]['goals_for'] for t in OPP})
+        for (t, s), counts in by_state.items():
             m = meta[t]
-            rows.append(dict(key=f'{mid}|{t}|{s}', match_id=mid, match=m['match'], date=m['date'], period=m['period'], coach=m['coach'],
-                             team=t, state=s, minutes=round(c['seconds'] / 60, 1), **{k: c[k] for k in FIELDS}))
+            rows.append(dict(key=f'{mid}|{t}|{s}', match_id=mid, match=m['match'], date=m['date'], period=m['period'],
+                             coach=m['coach'], team=t, state=s, minutes=round(counts['seconds'] / 60, 1),
+                             **{k: counts[k] for k in FIELDS}))
     # Check: the three states add up to build.py's match totals
     tot = collections.defaultdict(collections.Counter)
     for r in rows:
         for f in FIELDS:
             tot[(r['match_id'], r['team'])][f] += r[f]
-    bad = [(m['match_id'], m['team'], f) for m in M for f in FIELDS if tot[(m['match_id'], m['team'])][f] != m[f]]
+    bad = [(m['match_id'], m['team'], f) for m in match_team for f in FIELDS
+           if tot[(m['match_id'], m['team'])][f] != m[f]]
     assert not bad, bad[:5]
     write_rows(os.path.join(OUT, 'game_state.json'), rows, os.path.abspath(__file__))
     print(f'game_state: {len(rows)} rows; states add up to match totals')
