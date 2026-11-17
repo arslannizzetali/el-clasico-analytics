@@ -84,7 +84,8 @@ def main():
         for (t, s), counts in by_state.items():
             m = meta[t]
             rows.append(dict(key=f'{mid}|{t}|{s}', match_id=mid, match=m['match'], date=m['date'], period=m['period'],
-                             coach=m['coach'], team=t, state=s, minutes=round(counts['seconds'] / 60, 1),
+                             coach=m['coach'], coach_group=m['coach_group'], team=t, state=s,
+                             minutes=round(counts['seconds'] / 60, 1),
                              **{k: counts[k] for k in FIELDS}))
     # Check: the three states add up to build.py's match totals
     tot = collections.defaultdict(collections.Counter)

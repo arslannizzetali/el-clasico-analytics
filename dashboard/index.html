@@ -25,6 +25,8 @@
 .ec-find b{font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}
 .ec-gsbtn{font:inherit;padding:6px 14px;background:transparent;color:var(--color-fg);border:0;cursor:pointer}
 .ec-gsbtn[aria-pressed=true]{background:#2563eb;color:#fff}
+.ec-grpbtn{font:inherit;padding:6px 14px;background:transparent;color:var(--color-fg);border:0;cursor:pointer}
+.ec-grpbtn[aria-pressed=true]{background:#2563eb;color:#fff}
 .ec-dot-goal{width:13px;height:13px;background:var(--color-bad)}
 .ec-band{display:inline-block;width:16px;height:10px;background:#2563eb;opacity:.18;border-radius:2px}
 .ec-zone{display:inline-block;width:14px;height:10px;background:#2563eb;opacity:.55;border-radius:2px}
@@ -117,16 +119,24 @@
 <button type="button" class="ec-gsbtn" data-gs="Behind" aria-pressed="false">Behind</button>
 </div>
 </div>
+<div class="ec-row">
+<span class="ec-lbl">Group by</span>
+<div class="ec-seg" role="group" aria-label="Group matches by">
+<button type="button" class="ec-grpbtn" data-grp="period" aria-pressed="true">Period</button>
+<button type="button" class="ec-grpbtn" data-grp="coach" aria-pressed="false">Barcelona coach</button>
+</div>
+</div>
 <p class="ec-muted ec-gsnote" hidden>This metric is not split by score state; the whole match is shown.</p>
 <div class="ec-row">
 <span class="ec-key"><i class="ec-dot ec-dot-blue"></i><span data-draw="tn" data-k="own">—</span></span>
 <span class="ec-key"><i class="ec-dot ec-dot-grey"></i><span data-draw="tn" data-k="opp">—</span> (for comparison)</span>
-<span class="ec-key"><i class="ec-band"></i>90% interval of the period average</span>
+<span class="ec-key"><i class="ec-band"></i><span data-draw="grpword">90% interval of the period average</span></span>
 <span class="ec-key"><i class="ec-dot ec-dot-hollow"></i>Hollow: the match value rests on very few events</span>
 </div>
 <div class="ec-chart" id="trend-chart" data-draw="trend" data-source="match_team game_state uncertainty">—</div>
 <p class="ec-muted" data-draw="gsshare" data-source="game_state">—</p>
-<p class="ec-muted">Each dot is a match; each line is a period average computed from the period's totals. The shaded band is a 90% interval from resampling the period's matches (all minutes and level score only). With a score state selected, only the part of each match played in that state counts. Click a match to open its report below.</p>
+<p class="ec-muted" data-draw="grpnote">—</p>
+<p class="ec-muted">Each dot is a match; each line is a group average computed from the group's totals. The shaded band is a 90% interval from resampling the group's matches (all minutes and level score only). A dashed line is a coach with fewer than 4 matches: shown, but given no interval. With a score state selected, only the part of each match played in that state counts. Click a match to open its report below.</p>
 </section>
 
 <section class="ec-card ec-view" id="losses" data-view="losses" hidden>
@@ -251,6 +261,9 @@
 (() => {
   const BLUE = '#2563eb';
   const PERIODS = ['2005-09', '2009-13', '2013-17', '2017-21'];
+  const COACHES = ['Rijkaard', 'Guardiola', 'Vilanova', 'Martino', 'Luis Enrique', 'Valverde', 'Setién', 'Koeman'];
+  const MIN_MATCHES = 4;   // coach groups with fewer matches get no interval (uncertainty.py)
+  const GROUPING = {period: {field: 'period', groups: PERIODS, word: 'period'}, coach: {field: 'coach_group', groups: COACHES, word: 'coach'}};
   const STATS = {
     passes_per_shot: {kind: 'trend', fmt: 'n1', label: 'passes before a shot'},
     conceded_shot_15s_pct: {kind: 'trend', fmt: 'pct', label: 'quick shots conceded after a turnover'},
@@ -277,6 +290,7 @@
   if (S.lp === undefined) S.lp = '';
   if (S.lplayer === undefined) S.lplayer = '';
   if (S.lz === undefined) S.lz = null;
+  if (!GROUPING[S.grp]) S.grp = 'period';
   if (!['', 'Level', 'Ahead', 'Behind'].includes(S.gs)) S.gs = '';   // also resets a state kept from an older version of the page
   const FORM = {
     passes_per_shot: {a: 'passes_before_shot_sum', b: 'open_play_shots', k: 1, min: 3, unit: 'possessions'},
@@ -383,7 +397,7 @@
     if (S.match == null || !rows.some((r) => String(r.match_id) === String(S.match))) S.match = rows[rows.length - 1].match_id;
     return {rows, per: p.data, sel: rows.filter((r) => String(r.match_id) === String(S.match))};
   }
-  const ALL = ['vtitle', 'tn', 'pv', 'trend', 'gsshare', 'pitch', 'psum', 'zhead', 'zlist', 'shotpitch', 'ssum', 'lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist', 'v', 'matchsel', 'mpitch', 'msum', 'shots'];
+  const ALL = ['vtitle', 'tn', 'pv', 'trend', 'grpword', 'grpnote', 'gsshare', 'pitch', 'psum', 'zhead', 'zlist', 'shotpitch', 'ssum', 'lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist', 'v', 'matchsel', 'mpitch', 'msum', 'shots'];
   const LS = ['lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist'];
   const redrawLS = () => LS.forEach((n) => dash.draw(n));
   const redraw = () => ALL.forEach((n) => dash.draw(n));
@@ -455,20 +469,21 @@
     }
     const val = (a, b) => b > 0 ? fm.k * a / b : null;
     const pts = src.map((r) => ({id: r.match_id, team: r.team, n: +r[fm.b], v: val(+r[fm.a], +r[fm.b])})).filter((q) => q.v != null);
-    const perAgg = d3.rollup(src, (v) => val(d3.sum(v, (r) => +r[fm.a]), d3.sum(v, (r) => +r[fm.b])), (r) => r.period, (r) => r.team);
+    const GR = GROUPING[S.grp], gf = GR.field;
+    const perAgg = d3.rollup(src, (v) => val(d3.sum(v, (r) => +r[fm.a]), d3.sum(v, (r) => +r[fm.b])), (r) => r[gf], (r) => r.team);
     const ff = st.fmt, pre = ff === 'pct' ? '%' : '';
     const ids = [...new Set(s.rows.map((r) => r.match_id))];
     const byId = d3.group(s.rows, (r) => r.match_id);
     const ptBy = d3.index(pts, (q) => q.id, (q) => q.team);
     const W = Math.max(280, el.clientWidth || 600), H = 320;
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', S.team + ': ' + st.label + (gsOn() ? ', ' + GSL[S.gs] : '') + ', 29 matches and period averages');
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', S.team + ': ' + st.label + (gsOn() ? ', ' + GSL[S.gs] : '') + ', 29 matches and ' + GR.word + ' averages');
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
     const perVals = [...perAgg.values()].flatMap((m) => [...m.values()]).filter((v) => v != null);
-    // 90% bootstrap interval of the selected team's period average (uncertainty.py); all minutes and level score only
+    // 90% bootstrap interval of the selected team's group average (uncertainty.py); all minutes and level score only
     const U = dash.data('uncertainty');
     const ust = !S.gs ? 'All' : S.gs === 'Level' && !fm.nogs ? 'Level' : null;
-    const bands = U.status === 'ok' && ust ? PERIODS.map((p) => U.data.find((r) => r.key === f + '|' + ust + '|' + S.team + '|' + p)).filter(Boolean) : [];
+    const bands = U.status === 'ok' && ust ? GR.groups.map((p) => U.data.find((r) => r.key === f + '|' + ust + '|' + S.team + '|' + p)).filter((b) => b && b.lo != null) : [];
     const top = d3.max(pts.filter((q) => q.n >= fm.min).map((q) => q.v).concat(perVals, bands.map((b) => +b.hi))) || 1;
     const y = d3.scaleLinear().domain([0, top * 1.08]).nice(5);
     const ticks = y.ticks(5);
@@ -476,16 +491,17 @@
     let lw = 0;
     ticks.forEach((t) => { probe.text(nfTick.format(t) + pre); lw = Math.max(lw, probe.node().getComputedTextLength()); });
     probe.remove();
-    const mg = {t: 26, r: 10, b: 24, l: Math.ceil(lw) + 10};
+    const stagger = S.grp === 'coach';
+    const mg = {t: stagger ? 38 : 26, r: 10, b: 24, l: Math.ceil(lw) + 10};
     y.range([H - mg.b, mg.t]);
     const ymax = y.domain()[1];
     const yc = (v) => y(Math.min(v, ymax));
     const x = d3.scalePoint().domain(ids).range([mg.l + 10, W - mg.r - 10]);
     svg.append('g').selectAll('line').data(ticks).join('line').attr('x1', mg.l).attr('x2', W - mg.r).attr('y1', (t) => y(t)).attr('y2', (t) => y(t)).style('stroke', 'var(--cds-chart-grid)');
     svg.append('g').selectAll('text').data(ticks).join('text').attr('class', 'ec-tick').attr('x', mg.l - 6).attr('y', (t) => y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text((t) => nfTick.format(t) + pre);
-    const periods = d3.groups(s.rows, (r) => r.period).map(([period, rows]) => { const pid = [...new Set(rows.map((r) => r.match_id))]; return {period, x0: x(pid[0]), x1: x(pid[pid.length - 1])}; });
+    const periods = d3.groups(s.rows, (r) => r[gf]).map(([period, rows]) => { const pid = [...new Set(rows.map((r) => r.match_id))]; return {period, n: pid.length, x0: x(pid[0]), x1: x(pid[pid.length - 1])}; });
     periods.forEach((p, i) => {
-      svg.append('text').attr('class', 'ec-tick').attr('x', (p.x0 + p.x1) / 2).attr('y', 12).attr('text-anchor', 'middle').text(p.period);
+      svg.append('text').attr('class', 'ec-tick').attr('x', (p.x0 + p.x1) / 2).attr('y', stagger && i % 2 ? 26 : 12).attr('text-anchor', 'middle').text(p.period);
       if (i > 0) { const bx = (periods[i - 1].x1 + p.x0) / 2; svg.append('line').attr('x1', bx).attr('x2', bx).attr('y1', mg.t - 8).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-axis)').style('stroke-dasharray', '2 3'); }
     });
     let lastX = -Infinity, lastYear = null;
@@ -498,8 +514,8 @@
     svg.append('line').attr('x1', selX).attr('x2', selX).attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-reference)');
     const guide = svg.append('line').attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-axis)').style('display', 'none');
     const pBy = new Map(periods.map((p) => [p.period, p]));
-    svg.append('g').selectAll('rect').data(bands.filter((b) => pBy.has(b.period))).join('rect')
-      .attr('x', (b) => pBy.get(b.period).x0 - 6).attr('width', (b) => pBy.get(b.period).x1 - pBy.get(b.period).x0 + 12)
+    svg.append('g').selectAll('rect').data(bands.filter((b) => pBy.has(b.group))).join('rect')
+      .attr('x', (b) => pBy.get(b.group).x0 - 6).attr('width', (b) => pBy.get(b.group).x1 - pBy.get(b.group).x0 + 12)
       .attr('y', (b) => yc(+b.hi)).attr('height', (b) => Math.max(1, yc(+b.lo) - yc(+b.hi)))
       .attr('rx', 3).style('fill', BLUE).style('fill-opacity', 0.13);
     [opp(S.team), S.team].forEach((team) => {
@@ -514,7 +530,8 @@
       periods.forEach((p) => {
         const me = perAgg.get(p.period)?.get(team), other = perAgg.get(p.period)?.get(opp(team));
         if (me == null) return;
-        svg.append('line').attr('x1', p.x0 - 6).attr('x2', p.x1 + 6).attr('y1', yc(me)).attr('y2', yc(me)).style('stroke', color).style('stroke-width', mine ? 3 : 2).style('stroke-linecap', 'round');
+        svg.append('line').attr('x1', p.x0 - 6).attr('x2', p.x1 + 6).attr('y1', yc(me)).attr('y2', yc(me)).style('stroke', color).style('stroke-width', mine ? 3 : 2).style('stroke-linecap', 'round')
+          .style('stroke-dasharray', p.n < MIN_MATCHES ? '4 3' : null);
         const above = other == null || me >= other;
         svg.append('text').attr('class', 'ec-val').attr('x', (p.x0 + p.x1) / 2).attr('y', yc(me) + (above ? -7 : 15)).attr('text-anchor', 'middle').style('fill', mine ? BLUE : 'var(--cds-text-secondary)').text(fmt(r1(me), ff));
       });
@@ -524,11 +541,19 @@
       .on('pointermove pointerdown', (ev) => {
         const id = nearest(ev);
         guide.attr('x1', x(id)).attr('x2', x(id)).style('display', null);
-        const bp = bands.find((b) => b.period === byId.get(id)[0].period);
-        T.show(ev, [byId.get(id)[0].match].concat([S.team, opp(S.team)].map((t) => { const q = ptBy.get(id)?.get(t); return t + ': ' + (q ? fmt(r1(q.v), ff) + ' (' + nf0.format(q.n) + ' ' + fm.unit + (q.n < fm.min ? ', small sample' : '') + ')' : (gsOn() ? 'no data in this state' : '—')); }), bp ? [S.team + ' ' + bp.period + ' average ' + fmt(+bp.value, ff) + ', 90% interval ' + fmt(+bp.lo, ff) + '–' + fmt(+bp.hi, ff)] : []));
+        const bp = bands.find((b) => b.group === byId.get(id)[0][gf]);
+        T.show(ev, [byId.get(id)[0].match].concat([S.team, opp(S.team)].map((t) => { const q = ptBy.get(id)?.get(t); return t + ': ' + (q ? fmt(r1(q.v), ff) + ' (' + nf0.format(q.n) + ' ' + fm.unit + (q.n < fm.min ? ', small sample' : '') + ')' : (gsOn() ? 'no data in this state' : '—')); }), bp ? [S.team + ' ' + bp.group + ' average ' + fmt(+bp.value, ff) + ', 90% interval ' + fmt(+bp.lo, ff) + '–' + fmt(+bp.hi, ff)] : []));
       })
       .on('pointerleave', () => { T.hide(); guide.style('display', 'none'); })
       .on('click', (ev) => { S.match = nearest(ev); redraw(); });
+  });
+
+  dash.draw('grpword', (el) => { el.textContent = '90% interval of the ' + GROUPING[S.grp].word + ' average'; });
+
+  dash.draw('grpnote', (el) => {
+    el.textContent = S.grp === 'coach'
+      ? 'Grouped by Barcelona\'s coach on the day; Real Madrid\'s matches are grouped the same way. Vilanova, Martino and Koeman have 2 matches each and Setién 1, too few for an interval or a comparison.'
+      : 'Grouped by four-season period. The periods do not follow coaching changes: 2005-09 includes Guardiola\'s first two Clásicos and 2009-13 includes Vilanova\'s two.';
   });
 
   dash.draw('gsshare', (el) => {
@@ -841,6 +866,7 @@
     document.querySelectorAll('.ec-lsp').forEach((sel) => { sel.value = S.lp; });
     document.querySelectorAll('.ec-find').forEach((p) => { p.hidden = !(p.dataset.fin === S.stat && p.dataset.team === S.team); });
     document.querySelectorAll('.ec-gsbtn').forEach((b) => b.setAttribute('aria-pressed', b.dataset.gs === S.gs ? 'true' : 'false'));
+    document.querySelectorAll('.ec-grpbtn').forEach((b) => b.setAttribute('aria-pressed', b.dataset.grp === S.grp ? 'true' : 'false'));
     const fmS = FORM[S.stat];
     document.querySelectorAll('.ec-gsrow').forEach((r) => { r.hidden = !!(fmS && fmS.nogs); });
     document.querySelectorAll('.ec-gsnote').forEach((r) => { r.hidden = !(fmS && fmS.nogs && S.gs); });
@@ -851,6 +877,7 @@
   document.querySelectorAll('.ec-segbtn').forEach((b) => b.addEventListener('click', () => { S.team = b.dataset.team; S.sel = null; S.lplayer = ''; S.lz = null; apply(); redraw(); }));
   document.querySelectorAll('.ec-stat').forEach((sel) => sel.addEventListener('change', () => { S.stat = sel.value; apply(); redraw(); }));
   document.querySelectorAll('.ec-gsbtn').forEach((b) => b.addEventListener('click', () => { S.gs = b.dataset.gs; apply(); ['vtitle', 'trend', 'gsshare'].forEach((n) => dash.draw(n)); }));
+  document.querySelectorAll('.ec-grpbtn').forEach((b) => b.addEventListener('click', () => { S.grp = b.dataset.grp; apply(); ['trend', 'grpword', 'grpnote'].forEach((n) => dash.draw(n)); }));
   document.querySelectorAll('.ec-lsp').forEach((sel) => sel.addEventListener('change', () => { S.lp = sel.value; S.lz = null; redrawLS(); }));
   apply();
 })();

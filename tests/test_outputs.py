@@ -86,8 +86,27 @@ class Outputs(unittest.TestCase):
         for mid in {m['match_id'] for m in self.M}:
             self.assertAlmostEqual(g[(mid, TEAMS[0], 'Ahead')], g[(mid, TEAMS[1], 'Behind')], delta=0.05)
 
+    def test_coach_groups(self):
+        barca = [m for m in self.M if m['team'] == 'Barcelona']
+        self.assertEqual(collections.Counter(m['coach_group'] for m in barca),
+                         {'Rijkaard': 4, 'Guardiola': 8, 'Vilanova': 2, 'Martino': 2, 'Luis Enrique': 6,
+                          'Valverde': 4, 'Setién': 1, 'Koeman': 2})
+        by_match = collections.defaultdict(set)
+        for m in self.M:
+            by_match[m['match_id']].add(m['coach_group'])
+        self.assertTrue(all(len(v) == 1 for v in by_match.values()))   # both rows carry Barcelona's coach
+
+    def test_small_groups_have_no_interval(self):
+        for r in self.U:
+            if r['kind'] == 'group':
+                self.assertEqual(r['lo'] is None, r['matches'] < 4, r['key'])
+        tested = {g for r in self.U if r['kind'] == 'change' for g in r['group'].split('>')}
+        self.assertFalse(tested & {'Vilanova', 'Martino', 'Setién', 'Koeman'})
+
     def test_intervals_contain_their_estimate(self):
         for r in self.U:
+            if r['lo'] is None:
+                continue
             self.assertLessEqual(r['lo'], r['value'] + 0.01, r['key'])
             self.assertGreaterEqual(r['hi'], r['value'] - 0.01, r['key'])
             if r['kind'] == 'change':
@@ -98,8 +117,8 @@ class Outputs(unittest.TestCase):
         for m in self.M:
             by[(m['team'], m['period'])].append(m)
         for r in self.U:
-            if r['kind'] == 'period' and r['state'] == 'All' and r['metric'] == 'ppda':
-                rs = by[(r['team'], r['period'])]
+            if r['kind'] == 'group' and r['grouping'] == 'period' and r['state'] == 'All' and r['metric'] == 'ppda':
+                rs = by[(r['team'], r['group'])]
                 self.assertAlmostEqual(r['value'], sum(x['opp_buildup_passes'] for x in rs) / sum(x['def_actions'] for x in rs), places=2)
 
 

@@ -21,8 +21,38 @@ StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Bar
 | Barcelona: balls stripped per 100 opponent controls | 8.6 | **10.1** | 6.3 | **5.0** | 2009-13 → 2017-21: −5.1 [−6.8, −3.5] |
 | Real Madrid: press success (%) | 16.8 | **13.6** | 18.7 | **21.4** | 2009-13 → 2017-21: +7.8 [+4.6, +11.3] pts |
 
-**1. The two styles converged.** Barcelona's build-up peaked under Guardiola (11 passes before a shot) and fell to 7;
-Real Madrid went from direct play (4) to 7. Both changes hold under resampling.
+**1. The two styles converged.** By period, Barcelona's build-up peaked in 2009-13 (11.1 passes before a shot) and
+fell to 7; Real Madrid went from direct play (4) to 7. Both changes hold under resampling. The 2009-13 peak is **not**
+a Guardiola peak, though: grouped by coach (below), Guardiola's Clásicos average 8.9 passes, the same as Luis
+Enrique's 8.7, and the period figure is lifted by Vilanova's two matches (13.9).
+
+### By Barcelona coach
+
+The four-season periods do not follow coaching changes: Guardiola's first two Clásicos (2008-12-13, 2009-05-02) fall in
+2005-09 and Vilanova's two in 2009-13. The dashboard can therefore group the same matches by Barcelona's coach on
+the day (Real Madrid's numbers are grouped the same way, so both teams can be compared within a Barcelona coach).
+
+| Barcelona | Rijkaard (4) | Guardiola (8) | Vilanova (2) | Martino (2) | Luis Enrique (6) | Valverde (4) | Setién (1) | Koeman (2) |
+|---|---|---|---|---|---|---|---|---|
+| Passes before an open-play shot | 4.8 | 8.9 | *13.9* | *9.3* | 8.7 | 7.4 | *7.6* | *6.1* |
+| PPDA (higher = less pressure) | 10.3 | **9.6** | *9.3* | *10.9* | 12.4 | 20.4 | *13.8* | *16.2* |
+| Balls stripped per 100 opponent controls | 7.4 | **10.8** | *9.2* | *6.9* | 6.2 | 4.9 | *5.4* | *5.1* |
+| Press success (%) | 19.8 | **30.5** | *26.9* | *24.5* | 20.9 | 19.0 | *17.6* | *25.5* |
+
+Matches in brackets. *Italics*: fewer than 4 matches, shown but given no interval and left out of every comparison.
+
+**How small coaches are handled.** A coach needs at least 4 Clásicos to get a bootstrap interval and to enter the
+change tests; that leaves Rijkaard, Guardiola, Luis Enrique and Valverde. With one or two matches a resample can only
+repeat those same matches, so the "interval" would just be the spread of two numbers, and Setién's single match has no
+spread at all. They are not merged into a neighbour either: Vilanova with Guardiola, say, would be defensible on
+continuity but would quietly decide the very question the grouping is meant to test. Their averages are shown,
+marked, and left out of claims.
+
+**What survives the regrouping.** Guardiola's Barcelona pressed hardest against Real Madrid on every pressing measure:
+press success 30.5% against 20.9% under Luis Enrique (change −9.6 [−12.7, −6.5] points) and 19.0% under Valverde;
+balls stripped 10.8 per 100 against 6.2 and 4.9; PPDA 9.6 against 12.4 and 20.4. The build-up claim does not
+survive: Guardiola 8.9 [6.3, 11.6] against Luis Enrique 8.7 [7.6, 9.9], change −0.2 [−3.2, +2.6]. What the coach
+view does show is that Barcelona's build-up lengthened after Rijkaard (4.8 → 8.9, change +4.1 [+1.1, +7.0]).
 
 ![The two styles converged](docs/img/convergence.svg)
 
@@ -41,7 +71,7 @@ Barcelona's 744 losses after a controlled touch led to a goal within 20 seconds;
 
 ### How sure are these numbers?
 
-Each period average rests on only 6–8 matches, so every average in the dashboard carries a **90% bootstrap
+Each period average rests on only 6–8 matches (each coach average on 4–8), so every average in the dashboard carries a **90% bootstrap
 interval**: the period's matches are resampled with replacement 5,000 times and the metric is recomputed from the
 resampled totals. The match is the unit of resampling because events within a match are not independent. A change
 between periods is called clear only when its interval excludes zero; 56 of the 108 period-to-period changes are.

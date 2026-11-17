@@ -10,7 +10,7 @@ import statistics as st
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from clasico import OPP, PROCESSED, data  # noqa: E402
+from clasico import BARCELONA_COACHES, OPP, PROCESSED, data  # noqa: E402
 from clasico.output import write_json  # noqa: E402
 from clasico.events import is_clean_receipt, passes_before, possessions, sec, strip_after  # noqa: E402
 
@@ -204,6 +204,10 @@ def finish_match_rows(match_team, period_of):
         row['period'] = period_of[row['match_id']]
         if not row['coach']:
             row['coach'] = COACH_FIX[(row['date'], row['team'])]
+    barcelona_coach = {row['match_id']: row['coach'] for row in match_team if row['team'] == 'Barcelona'}
+    for row in match_team:
+        # Both teams' rows of a match carry Barcelona's coach, so either team can be grouped by it
+        row['coach_group'] = BARCELONA_COACHES[barcelona_coach[row['match_id']]]
         row['conceded_shot_15s_pct'] = round(100 * row['conceded_shot_15s'] / row['turnovers'], 1)
         row['regained_8s_pct'] = round(100 * row['regained_8s'] / row['turnovers'], 1)
         row['key'] = f"{row['match_id']}|{row['team']}"
