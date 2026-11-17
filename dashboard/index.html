@@ -136,6 +136,7 @@
 <div class="ec-chart" id="trend-chart" data-draw="trend" data-source="match_team game_state uncertainty">—</div>
 <p class="ec-muted" data-draw="gsshare" data-source="game_state">—</p>
 <p class="ec-muted" data-draw="grpnote">—</p>
+<p class="ec-muted" data-draw="loonote">—</p>
 <p class="ec-muted">Each dot is a match; each line is a group average computed from the group's totals. The shaded band is a 90% interval from resampling the group's matches (all minutes and level score only). A dashed line is a coach with fewer than 4 matches: shown, but given no interval. With a score state selected, only the part of each match played in that state counts. Click a match to open its report below.</p>
 </section>
 
@@ -397,7 +398,7 @@
     if (S.match == null || !rows.some((r) => String(r.match_id) === String(S.match))) S.match = rows[rows.length - 1].match_id;
     return {rows, per: p.data, sel: rows.filter((r) => String(r.match_id) === String(S.match))};
   }
-  const ALL = ['vtitle', 'tn', 'pv', 'trend', 'grpword', 'grpnote', 'gsshare', 'pitch', 'psum', 'zhead', 'zlist', 'shotpitch', 'ssum', 'lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist', 'v', 'matchsel', 'mpitch', 'msum', 'shots'];
+  const ALL = ['vtitle', 'tn', 'pv', 'trend', 'grpword', 'grpnote', 'loonote', 'gsshare', 'pitch', 'psum', 'zhead', 'zlist', 'shotpitch', 'ssum', 'lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist', 'v', 'matchsel', 'mpitch', 'msum', 'shots'];
   const LS = ['lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist'];
   const redrawLS = () => LS.forEach((n) => dash.draw(n));
   const redraw = () => ALL.forEach((n) => dash.draw(n));
@@ -501,7 +502,8 @@
     svg.append('g').selectAll('text').data(ticks).join('text').attr('class', 'ec-tick').attr('x', mg.l - 6).attr('y', (t) => y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text((t) => nfTick.format(t) + pre);
     const periods = d3.groups(s.rows, (r) => r[gf]).map(([period, rows]) => { const pid = [...new Set(rows.map((r) => r.match_id))]; return {period, n: pid.length, x0: x(pid[0]), x1: x(pid[pid.length - 1])}; });
     periods.forEach((p, i) => {
-      svg.append('text').attr('class', 'ec-tick').attr('x', (p.x0 + p.x1) / 2).attr('y', stagger && i % 2 ? 26 : 12).attr('text-anchor', 'middle').text(p.period);
+      const fragile = bands.some((b) => b.group === p.period && +b.single_match === 1);
+      svg.append('text').attr('class', 'ec-tick').attr('x', (p.x0 + p.x1) / 2).attr('y', stagger && i % 2 ? 26 : 12).attr('text-anchor', 'middle').text(p.period + (fragile ? ' *' : ''));
       if (i > 0) { const bx = (periods[i - 1].x1 + p.x0) / 2; svg.append('line').attr('x1', bx).attr('x2', bx).attr('y1', mg.t - 8).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-axis)').style('stroke-dasharray', '2 3'); }
     });
     let lastX = -Infinity, lastYear = null;
@@ -542,10 +544,21 @@
         const id = nearest(ev);
         guide.attr('x1', x(id)).attr('x2', x(id)).style('display', null);
         const bp = bands.find((b) => b.group === byId.get(id)[0][gf]);
-        T.show(ev, [byId.get(id)[0].match].concat([S.team, opp(S.team)].map((t) => { const q = ptBy.get(id)?.get(t); return t + ': ' + (q ? fmt(r1(q.v), ff) + ' (' + nf0.format(q.n) + ' ' + fm.unit + (q.n < fm.min ? ', small sample' : '') + ')' : (gsOn() ? 'no data in this state' : '—')); }), bp ? [S.team + ' ' + bp.group + ' average ' + fmt(+bp.value, ff) + ', 90% interval ' + fmt(+bp.lo, ff) + '–' + fmt(+bp.hi, ff)] : []));
+        T.show(ev, [byId.get(id)[0].match].concat([S.team, opp(S.team)].map((t) => { const q = ptBy.get(id)?.get(t); return t + ': ' + (q ? fmt(r1(q.v), ff) + ' (' + nf0.format(q.n) + ' ' + fm.unit + (q.n < fm.min ? ', small sample' : '') + ')' : (gsOn() ? 'no data in this state' : '—')); }), bp ? [S.team + ' ' + bp.group + ' average ' + fmt(+bp.value, ff) + ', 90% interval ' + fmt(+bp.lo, ff) + '–' + fmt(+bp.hi, ff), 'Without any one match: ' + fmt(+bp.loo_lo, ff) + '–' + fmt(+bp.loo_hi, ff) + (+bp.single_match ? ' (dropping ' + bp.loo_date + ' moves it most)' : '')] : []));
       })
       .on('pointerleave', () => { T.hide(); guide.style('display', 'none'); })
       .on('click', (ev) => { S.match = nearest(ev); redraw(); });
+  });
+
+  dash.draw('loonote', (el) => {
+    const U = dash.data('uncertainty'), fm = FORM[S.stat];
+    const ust = !S.gs ? 'All' : S.gs === 'Level' && fm && !fm.nogs ? 'Level' : null;
+    if (U.status !== 'ok' || !fm || !ust) { el.textContent = ''; return; }
+    const GR = GROUPING[S.grp];
+    const hit = GR.groups.map((g) => U.data.find((r) => r.key === S.stat + '|' + ust + '|' + S.team + '|' + g)).filter((r) => r && +r.single_match === 1);
+    el.textContent = hit.length
+      ? '* Leave-one-out: dropping a single match moves this average by more than 20% (' + hit.map((r) => r.group + ': ' + fmt(+r.loo_lo, STATS[S.stat].fmt) + '–' + fmt(+r.loo_hi, STATS[S.stat].fmt) + ', most by dropping ' + r.loo_date).join('; ') + '). Hover a match for every group\'s range.'
+      : 'Leave-one-out: no single match moves any of these averages by more than 20%. Hover a match for the range.';
   });
 
   dash.draw('grpword', (el) => { el.textContent = '90% interval of the ' + GROUPING[S.grp].word + ' average'; });
@@ -876,8 +889,8 @@
   };
   document.querySelectorAll('.ec-segbtn').forEach((b) => b.addEventListener('click', () => { S.team = b.dataset.team; S.sel = null; S.lplayer = ''; S.lz = null; apply(); redraw(); }));
   document.querySelectorAll('.ec-stat').forEach((sel) => sel.addEventListener('change', () => { S.stat = sel.value; apply(); redraw(); }));
-  document.querySelectorAll('.ec-gsbtn').forEach((b) => b.addEventListener('click', () => { S.gs = b.dataset.gs; apply(); ['vtitle', 'trend', 'gsshare'].forEach((n) => dash.draw(n)); }));
-  document.querySelectorAll('.ec-grpbtn').forEach((b) => b.addEventListener('click', () => { S.grp = b.dataset.grp; apply(); ['trend', 'grpword', 'grpnote'].forEach((n) => dash.draw(n)); }));
+  document.querySelectorAll('.ec-gsbtn').forEach((b) => b.addEventListener('click', () => { S.gs = b.dataset.gs; apply(); ['vtitle', 'trend', 'gsshare', 'loonote'].forEach((n) => dash.draw(n)); }));
+  document.querySelectorAll('.ec-grpbtn').forEach((b) => b.addEventListener('click', () => { S.grp = b.dataset.grp; apply(); ['trend', 'grpword', 'grpnote', 'loonote'].forEach((n) => dash.draw(n)); }));
   document.querySelectorAll('.ec-lsp').forEach((sel) => sel.addEventListener('change', () => { S.lp = sel.value; S.lz = null; redrawLS(); }));
   apply();
 })();

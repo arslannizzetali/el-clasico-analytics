@@ -77,6 +77,34 @@ resampled totals. The match is the unit of resampling because events within a ma
 between periods is called clear only when its interval excludes zero; 56 of the 108 period-to-period changes are.
 Example of one that is not: Real Madrid's PPDA with the score level, 2005-09 → 2017-21, +0.4 [−2.7, +3.2].
 
+**Does one match drive an average? (leave-one-out)** Every average with an interval is recomputed with each of its
+matches dropped in turn; `uncertainty.json` stores the lowest and highest result (`loo_lo`, `loo_hi`), the match
+whose removal moves it most (`loo_date`), and `single_match = 1` when that move exceeds 20%. The same is done for
+every change, over the matches of both groups (`loo_flip = 1` if one match can zero or reverse it). Because each
+average is a ratio of totals, a match with a tiny denominator carries little weight: 2013-03-02 (2 shots, 33 passes
+each) and 2010-04-10 (2 shots) barely move Barcelona's 2009-13 passes before a shot, 11.1 (10.1–12.3 without any one
+match). The headline changes hold up the same way:
+
+| Change | Estimate | Without any one match |
+|---|---|---|
+| Barcelona passes before a shot, 2009-13 → 2017-21 | −4.1 | −5.3 to −3.1 |
+| Real Madrid passes before a shot, 2005-09 → 2017-21 | +3.1 | +2.7 to +3.5 |
+| Barcelona PPDA, 2009-13 → 2017-21 | +8.4 | +7.4 to +9.2 |
+| Barcelona PPDA with the score level, 2009-13 → 2017-21 | +11.4 | +9.8 to +12.8 |
+| Barcelona balls stripped per 100, 2009-13 → 2017-21 | −5.1 | −5.8 to −4.7 |
+| Real Madrid press success, 2009-13 → 2017-21 | +7.8 | +6.4 to +8.7 pts |
+
+None of the clear changes, by period or by coach, is reversed or brought to zero by dropping a single match. Where
+one match **does** move an average by more than 20%, read that average with care (marked * on the dashboard):
+
+- 2005-09, score level: Barcelona passes before a shot (5.3; 4.1–5.9), press success (28.3%; 19.7–29.8) and balls
+  stripped (8.8; 5.5–10.8) all hinge on **2008-12-13**, Guardiola's first Clásico, the match the period grouping puts
+  in the wrong era. Real Madrid passes before a shot (4.0; 3.1–5.0) hinges on 2007-03-10.
+- 2005-09, all minutes: Barcelona quick shots conceded after a turnover (7.4%; 5.5–8.7), 2006-10-22.
+- By coach, 13 averages, mostly with the score level and mostly the 4-match groups (Rijkaard, Valverde): e.g.
+  Barcelona passes before a shot with the score level under Rijkaard 4.7 (2.7–6.7) and Valverde 8.1 (6.0–10.9), and
+  under Guardiola 9.1 (7.8–11.5, again 2008-12-13). The full list is in `uncertainty.json` and on the dashboard.
+
 ## Interactive dashboard
 
 The [dashboard](https://arslannizzetali.github.io/el-clasico-analytics/) is a single static file

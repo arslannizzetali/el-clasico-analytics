@@ -103,6 +103,15 @@ class Outputs(unittest.TestCase):
         tested = {g for r in self.U if r['kind'] == 'change' for g in r['group'].split('>')}
         self.assertFalse(tested & {'Vilanova', 'Martino', 'Setién', 'Koeman'})
 
+    def test_leave_one_out_brackets_estimate(self):
+        for r in self.U:
+            if r['lo'] is None:
+                continue
+            self.assertLessEqual(r['loo_lo'], r['value'] + 0.01, r['key'])
+            self.assertGreaterEqual(r['loo_hi'], r['value'] - 0.01, r['key'])
+            if r['kind'] == 'change' and r['loo_flip']:
+                self.assertTrue(r['loo_lo'] <= 0 <= r['loo_hi'], r['key'])
+
     def test_intervals_contain_their_estimate(self):
         for r in self.U:
             if r['lo'] is None:
