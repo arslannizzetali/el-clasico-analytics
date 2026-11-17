@@ -101,13 +101,13 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     M, G, L = read_json(P('match_team.json')), read_rows(P('game_state.json')), read_rows(P('losses_ds.json'))
     pps = lambda t: [ratio([m for m in M if m['team'] == t and m['period'] == p], 'passes_before_shot_sum', 'open_play_shots') for p in PERIODS]  # noqa: E731
-    line_chart('The two styles converged', 'Completed passes before an open-play shot, per period',
+    line_chart('In Clásicos, the two styles converged', 'Completed passes before an open-play shot, per period',
                [('Barcelona', BLUE, pps('Barcelona'), True), ('Real Madrid', GREY, pps('Real Madrid'), False)],
                14, '29 La Liga Clásicos, 2005-2021 · StatsBomb Open Data · first shot of each possession, set pieces excluded',
                os.path.join(OUT, 'convergence.svg'))
     ppda_all = [ratio([m for m in M if m['team'] == 'Barcelona' and m['period'] == p], 'opp_buildup_passes', 'def_actions') for p in PERIODS]
     ppda_lvl = [ratio([g for g in G if g['team'] == 'Barcelona' and g['period'] == p and g['state'] == 'Level'], 'opp_buildup_passes', 'def_actions') for p in PERIODS]
-    line_chart("Barcelona's press faded, regardless of the score", 'PPDA: opponent build-up passes per defensive action (higher = less pressure)',
+    line_chart("Barcelona's press against Real Madrid faded, whatever the score", 'PPDA: opponent build-up passes per defensive action (higher = less pressure)',
                [('Score level', BLUE, ppda_lvl, True), ('All minutes', GREY, ppda_all, False)],
                22, 'In 2017-21 Barcelona led for only 20% of the minutes, so sitting on a lead does not explain the rise.',
                os.path.join(OUT, 'press.svg'))

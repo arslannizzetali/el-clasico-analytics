@@ -1,4 +1,4 @@
-# El Clásico, 2005–2021: how the game changed
+# El Clásico, 2005–2021: how the fixture changed
 
 [![CI](https://github.com/arslannizzetali/el-clasico-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/arslannizzetali/el-clasico-analytics/actions/workflows/ci.yml)
 
@@ -11,7 +11,10 @@ individual events, matches and pitch locations, and every claim comes with how s
 Data: [StatsBomb Open Data](https://github.com/statsbomb/open-data). These matches are in the open data because
 StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Barcelona's league Clásicos.
 
-## Key findings
+**Scope.** Every number comes from these 29 matches only. A finding such as "Barcelona pressed less" means *less
+against Real Madrid, in Clásicos*; it says nothing about how either team played the rest of La Liga.
+
+## Key findings (in Clásicos only)
 
 | | 2005-09 | 2009-13 | 2013-17 | 2017-21 | Change [90% interval] |
 |---|---|---|---|---|---|
@@ -21,10 +24,10 @@ StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Bar
 | Barcelona: balls stripped per 100 opponent controls | 8.6 | **10.1** | 6.3 | **5.0** | 2009-13 → 2017-21: −5.1 [−6.8, −3.5] |
 | Real Madrid: press success (%) | 16.8 | **13.6** | 18.7 | **21.4** | 2009-13 → 2017-21: +7.8 [+4.6, +11.3] pts |
 
-**1. The two styles converged.** By period, Barcelona's build-up peaked in 2009-13 (11.1 passes before a shot) and
-fell to 7; Real Madrid went from direct play (4) to 7. Real Madrid's rise passes both the 90% and the stricter 99%
-check; Barcelona's fall passes only the 90% one (99% interval −10.0 to +1.1), so treat it as likely rather than sure. The 2009-13 peak is **not**
-a Guardiola peak, though: grouped by coach (below), Guardiola's Clásicos average 8.9 passes, the same as Luis
+**1. In Clásicos, the two styles converged.** By period, Barcelona's build-up against Real Madrid peaked in 2009-13
+(11.1 passes before a shot) and fell to 7; Real Madrid's against Barcelona went from direct play (4) to 7. Real
+Madrid's rise passes both the 90% and the stricter 99% check; Barcelona's fall passes only the 90% one (99% interval
+−10.0 to +1.1), so treat it as likely rather than sure. The 2009-13 peak is **not** a Guardiola peak, though: grouped by coach (below), Guardiola's Clásicos average 8.9 passes, the same as Luis
 Enrique's 8.7, and the period figure is lifted by Vilanova's two matches (13.9).
 
 ### By Barcelona coach
@@ -49,22 +52,23 @@ spread at all. They are not merged into a neighbour either: Vilanova with Guardi
 continuity but would quietly decide the very question the grouping is meant to test. Their averages are shown,
 marked, and left out of claims.
 
-**What survives the regrouping.** Guardiola's Barcelona pressed hardest against Real Madrid on every pressing measure:
+**What survives the regrouping.** In Clásicos, Guardiola's Barcelona pressed hardest on every pressing measure:
 press success 30.5% against 20.9% under Luis Enrique (change −9.6 [−12.7, −6.5] points) and 19.0% under Valverde;
 balls stripped 10.8 per 100 against 6.2 and 4.9; PPDA 9.6 against 12.4 and 20.4. The build-up claim does not
 survive: Guardiola 8.9 [6.3, 11.6] against Luis Enrique 8.7 [7.6, 9.9], change −0.2 [−3.2, +2.6]. What the coach
-view does show is that Barcelona's build-up lengthened after Rijkaard (4.8 → 8.9, change +4.1 [+1.1, +7.0]).
+view does show is that Barcelona's build-up against Real Madrid lengthened after Rijkaard (4.8 → 8.9, change +4.1 [+1.1, +7.0]).
 
-![The two styles converged](docs/img/convergence.svg)
+![In Clásicos, the two styles converged](docs/img/convergence.svg)
 
-**2. Barcelona's press faded, and the scoreline does not explain it.** With the score level, PPDA went from 8.4
+**2. Barcelona's press against Real Madrid faded, and the scoreline does not explain it.** With the score level,
+Barcelona's PPDA in Clásicos went from 8.4
 (2009-13) to 19.9 (2017-21), change +11.4 [+8.0, +15.9]. In 2017-21 Barcelona led for only 20% of the minutes,
 so "they sat back while winning" is not the reason. Press success and balls stripped fell the same way. Real Madrid's
-press, meanwhile, became more effective.
+press against Barcelona, meanwhile, became more effective.
 
-![Barcelona's press faded regardless of the score](docs/img/press.svg)
+![Barcelona's press against Real Madrid faded regardless of the score](docs/img/press.svg)
 
-**3. Losing the ball in midfield is what hurts.** Barcelona's central-midfield losses (zone 5) end in an opponent shot
+**3. In Clásicos, losing the ball in midfield is what hurts.** Barcelona's central-midfield losses (zone 5) end in a Real Madrid shot
 12.5% of the time, against 1–4% in the attacking third, although most of those shots come from distance. Only 1 of
 Barcelona's 744 losses after a controlled touch led to a goal within 20 seconds; Real Madrid's led to 5.
 

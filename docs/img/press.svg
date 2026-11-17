@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif">
 <rect width="720" height="380" rx="12" fill="#ffffff"/>
-<text x="24" y="36" font-size="19" font-weight="600" fill="#15171a">Barcelona's press faded, regardless of the score</text>
+<text x="24" y="36" font-size="19" font-weight="600" fill="#15171a">Barcelona's press against Real Madrid faded, whatever the score</text>
 <text x="24" y="60" font-size="13.5" fill="#5c6470">PPDA: opponent build-up passes per defensive action (higher = less pressure)</text>
 <line x1="56" x2="590" y1="316.0" y2="316.0" stroke="#e9ecef"/>
 <text x="46" y="320.0" font-size="12" fill="#5c6470" text-anchor="end">0</text>
