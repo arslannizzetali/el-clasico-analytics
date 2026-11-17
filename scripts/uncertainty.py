@@ -6,6 +6,9 @@ not independent): for every grouping, team, group and game state, matches are dr
 metric is recomputed as a ratio of sums, RESAMPLES times. The 5th and 95th percentiles give a 90% interval.
 A change between two groups is the difference of independent resamples; if its interval excludes 0,
 the change is unlikely to be an artefact of which matches happened to be played.
+Many changes are tested (108 per grouping), so at 90% about 1 in 10 would come out "clear" by chance even if
+nothing changed. Each change therefore also carries a 99% interval (lo99, hi99) and clear_strict=1 when that
+interval excludes 0 too.
 
 Leave-one-out: for every group average, each match is dropped in turn and the average recomputed; loo_lo and
 loo_hi are the lowest and highest of those values and loo_date is the match whose removal moves it most. A group
@@ -30,6 +33,7 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else PROCESSED
 RESAMPLES = 5000
 SEED = 2021
 LEVEL = 0.90
+STRICT_LEVEL = 0.99   # second, stricter threshold for changes, against chance findings among many tests
 MIN_MATCHES = 4   # smallest group that gets an interval and enters change tests
 LOO_FLAG = 0.20   # relative move of a group average, when one match is dropped, that marks it as fragile
 # grouping: (field in match_team / game_state, groups in chronological order)
@@ -100,10 +104,13 @@ def change_row(grouping, metric, state, team, g1, g2, v1, v2, s1, s2, loo1, loo2
     lo, hi = (1 - LEVEL) / 2, 1 - (1 - LEVEL) / 2
     diffs = [y - x for x, y in zip(s1, s2)]   # independent draws, paired by index
     dlo, dhi = pct(diffs, lo), pct(diffs, hi)
+    slo, shi = pct(diffs, (1 - STRICT_LEVEL) / 2), pct(diffs, 1 - (1 - STRICT_LEVEL) / 2)
     return dict(key=key(metric, state, team, f'{g1}>{g2}'), kind='change', grouping=grouping, metric=metric,
                 state=state, team=team, group=f'{g1}>{g2}', matches=None,
                 value=round(v2 - v1, 2), lo=round(dlo, 2), hi=round(dhi, 2),
-                clear=1 if dlo > 0 or dhi < 0 else 0, **change_loo(v1, v2, loo1, loo2))
+                clear=1 if dlo > 0 or dhi < 0 else 0,
+                lo99=round(slo, 2), hi99=round(shi, 2), clear_strict=1 if slo > 0 or shi < 0 else 0,
+                **change_loo(v1, v2, loo1, loo2))
 
 
 def change_loo(v1, v2, loo1, loo2):
@@ -142,9 +149,11 @@ def main():
     for grouping in GROUPINGS:
         changes = [r for r in rows if r['kind'] == 'change' and r['grouping'] == grouping]
         clear = sum(r['clear'] for r in changes)
+        strict = sum(r['clear_strict'] for r in changes)
         fragile = sum(r.get('single_match', 0) for r in rows if r['kind'] == 'group' and r['grouping'] == grouping)
         flips = sum(r['loo_flip'] for r in changes if r['clear'])
         print(f'uncertainty ({grouping}): {clear}/{len(changes)} changes clear of zero at {LEVEL:.0%}, '
+              f'{strict} also at {STRICT_LEVEL:.0%}, '
               f'{flips} of them reversed or zeroed by dropping one match; {fragile} averages moved >20% by one match')
     print(f'uncertainty: {len(rows)} rows, {RESAMPLES} resamples')
 

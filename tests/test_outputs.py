@@ -112,6 +112,14 @@ class Outputs(unittest.TestCase):
             if r['kind'] == 'change' and r['loo_flip']:
                 self.assertTrue(r['loo_lo'] <= 0 <= r['loo_hi'], r['key'])
 
+    def test_strict_threshold_is_stricter(self):
+        for r in self.U:
+            if r['kind'] == 'change':
+                self.assertLessEqual(r['lo99'], r['lo'], r['key'])
+                self.assertGreaterEqual(r['hi99'], r['hi'], r['key'])
+                self.assertEqual(r['clear_strict'], 1 if r['lo99'] > 0 or r['hi99'] < 0 else 0, r['key'])
+                self.assertLessEqual(r['clear_strict'], r['clear'], r['key'])
+
     def test_intervals_contain_their_estimate(self):
         for r in self.U:
             if r['lo'] is None:

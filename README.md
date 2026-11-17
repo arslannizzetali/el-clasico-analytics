@@ -22,7 +22,8 @@ StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Bar
 | Real Madrid: press success (%) | 16.8 | **13.6** | 18.7 | **21.4** | 2009-13 → 2017-21: +7.8 [+4.6, +11.3] pts |
 
 **1. The two styles converged.** By period, Barcelona's build-up peaked in 2009-13 (11.1 passes before a shot) and
-fell to 7; Real Madrid went from direct play (4) to 7. Both changes hold under resampling. The 2009-13 peak is **not**
+fell to 7; Real Madrid went from direct play (4) to 7. Real Madrid's rise passes both the 90% and the stricter 99%
+check; Barcelona's fall passes only the 90% one (99% interval −10.0 to +1.1), so treat it as likely rather than sure. The 2009-13 peak is **not**
 a Guardiola peak, though: grouped by coach (below), Guardiola's Clásicos average 8.9 passes, the same as Luis
 Enrique's 8.7, and the period figure is lifted by Vilanova's two matches (13.9).
 
@@ -76,6 +77,17 @@ interval**: the period's matches are resampled with replacement 5,000 times and 
 resampled totals. The match is the unit of resampling because events within a match are not independent. A change
 between periods is called clear only when its interval excludes zero; 56 of the 108 period-to-period changes are.
 Example of one that is not: Real Madrid's PPDA with the score level, 2005-09 → 2017-21, +0.4 [−2.7, +3.2].
+
+**Many tests, some false alarms.** 108 changes are tested per grouping. At a 90% interval roughly 1 in 10 would look
+clear by chance even if nothing had changed at all, so about **11 of the 56** clear period changes could be noise
+(the tests share matches and are not independent, so this is a rough guide, not an exact count). Each change
+therefore also carries a 99% interval (`lo99`, `hi99` in `uncertainty.json`) and `clear_strict = 1` when that too
+excludes zero; by chance alone about 1 of 108 would. **31 of the 108 period changes pass the strict threshold**, and
+31 of the 108 coach-to-coach changes. All headline changes in the table above pass it except Barcelona's passes before
+a shot, 2009-13 → 2017-21 (99% interval −10.0 to +1.1). Of the coach comparisons quoted above, Guardiola's higher
+press success and balls stripped against Luis Enrique and Valverde, and his lower PPDA against Valverde, pass; his
+lower PPDA against Luis Enrique (+2.9; 99% −1.1 to +8.2) and the longer build-up after Rijkaard (+4.1; 99% −0.2 to
++8.9) do not.
 
 **Does one match drive an average? (leave-one-out)** Every average with an interval is recomputed with each of its
 matches dropped in turn; `uncertainty.json` stores the lowest and highest result (`loo_lo`, `loo_hi`), the match
