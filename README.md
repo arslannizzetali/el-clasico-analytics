@@ -78,8 +78,8 @@ Barcelona's 744 losses after a controlled touch led to a goal within 20 seconds;
 
 ### How sure are these numbers?
 
-Each period average rests on only 6–8 matches (each coach average on 4–8), so every average in the dashboard carries a **90% bootstrap
-interval**: the period's matches are resampled with replacement 5,000 times and the metric is recomputed from the
+Each period average rests on only 6–8 matches (each coach average on 4–8), so every average in the dashboard
+carries a **90% bootstrap interval**: the period's matches are resampled with replacement 5,000 times and the metric is recomputed from the
 resampled totals. The match is the unit of resampling because events within a match are not independent. A change
 between periods is called clear only when its interval excludes zero; 56 of the 108 period-to-period changes are.
 Example of one that is not: Real Madrid's PPDA with the score level, 2005-09 → 2017-21, +0.4 [−2.7, +3.2].
@@ -126,8 +126,8 @@ one match **does** move an average by more than 20%, read that average with care
 ## Interactive dashboard
 
 The [dashboard](https://arslannizzetali.github.io/el-clasico-analytics/) is a single static file
-([`docs/index.html`](docs/index.html)): pick a team and a metric, see every match as a point and every period as an
-average with its interval, split pressing and build-up metrics by score state, click a pitch zone to list the losses
+([`docs/index.html`](docs/index.html)): pick a team and a metric, see every match as a point and every period (or
+Barcelona coach) as an average with its interval and leave-one-out range, split pressing and build-up metrics by score state, click a pitch zone to list the losses
 behind it, and open a match report with both teams against their period average. Light and dark mode, works on a phone.
 
 It runs exactly the same page code as the working dashboard; `site/build_site.py` embeds the processed data and a
@@ -159,7 +159,7 @@ scripts/            pipeline steps, run in this order by pipeline.py
   losses.py         every ball lost after a controlled touch, with the opponent shot that followed
   strips.py         players pressing each loss
   game_state.py     main metrics split by Ahead / Level / Behind
-  uncertainty.py    bootstrap intervals for period averages and period-to-period changes
+  uncertainty.py    bootstrap intervals (90% and 99%) and leave-one-out ranges, by period and by Barcelona coach
   loss_table.py     flat loss table (CSV) for spreadsheet use
 site/               build_site.py (static dashboard -> docs/index.html), readme_charts.py (docs/img/*.svg)
 docs/               published site: index.html + README charts
@@ -175,14 +175,15 @@ Python 3.10+ and the standard library only; nothing to install.
 
 ```bash
 python3 pipeline.py                      # downloads the data on first run, then ~40 s
-python3 -m unittest discover -s tests    # 21 tests
+python3 -m unittest discover -s tests    # 25 tests
 python3 site/build_site.py               # rebuild docs/index.html
 python3 site/readme_charts.py            # rebuild the README charts
 ```
 
 The tests check the definitions on small synthetic event sequences (what counts as a strip, how the score state is
 assigned around a goal, zone edges) and the outputs against each other: 29 matches, mirrored scores, game-state
-splits summing to match totals, loss and strip tables lining up row by row, intervals containing their estimates.
+splits summing to match totals, loss and strip tables lining up row by row, intervals containing their estimates,
+coach groups and their minimum size, leave-one-out ranges and the strict threshold.
 
 CI runs on every push: the tests; a check that the site and charts are up to date with the data; and a full rebuild
 from raw StatsBomb data that must reproduce every committed output byte for byte (the bootstrap uses a fixed seed).
@@ -199,7 +200,19 @@ outputs and break CI's byte-for-byte rebuild without a change in this repository
 
 CI's raw-data cache key contains the SHA, so the new commit is downloaded fresh.
 
-## Credits
+## How this was built
 
-Event data © StatsBomb, released as open data under their
-[user agreement](https://github.com/statsbomb/open-data/blob/master/LICENSE.pdf).
+The pipeline, tests and dashboard are plain Python (standard library) and a single HTML page with D3. Every metric
+rule lives in `clasico/events.py`; every output can be rebuilt from the raw data with `python3 pipeline.py`, and CI
+checks that it is.
+
+<!-- TODO(izzet): describe how AI tools were used in building this project (which tools, for which parts, and how
+the results were checked). Left for the author to write; nothing here has been filled in on their behalf. -->
+
+## License and credits
+
+The code in this repository is released under the [MIT License](LICENSE).
+
+The data are not covered by that license. Event data © StatsBomb, released as open data under their own
+[user agreement](https://github.com/statsbomb/open-data/blob/master/LICENSE.pdf), which governs any use of the raw
+files and of the numbers derived from them here.
