@@ -8,6 +8,7 @@ from . import RAW
 
 BASE = 'https://raw.githubusercontent.com/statsbomb/open-data/master/data/'
 LA_LIGA = 11
+UCL = 16
 FIRST_SEASON = '2005'
 
 
@@ -62,14 +63,34 @@ def league_matches(first='2004/2005', last='2020/2021', raw=RAW):
     return sorted(out, key=lambda g: (g['match_date'], g['match_id']))
 
 
+def ucl_finals(teams=('Barcelona', 'Real Madrid'), first='2005', raw=RAW):
+    """Champions League finals in the open data (2005/06 on) with Barcelona or Real Madrid, sorted by date."""
+    comps = load_json('competitions.json', 'c.json', raw)
+    out = []
+    for c in comps:
+        if c['competition_id'] == UCL and c['season_name'] >= first:
+            for g in load_json(f"matches/{UCL}/{c['season_id']}.json", f"matches_{UCL}_{c['season_id']}.json", raw):
+                if g['competition_stage']['name'] == 'Final' and set(teams) & {g['home_team']['home_team_name'], g['away_team']['away_team_name']}:
+                    out.append(g)
+    return sorted(out, key=lambda g: g['match_date'])
+
+
+SCOPES = ('all', 'league', 'clasico', 'ucl_finals')
+
+
 def scope_matches(scope='all', raw=RAW):
-    """'all': every La Liga match in the open data; 'clasico': the 29 Clásicos the reference pipeline uses.
+    """'league': every La Liga match in the open data; 'clasico': the 29 Clásicos the reference pipeline uses;
+    'ucl_finals': Barcelona's and Real Madrid's Champions League finals; 'all': league + finals.
     Match dicts are returned as StatsBomb has them (clasico_matches overwrites 'season' with its name)."""
+    if scope not in SCOPES:
+        raise ValueError(f'scope must be one of {SCOPES}')
+    if scope == 'ucl_finals':
+        return ucl_finals(raw=raw)
     ms = league_matches(raw=raw)
     if scope == 'clasico':
         ids = {g['match_id'] for g in clasico_matches(raw)}
         ms = [g for g in ms if g['match_id'] in ids]
-    return ms
+    return ms + ucl_finals(raw=raw) if scope == 'all' else ms
 
 
 def lineups(match_id, raw=RAW):

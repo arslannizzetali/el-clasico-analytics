@@ -2,6 +2,7 @@
 
     python3 scripts/download.py            # all La Liga seasons 2004/05-2020/21 (~866 matches, a few GB)
     python3 scripts/download.py clasico    # only the Real Madrid - Barcelona matches
+    python3 scripts/download.py ucl_finals # only the Champions League finals
 """
 import os
 import sys
