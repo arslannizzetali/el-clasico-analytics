@@ -15,6 +15,8 @@ try:
         READY = _c.execute("SELECT count(*) FROM match_categories WHERE category = 'clasico'").fetchone()[0] == 29
 except Exception:  # pandas/psycopg missing, database down or not loaded
     READY = False
+if os.environ.get('REQUIRE_DB') and not READY:   # set in CI, so the test cannot pass by being skipped
+    raise RuntimeError('REQUIRE_DB is set but the database is not loaded')
 
 EXACT = ('goals_for', 'goals_against', 'passes', 'open_play_shots', 'passes_before_shot_sum', 'direct_shots',
          'long_shots', 'pressures', 'pressures_won_5s', 'opp_passes', 'opp_buildup_passes', 'def_actions')
