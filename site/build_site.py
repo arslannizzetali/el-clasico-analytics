@@ -14,6 +14,9 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from clasico.output import read_json, read_rows  # noqa: E402
+from clasico.log import get_logger  # noqa: E402
+
+log = get_logger('build_site')
 
 D3 = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js'
 P = lambda n: os.path.join(ROOT, 'data', 'processed', n)  # noqa: E731
@@ -171,7 +174,7 @@ def main():
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, 'w', encoding='utf-8') as fh:
         fh.write(html)
-    print(f'docs/index.html written ({len(html) / 1e6:.1f} MB)')
+    log.info('site written', extra={'path': 'docs/index.html', 'mb': round(len(html) / 1e6, 2)})
 
 
 if __name__ == '__main__':

@@ -19,6 +19,9 @@ import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from clasico import ROOT, db, frames  # noqa: E402
+from clasico.log import get_logger  # noqa: E402
+
+log = get_logger('league')
 
 OUT = os.path.join(ROOT, 'data', 'league')
 CATEGORIES = ('clasico', 'barcelona_vs_top10', 'barcelona_all', 'season_2015_16', 'ucl_finals')
@@ -58,7 +61,7 @@ def main():
         d['period'] = d['season_name'].map(era)
         d.to_csv(os.path.join(OUT, f'match_team_{cat}.csv'), index=False)
         mt[cat] = d
-        print(f'{cat}: {d["match_id"].nunique()} matches')
+        log.info('category tables written', extra={'category': cat, 'matches': int(d['match_id'].nunique()), 'rows': len(d)})
 
     rows = []
     for cat in ('clasico', 'barcelona_vs_top10', 'barcelona_all'):

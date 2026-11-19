@@ -32,6 +32,9 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from clasico import ROOT  # noqa: E402
 from clasico.bootstrap import SEED, interval, percentile, ratio, resample  # noqa: E402
+from clasico.log import get_logger  # noqa: E402
+
+log = get_logger('intervals')
 
 LEAGUE = os.path.join(ROOT, 'data', 'league')
 PERIODS = ('2004-09', '2009-13', '2013-17', '2017-21')
@@ -137,7 +140,7 @@ def finals_vs_baseline(rng):
                             pct_below=round(100 * (per_match < value).mean()), baseline_matches=len(g), basis=basis,
                             unusual=int(value < p5 or value > p95)))
     pd.DataFrame(out).to_csv(os.path.join(LEAGUE, 'finals.csv'), index=False)
-    print(f"finals: {len(out) // len(METRICS)} finals, {sum(r['unusual'] for r in out)}/{len(out)} metrics outside the middle 90% of baseline matches")
+    log.info('finals compared', extra={'finals': len(out) // len(METRICS), 'unusual': sum(r['unusual'] for r in out), 'pairs': len(out)})
 
 
 def main():
@@ -178,8 +181,8 @@ def main():
     out.to_csv(os.path.join(LEAGUE, 'intervals.csv'), index=False)
     for kind in ('change', 'contrast'):
         k = out[out['kind'] == kind]
-        print(f'{kind}: {int(k["clear"].sum())}/{len(k)} clear of zero')
-    print(f'intervals: {len(out)} rows -> data/league/intervals.csv')
+        log.info('differences', extra={'kind': kind, 'clear': int(k['clear'].sum()), 'total': len(k)})
+    log.info('intervals written', extra={'rows': len(out), 'path': 'data/league/intervals.csv'})
 
 
 if __name__ == '__main__':
