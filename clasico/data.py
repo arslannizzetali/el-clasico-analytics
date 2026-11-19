@@ -62,6 +62,16 @@ def league_matches(first='2004/2005', last='2020/2021', raw=RAW):
     return sorted(out, key=lambda g: (g['match_date'], g['match_id']))
 
 
+def scope_matches(scope='all', raw=RAW):
+    """'all': every La Liga match in the open data; 'clasico': the 29 Clásicos the reference pipeline uses.
+    Match dicts are returned as StatsBomb has them (clasico_matches overwrites 'season' with its name)."""
+    ms = league_matches(raw=raw)
+    if scope == 'clasico':
+        ids = {g['match_id'] for g in clasico_matches(raw)}
+        ms = [g for g in ms if g['match_id'] in ids]
+    return ms
+
+
 def lineups(match_id, raw=RAW):
     return load_json(f'lineups/{match_id}.json', f'lineups_{match_id}.json', raw)
 
