@@ -7,6 +7,7 @@ Writes data/league/:
   by_period.csv               Barcelona and its opponents per category and period
   opponent_formations.csv     how teams lined up against Barcelona: top-10 clubs vs the rest
   real_madrid_2015_16.csv     Real Madrid's 2015/16 league season, Benítez vs Zidane
+  tactical_shifts.csv         formation at kick-off and after every tactical shift, every loaded match
 
 Rates are pooled (sum of the numerator over sum of the denominator), so a match with many pressures weighs
 more than one with few; tempo metrics are averages of match values.
@@ -91,6 +92,12 @@ def main():
         'most_common_formation': g['formation'].mode().iat[0],
     }), include_groups=False).reset_index().astype({'matches': int})
     s.to_csv(os.path.join(OUT, 'real_madrid_2015_16.csv'), index=False)
+
+    shifts = pd.read_sql(
+        "SELECT match_id, team_name AS team, period, minute, formation, starting FROM formations ORDER BY match_id, idx", eng)
+    shifts['formation'] = shifts['formation'].map(lambda f: '-'.join(f))
+    shifts['starting'] = shifts['starting'].astype(int)
+    shifts.to_csv(os.path.join(OUT, 'tactical_shifts.csv'), index=False)
 
     with pd.option_context('display.width', 200, 'display.max_columns', 20):
         print(pd.read_csv(os.path.join(OUT, 'by_period.csv')).to_string(index=False))
