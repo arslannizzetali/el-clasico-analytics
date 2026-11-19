@@ -1,0 +1,45 @@
+team,seasons_in_la_liga,top10_finishes,avg_final_position,is_top10_club
+Albacete,1,0,20.0,False
+Almería,6,1,14.7,False
+Athletic Club,17,10,9.8,True
+Atlético Madrid,17,16,4.6,True
+Barcelona,17,17,1.5,True
+CD Numancia de Soria,2,0,19.0,False
+Celta Vigo,11,5,12.0,False
+Cádiz,2,0,15.5,False
+Córdoba CF,1,0,20.0,False
+Deportivo Alavés,6,1,14.0,False
+Eibar,7,2,13.9,False
+Elche,3,0,15.3,False
+Espanyol,16,6,11.4,False
+Getafe,16,7,11.8,True
+Gimnàstic Tarragona,1,0,20.0,False
+Girona,2,1,14.0,False
+Granada,8,2,14.5,False
+Huesca,2,0,18.5,False
+Hércules,1,0,19.0,False
+Juventus,,,,False
+Las Palmas,3,0,14.7,False
+Leganés,4,0,16.2,False
+Levante UD,13,2,14.2,False
+Liverpool,,,,False
+Mallorca,10,4,12.5,False
+Manchester United,,,,False
+Málaga,12,6,11.2,True
+Osasuna,13,4,12.8,False
+RC Deportivo La Coruña,12,5,13.1,False
+Racing Santander,8,2,13.6,False
+Rayo Vallecano,6,1,14.0,False
+Real Betis,14,6,11.9,False
+Real Madrid,17,17,1.9,True
+Real Murcia CF,1,0,19.0,False
+Real Sociedad,14,7,10.4,True
+Real Valladolid,8,0,16.2,False
+Real Zaragoza,8,1,13.8,False
+Recreativo Huelva,3,1,14.7,False
+Sevilla,17,17,5.4,True
+Sporting Gijón,6,1,15.5,False
+Tenerife,1,0,19.0,False
+Valencia,17,14,6.5,True
+Villarreal,16,14,6.4,True
+Xerez,1,0,20.0,False

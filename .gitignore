@@ -7,3 +7,8 @@ TANITIM.md
 CONTEXT.md
 .venv/
 .env
+dbt/target/
+dbt/logs/
+dbt/.user.yml
+logs/
+.dagster_home/

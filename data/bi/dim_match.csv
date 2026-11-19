@@ -1,0 +1,874 @@
+match_id,match_date,season,period,competition,home_team,away_team,home_goals,away_goals,is_clasico,is_barcelona_vs_top10,is_barcelona_all,is_season_2015_16,is_ucl_finals
+68353,2004-10-16,2004/2005,2004-09,La Liga,Espanyol,Barcelona,0,1,False,False,True,False,False
+68313,2004-10-24,2004/2005,2004-09,La Liga,Barcelona,Osasuna,3,0,False,False,True,False,False
+68314,2004-12-04,2004/2005,2004-09,La Liga,Barcelona,Málaga,4,0,False,True,True,False,False
+69153,2004-12-11,2004/2005,2004-09,La Liga,Albacete,Barcelona,1,2,False,False,True,False,False
+68315,2004-12-21,2004/2005,2004-09,La Liga,Barcelona,Levante UD,2,1,False,False,True,False,False
+68352,2005-04-17,2004/2005,2004-09,La Liga,Barcelona,Getafe,2,0,False,True,True,False,False
+68316,2005-05-01,2004/2005,2004-09,La Liga,Barcelona,Albacete,2,0,False,False,True,False,False
+68317,2005-10-01,2005/2006,2004-09,La Liga,Barcelona,Real Zaragoza,2,2,False,False,True,False,False
+68318,2005-10-22,2005/2006,2004-09,La Liga,Barcelona,Osasuna,3,0,False,False,True,False,False
+69164,2005-10-26,2005/2006,2004-09,La Liga,Barcelona,Málaga,2,0,False,True,True,False,False
+68339,2005-11-06,2005/2006,2004-09,La Liga,Getafe,Barcelona,1,3,False,True,True,False,False
+68319,2005-11-19,2005/2006,2004-09,La Liga,Real Madrid,Barcelona,0,3,True,True,True,False,False
+68354,2005-11-27,2005/2006,2004-09,La Liga,Barcelona,Racing Santander,4,1,False,False,True,False,False
+68320,2005-12-04,2005/2006,2004-09,La Liga,Villarreal,Barcelona,0,2,False,True,True,False,False
+68321,2005-12-11,2005/2006,2004-09,La Liga,Barcelona,Sevilla,2,1,False,True,True,False,False
+68322,2005-12-17,2005/2006,2004-09,La Liga,Cádiz,Barcelona,1,3,False,False,True,False,False
+68323,2005-12-20,2005/2006,2004-09,La Liga,Barcelona,Celta Vigo,2,0,False,False,True,False,False
+68348,2006-01-07,2005/2006,2004-09,La Liga,Espanyol,Barcelona,1,2,False,False,True,False,False
+68342,2006-01-15,2005/2006,2004-09,La Liga,Barcelona,Athletic Club,2,1,False,True,True,False,False
+68324,2006-01-22,2005/2006,2004-09,La Liga,Barcelona,Deportivo Alavés,2,0,False,False,True,False,False
+68325,2006-01-29,2005/2006,2004-09,La Liga,Mallorca,Barcelona,0,3,False,False,True,False,False
+68350,2006-02-05,2005/2006,2004-09,La Liga,Barcelona,Atlético Madrid,1,3,False,True,True,False,False
+69172,2006-02-18,2005/2006,2004-09,La Liga,Barcelona,Real Betis,5,1,False,False,True,False,False
+68351,2006-02-25,2005/2006,2004-09,La Liga,Real Zaragoza,Barcelona,0,2,False,False,True,False,False
+68326,2006-08-28,2006/2007,2004-09,La Liga,Celta Vigo,Barcelona,2,3,False,False,True,False,False
+68327,2006-09-09,2006/2007,2004-09,La Liga,Barcelona,Osasuna,3,0,False,False,True,False,False
+68340,2006-09-17,2006/2007,2004-09,La Liga,Racing Santander,Barcelona,0,3,False,False,True,False,False
+68328,2006-09-24,2006/2007,2004-09,La Liga,Barcelona,Valencia,1,1,False,True,True,False,False
+68347,2006-09-30,2006/2007,2004-09,La Liga,Athletic Club,Barcelona,1,3,False,True,True,False,False
+68329,2006-10-15,2006/2007,2004-09,La Liga,Barcelona,Sevilla,3,1,False,True,True,False,False
+68330,2006-10-22,2006/2007,2004-09,La Liga,Real Madrid,Barcelona,2,0,True,True,True,False,False
+69174,2006-11-04,2006/2007,2004-09,La Liga,RC Deportivo La Coruña,Barcelona,1,1,False,False,True,False,False
+68331,2006-11-12,2006/2007,2004-09,La Liga,Barcelona,Real Zaragoza,3,1,False,False,True,False,False
+69154,2007-02-11,2006/2007,2004-09,La Liga,Barcelona,Racing Santander,2,0,False,False,True,False,False
+68332,2007-02-18,2006/2007,2004-09,La Liga,Valencia,Barcelona,2,1,False,True,True,False,False
+68333,2007-02-25,2006/2007,2004-09,La Liga,Barcelona,Athletic Club,3,0,False,True,True,False,False
+68334,2007-03-03,2006/2007,2004-09,La Liga,Sevilla,Barcelona,2,1,False,True,True,False,False
+68335,2007-03-10,2006/2007,2004-09,La Liga,Barcelona,Real Madrid,3,3,True,True,True,False,False
+68341,2007-03-17,2006/2007,2004-09,La Liga,Recreativo Huelva,Barcelona,0,4,False,False,True,False,False
+69175,2007-03-31,2006/2007,2004-09,La Liga,Barcelona,RC Deportivo La Coruña,2,1,False,False,True,False,False
+69179,2007-04-07,2006/2007,2004-09,La Liga,Real Zaragoza,Barcelona,1,0,False,False,True,False,False
+69159,2007-04-15,2006/2007,2004-09,La Liga,Barcelona,Mallorca,1,0,False,False,True,False,False
+69155,2007-04-22,2006/2007,2004-09,La Liga,Villarreal,Barcelona,2,0,False,True,True,False,False
+69156,2007-04-29,2006/2007,2004-09,La Liga,Barcelona,Levante UD,1,0,False,False,True,False,False
+69160,2007-05-05,2006/2007,2004-09,La Liga,Real Sociedad,Barcelona,0,2,False,True,True,False,False
+69162,2007-05-13,2006/2007,2004-09,La Liga,Barcelona,Real Betis,1,1,False,False,True,False,False
+69176,2007-05-20,2006/2007,2004-09,La Liga,Atlético Madrid,Barcelona,0,6,False,True,True,False,False
+69157,2007-05-26,2006/2007,2004-09,La Liga,Barcelona,Getafe,1,0,False,True,True,False,False
+69165,2007-06-09,2006/2007,2004-09,La Liga,Barcelona,Espanyol,2,2,False,False,True,False,False
+68336,2007-06-17,2006/2007,2004-09,La Liga,Gimnàstic Tarragona,Barcelona,1,5,False,False,True,False,False
+69180,2007-08-26,2007/2008,2004-09,La Liga,Racing Santander,Barcelona,0,0,False,False,True,False,False
+69169,2007-09-02,2007/2008,2004-09,La Liga,Barcelona,Athletic Club,3,1,False,True,True,False,False
+69148,2007-09-22,2007/2008,2004-09,La Liga,Barcelona,Sevilla,2,1,False,True,True,False,False
+69151,2007-09-29,2007/2008,2004-09,La Liga,Levante UD,Barcelona,1,4,False,False,True,False,False
+69144,2007-10-07,2007/2008,2004-09,La Liga,Barcelona,Atlético Madrid,3,0,False,True,True,False,False
+68364,2007-10-20,2007/2008,2004-09,La Liga,Villarreal,Barcelona,3,1,False,True,True,False,False
+69158,2007-10-28,2007/2008,2004-09,La Liga,Barcelona,Almería,2,0,False,False,True,False,False
+68363,2007-11-01,2007/2008,2004-09,La Liga,Real Valladolid,Barcelona,1,1,False,False,True,False,False
+69166,2007-11-04,2007/2008,2004-09,La Liga,Barcelona,Real Betis,3,0,False,False,True,False,False
+69178,2007-11-10,2007/2008,2004-09,La Liga,Getafe,Barcelona,2,0,False,True,True,False,False
+69184,2007-11-24,2007/2008,2004-09,La Liga,Barcelona,Recreativo Huelva,3,0,False,False,True,False,False
+68356,2007-12-01,2007/2008,2004-09,La Liga,Espanyol,Barcelona,1,1,False,False,True,False,False
+69170,2007-12-09,2007/2008,2004-09,La Liga,Barcelona,RC Deportivo La Coruña,2,1,False,False,True,False,False
+69145,2007-12-15,2007/2008,2004-09,La Liga,Valencia,Barcelona,0,3,False,True,True,False,False
+69173,2008-01-20,2007/2008,2004-09,La Liga,Barcelona,Racing Santander,1,0,False,False,True,False,False
+69181,2008-01-27,2007/2008,2004-09,La Liga,Athletic Club,Barcelona,1,1,False,True,True,False,False
+69187,2008-02-03,2007/2008,2004-09,La Liga,Barcelona,Osasuna,1,0,False,False,True,False,False
+69146,2008-02-09,2007/2008,2004-09,La Liga,Sevilla,Barcelona,1,1,False,True,True,False,False
+69182,2008-02-16,2007/2008,2004-09,La Liga,Real Zaragoza,Barcelona,1,2,False,False,True,False,False
+68360,2008-02-24,2007/2008,2004-09,La Liga,Barcelona,Levante UD,5,1,False,False,True,False,False
+68365,2008-03-01,2007/2008,2004-09,La Liga,Atlético Madrid,Barcelona,4,2,False,True,True,False,False
+68358,2008-04-12,2007/2008,2004-09,La Liga,Recreativo Huelva,Barcelona,2,2,False,False,True,False,False
+68359,2008-04-19,2007/2008,2004-09,La Liga,Barcelona,Espanyol,0,0,False,False,True,False,False
+69141,2008-05-04,2007/2008,2004-09,La Liga,Barcelona,Valencia,6,0,False,True,True,False,False
+68361,2008-05-07,2007/2008,2004-09,La Liga,Real Madrid,Barcelona,4,1,True,True,True,False,False
+68366,2008-05-11,2007/2008,2004-09,La Liga,Barcelona,Mallorca,2,3,False,False,True,False,False
+69186,2008-05-17,2007/2008,2004-09,La Liga,Real Murcia CF,Barcelona,3,5,False,False,True,False,False
+69147,2008-08-31,2008/2009,2004-09,La Liga,CD Numancia de Soria,Barcelona,1,0,False,False,True,False,False
+69215,2008-09-13,2008/2009,2004-09,La Liga,Barcelona,Racing Santander,1,1,False,False,True,False,False
+69138,2008-09-21,2008/2009,2004-09,La Liga,Sporting Gijón,Barcelona,1,6,False,False,True,False,False
+69207,2008-09-24,2008/2009,2004-09,La Liga,Barcelona,Real Betis,3,2,False,False,True,False,False
+69211,2008-09-27,2008/2009,2004-09,La Liga,Espanyol,Barcelona,1,2,False,False,True,False,False
+69212,2008-10-04,2008/2009,2004-09,La Liga,Barcelona,Atlético Madrid,6,1,False,True,True,False,False
+69232,2008-10-25,2008/2009,2004-09,La Liga,Barcelona,Almería,5,0,False,False,True,False,False
+69235,2008-11-01,2008/2009,2004-09,La Liga,Málaga,Barcelona,1,4,False,True,True,False,False
+69279,2008-11-08,2008/2009,2004-09,La Liga,Barcelona,Real Valladolid,6,0,False,False,True,False,False
+69285,2008-11-16,2008/2009,2004-09,La Liga,Recreativo Huelva,Barcelona,0,2,False,False,True,False,False
+69171,2008-11-29,2008/2009,2004-09,La Liga,Sevilla,Barcelona,0,3,False,True,True,False,False
+69149,2008-12-06,2008/2009,2004-09,La Liga,Barcelona,Valencia,4,0,False,True,True,False,False
+69225,2008-12-13,2008/2009,2004-09,La Liga,Barcelona,Real Madrid,2,0,True,True,True,False,False
+69228,2008-12-21,2008/2009,2004-09,La Liga,Villarreal,Barcelona,1,2,False,True,True,False,False
+69230,2009-01-11,2008/2009,2004-09,La Liga,Osasuna,Barcelona,2,3,False,False,True,False,False
+69183,2009-01-17,2008/2009,2004-09,La Liga,Barcelona,RC Deportivo La Coruña,5,0,False,False,True,False,False
+69189,2009-01-24,2008/2009,2004-09,La Liga,Barcelona,CD Numancia de Soria,4,1,False,False,True,False,False
+69209,2009-02-01,2008/2009,2004-09,La Liga,Racing Santander,Barcelona,1,2,False,False,True,False,False
+69231,2009-02-08,2008/2009,2004-09,La Liga,Barcelona,Sporting Gijón,3,1,False,False,True,False,False
+69195,2009-02-14,2008/2009,2004-09,La Liga,Real Betis,Barcelona,2,2,False,False,True,False,False
+69139,2009-02-21,2008/2009,2004-09,La Liga,Barcelona,Espanyol,1,2,False,False,True,False,False
+69185,2009-03-01,2008/2009,2004-09,La Liga,Atlético Madrid,Barcelona,4,3,False,True,True,False,False
+69216,2009-03-07,2008/2009,2004-09,La Liga,Barcelona,Athletic Club,2,0,False,True,True,False,False
+69177,2009-03-15,2008/2009,2004-09,La Liga,Almería,Barcelona,0,2,False,False,True,False,False
+69142,2009-03-22,2008/2009,2004-09,La Liga,Barcelona,Málaga,6,0,False,True,True,False,False
+69273,2009-04-04,2008/2009,2004-09,La Liga,Real Valladolid,Barcelona,0,1,False,False,True,False,False
+69222,2009-04-11,2008/2009,2004-09,La Liga,Barcelona,Recreativo Huelva,2,0,False,False,True,False,False
+69223,2009-04-18,2008/2009,2004-09,La Liga,Getafe,Barcelona,0,1,False,True,True,False,False
+69251,2009-04-25,2008/2009,2004-09,La Liga,Valencia,Barcelona,2,2,False,True,True,False,False
+69249,2009-05-02,2008/2009,2004-09,La Liga,Real Madrid,Barcelona,2,6,True,True,True,False,False
+69217,2009-05-10,2008/2009,2004-09,La Liga,Barcelona,Villarreal,3,3,False,True,True,False,False
+3750201,2009-05-27,2008/2009,2004-09,Champions League final,Barcelona,Manchester United,2,0,False,False,False,False,True
+69229,2009-09-12,2009/2010,2009-13,La Liga,Getafe,Barcelona,0,2,False,True,True,False,False
+69292,2009-09-19,2009/2010,2009-13,La Liga,Barcelona,Atlético Madrid,5,2,False,True,True,False,False
+69254,2009-09-22,2009/2010,2009-13,La Liga,Racing Santander,Barcelona,1,4,False,False,True,False,False
+69255,2009-09-26,2009/2010,2009-13,La Liga,Málaga,Barcelona,0,2,False,True,True,False,False
+69256,2009-10-03,2009/2010,2009-13,La Liga,Barcelona,Almería,1,0,False,False,True,False,False
+69252,2009-10-17,2009/2010,2009-13,La Liga,Valencia,Barcelona,0,0,False,True,True,False,False
+69253,2009-10-25,2009/2010,2009-13,La Liga,Barcelona,Real Zaragoza,6,1,False,False,True,False,False
+69277,2009-10-31,2009/2010,2009-13,La Liga,Osasuna,Barcelona,1,1,False,False,True,False,False
+69250,2009-11-07,2009/2010,2009-13,La Liga,Barcelona,Mallorca,4,2,False,False,True,False,False
+69288,2009-11-21,2009/2010,2009-13,La Liga,Athletic Club,Barcelona,1,1,False,True,True,False,False
+69262,2009-11-29,2009/2010,2009-13,La Liga,Barcelona,Real Madrid,1,0,True,True,True,False,False
+69267,2009-12-02,2009/2010,2009-13,La Liga,Xerez,Barcelona,0,2,False,False,True,False,False
+69218,2009-12-05,2009/2010,2009-13,La Liga,RC Deportivo La Coruña,Barcelona,1,3,False,False,True,False,False
+69219,2010-01-10,2009/2010,2009-13,La Liga,Tenerife,Barcelona,0,5,False,False,True,False,False
+69243,2010-01-16,2009/2010,2009-13,La Liga,Barcelona,Sevilla,4,0,False,True,True,False,False
+69210,2010-01-23,2009/2010,2009-13,La Liga,Real Valladolid,Barcelona,0,3,False,False,True,False,False
+69220,2010-01-30,2009/2010,2009-13,La Liga,Sporting Gijón,Barcelona,0,1,False,False,True,False,False
+69240,2010-02-06,2009/2010,2009-13,La Liga,Barcelona,Getafe,2,1,False,True,True,False,False
+69237,2010-02-14,2009/2010,2009-13,La Liga,Atlético Madrid,Barcelona,2,1,False,True,True,False,False
+69233,2010-02-20,2009/2010,2009-13,La Liga,Barcelona,Racing Santander,4,0,False,False,True,False,False
+69238,2010-02-27,2009/2010,2009-13,La Liga,Barcelona,Málaga,2,1,False,True,True,False,False
+69226,2010-03-06,2009/2010,2009-13,La Liga,Almería,Barcelona,2,2,False,False,True,False,False
+69224,2010-03-14,2009/2010,2009-13,La Liga,Barcelona,Valencia,3,0,False,True,True,False,False
+69227,2010-03-21,2009/2010,2009-13,La Liga,Real Zaragoza,Barcelona,2,4,False,False,True,False,False
+69257,2010-03-24,2009/2010,2009-13,La Liga,Barcelona,Osasuna,2,0,False,False,True,False,False
+69298,2010-03-27,2009/2010,2009-13,La Liga,Mallorca,Barcelona,0,1,False,False,True,False,False
+69247,2010-04-03,2009/2010,2009-13,La Liga,Barcelona,Athletic Club,4,1,False,True,True,False,False
+69259,2010-04-10,2009/2010,2009-13,La Liga,Real Madrid,Barcelona,0,2,True,True,True,False,False
+69221,2010-04-14,2009/2010,2009-13,La Liga,Barcelona,RC Deportivo La Coruña,3,0,False,False,True,False,False
+69213,2010-04-17,2009/2010,2009-13,La Liga,Espanyol,Barcelona,0,0,False,False,True,False,False
+69214,2010-04-24,2009/2010,2009-13,La Liga,Barcelona,Xerez,3,1,False,False,True,False,False
+69244,2010-05-01,2009/2010,2009-13,La Liga,Villarreal,Barcelona,1,4,False,True,True,False,False
+69241,2010-05-04,2009/2010,2009-13,La Liga,Barcelona,Tenerife,4,1,False,False,True,False,False
+69239,2010-05-08,2009/2010,2009-13,La Liga,Sevilla,Barcelona,2,3,False,True,True,False,False
+69242,2010-05-16,2009/2010,2009-13,La Liga,Barcelona,Real Valladolid,4,0,False,False,True,False,False
+69286,2010-08-29,2010/2011,2009-13,La Liga,Racing Santander,Barcelona,0,3,False,False,True,False,False
+69287,2010-09-11,2010/2011,2009-13,La Liga,Barcelona,Hércules,0,2,False,False,True,False,False
+69269,2010-09-19,2010/2011,2009-13,La Liga,Atlético Madrid,Barcelona,1,2,False,True,True,False,False
+69236,2010-10-03,2010/2011,2009-13,La Liga,Barcelona,Mallorca,1,1,False,False,True,False,False
+69260,2010-10-16,2010/2011,2009-13,La Liga,Barcelona,Valencia,2,1,False,True,True,False,False
+69263,2010-10-23,2010/2011,2009-13,La Liga,Real Zaragoza,Barcelona,0,2,False,False,True,False,False
+69289,2010-10-30,2010/2011,2009-13,La Liga,Barcelona,Sevilla,5,0,False,True,True,False,False
+69270,2010-11-07,2010/2011,2009-13,La Liga,Getafe,Barcelona,1,3,False,True,True,False,False
+69308,2010-11-13,2010/2011,2009-13,La Liga,Barcelona,Villarreal,3,1,False,True,True,False,False
+69306,2010-11-20,2010/2011,2009-13,La Liga,Almería,Barcelona,0,8,False,False,True,False,False
+69299,2010-11-29,2010/2011,2009-13,La Liga,Barcelona,Real Madrid,5,0,True,True,True,False,False
+69307,2010-12-04,2010/2011,2009-13,La Liga,Osasuna,Barcelona,0,3,False,False,True,False,False
+69302,2010-12-12,2010/2011,2009-13,La Liga,Barcelona,Real Sociedad,5,0,False,True,True,False,False
+69275,2010-12-18,2010/2011,2009-13,La Liga,Espanyol,Barcelona,1,5,False,False,True,False,False
+69280,2011-01-08,2010/2011,2009-13,La Liga,RC Deportivo La Coruña,Barcelona,0,4,False,False,True,False,False
+69278,2011-01-16,2010/2011,2009-13,La Liga,Barcelona,Málaga,4,1,False,True,True,False,False
+69295,2011-01-22,2010/2011,2009-13,La Liga,Barcelona,Racing Santander,3,0,False,False,True,False,False
+69296,2011-01-29,2010/2011,2009-13,La Liga,Hércules,Barcelona,0,3,False,False,True,False,False
+69276,2011-02-05,2010/2011,2009-13,La Liga,Barcelona,Atlético Madrid,3,0,False,True,True,False,False
+69248,2011-02-12,2010/2011,2009-13,La Liga,Sporting Gijón,Barcelona,1,1,False,False,True,False,False
+69282,2011-02-20,2010/2011,2009-13,La Liga,Barcelona,Athletic Club,2,1,False,True,True,False,False
+69283,2011-02-26,2010/2011,2009-13,La Liga,Mallorca,Barcelona,0,3,False,False,True,False,False
+69274,2011-03-02,2010/2011,2009-13,La Liga,Valencia,Barcelona,0,1,False,True,True,False,False
+69300,2011-03-05,2010/2011,2009-13,La Liga,Barcelona,Real Zaragoza,1,0,False,False,True,False,False
+69291,2011-03-13,2010/2011,2009-13,La Liga,Sevilla,Barcelona,1,1,False,True,True,False,False
+69303,2011-03-19,2010/2011,2009-13,La Liga,Barcelona,Getafe,2,1,False,True,True,False,False
+69304,2011-04-02,2010/2011,2009-13,La Liga,Villarreal,Barcelona,0,1,False,True,True,False,False
+69305,2011-04-09,2010/2011,2009-13,La Liga,Barcelona,Almería,3,1,False,False,True,False,False
+69245,2011-04-16,2010/2011,2009-13,La Liga,Real Madrid,Barcelona,1,1,True,True,True,False,False
+69271,2011-04-23,2010/2011,2009-13,La Liga,Barcelona,Osasuna,2,0,False,False,True,False,False
+69246,2011-04-30,2010/2011,2009-13,La Liga,Real Sociedad,Barcelona,2,1,False,True,True,False,False
+69234,2011-05-08,2010/2011,2009-13,La Liga,Barcelona,Espanyol,2,0,False,False,True,False,False
+69272,2011-05-11,2010/2011,2009-13,La Liga,Levante UD,Barcelona,1,1,False,False,True,False,False
+18236,2011-05-28,2010/2011,2009-13,Champions League final,Barcelona,Manchester United,3,1,False,False,False,False,True
+69268,2011-08-29,2011/2012,2009-13,La Liga,Barcelona,Villarreal,5,0,False,True,True,False,False
+69264,2011-09-10,2011/2012,2009-13,La Liga,Real Sociedad,Barcelona,2,2,False,True,True,False,False
+70220,2011-09-17,2011/2012,2009-13,La Liga,Barcelona,Osasuna,8,0,False,False,True,False,False
+70223,2011-09-21,2011/2012,2009-13,La Liga,Valencia,Barcelona,2,2,False,True,True,False,False
+69297,2011-09-24,2011/2012,2009-13,La Liga,Barcelona,Atlético Madrid,5,0,False,True,True,False,False
+69265,2011-10-02,2011/2012,2009-13,La Liga,Sporting Gijón,Barcelona,0,1,False,False,True,False,False
+69293,2011-10-15,2011/2012,2009-13,La Liga,Barcelona,Racing Santander,3,0,False,False,True,False,False
+69329,2011-10-22,2011/2012,2009-13,La Liga,Barcelona,Sevilla,0,0,False,True,True,False,False
+69318,2011-10-25,2011/2012,2009-13,La Liga,Granada,Barcelona,0,1,False,False,True,False,False
+69314,2011-10-29,2011/2012,2009-13,La Liga,Barcelona,Mallorca,5,0,False,False,True,False,False
+69330,2011-11-06,2011/2012,2009-13,La Liga,Athletic Club,Barcelona,2,2,False,True,True,False,False
+69331,2011-11-19,2011/2012,2009-13,La Liga,Barcelona,Real Zaragoza,4,0,False,False,True,False,False
+69315,2011-11-26,2011/2012,2009-13,La Liga,Getafe,Barcelona,1,0,False,True,True,False,False
+69332,2011-11-29,2011/2012,2009-13,La Liga,Barcelona,Rayo Vallecano,4,0,False,False,True,False,False
+69333,2011-12-03,2011/2012,2009-13,La Liga,Barcelona,Levante UD,5,0,False,False,True,False,False
+69334,2011-12-10,2011/2012,2009-13,La Liga,Real Madrid,Barcelona,1,3,True,True,True,False,False
+69312,2012-01-08,2011/2012,2009-13,La Liga,Espanyol,Barcelona,1,1,False,False,True,False,False
+69327,2012-01-15,2011/2012,2009-13,La Liga,Barcelona,Real Betis,4,2,False,False,True,False,False
+69335,2012-01-22,2011/2012,2009-13,La Liga,Málaga,Barcelona,1,4,False,True,True,False,False
+69338,2012-01-28,2011/2012,2009-13,La Liga,Villarreal,Barcelona,0,0,False,True,True,False,False
+69316,2012-02-04,2011/2012,2009-13,La Liga,Barcelona,Real Sociedad,2,1,False,True,True,False,False
+69336,2012-02-11,2011/2012,2009-13,La Liga,Osasuna,Barcelona,3,2,False,False,True,False,False
+69328,2012-02-19,2011/2012,2009-13,La Liga,Barcelona,Valencia,5,1,False,True,True,False,False
+69337,2012-02-26,2011/2012,2009-13,La Liga,Atlético Madrid,Barcelona,1,2,False,True,True,False,False
+69322,2012-03-11,2011/2012,2009-13,La Liga,Racing Santander,Barcelona,0,2,False,False,True,False,False
+69326,2012-03-17,2011/2012,2009-13,La Liga,Sevilla,Barcelona,0,2,False,True,True,False,False
+70225,2012-03-20,2011/2012,2009-13,La Liga,Barcelona,Granada,5,3,False,False,True,False,False
+69325,2012-03-24,2011/2012,2009-13,La Liga,Mallorca,Barcelona,0,2,False,False,True,False,False
+69323,2012-03-31,2011/2012,2009-13,La Liga,Barcelona,Athletic Club,2,0,False,True,True,False,False
+70219,2012-04-07,2011/2012,2009-13,La Liga,Real Zaragoza,Barcelona,1,4,False,False,True,False,False
+69343,2012-04-10,2011/2012,2009-13,La Liga,Barcelona,Getafe,4,0,False,True,True,False,False
+70221,2012-04-14,2011/2012,2009-13,La Liga,Levante UD,Barcelona,1,2,False,False,True,False,False
+69324,2012-04-21,2011/2012,2009-13,La Liga,Barcelona,Real Madrid,1,2,True,True,True,False,False
+70224,2012-04-29,2011/2012,2009-13,La Liga,Rayo Vallecano,Barcelona,0,7,False,False,True,False,False
+69340,2012-05-02,2011/2012,2009-13,La Liga,Barcelona,Málaga,4,1,False,True,True,False,False
+69320,2012-05-05,2011/2012,2009-13,La Liga,Barcelona,Espanyol,4,0,False,False,True,False,False
+69319,2012-05-12,2011/2012,2009-13,La Liga,Real Betis,Barcelona,2,2,False,False,True,False,False
+70259,2012-08-19,2012/2013,2009-13,La Liga,Barcelona,Real Sociedad,5,1,False,True,True,False,False
+70262,2012-08-26,2012/2013,2009-13,La Liga,Osasuna,Barcelona,1,2,False,False,True,False,False
+70286,2012-09-02,2012/2013,2009-13,La Liga,Barcelona,Valencia,1,0,False,True,True,False,False
+70292,2012-09-15,2012/2013,2009-13,La Liga,Getafe,Barcelona,1,4,False,True,True,False,False
+70270,2012-09-22,2012/2013,2009-13,La Liga,Barcelona,Granada,2,0,False,False,True,False,False
+70275,2012-09-29,2012/2013,2009-13,La Liga,Sevilla,Barcelona,2,3,False,True,True,False,False
+70300,2012-10-07,2012/2013,2009-13,La Liga,Barcelona,Real Madrid,2,2,True,True,True,False,False
+70304,2012-10-20,2012/2013,2009-13,La Liga,RC Deportivo La Coruña,Barcelona,4,5,False,False,True,False,False
+70276,2012-10-27,2012/2013,2009-13,La Liga,Rayo Vallecano,Barcelona,0,5,False,False,True,False,False
+70308,2012-11-03,2012/2013,2009-13,La Liga,Barcelona,Celta Vigo,3,1,False,False,True,False,False
+266724,2012-11-11,2012/2013,2009-13,La Liga,Mallorca,Barcelona,2,4,False,False,True,False,False
+70309,2012-11-17,2012/2013,2009-13,La Liga,Barcelona,Real Zaragoza,3,1,False,False,True,False,False
+70280,2012-11-25,2012/2013,2009-13,La Liga,Levante UD,Barcelona,0,4,False,False,True,False,False
+70263,2012-12-01,2012/2013,2009-13,La Liga,Barcelona,Athletic Club,5,1,False,True,True,False,False
+70295,2012-12-09,2012/2013,2009-13,La Liga,Real Betis,Barcelona,1,2,False,False,True,False,False
+70296,2012-12-16,2012/2013,2009-13,La Liga,Barcelona,Atlético Madrid,4,1,False,True,True,False,False
+266015,2012-12-22,2012/2013,2009-13,La Liga,Real Valladolid,Barcelona,1,3,False,False,True,False,False
+266433,2013-01-06,2012/2013,2009-13,La Liga,Barcelona,Espanyol,4,0,False,False,True,False,False
+266827,2013-01-13,2012/2013,2009-13,La Liga,Málaga,Barcelona,1,3,False,True,True,False,False
+70287,2013-01-19,2012/2013,2009-13,La Liga,Real Sociedad,Barcelona,3,2,False,True,True,False,False
+70260,2013-01-27,2012/2013,2009-13,La Liga,Barcelona,Osasuna,5,1,False,False,True,False,False
+70282,2013-02-03,2012/2013,2009-13,La Liga,Valencia,Barcelona,1,1,False,True,True,False,False
+70297,2013-02-10,2012/2013,2009-13,La Liga,Barcelona,Getafe,6,1,False,True,True,False,False
+70294,2013-02-16,2012/2013,2009-13,La Liga,Granada,Barcelona,1,2,False,False,True,False,False
+70271,2013-02-23,2012/2013,2009-13,La Liga,Barcelona,Sevilla,2,1,False,True,True,False,False
+70272,2013-03-02,2012/2013,2009-13,La Liga,Real Madrid,Barcelona,2,1,True,True,True,False,False
+70305,2013-03-09,2012/2013,2009-13,La Liga,Barcelona,RC Deportivo La Coruña,2,0,False,False,True,False,False
+70307,2013-03-17,2012/2013,2009-13,La Liga,Barcelona,Rayo Vallecano,3,1,False,False,True,False,False
+70256,2013-03-30,2012/2013,2009-13,La Liga,Celta Vigo,Barcelona,2,2,False,False,True,False,False
+267502,2013-04-27,2012/2013,2009-13,La Liga,Athletic Club,Barcelona,2,2,False,True,True,False,False
+70281,2013-05-05,2012/2013,2009-13,La Liga,Barcelona,Real Betis,4,2,False,False,True,False,False
+70284,2013-05-12,2012/2013,2009-13,La Liga,Atlético Madrid,Barcelona,1,2,False,True,True,False,False
+70277,2013-08-18,2013/2014,2013-17,La Liga,Barcelona,Levante UD,7,0,False,False,True,False,False
+70298,2013-09-01,2013/2014,2013-17,La Liga,Valencia,Barcelona,2,3,False,True,True,False,False
+70301,2013-09-14,2013/2014,2013-17,La Liga,Barcelona,Sevilla,3,2,False,True,True,False,False
+70302,2013-09-21,2013/2014,2013-17,La Liga,Rayo Vallecano,Barcelona,0,4,False,False,True,False,False
+267520,2013-09-24,2013/2014,2013-17,La Liga,Barcelona,Real Sociedad,4,1,False,True,True,False,False
+266420,2013-09-28,2013/2014,2013-17,La Liga,Almería,Barcelona,0,2,False,False,True,False,False
+266462,2013-10-19,2013/2014,2013-17,La Liga,Osasuna,Barcelona,0,0,False,False,True,False,False
+70293,2013-10-26,2013/2014,2013-17,La Liga,Barcelona,Real Madrid,2,1,True,True,True,False,False
+267192,2013-10-29,2013/2014,2013-17,La Liga,Celta Vigo,Barcelona,0,3,False,False,True,False,False
+70283,2013-11-01,2013/2014,2013-17,La Liga,Barcelona,Espanyol,1,0,False,False,True,False,False
+266883,2013-11-10,2013/2014,2013-17,La Liga,Real Betis,Barcelona,1,4,False,False,True,False,False
+265830,2014-01-11,2013/2014,2013-17,La Liga,Atlético Madrid,Barcelona,0,0,False,True,True,False,False
+70288,2014-01-19,2013/2014,2013-17,La Liga,Levante UD,Barcelona,1,1,False,False,True,False,False
+70291,2014-01-26,2013/2014,2013-17,La Liga,Barcelona,Málaga,3,0,False,True,True,False,False
+266613,2014-02-01,2013/2014,2013-17,La Liga,Barcelona,Valencia,2,3,False,True,True,False,False
+267675,2014-02-09,2013/2014,2013-17,La Liga,Sevilla,Barcelona,1,4,False,True,True,False,False
+265918,2014-02-15,2013/2014,2013-17,La Liga,Barcelona,Rayo Vallecano,6,0,False,False,True,False,False
+265837,2014-02-22,2013/2014,2013-17,La Liga,Real Sociedad,Barcelona,3,1,False,True,True,False,False
+266066,2014-03-02,2013/2014,2013-17,La Liga,Barcelona,Almería,4,1,False,False,True,False,False
+266603,2014-03-08,2013/2014,2013-17,La Liga,Real Valladolid,Barcelona,1,0,False,False,True,False,False
+266074,2014-03-16,2013/2014,2013-17,La Liga,Barcelona,Osasuna,7,0,False,False,True,False,False
+265857,2014-03-23,2013/2014,2013-17,La Liga,Real Madrid,Barcelona,3,4,True,True,True,False,False
+266274,2014-03-26,2013/2014,2013-17,La Liga,Barcelona,Celta Vigo,3,0,False,False,True,False,False
+70306,2014-03-29,2013/2014,2013-17,La Liga,Espanyol,Barcelona,0,1,False,False,True,False,False
+267368,2014-04-05,2013/2014,2013-17,La Liga,Barcelona,Real Betis,3,1,False,False,True,False,False
+267138,2014-04-12,2013/2014,2013-17,La Liga,Granada,Barcelona,1,0,False,False,True,False,False
+267567,2014-04-20,2013/2014,2013-17,La Liga,Barcelona,Athletic Club,2,1,False,True,True,False,False
+70289,2014-04-27,2013/2014,2013-17,La Liga,Villarreal,Barcelona,2,3,False,True,True,False,False
+266491,2014-05-03,2013/2014,2013-17,La Liga,Barcelona,Getafe,2,2,False,True,True,False,False
+266201,2014-05-11,2013/2014,2013-17,La Liga,Elche,Barcelona,0,0,False,False,True,False,False
+266256,2014-05-17,2013/2014,2013-17,La Liga,Barcelona,Atlético Madrid,1,1,False,True,True,False,False
+18241,2014-05-24,2013/2014,2013-17,Champions League final,Real Madrid,Atlético Madrid,4,1,False,False,False,False,True
+266921,2014-08-24,2014/2015,2013-17,La Liga,Barcelona,Elche,3,0,False,False,True,False,False
+266406,2014-08-31,2014/2015,2013-17,La Liga,Villarreal,Barcelona,0,1,False,True,True,False,False
+70273,2014-09-13,2014/2015,2013-17,La Liga,Barcelona,Athletic Club,2,0,False,True,True,False,False
+266770,2014-09-21,2014/2015,2013-17,La Liga,Levante UD,Barcelona,0,5,False,False,True,False,False
+266838,2014-09-24,2014/2015,2013-17,La Liga,Málaga,Barcelona,0,0,False,True,True,False,False
+266117,2014-09-27,2014/2015,2013-17,La Liga,Barcelona,Granada,6,0,False,False,True,False,False
+267561,2014-10-04,2014/2015,2013-17,La Liga,Rayo Vallecano,Barcelona,0,2,False,False,True,False,False
+265896,2014-10-18,2014/2015,2013-17,La Liga,Barcelona,Eibar,3,0,False,False,True,False,False
+267085,2014-10-25,2014/2015,2013-17,La Liga,Real Madrid,Barcelona,3,1,True,True,True,False,False
+267301,2014-11-01,2014/2015,2013-17,La Liga,Barcelona,Celta Vigo,0,1,False,False,True,False,False
+267499,2014-11-08,2014/2015,2013-17,La Liga,Almería,Barcelona,1,2,False,False,True,False,False
+265835,2014-11-22,2014/2015,2013-17,La Liga,Barcelona,Sevilla,5,1,False,True,True,False,False
+266560,2014-11-30,2014/2015,2013-17,La Liga,Valencia,Barcelona,0,1,False,True,True,False,False
+266320,2014-12-07,2014/2015,2013-17,La Liga,Barcelona,Espanyol,5,1,False,False,True,False,False
+70264,2014-12-13,2014/2015,2013-17,La Liga,Getafe,Barcelona,0,0,False,True,True,False,False
+266846,2014-12-20,2014/2015,2013-17,La Liga,Barcelona,Córdoba CF,5,0,False,False,True,False,False
+266240,2015-01-04,2014/2015,2013-17,La Liga,Real Sociedad,Barcelona,1,0,False,True,True,False,False
+70303,2015-01-11,2014/2015,2013-17,La Liga,Barcelona,Atlético Madrid,3,1,False,True,True,False,False
+266230,2015-01-18,2014/2015,2013-17,La Liga,RC Deportivo La Coruña,Barcelona,0,4,False,False,True,False,False
+266794,2015-01-24,2014/2015,2013-17,La Liga,Elche,Barcelona,0,6,False,False,True,False,False
+267597,2015-02-01,2014/2015,2013-17,La Liga,Barcelona,Villarreal,3,2,False,True,True,False,False
+266871,2015-02-08,2014/2015,2013-17,La Liga,Athletic Club,Barcelona,2,5,False,True,True,False,False
+266741,2015-02-15,2014/2015,2013-17,La Liga,Barcelona,Levante UD,5,0,False,False,True,False,False
+266148,2015-02-21,2014/2015,2013-17,La Liga,Barcelona,Málaga,0,1,False,True,True,False,False
+267343,2015-02-28,2014/2015,2013-17,La Liga,Granada,Barcelona,1,3,False,False,True,False,False
+266916,2015-03-08,2014/2015,2013-17,La Liga,Barcelona,Rayo Vallecano,6,1,False,False,True,False,False
+266967,2015-03-14,2014/2015,2013-17,La Liga,Eibar,Barcelona,0,2,False,False,True,False,False
+267183,2015-03-22,2014/2015,2013-17,La Liga,Barcelona,Real Madrid,2,1,True,True,True,False,False
+266929,2015-04-05,2014/2015,2013-17,La Liga,Celta Vigo,Barcelona,0,1,False,False,True,False,False
+267400,2015-04-08,2014/2015,2013-17,La Liga,Barcelona,Almería,4,0,False,False,True,False,False
+266142,2015-04-11,2014/2015,2013-17,La Liga,Sevilla,Barcelona,2,2,False,True,True,False,False
+266525,2015-04-18,2014/2015,2013-17,La Liga,Barcelona,Valencia,2,0,False,True,True,False,False
+266531,2015-04-25,2014/2015,2013-17,La Liga,Espanyol,Barcelona,0,2,False,False,True,False,False
+265963,2015-04-28,2014/2015,2013-17,La Liga,Barcelona,Getafe,6,0,False,True,True,False,False
+265866,2015-05-02,2014/2015,2013-17,La Liga,Córdoba CF,Barcelona,0,8,False,False,True,False,False
+266045,2015-05-09,2014/2015,2013-17,La Liga,Barcelona,Real Sociedad,2,0,False,True,True,False,False
+266631,2015-05-17,2014/2015,2013-17,La Liga,Atlético Madrid,Barcelona,0,1,False,True,True,False,False
+267197,2015-05-23,2014/2015,2013-17,La Liga,Barcelona,RC Deportivo La Coruña,2,2,False,False,True,False,False
+18242,2015-06-06,2014/2015,2013-17,Champions League final,Juventus,Barcelona,1,3,False,False,False,False,True
+3825562,2015-08-21,2015/2016,2013-17,La Liga,Málaga,Sevilla,0,0,False,False,False,True,False
+3825563,2015-08-22,2015/2016,2013-17,La Liga,Atlético Madrid,Las Palmas,1,0,False,False,False,True,False
+3825564,2015-08-22,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Real Sociedad,0,0,False,False,False,True,False
+3825565,2015-08-22,2015/2016,2013-17,La Liga,Espanyol,Getafe,1,0,False,False,False,True,False
+3825566,2015-08-22,2015/2016,2013-17,La Liga,Rayo Vallecano,Valencia,0,0,False,False,False,True,False
+266236,2015-08-23,2015/2016,2013-17,La Liga,Athletic Club,Barcelona,0,1,False,True,True,True,False
+3825567,2015-08-23,2015/2016,2013-17,La Liga,Sporting Gijón,Real Madrid,0,0,False,False,False,True,False
+3825568,2015-08-23,2015/2016,2013-17,La Liga,Real Betis,Villarreal,1,1,False,False,False,True,False
+3825569,2015-08-23,2015/2016,2013-17,La Liga,Levante UD,Celta Vigo,1,2,False,False,False,True,False
+3825570,2015-08-24,2015/2016,2013-17,La Liga,Granada,Eibar,1,3,False,False,False,True,False
+3825571,2015-08-28,2015/2016,2013-17,La Liga,Villarreal,Espanyol,3,1,False,False,False,True,False
+267422,2015-08-29,2015/2016,2013-17,La Liga,Barcelona,Málaga,1,0,False,True,True,True,False
+3825572,2015-08-29,2015/2016,2013-17,La Liga,Real Madrid,Real Betis,5,0,False,False,False,True,False
+3825573,2015-08-29,2015/2016,2013-17,La Liga,Real Sociedad,Sporting Gijón,0,0,False,False,False,True,False
+3825574,2015-08-29,2015/2016,2013-17,La Liga,Celta Vigo,Rayo Vallecano,3,0,False,False,False,True,False
+3825575,2015-08-30,2015/2016,2013-17,La Liga,Las Palmas,Levante UD,0,0,False,False,False,True,False
+3825576,2015-08-30,2015/2016,2013-17,La Liga,Valencia,RC Deportivo La Coruña,1,1,False,False,False,True,False
+3825577,2015-08-30,2015/2016,2013-17,La Liga,Getafe,Granada,1,2,False,False,False,True,False
+3825578,2015-08-30,2015/2016,2013-17,La Liga,Eibar,Athletic Club,2,0,False,False,False,True,False
+3825579,2015-08-30,2015/2016,2013-17,La Liga,Sevilla,Atlético Madrid,0,3,False,False,False,True,False
+3825580,2015-09-11,2015/2016,2013-17,La Liga,Levante UD,Sevilla,1,1,False,False,False,True,False
+266166,2015-09-12,2015/2016,2013-17,La Liga,Atlético Madrid,Barcelona,1,2,False,True,True,True,False
+3825581,2015-09-12,2015/2016,2013-17,La Liga,Espanyol,Real Madrid,0,6,False,False,False,True,False
+3825582,2015-09-12,2015/2016,2013-17,La Liga,Real Betis,Real Sociedad,1,0,False,False,False,True,False
+3825583,2015-09-12,2015/2016,2013-17,La Liga,Sporting Gijón,Valencia,0,1,False,False,False,True,False
+3825584,2015-09-13,2015/2016,2013-17,La Liga,Granada,Villarreal,1,3,False,False,False,True,False
+3825585,2015-09-13,2015/2016,2013-17,La Liga,Celta Vigo,Las Palmas,3,3,False,False,False,True,False
+3825586,2015-09-13,2015/2016,2013-17,La Liga,Málaga,Eibar,0,0,False,False,False,True,False
+3825587,2015-09-13,2015/2016,2013-17,La Liga,Athletic Club,Getafe,3,1,False,False,False,True,False
+3825588,2015-09-14,2015/2016,2013-17,La Liga,Rayo Vallecano,RC Deportivo La Coruña,1,3,False,False,False,True,False
+3825589,2015-09-18,2015/2016,2013-17,La Liga,Getafe,Málaga,1,0,False,False,False,True,False
+3825590,2015-09-19,2015/2016,2013-17,La Liga,Real Madrid,Granada,1,0,False,False,False,True,False
+3825591,2015-09-19,2015/2016,2013-17,La Liga,Valencia,Real Betis,0,0,False,False,False,True,False
+3825592,2015-09-19,2015/2016,2013-17,La Liga,Real Sociedad,Espanyol,2,3,False,False,False,True,False
+3825593,2015-09-19,2015/2016,2013-17,La Liga,Eibar,Atlético Madrid,0,2,False,False,False,True,False
+266490,2015-09-20,2015/2016,2013-17,La Liga,Barcelona,Levante UD,4,1,False,False,True,True,False
+3825594,2015-09-20,2015/2016,2013-17,La Liga,Sevilla,Celta Vigo,1,2,False,False,False,True,False
+3825595,2015-09-20,2015/2016,2013-17,La Liga,Villarreal,Athletic Club,3,1,False,False,False,True,False
+3825596,2015-09-20,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Sporting Gijón,2,3,False,False,False,True,False
+3825597,2015-09-20,2015/2016,2013-17,La Liga,Las Palmas,Rayo Vallecano,0,1,False,False,False,True,False
+3825598,2015-09-22,2015/2016,2013-17,La Liga,Atlético Madrid,Getafe,2,0,False,False,False,True,False
+3825599,2015-09-22,2015/2016,2013-17,La Liga,Espanyol,Valencia,1,0,False,False,False,True,False
+3825892,2015-09-22,2015/2016,2013-17,La Liga,Granada,Real Sociedad,0,3,False,False,False,True,False
+266467,2015-09-23,2015/2016,2013-17,La Liga,Celta Vigo,Barcelona,4,1,False,False,True,True,False
+3825600,2015-09-23,2015/2016,2013-17,La Liga,Málaga,Villarreal,0,1,False,False,False,True,False
+3825601,2015-09-23,2015/2016,2013-17,La Liga,Rayo Vallecano,Sporting Gijón,2,1,False,False,False,True,False
+3825602,2015-09-23,2015/2016,2013-17,La Liga,Athletic Club,Real Madrid,1,2,False,False,False,True,False
+3825848,2015-09-23,2015/2016,2013-17,La Liga,Levante UD,Eibar,2,2,False,False,False,True,False
+3825895,2015-09-23,2015/2016,2013-17,La Liga,Las Palmas,Sevilla,2,0,False,False,False,True,False
+3825603,2015-09-24,2015/2016,2013-17,La Liga,Real Betis,RC Deportivo La Coruña,1,2,False,False,False,True,False
+3825604,2015-09-25,2015/2016,2013-17,La Liga,Valencia,Granada,1,0,False,False,False,True,False
+267611,2015-09-26,2015/2016,2013-17,La Liga,Barcelona,Las Palmas,2,1,False,False,True,True,False
+3825605,2015-09-26,2015/2016,2013-17,La Liga,Sevilla,Rayo Vallecano,3,2,False,False,False,True,False
+3825606,2015-09-26,2015/2016,2013-17,La Liga,Real Madrid,Málaga,0,0,False,False,False,True,False
+3825607,2015-09-26,2015/2016,2013-17,La Liga,Villarreal,Atlético Madrid,1,0,False,False,False,True,False
+3825608,2015-09-26,2015/2016,2013-17,La Liga,Eibar,Celta Vigo,1,1,False,False,False,True,False
+3825609,2015-09-27,2015/2016,2013-17,La Liga,Real Sociedad,Athletic Club,0,0,False,False,False,True,False
+3825610,2015-09-27,2015/2016,2013-17,La Liga,Sporting Gijón,Real Betis,1,2,False,False,False,True,False
+3825611,2015-09-27,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Espanyol,3,0,False,False,False,True,False
+3825612,2015-09-27,2015/2016,2013-17,La Liga,Getafe,Levante UD,3,0,False,False,False,True,False
+3825613,2015-10-02,2015/2016,2013-17,La Liga,Celta Vigo,Getafe,0,0,False,False,False,True,False
+3825614,2015-10-03,2015/2016,2013-17,La Liga,Granada,RC Deportivo La Coruña,1,1,False,False,False,True,False
+3825615,2015-10-03,2015/2016,2013-17,La Liga,Espanyol,Sporting Gijón,1,2,False,False,False,True,False
+3825616,2015-10-03,2015/2016,2013-17,La Liga,Málaga,Real Sociedad,3,1,False,False,False,True,False
+3825617,2015-10-03,2015/2016,2013-17,La Liga,Sevilla,Barcelona,2,1,False,True,True,True,False
+3825618,2015-10-03,2015/2016,2013-17,La Liga,Las Palmas,Eibar,0,2,False,False,False,True,False
+3825619,2015-10-04,2015/2016,2013-17,La Liga,Levante UD,Villarreal,1,0,False,False,False,True,False
+3825620,2015-10-04,2015/2016,2013-17,La Liga,Rayo Vallecano,Real Betis,0,2,False,False,False,True,False
+3825621,2015-10-04,2015/2016,2013-17,La Liga,Atlético Madrid,Real Madrid,1,1,False,False,False,True,False
+3825622,2015-10-04,2015/2016,2013-17,La Liga,Athletic Club,Valencia,3,1,False,False,False,True,False
+3825623,2015-10-17,2015/2016,2013-17,La Liga,Valencia,Málaga,3,0,False,False,False,True,False
+3825624,2015-10-17,2015/2016,2013-17,La Liga,Eibar,Sevilla,1,1,False,False,False,True,False
+3825625,2015-10-17,2015/2016,2013-17,La Liga,Real Madrid,Levante UD,3,0,False,False,False,True,False
+3825626,2015-10-17,2015/2016,2013-17,La Liga,Real Betis,Espanyol,1,3,False,False,False,True,False
+3825627,2015-10-17,2015/2016,2013-17,La Liga,Barcelona,Rayo Vallecano,5,2,False,False,True,True,False
+3825628,2015-10-18,2015/2016,2013-17,La Liga,Getafe,Las Palmas,4,0,False,False,False,True,False
+3825629,2015-10-18,2015/2016,2013-17,La Liga,Villarreal,Celta Vigo,1,2,False,False,False,True,False
+3825630,2015-10-18,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Athletic Club,2,2,False,False,False,True,False
+3825631,2015-10-18,2015/2016,2013-17,La Liga,Real Sociedad,Atlético Madrid,0,2,False,False,False,True,False
+3825632,2015-10-19,2015/2016,2013-17,La Liga,Sporting Gijón,Granada,3,3,False,False,False,True,False
+3825633,2015-10-23,2015/2016,2013-17,La Liga,Rayo Vallecano,Espanyol,3,0,False,False,False,True,False
+3825634,2015-10-24,2015/2016,2013-17,La Liga,Granada,Real Betis,1,1,False,False,False,True,False
+3825635,2015-10-24,2015/2016,2013-17,La Liga,Celta Vigo,Real Madrid,1,3,False,False,False,True,False
+3825636,2015-10-24,2015/2016,2013-17,La Liga,Málaga,RC Deportivo La Coruña,2,0,False,False,False,True,False
+3825874,2015-10-24,2015/2016,2013-17,La Liga,Sevilla,Getafe,5,0,False,False,False,True,False
+3825637,2015-10-25,2015/2016,2013-17,La Liga,Barcelona,Eibar,3,1,False,False,True,True,False
+3825638,2015-10-25,2015/2016,2013-17,La Liga,Atlético Madrid,Valencia,2,1,False,False,False,True,False
+3825639,2015-10-25,2015/2016,2013-17,La Liga,Las Palmas,Villarreal,0,0,False,False,False,True,False
+3825640,2015-10-25,2015/2016,2013-17,La Liga,Levante UD,Real Sociedad,0,4,False,False,False,True,False
+3825641,2015-10-26,2015/2016,2013-17,La Liga,Athletic Club,Sporting Gijón,3,0,False,False,False,True,False
+3825642,2015-10-30,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Atlético Madrid,1,1,False,False,False,True,False
+3825643,2015-10-31,2015/2016,2013-17,La Liga,Real Madrid,Las Palmas,3,1,False,False,False,True,False
+3825644,2015-10-31,2015/2016,2013-17,La Liga,Real Sociedad,Celta Vigo,2,3,False,False,False,True,False
+3825645,2015-10-31,2015/2016,2013-17,La Liga,Getafe,Barcelona,0,2,False,True,True,True,False
+3825646,2015-10-31,2015/2016,2013-17,La Liga,Villarreal,Sevilla,2,1,False,False,False,True,False
+3825647,2015-10-31,2015/2016,2013-17,La Liga,Valencia,Levante UD,3,0,False,False,False,True,False
+3825648,2015-11-01,2015/2016,2013-17,La Liga,Eibar,Rayo Vallecano,1,0,False,False,False,True,False
+3825649,2015-11-01,2015/2016,2013-17,La Liga,Sporting Gijón,Málaga,1,0,False,False,False,True,False
+3825650,2015-11-01,2015/2016,2013-17,La Liga,Real Betis,Athletic Club,1,3,False,False,False,True,False
+3825651,2015-11-01,2015/2016,2013-17,La Liga,Espanyol,Granada,1,1,False,False,False,True,False
+3825652,2015-11-06,2015/2016,2013-17,La Liga,Las Palmas,Real Sociedad,2,0,False,False,False,True,False
+3825653,2015-11-07,2015/2016,2013-17,La Liga,Eibar,Getafe,3,1,False,False,False,True,False
+3825654,2015-11-07,2015/2016,2013-17,La Liga,Celta Vigo,Valencia,1,5,False,False,False,True,False
+3825655,2015-11-07,2015/2016,2013-17,La Liga,Rayo Vallecano,Granada,2,1,False,False,False,True,False
+3825656,2015-11-07,2015/2016,2013-17,La Liga,Levante UD,RC Deportivo La Coruña,1,1,False,False,False,True,False
+3825657,2015-11-07,2015/2016,2013-17,La Liga,Málaga,Real Betis,0,1,False,False,False,True,False
+3825658,2015-11-08,2015/2016,2013-17,La Liga,Atlético Madrid,Sporting Gijón,1,0,False,False,False,True,False
+3825659,2015-11-08,2015/2016,2013-17,La Liga,Athletic Club,Espanyol,2,1,False,False,False,True,False
+3825660,2015-11-08,2015/2016,2013-17,La Liga,Barcelona,Villarreal,3,0,False,True,True,True,False
+3825661,2015-11-08,2015/2016,2013-17,La Liga,Sevilla,Real Madrid,3,2,False,False,False,True,False
+266424,2015-11-21,2015/2016,2013-17,La Liga,Real Madrid,Barcelona,0,4,True,True,True,True,False
+3825662,2015-11-21,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Celta Vigo,2,0,False,False,False,True,False
+3825663,2015-11-21,2015/2016,2013-17,La Liga,Espanyol,Málaga,2,0,False,False,False,True,False
+3825664,2015-11-21,2015/2016,2013-17,La Liga,Real Sociedad,Sevilla,2,0,False,False,False,True,False
+3825888,2015-11-21,2015/2016,2013-17,La Liga,Valencia,Las Palmas,1,1,False,False,False,True,False
+3825665,2015-11-22,2015/2016,2013-17,La Liga,Granada,Athletic Club,2,0,False,False,False,True,False
+3825666,2015-11-22,2015/2016,2013-17,La Liga,Real Betis,Atlético Madrid,0,1,False,False,False,True,False
+3825667,2015-11-22,2015/2016,2013-17,La Liga,Villarreal,Eibar,1,1,False,False,False,True,False
+3825668,2015-11-22,2015/2016,2013-17,La Liga,Sporting Gijón,Levante UD,0,3,False,False,False,True,False
+3825669,2015-11-23,2015/2016,2013-17,La Liga,Getafe,Rayo Vallecano,1,1,False,False,False,True,False
+3825670,2015-11-27,2015/2016,2013-17,La Liga,Levante UD,Real Betis,0,1,False,False,False,True,False
+266885,2015-11-28,2015/2016,2013-17,La Liga,Barcelona,Real Sociedad,4,0,False,True,True,True,False
+3825671,2015-11-28,2015/2016,2013-17,La Liga,Celta Vigo,Sporting Gijón,2,1,False,False,False,True,False
+3825672,2015-11-28,2015/2016,2013-17,La Liga,Málaga,Granada,2,2,False,False,False,True,False
+3825673,2015-11-28,2015/2016,2013-17,La Liga,Las Palmas,RC Deportivo La Coruña,0,2,False,False,False,True,False
+3825674,2015-11-28,2015/2016,2013-17,La Liga,Atlético Madrid,Espanyol,1,0,False,False,False,True,False
+3825675,2015-11-29,2015/2016,2013-17,La Liga,Rayo Vallecano,Athletic Club,0,3,False,False,False,True,False
+3825676,2015-11-29,2015/2016,2013-17,La Liga,Getafe,Villarreal,2,0,False,False,False,True,False
+3825677,2015-11-29,2015/2016,2013-17,La Liga,Sevilla,Valencia,1,0,False,False,False,True,False
+3825678,2015-11-29,2015/2016,2013-17,La Liga,Eibar,Real Madrid,0,2,False,False,False,True,False
+267274,2015-12-05,2015/2016,2013-17,La Liga,Valencia,Barcelona,1,1,False,True,True,True,False
+3825679,2015-12-05,2015/2016,2013-17,La Liga,Real Betis,Celta Vigo,1,1,False,False,False,True,False
+3825680,2015-12-05,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Sevilla,1,1,False,False,False,True,False
+3825681,2015-12-05,2015/2016,2013-17,La Liga,Real Madrid,Getafe,4,1,False,False,False,True,False
+3825682,2015-12-05,2015/2016,2013-17,La Liga,Granada,Atlético Madrid,0,2,False,False,False,True,False
+3825683,2015-12-06,2015/2016,2013-17,La Liga,Real Sociedad,Eibar,2,1,False,False,False,True,False
+3825684,2015-12-06,2015/2016,2013-17,La Liga,Villarreal,Rayo Vallecano,2,1,False,False,False,True,False
+3825685,2015-12-06,2015/2016,2013-17,La Liga,Sporting Gijón,Las Palmas,3,1,False,False,False,True,False
+3825686,2015-12-06,2015/2016,2013-17,La Liga,Athletic Club,Málaga,0,0,False,False,False,True,False
+3825687,2015-12-07,2015/2016,2013-17,La Liga,Espanyol,Levante UD,1,1,False,False,False,True,False
+3825688,2015-12-11,2015/2016,2013-17,La Liga,Getafe,Real Sociedad,1,1,False,False,False,True,False
+266961,2015-12-12,2015/2016,2013-17,La Liga,Barcelona,RC Deportivo La Coruña,2,2,False,False,True,True,False
+3825689,2015-12-12,2015/2016,2013-17,La Liga,Celta Vigo,Espanyol,1,0,False,False,False,True,False
+3825690,2015-12-12,2015/2016,2013-17,La Liga,Las Palmas,Real Betis,1,0,False,False,False,True,False
+3825691,2015-12-12,2015/2016,2013-17,La Liga,Levante UD,Granada,1,2,False,False,False,True,False
+3825692,2015-12-12,2015/2016,2013-17,La Liga,Sevilla,Sporting Gijón,2,0,False,False,False,True,False
+3825693,2015-12-13,2015/2016,2013-17,La Liga,Atlético Madrid,Athletic Club,2,1,False,False,False,True,False
+3825694,2015-12-13,2015/2016,2013-17,La Liga,Eibar,Valencia,1,1,False,False,False,True,False
+3825695,2015-12-13,2015/2016,2013-17,La Liga,Villarreal,Real Madrid,1,0,False,False,False,True,False
+3825696,2015-12-13,2015/2016,2013-17,La Liga,Rayo Vallecano,Málaga,1,2,False,False,False,True,False
+3825697,2015-12-19,2015/2016,2013-17,La Liga,Valencia,Getafe,2,2,False,False,False,True,False
+3825698,2015-12-19,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Eibar,2,0,False,False,False,True,False
+3825699,2015-12-19,2015/2016,2013-17,La Liga,Real Betis,Sevilla,0,0,False,False,False,True,False
+3825891,2015-12-19,2015/2016,2013-17,La Liga,Espanyol,Las Palmas,1,0,False,False,False,True,False
+3825700,2015-12-20,2015/2016,2013-17,La Liga,Real Madrid,Rayo Vallecano,10,2,False,False,False,True,False
+3825701,2015-12-20,2015/2016,2013-17,La Liga,Málaga,Atlético Madrid,1,0,False,False,False,True,False
+3825702,2015-12-20,2015/2016,2013-17,La Liga,Real Sociedad,Villarreal,0,2,False,False,False,True,False
+3825703,2015-12-20,2015/2016,2013-17,La Liga,Athletic Club,Levante UD,2,0,False,False,False,True,False
+3825704,2015-12-20,2015/2016,2013-17,La Liga,Granada,Celta Vigo,0,2,False,False,False,True,False
+267327,2015-12-30,2015/2016,2013-17,La Liga,Barcelona,Real Betis,4,0,False,False,True,True,False
+3825705,2015-12-30,2015/2016,2013-17,La Liga,Eibar,Sporting Gijón,2,0,False,False,False,True,False
+3825706,2015-12-30,2015/2016,2013-17,La Liga,Celta Vigo,Athletic Club,0,1,False,False,False,True,False
+3825707,2015-12-30,2015/2016,2013-17,La Liga,Las Palmas,Granada,4,1,False,False,False,True,False
+3825708,2015-12-30,2015/2016,2013-17,La Liga,Levante UD,Málaga,0,1,False,False,False,True,False
+3825709,2015-12-30,2015/2016,2013-17,La Liga,Sevilla,Espanyol,2,0,False,False,False,True,False
+3825710,2015-12-30,2015/2016,2013-17,La Liga,Real Madrid,Real Sociedad,3,1,False,False,False,True,False
+3825711,2015-12-30,2015/2016,2013-17,La Liga,Rayo Vallecano,Atlético Madrid,0,2,False,False,False,True,False
+3825712,2015-12-30,2015/2016,2013-17,La Liga,Getafe,RC Deportivo La Coruña,0,0,False,False,False,True,False
+3825713,2015-12-31,2015/2016,2013-17,La Liga,Villarreal,Valencia,1,0,False,False,False,True,False
+266670,2016-01-02,2015/2016,2013-17,La Liga,Espanyol,Barcelona,0,0,False,False,True,True,False
+3825714,2016-01-02,2015/2016,2013-17,La Liga,Atlético Madrid,Levante UD,1,0,False,False,False,True,False
+3825715,2016-01-02,2015/2016,2013-17,La Liga,Málaga,Celta Vigo,2,0,False,False,False,True,False
+3825716,2016-01-03,2015/2016,2013-17,La Liga,Rayo Vallecano,Real Sociedad,2,2,False,False,False,True,False
+3825717,2016-01-03,2015/2016,2013-17,La Liga,Granada,Sevilla,2,1,False,False,False,True,False
+3825718,2016-01-03,2015/2016,2013-17,La Liga,Valencia,Real Madrid,2,2,False,False,False,True,False
+3825719,2016-01-03,2015/2016,2013-17,La Liga,Athletic Club,Las Palmas,2,2,False,False,False,True,False
+3825720,2016-01-03,2015/2016,2013-17,La Liga,Real Betis,Eibar,0,4,False,False,False,True,False
+3825721,2016-01-03,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Villarreal,1,2,False,False,False,True,False
+3825722,2016-01-04,2015/2016,2013-17,La Liga,Sporting Gijón,Getafe,1,2,False,False,False,True,False
+266620,2016-01-09,2015/2016,2013-17,La Liga,Barcelona,Granada,4,0,False,False,True,True,False
+3825723,2016-01-09,2015/2016,2013-17,La Liga,Levante UD,Rayo Vallecano,2,1,False,False,False,True,False
+3825724,2016-01-09,2015/2016,2013-17,La Liga,Real Madrid,RC Deportivo La Coruña,5,0,False,False,False,True,False
+3825725,2016-01-09,2015/2016,2013-17,La Liga,Getafe,Real Betis,1,0,False,False,False,True,False
+3825726,2016-01-09,2015/2016,2013-17,La Liga,Sevilla,Athletic Club,2,0,False,False,False,True,False
+3825727,2016-01-10,2015/2016,2013-17,La Liga,Eibar,Espanyol,2,1,False,False,False,True,False
+3825728,2016-01-10,2015/2016,2013-17,La Liga,Celta Vigo,Atlético Madrid,0,2,False,False,False,True,False
+3825729,2016-01-10,2015/2016,2013-17,La Liga,Villarreal,Sporting Gijón,2,0,False,False,False,True,False
+3825730,2016-01-10,2015/2016,2013-17,La Liga,Real Sociedad,Valencia,2,0,False,False,False,True,False
+3825731,2016-01-10,2015/2016,2013-17,La Liga,Las Palmas,Málaga,1,1,False,False,False,True,False
+3825732,2016-01-16,2015/2016,2013-17,La Liga,Celta Vigo,Levante UD,4,3,False,False,False,True,False
+3825733,2016-01-16,2015/2016,2013-17,La Liga,Sevilla,Málaga,2,1,False,False,False,True,False
+3825734,2016-01-16,2015/2016,2013-17,La Liga,Real Sociedad,RC Deportivo La Coruña,1,1,False,False,False,True,False
+3825735,2016-01-16,2015/2016,2013-17,La Liga,Villarreal,Real Betis,0,0,False,False,False,True,False
+266149,2016-01-17,2015/2016,2013-17,La Liga,Barcelona,Athletic Club,6,0,False,True,True,True,False
+3825736,2016-01-17,2015/2016,2013-17,La Liga,Valencia,Rayo Vallecano,2,2,False,False,False,True,False
+3825737,2016-01-17,2015/2016,2013-17,La Liga,Getafe,Espanyol,3,1,False,False,False,True,False
+3825738,2016-01-17,2015/2016,2013-17,La Liga,Las Palmas,Atlético Madrid,0,3,False,False,False,True,False
+3825739,2016-01-17,2015/2016,2013-17,La Liga,Real Madrid,Sporting Gijón,5,1,False,False,False,True,False
+3825740,2016-01-18,2015/2016,2013-17,La Liga,Eibar,Granada,5,1,False,False,False,True,False
+3825741,2016-01-22,2015/2016,2013-17,La Liga,Sporting Gijón,Real Sociedad,5,1,False,False,False,True,False
+265894,2016-01-23,2015/2016,2013-17,La Liga,Málaga,Barcelona,1,2,False,True,True,True,False
+3825742,2016-01-23,2015/2016,2013-17,La Liga,Granada,Getafe,3,2,False,False,False,True,False
+3825743,2016-01-23,2015/2016,2013-17,La Liga,Rayo Vallecano,Celta Vigo,3,0,False,False,False,True,False
+3825744,2016-01-23,2015/2016,2013-17,La Liga,Espanyol,Villarreal,2,2,False,False,False,True,False
+3825745,2016-01-24,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Valencia,1,1,False,False,False,True,False
+3825746,2016-01-24,2015/2016,2013-17,La Liga,Real Betis,Real Madrid,1,1,False,False,False,True,False
+3825747,2016-01-24,2015/2016,2013-17,La Liga,Athletic Club,Eibar,5,2,False,False,False,True,False
+3825748,2016-01-24,2015/2016,2013-17,La Liga,Atlético Madrid,Sevilla,0,0,False,False,False,True,False
+3825749,2016-01-25,2015/2016,2013-17,La Liga,Levante UD,Las Palmas,3,2,False,False,False,True,False
+267576,2016-01-30,2015/2016,2013-17,La Liga,Barcelona,Atlético Madrid,2,1,False,True,True,True,False
+3825750,2016-01-30,2015/2016,2013-17,La Liga,Real Sociedad,Real Betis,2,1,False,False,False,True,False
+3825751,2016-01-30,2015/2016,2013-17,La Liga,Getafe,Athletic Club,0,1,False,False,False,True,False
+3825752,2016-01-30,2015/2016,2013-17,La Liga,Eibar,Málaga,1,2,False,False,False,True,False
+3825753,2016-01-30,2015/2016,2013-17,La Liga,Villarreal,Granada,1,0,False,False,False,True,False
+3825754,2016-01-31,2015/2016,2013-17,La Liga,Las Palmas,Celta Vigo,2,1,False,False,False,True,False
+3825755,2016-01-31,2015/2016,2013-17,La Liga,Valencia,Sporting Gijón,0,1,False,False,False,True,False
+3825756,2016-01-31,2015/2016,2013-17,La Liga,Sevilla,Levante UD,3,1,False,False,False,True,False
+3825757,2016-01-31,2015/2016,2013-17,La Liga,Real Madrid,Espanyol,6,0,False,False,False,True,False
+3825758,2016-02-01,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Rayo Vallecano,2,2,False,False,False,True,False
+3825759,2016-02-05,2015/2016,2013-17,La Liga,Málaga,Getafe,3,0,False,False,False,True,False
+3825760,2016-02-06,2015/2016,2013-17,La Liga,Atlético Madrid,Eibar,3,1,False,False,False,True,False
+3825761,2016-02-06,2015/2016,2013-17,La Liga,Athletic Club,Villarreal,0,0,False,False,False,True,False
+3825762,2016-02-06,2015/2016,2013-17,La Liga,Sporting Gijón,RC Deportivo La Coruña,1,1,False,False,False,True,False
+3825763,2016-02-06,2015/2016,2013-17,La Liga,Rayo Vallecano,Las Palmas,2,0,False,False,False,True,False
+266160,2016-02-07,2015/2016,2013-17,La Liga,Levante UD,Barcelona,0,2,False,False,True,True,False
+3825764,2016-02-07,2015/2016,2013-17,La Liga,Granada,Real Madrid,1,2,False,False,False,True,False
+3825765,2016-02-07,2015/2016,2013-17,La Liga,Celta Vigo,Sevilla,1,1,False,False,False,True,False
+3825766,2016-02-07,2015/2016,2013-17,La Liga,Real Betis,Valencia,1,0,False,False,False,True,False
+3825767,2016-02-08,2015/2016,2013-17,La Liga,Espanyol,Real Sociedad,0,5,False,False,False,True,False
+3825768,2016-02-12,2015/2016,2013-17,La Liga,Sporting Gijón,Rayo Vallecano,2,2,False,False,False,True,False
+3825769,2016-02-13,2015/2016,2013-17,La Liga,Villarreal,Málaga,1,0,False,False,False,True,False
+3825770,2016-02-13,2015/2016,2013-17,La Liga,Real Madrid,Athletic Club,4,2,False,False,False,True,False
+3825771,2016-02-13,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Real Betis,2,2,False,False,False,True,False
+3825772,2016-02-13,2015/2016,2013-17,La Liga,Valencia,Espanyol,2,1,False,False,False,True,False
+266254,2016-02-14,2015/2016,2013-17,La Liga,Barcelona,Celta Vigo,6,1,False,False,True,True,False
+3825773,2016-02-14,2015/2016,2013-17,La Liga,Eibar,Levante UD,2,0,False,False,False,True,False
+3825774,2016-02-14,2015/2016,2013-17,La Liga,Getafe,Atlético Madrid,0,1,False,False,False,True,False
+3825775,2016-02-14,2015/2016,2013-17,La Liga,Real Sociedad,Granada,3,0,False,False,False,True,False
+3825776,2016-02-14,2015/2016,2013-17,La Liga,Sevilla,Las Palmas,2,0,False,False,False,True,False
+266815,2016-02-17,2015/2016,2013-17,La Liga,Sporting Gijón,Barcelona,1,3,False,False,True,True,False
+3825777,2016-02-19,2015/2016,2013-17,La Liga,Levante UD,Getafe,3,0,False,False,False,True,False
+267273,2016-02-20,2015/2016,2013-17,La Liga,Las Palmas,Barcelona,1,2,False,False,True,True,False
+3825778,2016-02-20,2015/2016,2013-17,La Liga,Real Betis,Sporting Gijón,1,1,False,False,False,True,False
+3825779,2016-02-20,2015/2016,2013-17,La Liga,Celta Vigo,Eibar,3,2,False,False,False,True,False
+3825780,2016-02-20,2015/2016,2013-17,La Liga,Espanyol,RC Deportivo La Coruña,1,0,False,False,False,True,False
+3825781,2016-02-21,2015/2016,2013-17,La Liga,Rayo Vallecano,Sevilla,2,2,False,False,False,True,False
+3825782,2016-02-21,2015/2016,2013-17,La Liga,Granada,Valencia,1,2,False,False,False,True,False
+3825783,2016-02-21,2015/2016,2013-17,La Liga,Athletic Club,Real Sociedad,0,1,False,False,False,True,False
+3825784,2016-02-21,2015/2016,2013-17,La Liga,Atlético Madrid,Villarreal,0,0,False,False,False,True,False
+3825785,2016-02-21,2015/2016,2013-17,La Liga,Málaga,Real Madrid,1,1,False,False,False,True,False
+3825786,2016-02-26,2015/2016,2013-17,La Liga,Eibar,Las Palmas,0,1,False,False,False,True,False
+3825787,2016-02-27,2015/2016,2013-17,La Liga,Real Madrid,Atlético Madrid,0,1,False,False,False,True,False
+3825788,2016-02-27,2015/2016,2013-17,La Liga,Getafe,Celta Vigo,0,1,False,False,False,True,False
+3825789,2016-02-27,2015/2016,2013-17,La Liga,Real Sociedad,Málaga,1,1,False,False,False,True,False
+3825790,2016-02-27,2015/2016,2013-17,La Liga,Sporting Gijón,Espanyol,2,4,False,False,False,True,False
+3825791,2016-02-27,2015/2016,2013-17,La Liga,Real Betis,Rayo Vallecano,2,2,False,False,False,True,False
+265839,2016-02-28,2015/2016,2013-17,La Liga,Barcelona,Sevilla,2,1,False,True,True,True,False
+3825792,2016-02-28,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Granada,0,1,False,False,False,True,False
+3825793,2016-02-28,2015/2016,2013-17,La Liga,Valencia,Athletic Club,0,3,False,False,False,True,False
+3825794,2016-02-28,2015/2016,2013-17,La Liga,Villarreal,Levante UD,3,0,False,False,False,True,False
+3825795,2016-03-01,2015/2016,2013-17,La Liga,Atlético Madrid,Real Sociedad,3,0,False,False,False,True,False
+3825796,2016-03-01,2015/2016,2013-17,La Liga,Las Palmas,Getafe,4,0,False,False,False,True,False
+3825797,2016-03-02,2015/2016,2013-17,La Liga,Athletic Club,RC Deportivo La Coruña,4,1,False,False,False,True,False
+3825798,2016-03-02,2015/2016,2013-17,La Liga,Levante UD,Real Madrid,1,3,False,False,False,True,False
+3825799,2016-03-02,2015/2016,2013-17,La Liga,Málaga,Valencia,1,2,False,False,False,True,False
+3825800,2016-03-02,2015/2016,2013-17,La Liga,Celta Vigo,Villarreal,0,0,False,False,False,True,False
+3825801,2016-03-02,2015/2016,2013-17,La Liga,Sevilla,Eibar,1,0,False,False,False,True,False
+266653,2016-03-03,2015/2016,2013-17,La Liga,Rayo Vallecano,Barcelona,1,5,False,False,True,True,False
+3825802,2016-03-03,2015/2016,2013-17,La Liga,Espanyol,Real Betis,0,3,False,False,False,True,False
+3825803,2016-03-03,2015/2016,2013-17,La Liga,Granada,Sporting Gijón,2,0,False,False,False,True,False
+3825804,2016-03-05,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Málaga,3,3,False,False,False,True,False
+3825805,2016-03-05,2015/2016,2013-17,La Liga,Villarreal,Las Palmas,0,1,False,False,False,True,False
+3825806,2016-03-05,2015/2016,2013-17,La Liga,Real Madrid,Celta Vigo,7,1,False,False,False,True,False
+3825867,2016-03-05,2015/2016,2013-17,La Liga,Getafe,Sevilla,1,1,False,False,False,True,False
+266056,2016-03-06,2015/2016,2013-17,La Liga,Eibar,Barcelona,0,4,False,False,True,True,False
+3825807,2016-03-06,2015/2016,2013-17,La Liga,Valencia,Atlético Madrid,1,3,False,False,False,True,False
+3825808,2016-03-06,2015/2016,2013-17,La Liga,Sporting Gijón,Athletic Club,0,2,False,False,False,True,False
+3825809,2016-03-06,2015/2016,2013-17,La Liga,Real Betis,Granada,2,0,False,False,False,True,False
+3825810,2016-03-06,2015/2016,2013-17,La Liga,Real Sociedad,Levante UD,1,1,False,False,False,True,False
+3825811,2016-03-07,2015/2016,2013-17,La Liga,Espanyol,Rayo Vallecano,2,1,False,False,False,True,False
+3825812,2016-03-11,2015/2016,2013-17,La Liga,Málaga,Sporting Gijón,1,0,False,False,False,True,False
+266498,2016-03-12,2015/2016,2013-17,La Liga,Barcelona,Getafe,6,0,False,True,True,True,False
+3825813,2016-03-12,2015/2016,2013-17,La Liga,Atlético Madrid,RC Deportivo La Coruña,3,0,False,False,False,True,False
+3825814,2016-03-12,2015/2016,2013-17,La Liga,Celta Vigo,Real Sociedad,1,0,False,False,False,True,False
+3825858,2016-03-12,2015/2016,2013-17,La Liga,Rayo Vallecano,Eibar,1,1,False,False,False,True,False
+3825815,2016-03-13,2015/2016,2013-17,La Liga,Levante UD,Valencia,1,0,False,False,False,True,False
+3825816,2016-03-13,2015/2016,2013-17,La Liga,Sevilla,Villarreal,4,2,False,False,False,True,False
+3825844,2016-03-13,2015/2016,2013-17,La Liga,Athletic Club,Real Betis,3,1,False,False,False,True,False
+3825879,2016-03-13,2015/2016,2013-17,La Liga,Las Palmas,Real Madrid,1,2,False,False,False,True,False
+3825881,2016-03-14,2015/2016,2013-17,La Liga,Granada,Espanyol,1,1,False,False,False,True,False
+3825817,2016-03-18,2015/2016,2013-17,La Liga,Getafe,Eibar,1,1,False,False,False,True,False
+3825818,2016-03-19,2015/2016,2013-17,La Liga,Real Sociedad,Las Palmas,0,1,False,False,False,True,False
+3825880,2016-03-19,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Levante UD,2,1,False,False,False,True,False
+3825887,2016-03-19,2015/2016,2013-17,La Liga,Granada,Rayo Vallecano,2,2,False,False,False,True,False
+3825903,2016-03-19,2015/2016,2013-17,La Liga,Real Betis,Málaga,0,1,False,False,False,True,False
+3825907,2016-03-19,2015/2016,2013-17,La Liga,Sporting Gijón,Atlético Madrid,2,1,False,False,False,True,False
+266106,2016-03-20,2015/2016,2013-17,La Liga,Villarreal,Barcelona,2,2,False,True,True,True,False
+3825819,2016-03-20,2015/2016,2013-17,La Liga,Valencia,Celta Vigo,0,2,False,False,False,True,False
+3825820,2016-03-20,2015/2016,2013-17,La Liga,Real Madrid,Sevilla,4,0,False,False,False,True,False
+3825821,2016-03-20,2015/2016,2013-17,La Liga,Espanyol,Athletic Club,2,1,False,False,False,True,False
+3825885,2016-04-01,2015/2016,2013-17,La Liga,Rayo Vallecano,Getafe,2,0,False,False,False,True,False
+267533,2016-04-02,2015/2016,2013-17,La Liga,Barcelona,Real Madrid,1,2,True,True,True,True,False
+3825822,2016-04-02,2015/2016,2013-17,La Liga,Las Palmas,Valencia,2,1,False,False,False,True,False
+3825872,2016-04-02,2015/2016,2013-17,La Liga,Atlético Madrid,Real Betis,5,1,False,False,False,True,False
+3825898,2016-04-02,2015/2016,2013-17,La Liga,Celta Vigo,RC Deportivo La Coruña,1,1,False,False,False,True,False
+3825823,2016-04-03,2015/2016,2013-17,La Liga,Sevilla,Real Sociedad,1,2,False,False,False,True,False
+3825824,2016-04-03,2015/2016,2013-17,La Liga,Eibar,Villarreal,1,2,False,False,False,True,False
+3825877,2016-04-03,2015/2016,2013-17,La Liga,Athletic Club,Granada,1,1,False,False,False,True,False
+3825905,2016-04-03,2015/2016,2013-17,La Liga,Málaga,Espanyol,1,1,False,False,False,True,False
+3825825,2016-04-04,2015/2016,2013-17,La Liga,Levante UD,Sporting Gijón,0,0,False,False,False,True,False
+3825826,2016-04-08,2015/2016,2013-17,La Liga,Granada,Málaga,0,0,False,False,False,True,False
+266664,2016-04-09,2015/2016,2013-17,La Liga,Real Sociedad,Barcelona,1,0,False,True,True,True,False
+3825827,2016-04-09,2015/2016,2013-17,La Liga,Real Betis,Levante UD,1,0,False,False,False,True,False
+3825828,2016-04-09,2015/2016,2013-17,La Liga,Espanyol,Atlético Madrid,1,3,False,False,False,True,False
+3825856,2016-04-09,2015/2016,2013-17,La Liga,Real Madrid,Eibar,4,0,False,False,False,True,False
+3825829,2016-04-10,2015/2016,2013-17,La Liga,Athletic Club,Rayo Vallecano,1,0,False,False,False,True,False
+3825830,2016-04-10,2015/2016,2013-17,La Liga,Villarreal,Getafe,2,0,False,False,False,True,False
+3825831,2016-04-10,2015/2016,2013-17,La Liga,Valencia,Sevilla,2,1,False,False,False,True,False
+3825832,2016-04-10,2015/2016,2013-17,La Liga,Sporting Gijón,Celta Vigo,0,1,False,False,False,True,False
+3825863,2016-04-11,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Las Palmas,1,3,False,False,False,True,False
+3825857,2016-04-15,2015/2016,2013-17,La Liga,Levante UD,Espanyol,2,1,False,False,False,True,False
+3825833,2016-04-16,2015/2016,2013-17,La Liga,Getafe,Real Madrid,1,5,False,False,False,True,False
+3825852,2016-04-16,2015/2016,2013-17,La Liga,Las Palmas,Sporting Gijón,1,1,False,False,False,True,False
+3825889,2016-04-16,2015/2016,2013-17,La Liga,Celta Vigo,Real Betis,1,1,False,False,False,True,False
+3825897,2016-04-16,2015/2016,2013-17,La Liga,Eibar,Real Sociedad,2,1,False,False,False,True,False
+266557,2016-04-17,2015/2016,2013-17,La Liga,Barcelona,Valencia,1,2,False,True,True,True,False
+3825834,2016-04-17,2015/2016,2013-17,La Liga,Atlético Madrid,Granada,3,0,False,False,False,True,False
+3825835,2016-04-17,2015/2016,2013-17,La Liga,Málaga,Athletic Club,0,1,False,False,False,True,False
+3825836,2016-04-17,2015/2016,2013-17,La Liga,Rayo Vallecano,Villarreal,2,1,False,False,False,True,False
+3825906,2016-04-17,2015/2016,2013-17,La Liga,Sevilla,RC Deportivo La Coruña,1,1,False,False,False,True,False
+3825837,2016-04-19,2015/2016,2013-17,La Liga,Real Betis,Las Palmas,1,0,False,False,False,True,False
+3825862,2016-04-19,2015/2016,2013-17,La Liga,Espanyol,Celta Vigo,1,1,False,False,False,True,False
+266310,2016-04-20,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Barcelona,0,8,False,False,True,True,False
+3825838,2016-04-20,2015/2016,2013-17,La Liga,Athletic Club,Atlético Madrid,0,1,False,False,False,True,False
+3825839,2016-04-20,2015/2016,2013-17,La Liga,Sporting Gijón,Sevilla,2,1,False,False,False,True,False
+3825840,2016-04-20,2015/2016,2013-17,La Liga,Valencia,Eibar,4,0,False,False,False,True,False
+3825843,2016-04-20,2015/2016,2013-17,La Liga,Málaga,Rayo Vallecano,1,1,False,False,False,True,False
+3825893,2016-04-20,2015/2016,2013-17,La Liga,Real Madrid,Villarreal,3,0,False,False,False,True,False
+3825841,2016-04-21,2015/2016,2013-17,La Liga,Real Sociedad,Getafe,1,2,False,False,False,True,False
+3825896,2016-04-21,2015/2016,2013-17,La Liga,Granada,Levante UD,5,1,False,False,False,True,False
+3825871,2016-04-22,2015/2016,2013-17,La Liga,Las Palmas,Espanyol,4,0,False,False,False,True,False
+265944,2016-04-23,2015/2016,2013-17,La Liga,Barcelona,Sporting Gijón,6,0,False,False,True,True,False
+3825847,2016-04-23,2015/2016,2013-17,La Liga,Eibar,RC Deportivo La Coruña,1,1,False,False,False,True,False
+3825886,2016-04-23,2015/2016,2013-17,La Liga,Rayo Vallecano,Real Madrid,2,3,False,False,False,True,False
+3825890,2016-04-23,2015/2016,2013-17,La Liga,Atlético Madrid,Málaga,1,0,False,False,False,True,False
+3825842,2016-04-24,2015/2016,2013-17,La Liga,Levante UD,Athletic Club,2,2,False,False,False,True,False
+3825875,2016-04-24,2015/2016,2013-17,La Liga,Villarreal,Real Sociedad,0,0,False,False,False,True,False
+3825884,2016-04-24,2015/2016,2013-17,La Liga,Sevilla,Real Betis,2,0,False,False,False,True,False
+3825899,2016-04-24,2015/2016,2013-17,La Liga,Getafe,Valencia,2,2,False,False,False,True,False
+3825868,2016-04-25,2015/2016,2013-17,La Liga,Celta Vigo,Granada,2,1,False,False,False,True,False
+3825854,2016-04-29,2015/2016,2013-17,La Liga,Sporting Gijón,Eibar,2,0,False,False,False,True,False
+266986,2016-04-30,2015/2016,2013-17,La Liga,Real Betis,Barcelona,0,2,False,False,True,True,False
+3825859,2016-04-30,2015/2016,2013-17,La Liga,Granada,Las Palmas,3,2,False,False,False,True,False
+3825864,2016-04-30,2015/2016,2013-17,La Liga,Real Sociedad,Real Madrid,0,1,False,False,False,True,False
+3825878,2016-04-30,2015/2016,2013-17,La Liga,Atlético Madrid,Rayo Vallecano,1,0,False,False,False,True,False
+3825845,2016-05-01,2015/2016,2013-17,La Liga,Espanyol,Sevilla,1,0,False,False,False,True,False
+3825870,2016-05-01,2015/2016,2013-17,La Liga,Athletic Club,Celta Vigo,2,1,False,False,False,True,False
+3825873,2016-05-01,2015/2016,2013-17,La Liga,Valencia,Villarreal,0,2,False,False,False,True,False
+3825894,2016-05-01,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Getafe,0,2,False,False,False,True,False
+3825855,2016-05-02,2015/2016,2013-17,La Liga,Málaga,Levante UD,3,1,False,False,False,True,False
+265958,2016-05-08,2015/2016,2013-17,La Liga,Barcelona,Espanyol,5,0,False,False,True,True,False
+3825850,2016-05-08,2015/2016,2013-17,La Liga,Celta Vigo,Málaga,1,0,False,False,False,True,False
+3825851,2016-05-08,2015/2016,2013-17,La Liga,Villarreal,RC Deportivo La Coruña,0,2,False,False,False,True,False
+3825853,2016-05-08,2015/2016,2013-17,La Liga,Sevilla,Granada,1,4,False,False,False,True,False
+3825860,2016-05-08,2015/2016,2013-17,La Liga,Levante UD,Atlético Madrid,2,1,False,False,False,True,False
+3825861,2016-05-08,2015/2016,2013-17,La Liga,Real Sociedad,Rayo Vallecano,2,1,False,False,False,True,False
+3825865,2016-05-08,2015/2016,2013-17,La Liga,Getafe,Sporting Gijón,1,1,False,False,False,True,False
+3825866,2016-05-08,2015/2016,2013-17,La Liga,Las Palmas,Athletic Club,0,0,False,False,False,True,False
+3825901,2016-05-08,2015/2016,2013-17,La Liga,Real Madrid,Valencia,3,2,False,False,False,True,False
+3825904,2016-05-08,2015/2016,2013-17,La Liga,Eibar,Real Betis,1,1,False,False,False,True,False
+3825849,2016-05-13,2015/2016,2013-17,La Liga,Valencia,Real Sociedad,0,1,False,False,False,True,False
+267506,2016-05-14,2015/2016,2013-17,La Liga,Granada,Barcelona,0,3,False,False,True,True,False
+3825846,2016-05-14,2015/2016,2013-17,La Liga,RC Deportivo La Coruña,Real Madrid,0,2,False,False,False,True,False
+3825869,2016-05-14,2015/2016,2013-17,La Liga,Athletic Club,Sevilla,3,1,False,False,False,True,False
+3825882,2016-05-14,2015/2016,2013-17,La Liga,Atlético Madrid,Celta Vigo,2,0,False,False,False,True,False
+3825876,2016-05-15,2015/2016,2013-17,La Liga,Real Betis,Getafe,2,1,False,False,False,True,False
+3825883,2016-05-15,2015/2016,2013-17,La Liga,Málaga,Las Palmas,4,1,False,False,False,True,False
+3825900,2016-05-15,2015/2016,2013-17,La Liga,Sporting Gijón,Villarreal,2,0,False,False,False,True,False
+3825902,2016-05-15,2015/2016,2013-17,La Liga,Rayo Vallecano,Levante UD,3,1,False,False,False,True,False
+3825908,2016-05-15,2015/2016,2013-17,La Liga,Espanyol,Eibar,4,2,False,False,False,True,False
+18243,2016-05-28,2015/2016,2013-17,Champions League final,Real Madrid,Atlético Madrid,1,1,False,False,False,False,True
+267670,2016-08-20,2016/2017,2013-17,La Liga,Barcelona,Real Betis,6,2,False,False,True,False,False
+266892,2016-08-28,2016/2017,2013-17,La Liga,Athletic Club,Barcelona,0,1,False,True,True,False,False
+266669,2016-09-10,2016/2017,2013-17,La Liga,Barcelona,Deportivo Alavés,1,2,False,False,True,False,False
+267212,2016-09-17,2016/2017,2013-17,La Liga,Leganés,Barcelona,1,5,False,False,True,False,False
+267220,2016-09-21,2016/2017,2013-17,La Liga,Barcelona,Atlético Madrid,1,1,False,True,True,False,False
+267492,2016-10-15,2016/2017,2013-17,La Liga,Barcelona,RC Deportivo La Coruña,4,0,False,False,True,False,False
+266033,2016-10-22,2016/2017,2013-17,La Liga,Valencia,Barcelona,2,3,False,True,True,False,False
+267058,2016-10-29,2016/2017,2013-17,La Liga,Barcelona,Granada,1,0,False,False,True,False,False
+266989,2016-11-06,2016/2017,2013-17,La Liga,Sevilla,Barcelona,1,2,False,True,True,False,False
+266191,2016-11-27,2016/2017,2013-17,La Liga,Real Sociedad,Barcelona,1,1,False,True,True,False,False
+267076,2016-12-03,2016/2017,2013-17,La Liga,Barcelona,Real Madrid,1,1,True,True,True,False,False
+266357,2016-12-10,2016/2017,2013-17,La Liga,Osasuna,Barcelona,0,3,False,False,True,False,False
+266528,2016-12-18,2016/2017,2013-17,La Liga,Barcelona,Espanyol,4,1,False,False,True,False,False
+266477,2017-01-08,2016/2017,2013-17,La Liga,Villarreal,Barcelona,1,1,False,True,True,False,False
+267395,2017-01-14,2016/2017,2013-17,La Liga,Barcelona,Las Palmas,5,0,False,False,True,False,False
+266731,2017-01-22,2016/2017,2013-17,La Liga,Eibar,Barcelona,0,4,False,False,True,False,False
+266516,2017-01-29,2016/2017,2013-17,La Liga,Real Betis,Barcelona,1,1,False,False,True,False,False
+266874,2017-02-04,2016/2017,2013-17,La Liga,Barcelona,Athletic Club,3,0,False,True,True,False,False
+266273,2017-02-11,2016/2017,2013-17,La Liga,Deportivo Alavés,Barcelona,0,6,False,False,True,False,False
+267596,2017-02-19,2016/2017,2013-17,La Liga,Barcelona,Leganés,2,1,False,False,True,False,False
+267464,2017-02-26,2016/2017,2013-17,La Liga,Atlético Madrid,Barcelona,1,2,False,True,True,False,False
+265952,2017-03-01,2016/2017,2013-17,La Liga,Barcelona,Sporting Gijón,6,1,False,False,True,False,False
+266299,2017-03-04,2016/2017,2013-17,La Liga,Barcelona,Celta Vigo,5,0,False,False,True,False,False
+267660,2017-03-12,2016/2017,2013-17,La Liga,RC Deportivo La Coruña,Barcelona,2,1,False,False,True,False,False
+266440,2017-03-19,2016/2017,2013-17,La Liga,Barcelona,Valencia,4,2,False,True,True,False,False
+266280,2017-04-05,2016/2017,2013-17,La Liga,Barcelona,Sevilla,3,0,False,True,True,False,False
+267590,2017-04-08,2016/2017,2013-17,La Liga,Málaga,Barcelona,2,0,False,True,True,False,False
+267373,2017-04-15,2016/2017,2013-17,La Liga,Barcelona,Real Sociedad,3,2,False,True,True,False,False
+267569,2017-04-23,2016/2017,2013-17,La Liga,Real Madrid,Barcelona,2,3,True,True,True,False,False
+267101,2017-04-26,2016/2017,2013-17,La Liga,Barcelona,Osasuna,7,1,False,False,True,False,False
+267077,2017-04-29,2016/2017,2013-17,La Liga,Espanyol,Barcelona,0,3,False,False,True,False,False
+266952,2017-05-06,2016/2017,2013-17,La Liga,Barcelona,Villarreal,4,1,False,True,True,False,False
+267039,2017-05-14,2016/2017,2013-17,La Liga,Las Palmas,Barcelona,1,4,False,False,True,False,False
+267432,2017-05-21,2016/2017,2013-17,La Liga,Barcelona,Eibar,4,2,False,False,True,False,False
+18244,2017-06-03,2016/2017,2013-17,Champions League final,Juventus,Real Madrid,1,4,False,False,False,False,True
+9575,2017-08-20,2017/2018,2017-21,La Liga,Barcelona,Real Betis,2,0,False,False,True,False,False
+9581,2017-08-26,2017/2018,2017-21,La Liga,Deportivo Alavés,Barcelona,0,2,False,False,True,False,False
+9592,2017-09-09,2017/2018,2017-21,La Liga,Barcelona,Espanyol,5,0,False,False,True,False,False
+9602,2017-09-16,2017/2018,2017-21,La Liga,Getafe,Barcelona,1,2,False,True,True,False,False
+9609,2017-09-19,2017/2018,2017-21,La Liga,Barcelona,Eibar,6,1,False,False,True,False,False
+9620,2017-09-23,2017/2018,2017-21,La Liga,Girona,Barcelona,0,3,False,False,True,False,False
+9636,2017-10-01,2017/2018,2017-21,La Liga,Barcelona,Las Palmas,3,0,False,False,True,False,False
+9642,2017-10-14,2017/2018,2017-21,La Liga,Atlético Madrid,Barcelona,1,1,False,True,True,False,False
+9650,2017-10-21,2017/2018,2017-21,La Liga,Barcelona,Málaga,2,0,False,True,True,False,False
+9661,2017-10-28,2017/2018,2017-21,La Liga,Athletic Club,Barcelona,0,2,False,True,True,False,False
+9673,2017-11-04,2017/2018,2017-21,La Liga,Barcelona,Sevilla,2,1,False,True,True,False,False
+9682,2017-11-18,2017/2018,2017-21,La Liga,Leganés,Barcelona,0,3,False,False,True,False,False
+9695,2017-11-26,2017/2018,2017-21,La Liga,Valencia,Barcelona,1,1,False,True,True,False,False
+9700,2017-12-02,2017/2018,2017-21,La Liga,Barcelona,Celta Vigo,2,2,False,False,True,False,False
+9717,2017-12-10,2017/2018,2017-21,La Liga,Villarreal,Barcelona,0,2,False,True,True,False,False
+9726,2017-12-17,2017/2018,2017-21,La Liga,Barcelona,RC Deportivo La Coruña,4,0,False,False,True,False,False
+9736,2017-12-23,2017/2018,2017-21,La Liga,Real Madrid,Barcelona,0,3,True,True,True,False,False
+9742,2018-01-07,2017/2018,2017-21,La Liga,Barcelona,Levante UD,3,0,False,False,True,False,False
+9754,2018-01-14,2017/2018,2017-21,La Liga,Real Sociedad,Barcelona,2,4,False,True,True,False,False
+9765,2018-01-21,2017/2018,2017-21,La Liga,Real Betis,Barcelona,0,5,False,False,True,False,False
+9774,2018-01-28,2017/2018,2017-21,La Liga,Barcelona,Deportivo Alavés,2,1,False,False,True,False,False
+9783,2018-02-04,2017/2018,2017-21,La Liga,Espanyol,Barcelona,1,1,False,False,True,False,False
+9794,2018-02-11,2017/2018,2017-21,La Liga,Barcelona,Getafe,0,0,False,True,True,False,False
+9799,2018-02-17,2017/2018,2017-21,La Liga,Eibar,Barcelona,0,2,False,False,True,False,False
+9811,2018-02-24,2017/2018,2017-21,La Liga,Barcelona,Girona,6,1,False,False,True,False,False
+9827,2018-03-01,2017/2018,2017-21,La Liga,Las Palmas,Barcelona,1,1,False,False,True,False,False
+9837,2018-03-04,2017/2018,2017-21,La Liga,Barcelona,Atlético Madrid,1,0,False,True,True,False,False
+9855,2018-03-18,2017/2018,2017-21,La Liga,Barcelona,Athletic Club,2,0,False,True,True,False,False
+9860,2018-03-31,2017/2018,2017-21,La Liga,Sevilla,Barcelona,2,2,False,True,True,False,False
+9870,2018-04-07,2017/2018,2017-21,La Liga,Barcelona,Leganés,3,1,False,False,True,False,False
+9880,2018-04-14,2017/2018,2017-21,La Liga,Barcelona,Valencia,2,1,False,True,True,False,False
+9889,2018-04-17,2017/2018,2017-21,La Liga,Celta Vigo,Barcelona,2,2,False,False,True,False,False
+9912,2018-04-29,2017/2018,2017-21,La Liga,RC Deportivo La Coruña,Barcelona,2,4,False,False,True,False,False
+9924,2018-05-06,2017/2018,2017-21,La Liga,Barcelona,Real Madrid,2,2,True,True,True,False,False
+9928,2018-05-09,2017/2018,2017-21,La Liga,Barcelona,Villarreal,5,1,False,True,True,False,False
+9948,2018-05-20,2017/2018,2017-21,La Liga,Barcelona,Real Sociedad,1,0,False,True,True,False,False
+18245,2018-05-26,2017/2018,2017-21,Champions League final,Real Madrid,Liverpool,3,1,False,False,False,False,True
+15946,2018-08-18,2018/2019,2017-21,La Liga,Barcelona,Deportivo Alavés,3,0,False,False,True,False,False
+15956,2018-08-25,2018/2019,2017-21,La Liga,Real Valladolid,Barcelona,0,1,False,False,True,False,False
+15973,2018-09-02,2018/2019,2017-21,La Liga,Barcelona,Huesca,8,2,False,False,True,False,False
+15978,2018-09-15,2018/2019,2017-21,La Liga,Real Sociedad,Barcelona,1,2,False,True,True,False,False
+15986,2018-09-23,2018/2019,2017-21,La Liga,Barcelona,Girona,2,2,False,False,True,False,False
+15998,2018-09-26,2018/2019,2017-21,La Liga,Leganés,Barcelona,2,1,False,False,True,False,False
+16010,2018-09-29,2018/2019,2017-21,La Liga,Barcelona,Athletic Club,1,1,False,True,True,False,False
+16023,2018-10-07,2018/2019,2017-21,La Liga,Valencia,Barcelona,1,1,False,True,True,False,False
+16029,2018-10-20,2018/2019,2017-21,La Liga,Barcelona,Sevilla,4,2,False,True,True,False,False
+16056,2018-11-11,2018/2019,2017-21,La Liga,Barcelona,Real Betis,3,4,False,False,True,False,False
+16073,2018-11-24,2018/2019,2017-21,La Liga,Atlético Madrid,Barcelona,1,1,False,True,True,False,False
+16079,2018-12-02,2018/2019,2017-21,La Liga,Barcelona,Villarreal,2,0,False,True,True,False,False
+16086,2018-12-08,2018/2019,2017-21,La Liga,Espanyol,Barcelona,0,4,False,False,True,False,False
+16095,2018-12-16,2018/2019,2017-21,La Liga,Levante UD,Barcelona,0,5,False,False,True,False,False
+16109,2018-12-22,2018/2019,2017-21,La Liga,Barcelona,Celta Vigo,2,0,False,False,True,False,False
+16120,2019-01-06,2018/2019,2017-21,La Liga,Getafe,Barcelona,1,2,False,True,True,False,False
+16131,2019-01-13,2018/2019,2017-21,La Liga,Barcelona,Eibar,3,0,False,False,True,False,False
+16136,2019-01-20,2018/2019,2017-21,La Liga,Barcelona,Leganés,3,1,False,False,True,False,False
+16149,2019-01-27,2018/2019,2017-21,La Liga,Girona,Barcelona,0,2,False,False,True,False,False
+16157,2019-02-02,2018/2019,2017-21,La Liga,Barcelona,Valencia,2,2,False,True,True,False,False
+16173,2019-02-10,2018/2019,2017-21,La Liga,Athletic Club,Barcelona,0,0,False,True,True,False,False
+16182,2019-02-16,2018/2019,2017-21,La Liga,Barcelona,Real Valladolid,1,0,False,False,True,False,False
+16190,2019-02-23,2018/2019,2017-21,La Liga,Sevilla,Barcelona,2,4,False,True,True,False,False
+16196,2019-03-02,2018/2019,2017-21,La Liga,Real Madrid,Barcelona,0,1,True,True,True,False,False
+16205,2019-03-09,2018/2019,2017-21,La Liga,Barcelona,Rayo Vallecano,3,1,False,False,True,False,False
+16215,2019-03-17,2018/2019,2017-21,La Liga,Real Betis,Barcelona,1,4,False,False,True,False,False
+16231,2019-03-30,2018/2019,2017-21,La Liga,Barcelona,Espanyol,2,0,False,False,True,False,False
+16240,2019-04-02,2018/2019,2017-21,La Liga,Villarreal,Barcelona,4,4,False,True,True,False,False
+16248,2019-04-06,2018/2019,2017-21,La Liga,Barcelona,Atlético Madrid,2,0,False,True,True,False,False
+16265,2019-04-20,2018/2019,2017-21,La Liga,Barcelona,Real Sociedad,2,1,False,True,True,False,False
+16275,2019-04-23,2018/2019,2017-21,La Liga,Deportivo Alavés,Barcelona,0,2,False,False,True,False,False
+16289,2019-04-27,2018/2019,2017-21,La Liga,Barcelona,Levante UD,1,0,False,False,True,False,False
+16306,2019-05-12,2018/2019,2017-21,La Liga,Barcelona,Getafe,2,0,False,True,True,False,False
+16317,2019-05-19,2018/2019,2017-21,La Liga,Eibar,Barcelona,2,2,False,False,True,False,False
+303666,2019-09-21,2019/2020,2017-21,La Liga,Granada,Barcelona,2,0,False,False,True,False,False
+303430,2019-09-24,2019/2020,2017-21,La Liga,Barcelona,Villarreal,2,1,False,True,True,False,False
+303473,2019-10-06,2019/2020,2017-21,La Liga,Barcelona,Sevilla,4,0,False,True,True,False,False
+303700,2019-10-19,2019/2020,2017-21,La Liga,Eibar,Barcelona,0,3,False,False,True,False,False
+303600,2019-10-29,2019/2020,2017-21,La Liga,Barcelona,Real Valladolid,5,1,False,False,True,False,False
+303504,2019-11-02,2019/2020,2017-21,La Liga,Levante UD,Barcelona,3,1,False,False,True,False,False
+303487,2019-11-09,2019/2020,2017-21,La Liga,Barcelona,Celta Vigo,4,1,False,False,True,False,False
+303715,2019-11-23,2019/2020,2017-21,La Liga,Leganés,Barcelona,1,2,False,False,True,False,False
+303524,2019-12-01,2019/2020,2017-21,La Liga,Atlético Madrid,Barcelona,0,1,False,True,True,False,False
+303451,2019-12-07,2019/2020,2017-21,La Liga,Barcelona,Mallorca,5,2,False,False,True,False,False
+303664,2019-12-14,2019/2020,2017-21,La Liga,Real Sociedad,Barcelona,2,2,False,True,True,False,False
+303596,2019-12-18,2019/2020,2017-21,La Liga,Barcelona,Real Madrid,0,0,True,True,True,False,False
+303517,2019-12-21,2019/2020,2017-21,La Liga,Barcelona,Deportivo Alavés,4,1,False,False,True,False,False
+303652,2020-01-04,2019/2020,2017-21,La Liga,Espanyol,Barcelona,2,2,False,False,True,False,False
+303610,2020-01-19,2019/2020,2017-21,La Liga,Barcelona,Granada,1,0,False,False,True,False,False
+303400,2020-01-25,2019/2020,2017-21,La Liga,Valencia,Barcelona,2,0,False,True,True,False,False
+303682,2020-02-02,2019/2020,2017-21,La Liga,Barcelona,Levante UD,2,1,False,False,True,False,False
+303707,2020-02-09,2019/2020,2017-21,La Liga,Real Betis,Barcelona,2,3,False,False,True,False,False
+303377,2020-02-15,2019/2020,2017-21,La Liga,Barcelona,Getafe,2,1,False,True,True,False,False
+303731,2020-02-22,2019/2020,2017-21,La Liga,Barcelona,Eibar,5,0,False,False,True,False,False
+303470,2020-03-01,2019/2020,2017-21,La Liga,Real Madrid,Barcelona,2,0,True,True,True,False,False
+303479,2020-03-07,2019/2020,2017-21,La Liga,Barcelona,Real Sociedad,1,0,False,True,True,False,False
+303548,2020-06-13,2019/2020,2017-21,La Liga,Mallorca,Barcelona,0,4,False,False,True,False,False
+303532,2020-06-16,2019/2020,2017-21,La Liga,Barcelona,Leganés,2,0,False,False,True,False,False
+303674,2020-06-19,2019/2020,2017-21,La Liga,Sevilla,Barcelona,0,0,False,True,True,False,False
+303493,2020-06-23,2019/2020,2017-21,La Liga,Barcelona,Athletic Club,1,0,False,True,True,False,False
+303516,2020-06-27,2019/2020,2017-21,La Liga,Celta Vigo,Barcelona,2,2,False,False,True,False,False
+303696,2020-06-30,2019/2020,2017-21,La Liga,Barcelona,Atlético Madrid,2,2,False,True,True,False,False
+303725,2020-07-05,2019/2020,2017-21,La Liga,Villarreal,Barcelona,1,4,False,True,True,False,False
+303615,2020-07-08,2019/2020,2017-21,La Liga,Barcelona,Espanyol,1,0,False,False,True,False,False
+303680,2020-07-11,2019/2020,2017-21,La Liga,Real Valladolid,Barcelona,0,1,False,False,True,False,False
+303634,2020-07-16,2019/2020,2017-21,La Liga,Barcelona,Osasuna,1,2,False,False,True,False,False
+303421,2020-07-19,2019/2020,2017-21,La Liga,Deportivo Alavés,Barcelona,0,5,False,False,True,False,False
+3773593,2020-09-27,2020/2021,2017-21,La Liga,Barcelona,Villarreal,4,0,False,True,True,False,False
+3773466,2020-10-01,2020/2021,2017-21,La Liga,Celta Vigo,Barcelona,0,3,False,False,True,False,False
+3773672,2020-10-04,2020/2021,2017-21,La Liga,Barcelona,Sevilla,1,1,False,True,True,False,False
+3773587,2020-10-17,2020/2021,2017-21,La Liga,Getafe,Barcelona,1,0,False,True,True,False,False
+3773585,2020-10-24,2020/2021,2017-21,La Liga,Barcelona,Real Madrid,1,3,True,True,True,False,False
+3773386,2020-10-31,2020/2021,2017-21,La Liga,Deportivo Alavés,Barcelona,1,1,False,False,True,False,False
+3773477,2020-11-07,2020/2021,2017-21,La Liga,Barcelona,Real Betis,5,2,False,False,True,False,False
+3773656,2020-11-21,2020/2021,2017-21,La Liga,Atlético Madrid,Barcelona,1,0,False,True,True,False,False
+3773547,2020-11-29,2020/2021,2017-21,La Liga,Barcelona,Osasuna,4,0,False,False,True,False,False
+3773428,2020-12-05,2020/2021,2017-21,La Liga,Cádiz,Barcelona,2,1,False,False,True,False,False
+3773660,2020-12-13,2020/2021,2017-21,La Liga,Barcelona,Levante UD,1,0,False,False,True,False,False
+3773523,2020-12-16,2020/2021,2017-21,La Liga,Barcelona,Real Sociedad,2,1,False,True,True,False,False
+3773377,2020-12-19,2020/2021,2017-21,La Liga,Barcelona,Valencia,2,2,False,True,True,False,False
+3773571,2020-12-22,2020/2021,2017-21,La Liga,Real Valladolid,Barcelona,0,3,False,False,True,False,False
+3773552,2021-01-03,2020/2021,2017-21,La Liga,Huesca,Barcelona,0,1,False,False,True,False,False
+3764661,2021-01-06,2020/2021,2017-21,La Liga,Athletic Club,Barcelona,2,3,False,True,True,False,False
+3773565,2021-01-09,2020/2021,2017-21,La Liga,Granada,Barcelona,0,4,False,False,True,False,False
+3773403,2021-01-31,2020/2021,2017-21,La Liga,Barcelona,Athletic Club,2,1,False,True,True,False,False
+3773631,2021-02-07,2020/2021,2017-21,La Liga,Real Betis,Barcelona,2,3,False,False,True,False,False
+3773526,2021-02-13,2020/2021,2017-21,La Liga,Barcelona,Deportivo Alavés,5,1,False,False,True,False,False
+3773415,2021-02-21,2020/2021,2017-21,La Liga,Barcelona,Cádiz,1,1,False,False,True,False,False
+3764440,2021-02-24,2020/2021,2017-21,La Liga,Barcelona,Elche,3,0,False,False,True,False,False
+3773625,2021-02-27,2020/2021,2017-21,La Liga,Sevilla,Barcelona,0,2,False,True,True,False,False
+3773665,2021-03-06,2020/2021,2017-21,La Liga,Osasuna,Barcelona,0,2,False,False,True,False,False
+3773369,2021-03-15,2020/2021,2017-21,La Liga,Barcelona,Huesca,4,1,False,False,True,False,False
+3773597,2021-03-21,2020/2021,2017-21,La Liga,Real Sociedad,Barcelona,1,6,False,True,True,False,False
+3773474,2021-04-05,2020/2021,2017-21,La Liga,Barcelona,Real Valladolid,1,0,False,False,True,False,False
+3773497,2021-04-10,2020/2021,2017-21,La Liga,Real Madrid,Barcelona,2,1,True,True,True,False,False
+3773661,2021-04-22,2020/2021,2017-21,La Liga,Barcelona,Getafe,5,2,False,True,True,False,False
+3773689,2021-04-25,2020/2021,2017-21,La Liga,Villarreal,Barcelona,1,2,False,True,True,False,False
+3773586,2021-04-29,2020/2021,2017-21,La Liga,Barcelona,Granada,1,2,False,False,True,False,False
+3773695,2021-05-02,2020/2021,2017-21,La Liga,Valencia,Barcelona,2,3,False,True,True,False,False
+3773372,2021-05-08,2020/2021,2017-21,La Liga,Barcelona,Atlético Madrid,0,0,False,True,True,False,False
+3773387,2021-05-11,2020/2021,2017-21,La Liga,Levante UD,Barcelona,3,3,False,False,True,False,False
+3773457,2021-05-16,2020/2021,2017-21,La Liga,Barcelona,Celta Vigo,1,2,False,False,True,False,False

@@ -10,6 +10,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from clasico.events import zone  # noqa: E402
 from clasico.output import read_json, read_rows  # noqa: E402
+from clasico.log import get_logger  # noqa: E402
+
+log = get_logger('readme_charts')
 
 OUT = os.path.join(ROOT, 'docs', 'img')
 PERIODS = ('2005-09', '2009-13', '2013-17', '2017-21')
@@ -112,7 +115,7 @@ def main():
                22, 'In 2017-21 Barcelona led for only 20% of the minutes, so sitting on a lead does not explain the rise.',
                os.path.join(OUT, 'press.svg'))
     zone_chart(L, os.path.join(OUT, 'zones.svg'))
-    print('docs/img: convergence.svg, press.svg, zones.svg')
+    log.info('charts written', extra={'path': 'docs/img', 'files': 'convergence.svg,press.svg,zones.svg'})
 
 
 if __name__ == '__main__':

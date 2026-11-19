@@ -1,17 +1,71 @@
-# El Clásico, 2005–2021: how the game changed
+# El Clásico in the Messi era: 29 league Clásicos, 2005–2021
 
 [![CI](https://github.com/arslannizzetali/el-clasico-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/arslannizzetali/el-clasico-analytics/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A match-by-match tactical analysis of **29 Real Madrid – Barcelona La Liga matches** (November 2005 – April 2021),
-built from StatsBomb's free event data. The goal is evidence rather than narrative: every number traces back to
-individual events, matches and pitch locations, and every claim comes with how sure we can be about it.
+set against 524 Barcelona league matches, the complete 2015/16 season and 7 Champions League finals, built from
+StatsBomb's free event data. Every number traces back to individual events, and every claim comes with how sure we
+can be about it.
 
-**[Open the interactive dashboard →](https://arslannizzetali.github.io/el-clasico-analytics/)**
+**[Open the interactive dashboard →](https://arslannizzetali.github.io/el-clasico-analytics/)** ·
+**[One-page summary](docs/summary.md)**
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 📊 [Findings](#findings): the analyst's view
+
+What changed in the Clásico, whether it differs from other matches, and how sure we can be.
+
+- Five findings with 90% bootstrap intervals
+- Interactive dashboard with four tabs
+- Metric definitions and limitations
+- A Power BI / Tableau-ready CSV set
+
+**Start here:** [Key findings](#key-findings-the-clásico) ·
+[summary](docs/summary.md) · [BI guide](docs/bi.md)
+
+</td>
+<td width="50%" valign="top">
+
+### 🛠️ [Engineering](#engineering): the engineer's view
+
+How 3.1 million events go from raw JSON to tested tables and a static site.
+
+- PostgreSQL event store, idempotent incremental loads
+- dbt (staging → intermediate → marts) with tests
+- Dagster pipeline with retries; CSV, JSON and Parquet
+- 16 data quality checks; outputs reproduced byte for byte in CI
+
+**Start here:** [Architecture](#architecture) ·
+[design decisions](#design-decisions) · [tests](#data-quality-and-testing)
+
+</td>
+</tr>
+</table>
 
 Data: [StatsBomb Open Data](https://github.com/statsbomb/open-data). These matches are in the open data because
-StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Barcelona's league Clásicos.
+StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Barcelona's league Clásicos: it is a
+study of these matches in that era, not of how football as a whole changed.
 
-## Key findings
+---
+
+## Findings
+
+### Who is this for, and which decision does it serve?
+
+| Audience | Decision it supports | Where to look |
+|---|---|---|
+| Coaching staff / opposition analysts | How to set up against a possession side: press high or sit deep, where to win the ball, which zones to protect after losing it | Pressing and loss maps (El Clásico tab), opponent explorer and formations (League context) |
+| Recruitment / performance department | Did a new coach change how the team plays, and how fast? Which changes are real and which are noise? | Special seasons tab, intervals in every table |
+| Broadcasters and club media | Which talking points survive the data ("Barça stopped pressing", "finals are different") and with what caveats | Key findings, [one-page summary](docs/summary.md) |
+
+It is a retrospective study: it explains what happened in these matches and how sure we can be, it does not
+predict results or rate individual players.
+
+### Key findings: the Clásico
 
 | | 2005-09 | 2009-13 | 2013-17 | 2017-21 | Change [90% interval] |
 |---|---|---|---|---|---|
@@ -47,48 +101,20 @@ resampled totals. The match is the unit of resampling because events within a ma
 between periods is called clear only when its interval excludes zero; 56 of the 108 period-to-period changes are.
 Example of one that is not: Real Madrid's PPDA with the score level, 2005-09 → 2017-21, +0.4 [−2.7, +3.2].
 
-## Interactive dashboard
+**Read "clear" with two caveats.**
 
-The [dashboard](https://arslannizzetali.github.io/el-clasico-analytics/) is a single static file
-([`docs/index.html`](docs/index.html)) with three tabs:
+- *Many comparisons.* 108 period-to-period changes are each tested with a 90% interval, so even if nothing had
+  changed, about 1 in 10 (around 11 of 108) would look clear by chance. 56 clear is far more than that, so the
+  overall picture is not luck, but any single clear change could be one of the chance ones. The same holds for the
+  league tables (138 of 252 changes and 86 of 182 contrasts clear). No correction for multiple comparisons is
+  applied; the headline findings above are the ones that are large and consistent across related metrics.
+- *Small samples.* With 6–8 matches per period, percentile bootstrap intervals tend to be too narrow: resampling
+  a handful of matches cannot show variation those matches did not happen to contain. The true uncertainty is
+  probably somewhat larger than the intervals suggest, so borderline "clear" results deserve the least trust.
 
-- **El Clásico**: pick a team and a metric, see every match as a point and every period as an average with its
-  interval, split pressing and build-up metrics by score state, click a pitch zone to list the losses behind it, and
-  open a match report with both teams against their period average.
-- **League context**: the Clásico against Barcelona's other league matches, with the differences and their
-  intervals; any group of matches (Clásicos, Barcelona against top-10 clubs, all Barcelona matches, any club in
-  2015/16) match by match; an opponent explorer ranking clubs by how hard they made it for the team, down to the
-  formations and tactical shifts of each match; and how opponents lined up, period by period.
-- **UCL finals**: Barcelona's three and Real Madrid's four Champions League finals, each set against the team's
-  own single matches that season, metric by metric, with the formations during the final.
-- **Special seasons**: a new coach's first season. Barcelona under Rijkaard (2007/08) and Guardiola (2008/09),
-  Real Madrid under Benítez and Zidane (2015/16), every metric before and after with a 90% interval.
+### Beyond the Clásico: the rest of La Liga and the finals
 
-Light and dark mode, works on a phone. It runs exactly the same page code as the working dashboard
-([`dashboard/index.html`](dashboard/index.html) and [`dashboard/league.html`](dashboard/league.html));
-`site/build_site.py` embeds the processed data and a small stand-in for the dashboard API, so the two versions
-cannot drift apart.
-
-## How the metrics are measured
-
-| Metric | Definition |
-|---|---|
-| Passes before a shot | Completed passes by the shooting team in the possession before its **first** open-play shot (penalties, corners and free kicks excluded). Later shots in the same possession are listed but not counted, so passes are not double-counted. |
-| Quick shot after turnover | Share of open-play turnovers followed by an opponent shot within 15 s. |
-| Regain within 8 s | Share of turnovers won back within 8 s. |
-| Press success | Share of a team's pressures followed by its own possession within 5 s. |
-| PPDA | Opponent passes in their own build-up zone (x ≤ 72) per defensive action (tackle, interception, foul) at x ≥ 48. |
-| Ball stripped | A player completes a ball receipt and loses it before releasing it (Dispossessed, Miscontrol or failed dribble, within 12 s), per 100 opponent controls. |
-| Players pressing | Distinct opponents with a pressure event within ~11 m of the ball between receipt and loss. Off-ball positions are not in event data, so this is a lower bound. |
-| Game state | Every event is labelled Ahead / Level / Behind from goals scored *before* it (penalties and own goals included). Metrics are re-aggregated by state; the three states always sum to the match totals. |
-| Pitch zones | 9 equal zones (3 × 3, 40 × 26.7 units) from the view of the team losing the ball, attacking left to right: 1-3 own third, 4-6 middle third, 7-9 attacking third. |
-
-## League-wide data: PostgreSQL + pandas
-
-The Clásico analysis above runs on the standard library alone and stays the reference. Next to it, every La Liga
-match in the open data goes into a PostgreSQL event store, and the same metrics are computed with pandas on any
-group of matches. Tests check that both give identical numbers on the Clásicos and on the Champions League finals (other
-opponents, extra time), and CI runs them against a real PostgreSQL service.
+The same metrics on every league match in the open data, to ask whether the Clásico is different.
 
 What the open data covers decides what can be compared: Barcelona's league matches 2004/05–2020/21 (Messi's
 career), plus the complete 2015/16 season with all 20 clubs, plus the Champions League finals of both clubs
@@ -138,15 +164,158 @@ be compared with its Clásicos, the only other Real Madrid matches in the data.
 The only clear change in how the team played is slower attacks: 2.14 → 1.88 m/s, −0.26 [−0.42, −0.09]. Press
 success (+3.2 [−0.8, +7.2] points) and PPDA (−1.0 [−3.1, +1.1]) moved, but within what the match sample allows.
 
-```bash
-pip install -r requirements.txt
-docker compose up -d                    # PostgreSQL 16 on localhost:5434
-python3 scripts/download.py             # ~2.5 GB of event files, in parallel; resumable
-python3 scripts/load_db.py              # every match into PostgreSQL (~5 min); `clasico` or `ucl_finals` alone
-python3 analysis/league.py              # tables in data/league/
-python3 analysis/intervals.py           # 90% intervals -> data/league/intervals.csv (seconds)
-python3 -m unittest tests.test_frames tests.test_finals tests.test_bootstrap   # pandas and numpy == reference
+### Limitations
+
+What the analysis does **not** control for, so differences may partly come from these:
+
+- **Home and away.** Venue is recorded for every match but no metric is split or adjusted by it. Periods have
+  different home/away mixes (each has 6–8 matches), which can move pressing and possession numbers.
+- **Who played.** Squads, injuries, suspensions and rotation are not taken into account; a period average mixes
+  full-strength and weakened line-ups on both sides.
+- **Red cards.** Minutes played with ten men are counted like any other minutes. A sending-off changes pressing and
+  possession for the rest of the match, and is not removed or flagged.
+- **Score state only partly.** Pressing and build-up metrics are split by Ahead / Level / Behind, but turnover
+  metrics and the league tables are not.
+- **Event data, not tracking data.** Off-ball positions are unknown, so "players pressing" is a lower bound and the
+  tempo metrics come from event times and ball positions, not from measured player or ball speed.
+- **Coverage.** Only matches Messi played for Barcelona are in the open data (plus all of 2015/16), so Real Madrid has
+  no league trend outside the Clásicos, and "Barcelona's matches" exclude the ones he missed.
+
+### Interactive dashboard
+
+The [dashboard](https://arslannizzetali.github.io/el-clasico-analytics/) is a single static file
+([`docs/index.html`](docs/index.html)) with four tabs:
+
+- **El Clásico**: pick a team and a metric, see every match as a point and every period as an average with its
+  interval, split pressing and build-up metrics by score state, click a pitch zone to list the losses behind it, and
+  open a match report with both teams against their period average.
+- **League context**: the Clásico against Barcelona's other league matches, with the differences and their
+  intervals; any group of matches (Clásicos, Barcelona against top-10 clubs, all Barcelona matches, any club in
+  2015/16) match by match; an opponent explorer ranking clubs by how hard they made it for the team, down to the
+  formations and tactical shifts of each match; and how opponents lined up, period by period.
+- **Special seasons**: a new coach's first season. Barcelona under Rijkaard (2007/08) and Guardiola (2008/09),
+  Real Madrid under Benítez and Zidane (2015/16), every metric before and after with a 90% interval.
+
+- **UCL finals**: Barcelona's three and Real Madrid's four Champions League finals, each set against the team's
+  own single matches that season, metric by metric, with the formations during the final.
+Light and dark mode, works on a phone. It runs exactly the same page code as the working dashboard
+([`dashboard/index.html`](dashboard/index.html) and [`dashboard/league.html`](dashboard/league.html));
+`site/build_site.py` embeds the processed data and a small stand-in for the dashboard API, so the two versions
+cannot drift apart.
+
+### How the metrics are measured
+
+| Metric | Definition |
+|---|---|
+| Passes before a shot | Completed passes by the shooting team in the possession before its **first** open-play shot (penalties, corners and free kicks excluded). Later shots in the same possession are listed but not counted, so passes are not double-counted. |
+| Quick shot after turnover | Share of open-play turnovers followed by an opponent shot within 15 s. |
+| Regain within 8 s | Share of turnovers won back within 8 s. |
+| Press success | Share of a team's pressures followed by its own possession within 5 s. |
+| PPDA | Opponent passes in their own build-up zone (x ≤ 72) per defensive action (tackle, interception, foul) at x ≥ 48. |
+| Ball stripped | A player completes a ball receipt and loses it before releasing it (Dispossessed, Miscontrol or failed dribble, within 12 s), per 100 opponent controls. |
+| Players pressing | Distinct opponents with a pressure event within ~11 m of the ball between receipt and loss. Off-ball positions are not in event data, so this is a lower bound. |
+| Game state | Every event is labelled Ahead / Level / Behind from goals scored *before* it (penalties and own goals included). Metrics are re-aggregated by state; the three states always sum to the match totals. |
+| Pitch zones | 9 equal zones (3 × 3, 40 × 26.7 units) from the view of the team losing the ball, attacking left to right: 1-3 own third, 4-6 middle third, 7-9 attacking third. |
+| Possession | Share of possession time (first to last event of each possession). League tables only. |
+| Pass interval | Median seconds between two consecutive passes of a team in the same open-play possession. |
+| Attack speed | Forward metres per second in open-play possessions of 3 s or more, from where the possession starts to the furthest point the ball reaches. |
+| Formation changes | Tactical shifts during the match (the formation at kick-off comes from the starting XI). |
+
+### Use the data in Power BI or Tableau
+
+`data/bi/` is a star schema ready to load: `dim_match`, `dim_team`, `standings`, `fact_match_team`,
+`fact_intervals`, `fact_finals` and the Clásico detail tables (shots, balls lost). The fact table carries the
+numerator and denominator of every rate, so a measure such as PPDA is `SUM(opp_buildup_passes) / SUM(def_actions)`
+for any filter and matches the project's numbers. [`docs/bi.md`](docs/bi.md) has the relationships, ready-made DAX
+measures and a value to check against. The same tables are in `data/parquet/` as Parquet.
+
+---
+
+## Engineering
+
+### Architecture
+
+```mermaid
+flowchart LR
+    SB[StatsBomb open data<br/>JSON on GitHub] -->|download.py<br/>parallel, retries, cache| RAW[(data/raw)]
+    ES[engsoccerdata<br/>league results] -->|standings.py| REF[data/reference<br/>standings.csv]
+    RAW -->|pipeline.py<br/>standard library| PROC[data/processed<br/>Clásico reference]
+    RAW -->|load_db.py<br/>COPY, one transaction per match| PG[(PostgreSQL<br/>matches · lineups · events)]
+    REF --> PG
+    PG -->|check_quality.py| QC{16 quality checks}
+    QC -->|dbt build| MARTS[(dbt marts<br/>fct_match_team · dim_matches)]
+    QC -->|pandas<br/>clasico/frames.py| LEAGUE[data/league<br/>tables + bootstrap intervals]
+    PROC --> OUT[data/bi CSV<br/>data/parquet]
+    LEAGUE --> OUT
+    PROC --> SITE[docs/index.html<br/>static dashboard]
+    LEAGUE --> SITE
 ```
+
+Every arrow is a script that also runs on its own (`make`, CI). [Dagster](orchestration/clasico_pipeline/definitions.py)
+runs the same scripts as one asset graph, `raw_statsbomb → postgres_events → quality_checks → dbt_models /
+reference_clasico_outputs → league_tables → league_intervals → bi_and_parquet / site`, with retries on the network
+and database steps.
+
+### Design decisions
+
+| Decision | Why |
+|---|---|
+| **Two pipelines**: a standard-library reference for the Clásicos, PostgreSQL + pandas for the league | The reference runs anywhere with nothing installed and is reproduced byte for byte in CI; the league layer scales. Equivalence tests tie them together, so the scalable code cannot quietly drift from the reference. |
+| **Events as columns + the full event as `jsonb`** | The columns cover what the metrics read and can be indexed; the raw event keeps everything else, so a new metric never needs a new download. |
+| **One transaction per match, delete then insert** | A load that stops halfway leaves every match complete or absent. Reruns load only missing matches; the same command twice changes nothing (tested). |
+| **The match is the unit of resampling** | Events within a match are not independent; resampling events would make intervals far too narrow. |
+| **Rates kept as numerator and denominator** | A period's PPDA is total build-up passes over total defensive actions, not an average of match PPDAs. BI tables carry both parts; dbt marts keep rates unrounded (Python rounds half to even, SQL half away from zero). |
+| **Counting metrics in dbt SQL, sequence metrics in Python** | Counts and windows (passes, defensive actions, pressures won within 5 s) are natural in SQL; metrics that walk a possession in event order (passes before a shot, ball strips) are clearer and safer in Python. Both are tested equal on every match. |
+| **Dagster runs the scripts, not a copy of them** | The command line, CI and the orchestrator execute the same code. Network and database steps retry with backoff; analysis steps fail fast, because a failure there is a bug, not a transient error. |
+| **CSV/JSON canonical, Parquet as a copy** | Text outputs are diffable and checked byte for byte; Parquet is typed and compressed for DuckDB, Spark or Power BI, and tested to round-trip. |
+| **A single static HTML dashboard** | No server to run or pay for; GitHub Pages serves it, and the page code is the same as the working dashboard's. |
+| **Raw data not committed** | 2.5 GB, and the source is public; downloads are cached and resumable. |
+
+### Data quality and testing
+
+| Layer | What is checked | Where |
+|---|---|---|
+| Definitions | Strips, score state around a goal, zone edges, on small hand-built event sequences | `tests/test_events.py` |
+| Outputs | 29 matches, mirrored scores, game-state splits summing to totals, tables lining up row by row | `tests/test_outputs.py` |
+| Reproducibility | A full rebuild from raw data reproduces every committed output byte for byte | CI job `reproduce` |
+| Equivalence | pandas = reference on the Clásicos and the finals; dbt = Python on every loaded match; numpy bootstrap ≈ reference intervals | `test_frames`, `test_finals`, `test_dbt`, `test_bootstrap` |
+| Data quality | Schema and types, nulls, pitch and time ranges, duplicate events, 2,000–6,000 events per match, two line-ups, both halves, goals in the events = the score, relationships | `clasico/quality.py`, run by `scripts/check_quality.py` |
+| The checks themselves | Each check fails on a defect injected into the data (inside a rolled-back transaction) | `tests/test_quality.py` |
+| Idempotency | Same command twice, incremental after deleting a match, `--reload` twice: identical fingerprint of every event | `tests/test_load_db.py` |
+| dbt | `unique`, `not_null`, `relationships`, `accepted_values`, plus singular tests (two rows per match, mirrored scores) | `dbt/models/**/_*.yml`, `dbt/tests/` |
+| Pipeline and exports | Dagster graph, retries and job; every Parquet file reads back to its source table | `test_dagster`, `test_parquet` |
+
+Quality thresholds come from profiling the loaded data, and known quirks of the source (three content-duplicate
+non-action events, balls recorded up to 0.9 units beyond the lines) are documented and tolerated rather than hidden.
+46 tests in total: 21 run with the standard library alone, the rest need the packages and a database, and skip
+cleanly without them. CI runs three jobs on every push: the standard-library tests plus a check that the site is up
+to date; the full rebuild; and a PostgreSQL service job that loads the Clásicos and finals, runs the quality
+checks, validates the Dagster definitions, runs `dbt build` and the database tests with `REQUIRE_DB=1`, so they
+cannot pass by skipping.
+
+### How to run it
+
+**The Clásico analysis only** (Python 3.10+, nothing to install):
+
+```bash
+python3 pipeline.py                      # downloads the 29 matches on first run, then ~1 min
+python3 -m unittest discover -s tests    # 21 tests run, the database tests skip
+```
+
+**Everything** (Docker and Python 3.12):
+
+```bash
+make setup                 # .venv with requirements-pipeline.txt (pandas, psycopg, dbt, Dagster, pyarrow)
+make download              # ~2.5 GB of event files, parallel and resumable; SCOPE=clasico for the 29 only
+make run                   # pipeline -> load -> quality -> dbt -> analysis -> exports -> site
+make test                  # all 46 tests
+```
+
+Or as one orchestrated run: `make dagster` (add `SCOPE=ucl_finals` for a quick one), or `dagster dev -m
+orchestration.clasico_pipeline` for the UI. `make help` lists every target. Logs are structured (`key=value`, or
+JSON with `LOG_FORMAT=json`) and go to stderr.
+
+#### Example query
 
 The schema ([`db/schema.sql`](db/schema.sql)) keeps the common event fields as columns and the full StatsBomb
 event as `jsonb`, so a new metric never needs a new download. Example:
@@ -161,55 +330,40 @@ WHERE f.starting AND c.team_name <> 'Barcelona'
 GROUP BY 1, 2 ORDER BY 1, 3 DESC;
 ```
 
-## Project layout
+## Repository layout
+
+📊 = Findings, 🛠️ = Engineering.
 
 ```
-clasico/            shared definitions (one place for every rule)
-  data.py           download with retries + local cache (data/raw)
-  events.py         time, ball-strip detection, possessions, zones, game state
-  output.py         JSON/CSV writing; each JSON carries the code that produced it
-  db.py             PostgreSQL: connection, schema, COPY loader, match categories
-  frames.py         the metrics in pandas, for any category of matches
-  bootstrap.py      match-level bootstrap with numpy
-db/schema.sql       tables (matches, lineups, events, standings) and views (formations, top_clubs)
-analysis/           league.py (tables) and intervals.py (bootstrap) -> data/league/
-scripts/            pipeline steps, run in this order by pipeline.py
-  build.py          match-team metrics + every non-penalty shot
-  losses.py         every ball lost after a controlled touch, with the opponent shot that followed
-  strips.py         players pressing each loss
-  game_state.py     main metrics split by Ahead / Level / Behind
-  uncertainty.py    bootstrap intervals for period averages and period-to-period changes
-  loss_table.py     flat loss table (CSV) for spreadsheet use
-  download.py       all La Liga event files, in parallel (not part of pipeline.py)
-  load_db.py        load matches, standings and categories into PostgreSQL
-  standings.py      final tables from every result -> data/reference/standings.csv
-site/               build_site.py (static dashboard -> docs/index.html), readme_charts.py (docs/img/*.svg)
-docs/               published site: index.html + README charts
-tests/              unit tests on hand-built events + consistency tests on outputs
-data/processed/     outputs (data/raw is downloaded and not committed)
-dashboard/          dashboard page source: index.html (El Clásico), league.html (League context, Special seasons)
-.github/workflows/  CI: tests, freshness of generated files, full rebuild from raw data
+README.md, docs/summary.md      📊 findings and the one-page summary
+docs/index.html, docs/img/      📊 published dashboard and README charts (generated)
+docs/bi.md, data/bi/            📊 Power BI / Tableau tables and guide
+dashboard/                      📊 dashboard page source: index.html (El Clásico), league.html (other tabs)
+data/processed/                 📊 reference Clásico outputs (CSV/JSON, reproduced byte for byte)
+data/league/                    📊 league tables, intervals, finals
+data/parquet/                   🛠️ Parquet copies of every table
+data/reference/standings.csv    🛠️ final league tables from every result
+clasico/                        🛠️ shared code, one place for every rule
+  events.py                       definitions on event data (possessions, strips, zones, game state)
+  data.py, output.py              download with retries and cache; JSON/CSV writing
+  db.py, quality.py               PostgreSQL loader and categories; data quality checks
+  frames.py, bootstrap.py         metrics in pandas; match-level bootstrap in numpy
+  log.py                          structured logging
+pipeline.py, scripts/           🛠️ reference pipeline steps; download, load_db, standings, check_quality
+analysis/                       🛠️ league tables, intervals, BI and Parquet exports
+db/schema.sql                   🛠️ tables, indexes and views
+dbt/                            🛠️ dbt project: staging -> intermediate -> marts, tests
+orchestration/                  🛠️ Dagster asset graph
+site/                           🛠️ builds docs/index.html and the README charts
+tests/                          🛠️ 46 tests (see Data quality and testing)
+Makefile, docker-compose.yml    🛠️ setup, database, run, test
+.github/workflows/ci.yml        🛠️ three CI jobs
 ```
 
-## Run it
+## License and credits
 
-Python 3.10+ and the standard library only; nothing to install (the PostgreSQL layer above needs `requirements.txt`).
-
-```bash
-python3 pipeline.py                      # downloads the data on first run, then ~40 s
-python3 -m unittest discover -s tests    # 21 tests
-python3 site/build_site.py               # rebuild docs/index.html
-python3 site/readme_charts.py            # rebuild the README charts
-```
-
-The tests check the definitions on small synthetic event sequences (what counts as a strip, how the score state is
-assigned around a goal, zone edges) and the outputs against each other: 29 matches, mirrored scores, game-state
-splits summing to match totals, loss and strip tables lining up row by row, intervals containing their estimates.
-
-CI runs on every push: the tests; a check that the site and charts are up to date with the data; and a full rebuild
-from raw StatsBomb data that must reproduce every committed output byte for byte (the bootstrap uses a fixed seed).
-
-## Credits
+The code is released under the [MIT License](LICENSE). The license covers the code only, not the data: the
+StatsBomb event data and the derived files in `data/` remain subject to StatsBomb's terms below.
 
 League results for the standings: [engsoccerdata](https://github.com/jalapic/engsoccerdata) by James Curley.
 

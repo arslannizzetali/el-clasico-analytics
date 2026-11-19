@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: statsbomb
+    description: Tables written by scripts/load_db.py (db/schema.sql), public schema.
+    schema: public
+    tables:
+      - name: events
+      - name: matches
+      - name: teams
+      - name: match_categories

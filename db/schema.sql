@@ -77,6 +77,8 @@ CREATE TABLE IF NOT EXISTS events (
 );
 CREATE INDEX IF NOT EXISTS events_match_type ON events (match_id, type);
 CREATE INDEX IF NOT EXISTS events_team ON events (team_id);
+-- time-window lookups within a half (press success: own possession within 5 s), used by the dbt models
+CREATE INDEX IF NOT EXISTS events_match_period_ts ON events (match_id, period, ts);
 
 -- Final league tables, computed from every result of the season (football-data.co.uk),
 -- not only the matches in the event data.

@@ -14,6 +14,9 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from clasico import RAW, ROOT, data  # noqa: E402
+from clasico.log import get_logger  # noqa: E402
+
+log = get_logger('standings')
 
 URL = 'https://raw.githubusercontent.com/jalapic/engsoccerdata/master/data-raw/spain.csv'
 OUT = os.path.join(ROOT, 'data', 'reference', 'standings.csv')
@@ -87,7 +90,7 @@ def main():
         w = csv.DictWriter(fh, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
-    print(f'standings: {len(by_season)} seasons, {len(rows)} rows -> {os.path.relpath(OUT, ROOT)}')
+    log.info('standings written', extra={'seasons': len(by_season), 'rows': len(rows), 'path': os.path.relpath(OUT, ROOT)})
 
 
 if __name__ == '__main__':

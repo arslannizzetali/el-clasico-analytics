@@ -11,6 +11,10 @@ import sys
 import time
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, ROOT)
+from clasico.log import get_logger  # noqa: E402
+
+log = get_logger('pipeline')
 STEPS = ['build.py', 'losses.py', 'strips.py', 'game_state.py', 'uncertainty.py', 'loss_table.py']
 
 
@@ -21,9 +25,10 @@ def main():
         s = time.time()
         r = subprocess.run([sys.executable, os.path.join(ROOT, 'scripts', step), *out])
         if r.returncode != 0:
-            sys.exit(f'{step} failed (exit code {r.returncode})')
-        print(f'  ({step} {time.time() - s:.0f} s)')
-    print(f'Done: {len(STEPS)} steps, {time.time() - t0:.0f} s')
+            log.error('step failed', extra={'step': step, 'exit_code': r.returncode})
+            sys.exit(1)
+        log.info('step done', extra={'step': step, 'seconds': round(time.time() - s, 1)})
+    log.info('pipeline done', extra={'steps': len(STEPS), 'seconds': round(time.time() - t0, 1)})
 
 
 if __name__ == '__main__':
