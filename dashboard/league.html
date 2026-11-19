@@ -1,12 +1,14 @@
-<!-- League context and Special seasons tabs. site/build_site.py places the two blocks marked tab:league and
-tab:seasons next to the Clásico page (dashboard/index.html) and runs the script below with the same `dash` API.
-Data: league, league_intervals, tactical_shifts, league_meta (data/league, analysis/league.py + intervals.py). -->
+<!-- League context, Special seasons and Champions League finals tabs. site/build_site.py places the blocks marked
+tab:league, tab:seasons and tab:finals next to the Clásico page (dashboard/index.html) and runs the script below with the same `dash` API.
+Data: league, league_intervals, tactical_shifts, ucl_finals, league_meta (data/league, analysis/league.py + intervals.py). -->
 <style>
 .lg-nav{display:flex;flex-wrap:wrap;gap:var(--cds-gap-md);align-items:center;justify-content:space-between;margin:0 0 var(--cds-gap-xl);font-family:var(--font-anthropic-sans);color:var(--color-fg)}
 .lg-brand{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0}
 .lg-tabbtn{font:inherit;font-weight:var(--cds-font-weight-medium);padding:8px 16px;background:var(--color-panel);color:var(--color-fg);border:0;cursor:pointer}
 .lg-tabbtn+.lg-tabbtn{border-left:1px solid var(--color-border-line)}
 .lg-tabbtn[aria-selected=true]{background:#2563eb;color:#fff}
+/* own class: the Clásico page hides every .ec-find that is not its current finding */
+.lg-find{margin:0;max-width:75ch;padding:8px 12px;border-left:3px solid #2563eb;background:var(--color-bg-subtle, rgba(37,99,235,.06));border-radius:0 var(--cds-radius) var(--cds-radius) 0}
 .lg-cov{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;max-width:80ch}
 .lg-cov b{font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}
 .lg-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:var(--cds-gap-lg)}
@@ -72,7 +74,7 @@ with 90% bootstrap intervals. Pick a group of matches, a metric and a side.</p>
 
 <section class="ec-card" id="lg-compare">
 <h2 class="ec-h" data-draw="lgcomptitle">Is a Clásico different?</h2>
-<p class="ec-find" data-draw="lgcompfind" data-source="league_intervals">—</p>
+<p class="lg-find" data-draw="lgcompfind" data-source="league_intervals">—</p>
 <div class="ec-row">
 <span class="ec-key"><i class="lg-key-blue"></i>Against Real Madrid (Clásicos)</span>
 <span class="ec-key"><i class="lg-key3"></i>Against the other top-10 clubs</span>
@@ -157,7 +159,7 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
 </section>
 <section class="ec-card" id="ss-barca">
 <h2 class="ec-h">Barcelona: Rijkaard 2007/08 → Guardiola 2008/09</h2>
-<p class="ec-find" data-draw="ssfind" data-s="barca" data-source="league_intervals">—</p>
+<p class="lg-find" data-draw="ssfind" data-s="barca" data-source="league_intervals">—</p>
 <div class="lg-chart" data-draw="sschart" data-s="barca" data-source="league league_intervals">—</div>
 <div class="ec-wrap"><table class="ec-table">
 <thead><tr><th class="ec-l">Metric</th><th>Rijkaard 2007/08</th><th>Guardiola 2008/09</th><th>Change [90% interval]</th></tr></thead>
@@ -167,13 +169,55 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
 </section>
 <section class="ec-card" id="ss-madrid">
 <h2 class="ec-h">Real Madrid 2015/16: Benítez → Zidane</h2>
-<p class="ec-find" data-draw="ssfind" data-s="madrid" data-source="league_intervals">—</p>
+<p class="lg-find" data-draw="ssfind" data-s="madrid" data-source="league_intervals">—</p>
 <div class="lg-chart" data-draw="sschart" data-s="madrid" data-source="league league_intervals">—</div>
 <div class="ec-wrap"><table class="ec-table">
 <thead><tr><th class="ec-l">Metric</th><th>Benítez</th><th>Zidane</th><th>Change [90% interval]</th></tr></thead>
 <tbody data-draw="sstable" data-s="madrid" data-source="league league_intervals"></tbody>
 </table></div>
 <p class="ec-muted" data-draw="sscov" data-s="madrid" data-source="league">—</p>
+</section>
+</div>
+<!--/tab-->
+
+<!--tab:finals-->
+<div class="ec" lang="en">
+<header>
+<h1 class="ec-title">Champions League finals</h1>
+<p class="ec-lede">Barcelona's three and Real Madrid's four finals in the open data, measured exactly like the league
+matches and set against the team's own matches that season: was the final played differently?</p>
+<p class="ec-muted">A final is one match, so it is compared with single matches: the band is the middle 90% of the
+team's matches, the dots are those matches. Barcelona: its La Liga matches of the same season. Real Madrid: its
+2015/16 league season for the 2016 final; otherwise the Clásicos of the same period, the only Real Madrid league
+matches in the data, so those finals are compared with Real Madrid's other biggest games. Extra time is left out
+of the metrics, as everywhere on this site.</p>
+</header>
+<section class="ec-card ec-controls">
+<div class="ec-row">
+<span class="ec-lbl">Final</span>
+<select class="dash-select fn-sel" aria-label="Final" data-draw="fnsel" data-source="ucl_finals"></select>
+</div>
+</section>
+<section class="ec-card" id="fn-final">
+<h2 class="ec-h" data-draw="fnhead" data-source="league">—</h2>
+<p class="ec-muted" data-draw="fnsub" data-source="league ucl_finals">—</p>
+<p class="lg-find" data-draw="fnfind" data-source="ucl_finals">—</p>
+<div class="lg-chart" data-draw="fnstrip" data-source="league ucl_finals">—</div>
+<div class="ec-row">
+<span class="ec-key"><i class="ec-dot ec-dot-blue" style="width:12px;height:12px"></i>The final</span>
+<span class="ec-key"><i class="ec-dot ec-dot-grey"></i>Baseline matches</span>
+<span class="ec-key"><i class="ec-band"></i>Middle 90% of those matches</span>
+</div>
+<h3 class="ec-h3" data-draw="fnthead">—</h3>
+<div class="lg-timeline" data-draw="fntimeline" data-source="tactical_shifts">—</div>
+</section>
+<section class="ec-card">
+<h2 class="ec-h">All seven finals</h2>
+<div class="ec-wrap"><table class="ec-table">
+<thead><tr><th class="ec-l">Final</th><th class="ec-l">Team</th><th class="ec-l">Compared with</th><th>Unusual metrics</th><th class="ec-l">Which</th></tr></thead>
+<tbody data-draw="fnall" data-source="ucl_finals"></tbody>
+</table></div>
+<p class="ec-muted">Unusual: outside the middle 90% of the baseline matches. Click a row to open the final.</p>
 </section>
 </div>
 <!--/tab-->
@@ -223,6 +267,7 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
   // ---- shared helpers ----
   const focal = () => G.cat === 'season_2015_16' ? G.team15 : 'Barcelona';
   const inCat = (r) => r.cats.split('|').includes(G.cat);
+  const isLeague = (r) => !r.cats.split('|').includes('ucl_finals');
   const perMatch = (r, m) => m.b ? (r[m.b] > 0 ? m.k * r[m.a] / r[m.b] : null) : r[m.a];
   const agg = (rows, m) => {
     if (m.b) { const d = d3.sum(rows, (r) => r[m.b]); return d > 0 ? m.k * d3.sum(rows, (r) => r[m.a]) / d : null; }
@@ -269,8 +314,8 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
 
   // ---- coverage and controls ----
   dash.draw('lgcov', (el) => {
-    const L = data('league');
-    if (!L) { el.textContent = '—'; return; }
+    const L = (data('league') || []).filter(isLeague);
+    if (!L.length) { el.textContent = '—'; return; }
     const ids = (pred) => new Set(L.filter(pred).map((r) => r.match_id)).size;
     const barca = ids((r) => r.team === 'Barcelona'), seasons = new Set(L.filter((r) => r.team === 'Barcelona').map((r) => r.season_name)).size;
     const items = [
@@ -285,7 +330,7 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
   dash.draw('lgteam15', (sel) => {
     const L = data('league');
     if (!L) return;
-    const teams = [...new Set(L.filter((r) => r.season_name === '2015/2016').map((r) => r.team))].sort(d3.ascending);
+    const teams = [...new Set(L.filter((r) => isLeague(r) && r.season_name === '2015/2016').map((r) => r.team))].sort(d3.ascending);
     sel.replaceChildren(...teams.map((t) => new Option(t, t, false, t === G.team15)));
   });
   dash.draw('lgsidelbl', (el) => { el.textContent = focal(); });
@@ -424,20 +469,20 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
     }));
   });
   dash.draw('lgthead', (el) => { const q = clubMatches().find((x) => x.r.match_id === G.match); el.textContent = q ? 'Formations during the match: ' + label(q.r) : '—'; });
-  dash.draw('lgtimeline', (el) => {
-    const S = data('tactical_shifts'), q = clubMatches().find((x) => x.r.match_id === G.match);
-    if (!S || !q) { el.textContent = '—'; return; }
-    const lanes = [q.r.team, q.r.opponent];
+  function drawTimeline(el, matchId, lanes, title) {
+    const S = data('tactical_shifts');
+    if (!S) { el.textContent = '—'; return; }
     // a shift that keeps the formation (players swap roles) is not a new segment
-    const sh = S.filter((s) => s.match_id === G.match).filter((s, i, a) => s.starting || a.slice(0, i).reverse().find((p) => p.team === s.team).formation !== s.formation);
-    const end = Math.max(93, d3.max(sh, (s) => s.minute) + 3);
+    const sh = S.filter((s) => s.match_id === matchId).filter((s, i, a) => s.starting || a.slice(0, i).reverse().find((p) => p.team === s.team).formation !== s.formation);
+    const end = Math.max(93, d3.max(S.filter((s) => s.match_id === matchId), (s) => s.minute) + 3);
     const W = Math.max(300, el.clientWidth || 600), laneH = 34, mg = {t: 8, r: 10, b: 22, l: Math.min(150, W * 0.28)};
     const H = mg.t + lanes.length * (laneH + 8) + mg.b;
     const x = d3.scaleLinear().domain([0, end]).range([mg.l, W - mg.r]);
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Formations during ' + label(q.r));
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Formations during ' + title);
     el.replaceChildren(svg.node());
-    [0, 15, 30, 45, 60, 75, 90].forEach((t) => {
-      svg.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', t === 45 ? 'var(--cds-chart-axis)' : 'var(--cds-chart-grid)').style('stroke-dasharray', t === 45 ? '2 3' : null);
+    d3.range(0, end - 2, 15).forEach((t) => {
+      const half = t === 45 || t === 90;
+      svg.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', half ? 'var(--cds-chart-axis)' : 'var(--cds-chart-grid)').style('stroke-dasharray', half ? '2 3' : null);
       svg.append('text').attr('class', 'ec-tick').attr('x', x(t)).attr('y', H - 6).attr('text-anchor', 'middle').style('fill', 'var(--cds-text-secondary)').text(t + "'");
     });
     lanes.forEach((team, i) => {
@@ -450,6 +495,11 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
         if (b - a > 44) svg.append('text').attr('x', a + 6).attr('y', y0 + laneH / 2).attr('dy', '0.32em').style('fill', 'var(--color-fg)').style('font-weight', 600).text(s.formation + (j ? ' (' + s.minute + "')" : ''));
       });
     });
+  }
+  dash.draw('lgtimeline', (el) => {
+    const q = clubMatches().find((x) => x.r.match_id === G.match);
+    if (!q) { el.textContent = '—'; return; }
+    drawTimeline(el, G.match, [q.r.team, q.r.opponent], label(q.r));
   });
 
   // ---- formations of the opponents ----
@@ -479,7 +529,7 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
 
   // ---- special seasons ----
   dash.draw('ssdef', (el) => { el.textContent = M[G.ssMetric].def; });
-  const ssRows = (s) => (data('league') || []).filter((r) => r.team === s.team && s.seasons.includes(r.season_name) && s.coaches.includes(r.coach)).sort((a, b) => d3.ascending(a.match_date, b.match_date));
+  const ssRows = (s) => (data('league') || []).filter((r) => isLeague(r) && r.team === s.team && s.seasons.includes(r.season_name) && s.coaches.includes(r.coach)).sort((a, b) => d3.ascending(a.match_date, b.match_date));
   const ssI = (s, kind, side, metric) => (data('league_intervals') || []).find((r) => r.kind === kind && r.period === 'special' && (kind === 'period' ? r.group === s.group && r.side === side : r.group === s.diff) && r.metric === metric);
   dash.draw('sscov', (el) => {
     const s = SS[el.dataset.s], rs = ssRows(s);
@@ -542,9 +592,81 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
     tb.replaceChildren(...body);
   });
 
+  // ---- Champions League finals ----
+  dash.calc('ucl_finals', {inputs: ['ucl_finals_raw'], title: 'Finals against their baseline', fn: expand});
+  const FN = () => {
+    const F = data('ucl_finals') || [];
+    return d3.groups(F, (r) => r.match_id + '|' + r.team).map(([k, rs]) => ({k, id: rs[0].match_id, team: rs[0].team, date: rs[0].match_date, season: rs[0].season_name, opponent: rs[0].opponent, basis: rs[0].basis, rs}))
+      .sort((a, b) => d3.ascending(a.date, b.date));
+  };
+  const curFinal = () => { const fs = FN(); if (!fs.some((f) => f.k === G.final)) G.final = fs.length ? fs[fs.length - 1].k : null; return fs.find((f) => f.k === G.final); };
+  const finalRow = (f) => (data('league') || []).find((r) => r.match_id === f.id && r.team === f.team);
+  const baseline = (f) => {   // same selection as finals_vs_baseline in analysis/intervals.py
+    const L = (data('league') || []).filter(isLeague), fr = finalRow(f);
+    if (f.team === 'Barcelona') return L.filter((r) => r.team === 'Barcelona' && r.season_name === f.season);
+    if (f.season === '2015/2016') return L.filter((r) => r.team === 'Real Madrid' && r.season_name === '2015/2016');
+    return L.filter((r) => r.team === 'Real Madrid' && r.cats.split('|').includes('clasico') && fr && r.period === fr.period);
+  };
+  dash.draw('fnsel', (sel) => { const fs = FN(); curFinal(); sel.replaceChildren(...fs.map((f) => new Option(`${f.date.slice(0, 4)}  ${f.team} vs ${f.opponent}`, f.k, false, f.k === G.final))); });
+  dash.draw('fnhead', (el) => { const f = curFinal(), r = f && finalRow(f); el.textContent = r ? label(r).replace(/^\S+\s+/, f.date.slice(0, 4) + ' final: ') : '—'; });
+  dash.draw('fnsub', (el) => {
+    const f = curFinal(), r = f && finalRow(f);
+    if (!r) { el.textContent = '—'; return; }
+    const o = (data('league') || []).find((x) => x.match_id === f.id && x.team === f.opponent);
+    el.textContent = `${r.team}: ${r.formation || '—'}, ${r.coach || '—'}. ${f.opponent}: ${o && o.formation || '—'}, ${o && o.coach || '—'}. Compared with: ${f.basis}, ${f.rs[0].baseline_matches} matches.`;
+  });
+  dash.draw('fnfind', (el) => {
+    const f = curFinal();
+    if (!f) { el.textContent = '—'; return; }
+    const u = f.rs.filter((r) => r.unusual);
+    const pct = (r) => r.pct_below === 100 ? 'higher than every one' : r.pct_below === 0 ? 'lower than every one' : r.pct_below >= 50 ? `higher than ${r.pct_below}%` : `lower than ${100 - r.pct_below}%`;
+    el.textContent = u.length
+      ? `${f.team} played this final unlike its ${f.basis === 'La Liga, same season' ? 'league season' : 'Clásicos of the period'} in ${u.length} of ${f.rs.length} metrics: ` + u.map((r) => `${M[r.metric].label} ${fmt(r.value, M[r.metric].f)} (${pct(r)} of those matches)`).join('; ') + '.'
+      : `${f.team} played this final within the usual range of its ${f.basis === 'La Liga, same season' ? 'league season' : 'Clásicos'} on every metric.`;
+  });
+  dash.draw('fnstrip', (el) => {
+    const f = curFinal(), fr = f && finalRow(f);
+    if (!fr) { el.textContent = '—'; return; }
+    const base = baseline(f), keys = Object.keys(M);
+    const W = Math.max(300, el.clientWidth || 600), rowH = 40, mg = {t: 6, r: 16, b: 6, l: Math.min(150, W * 0.32)};
+    const H = mg.t + keys.length * rowH + mg.b;
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'The final against the baseline matches, metric by metric');
+    const T = makeTip(el);
+    el.replaceChildren(svg.node(), T.tip);
+    keys.forEach((k, i) => {
+      const m = M[k], r = f.rs.find((x) => x.metric === k), y0 = mg.t + i * rowH + rowH / 2;
+      const vals = base.map((b) => ({b, v: perMatch(b, m)})).filter((q) => q.v != null);
+      const all = vals.map((q) => q.v).concat(r ? [r.value] : []);
+      const [lo, hi] = d3.extent(all), pad = (hi - lo) * 0.06 || 1;
+      const x = d3.scaleLinear().domain([lo - pad, hi + pad]).range([mg.l, W - mg.r]);
+      svg.append('line').attr('x1', mg.l).attr('x2', W - mg.r).attr('y1', y0).attr('y2', y0).style('stroke', 'var(--cds-chart-grid)');
+      svg.append('text').attr('x', mg.l - 10).attr('y', y0).attr('dy', '0.32em').attr('text-anchor', 'end').style('font', '13px var(--font-anthropic-sans)').style('fill', r && r.unusual ? BLUE : 'var(--color-fg)').style('font-weight', r && r.unusual ? 600 : 400).text(m.label[0].toUpperCase() + m.label.slice(1));
+      if (r) svg.append('rect').attr('x', x(r.match_p5)).attr('width', Math.max(1, x(r.match_p95) - x(r.match_p5))).attr('y', y0 - 11).attr('height', 22).attr('rx', 4).style('fill', BLUE).style('fill-opacity', 0.1);
+      svg.append('g').selectAll('circle').data(vals).join('circle').attr('cx', (q) => x(q.v)).attr('cy', y0).attr('r', 3.2).style('fill', GREY).style('opacity', 0.7)
+        .on('pointermove', (ev, q) => T.show(ev, [label(q.b), `${m.label}: ${fmt(q.v, m.f)}`])).on('pointerleave', () => T.hide());
+      if (r) {
+        svg.append('circle').attr('cx', x(r.value)).attr('cy', y0).attr('r', 7).style('fill', BLUE).style('stroke', 'var(--color-panel)').style('stroke-width', 2)
+          .on('pointermove', (ev) => T.show(ev, [`The final: ${fmt(r.value, m.f)}`, `${f.basis}: average ${fmt(r.baseline, m.f)}, middle 90% of matches ${fmt(r.match_p5, m.f)}–${fmt(r.match_p95, m.f)}`, `Higher than ${r.pct_below}% of those matches`])).on('pointerleave', () => T.hide());
+        const right = x(r.value) > (mg.l + W - mg.r) / 2;
+        svg.append('text').attr('class', 'ec-val').attr('x', x(r.value) + (right ? -12 : 12)).attr('y', y0 - 12).attr('text-anchor', right ? 'end' : 'start').style('fill', BLUE).text(fmt(r.value, m.f));
+      }
+    });
+  });
+  dash.draw('fnthead', (el) => { const f = curFinal(), r = f && finalRow(f); el.textContent = r ? 'Formations during the final' : '—'; });
+  dash.draw('fntimeline', (el) => { const f = curFinal(), r = f && finalRow(f); if (!r) { el.textContent = '—'; return; } drawTimeline(el, f.id, [r.team, r.opponent], label(r)); });
+  dash.draw('fnall', (tb) => {
+    tb.replaceChildren(...FN().map((f) => {
+      const u = f.rs.filter((r) => r.unusual);
+      const row = tr([td(`${f.date}  vs ${f.opponent}`, 'ec-l'), td(f.team, 'ec-l'), td(`${f.basis} (${f.rs[0].baseline_matches})`, 'ec-l'), td(nf0.format(u.length) + ' of ' + f.rs.length), td(u.map((r) => M[r.metric].label).join(', ') || '—', 'ec-l')], 'lg-click' + (f.k === G.final ? ' lg-sel' : ''));
+      row.addEventListener('click', () => { G.final = f.k; FND.forEach((n) => dash.draw(n)); document.getElementById('fn-final').scrollIntoView({behavior: 'smooth', block: 'start'}); });
+      return row;
+    }));
+  });
+
   // ---- wiring ----
   const LG = ['lgteam15', 'lgsidelbl', 'lgdef', 'lgcomptitle', 'lgcompare', 'lgcontrast', 'lgcompfind', 'lgmhead', 'lgmatches', 'lgrankhead', 'lgrankthead', 'lgrank', 'lgohead', 'lgothead', 'lgopp', 'lgthead', 'lgtimeline', 'lgfhead', 'lgfgrouprow', 'lgheathead', 'lgheat'];
   const SSD = ['ssdef', 'sschart', 'sstable', 'ssfind', 'sscov'];
+  const FND = ['fnsel', 'fnhead', 'fnsub', 'fnfind', 'fnstrip', 'fnthead', 'fntimeline', 'fnall'];
   function redrawLeague() { applyLeague(); LG.forEach((n) => dash.draw(n)); }
   function applyLeague() {
     document.querySelectorAll('.lg-cat').forEach((b) => b.setAttribute('aria-pressed', b.dataset.cat === G.cat ? 'true' : 'false'));
@@ -559,10 +681,11 @@ Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, 
   document.querySelectorAll('.lg-fg').forEach((b) => b.addEventListener('click', () => { G.fg = b.dataset.fg; redrawLeague(); }));
   document.querySelectorAll('.lg-metric').forEach((s) => s.addEventListener('change', () => { G.metric = s.value; redrawLeague(); }));
   document.querySelectorAll('.lg-team15').forEach((s) => s.addEventListener('change', () => { G.team15 = s.value; G.club = null; G.match = null; redrawLeague(); }));
+  document.querySelectorAll('.fn-sel').forEach((s) => s.addEventListener('change', () => { G.final = s.value; FND.forEach((n) => dash.draw(n)); }));
   document.querySelectorAll('.ss-metric').forEach((s) => s.addEventListener('change', () => { G.ssMetric = s.value; applyLeague(); SSD.forEach((n) => dash.draw(n)); }));
 
   // Tabs (only in the published single-file site, which adds the tab bar and the [data-tab] containers)
-  const TABS = ['clasico', 'league', 'seasons'];
+  const TABS = ['clasico', 'league', 'seasons', 'finals'];
   function showTab(t, push) {
     if (!TABS.includes(t)) t = 'clasico';
     document.querySelectorAll('[data-tab]').forEach((d) => { d.hidden = d.dataset.tab !== t; });
