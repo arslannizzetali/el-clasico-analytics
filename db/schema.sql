@@ -112,7 +112,7 @@ WHERE e.type IN ('Starting XI', 'Tactical Shift');
 -- Matches with readable team names, for ad-hoc SQL.
 CREATE OR REPLACE VIEW match_list AS
 SELECT m.match_id, m.season_name, m.match_date, h.team_name AS home, a.team_name AS away,
-       m.home_score, m.away_score, m.home_manager, m.away_manager
+       m.home_score, m.away_score, m.home_manager, m.away_manager, m.competition_id
 FROM matches m
 JOIN teams h ON h.team_id = m.home_team_id
 JOIN teams a ON a.team_id = m.away_team_id;

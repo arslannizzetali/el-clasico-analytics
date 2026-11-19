@@ -108,23 +108,28 @@ def load_standings(conn, path=STANDINGS):
 
 
 # Every category is one SQL query over the loaded matches. A match can be in several.
+# competition_id 11 = La Liga, 16 = Champions League.
 CATEGORIES = {
     # The 29 Real Madrid - Barcelona matches the reference pipeline analyses (2005/06 on)
     'clasico': """
         SELECT match_id FROM match_list
-        WHERE 'Real Madrid' IN (home, away) AND 'Barcelona' IN (home, away) AND season_name >= '2005'""",
+        WHERE competition_id = 11 AND 'Real Madrid' IN (home, away) AND 'Barcelona' IN (home, away) AND season_name >= '2005'""",
     'barcelona_all': """
-        SELECT match_id FROM match_list WHERE 'Barcelona' IN (home, away)""",
+        SELECT match_id FROM match_list WHERE competition_id = 11 AND 'Barcelona' IN (home, away)""",
     'barcelona_vs_top10': """
         SELECT match_id FROM match_list
-        WHERE 'Barcelona' IN (home, away)
+        WHERE competition_id = 11 AND 'Barcelona' IN (home, away)
           AND (CASE WHEN home = 'Barcelona' THEN away ELSE home END) IN (SELECT team_name FROM top_clubs)""",
     'season_2015_16': """
-        SELECT match_id FROM match_list WHERE season_name = '2015/2016'""",
+        SELECT match_id FROM match_list WHERE competition_id = 11 AND season_name = '2015/2016'""",
     'top10_2015_16': """
         SELECT match_id FROM match_list
-        WHERE season_name = '2015/2016'
+        WHERE competition_id = 11 AND season_name = '2015/2016'
           AND home IN (SELECT team_name FROM top_clubs) AND away IN (SELECT team_name FROM top_clubs)""",
+    # Barcelona's and Real Madrid's Champions League finals (extra time excluded from the metrics, as everywhere)
+    'ucl_finals': """
+        SELECT match_id FROM match_list
+        WHERE competition_id = 16 AND ('Barcelona' IN (home, away) OR 'Real Madrid' IN (home, away))""",
 }
 
 

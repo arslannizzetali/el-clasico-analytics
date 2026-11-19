@@ -1,8 +1,9 @@
 """Load StatsBomb La Liga matches into PostgreSQL (schema: db/schema.sql).
 
     docker compose up -d
-    python3 scripts/load_db.py             # every La Liga match 2004/05-2020/21
-    python3 scripts/load_db.py clasico     # only the Clásicos (what CI loads)
+    python3 scripts/load_db.py             # every La Liga match 2004/05-2020/21 + the Champions League finals
+    python3 scripts/load_db.py clasico     # only the Clásicos (CI loads these and the finals)
+    python3 scripts/load_db.py ucl_finals  # only Barcelona's and Real Madrid's Champions League finals
     python3 scripts/load_db.py --reload    # replace matches that are already loaded
 
 Missing raw files are downloaded on the way (scripts/download.py does it faster, in parallel).
