@@ -59,6 +59,23 @@ Example of one that is not: Real Madrid's PPDA with the score level, 2005-09 →
   a handful of matches cannot show variation those matches did not happen to contain. The true uncertainty is
   probably somewhat larger than the intervals suggest, so borderline "clear" results deserve the least trust.
 
+## Limitations
+
+What the analysis does **not** control for, so differences may partly come from these:
+
+- **Home and away.** Venue is recorded for every match but no metric is split or adjusted by it. Periods have
+  different home/away mixes (each has 6–8 matches), which can move pressing and possession numbers.
+- **Who played.** Squads, injuries, suspensions and rotation are not taken into account; a period average mixes
+  full-strength and weakened line-ups on both sides.
+- **Red cards.** Minutes played with ten men are counted like any other minutes. A sending-off changes pressing and
+  possession for the rest of the match, and is not removed or flagged.
+- **Score state only partly.** Pressing and build-up metrics are split by Ahead / Level / Behind, but turnover
+  metrics and the league tables are not.
+- **Event data, not tracking data.** Off-ball positions are unknown, so "players pressing" is a lower bound and the
+  tempo metrics come from event times and ball positions, not from measured player or ball speed.
+- **Coverage.** Only matches Messi played for Barcelona are in the open data (plus all of 2015/16), so Real Madrid has
+  no league trend outside the Clásicos, and "Barcelona's matches" exclude the ones he missed.
+
 ## Interactive dashboard
 
 The [dashboard](https://arslannizzetali.github.io/el-clasico-analytics/) is a single static file
