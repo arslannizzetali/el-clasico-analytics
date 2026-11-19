@@ -1,0 +1,4 @@
+# Engineering layer on top of requirements.txt: dbt models (dbt/) and the Dagster pipeline (orchestration/).
+-r requirements.txt
+dbt-core==1.12.7
+dbt-postgres==1.11.0

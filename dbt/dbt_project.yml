@@ -1,0 +1,21 @@
+name: clasico
+version: '1.0.0'
+profile: clasico
+config-version: 2
+
+model-paths: ['models']
+test-paths: ['tests']
+target-path: target
+clean-targets: ['target', 'dbt_packages']
+
+models:
+  clasico:
+    staging:
+      +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+    marts:
+      +materialized: table
+      +schema: marts
