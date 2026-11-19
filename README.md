@@ -94,28 +94,27 @@ computed from every league result ([`scripts/standings.py`](scripts/standings.py
 tie-breaks included), ties broken by average final position: Barcelona, Real Madrid, Sevilla, Atlético Madrid,
 Villarreal, Valencia, Athletic Club, Real Sociedad, Getafe, Málaga.
 
-First results (`data/league/`, no intervals yet):
+First results, with 90% bootstrap intervals ([`analysis/intervals.py`](analysis/intervals.py), same method as
+the Clásico intervals; `data/league/intervals.csv` has every metric):
 
-| | 2004-09 | 2009-13 | 2013-17 | 2017-21 |
+| Barcelona's PPDA (higher = less pressure) | 2004-09 | 2009-13 | 2013-17 | 2017-21 |
 |---|---|---|---|---|
-| Barcelona PPDA, all league matches | 10.2 | 11.3 | 11.4 | 13.8 |
-| Barcelona PPDA, Clásicos | 10.0 | 9.5 | 12.0 | 17.9 |
-| Opponents of Barcelona with a back three or five (%), other clubs | 0 | 7 | 12 | 35 |
-| Same, top-10 clubs | 2 | 0 | 3 | 10 |
+| vs Real Madrid (Clásicos) | 10.0 | **9.5** | 12.0 | **17.9** |
+| vs other top-10 clubs | 10.7 | 11.9 | 11.1 | 14.7 |
+| vs every other club | 9.9 | 11.1 | 11.6 | 12.9 |
+| Clásico − other clubs | +0.1 [−1.4, +1.7] | **−1.6 [−2.8, −0.2]** | +0.4 [−1.5, +2.9] | **+4.9 [+2.8, +7.5]** |
 
-Barcelona's press loosened in every kind of match, but far more in the Clásicos. Smaller clubs moved to back threes
-and fives against Barcelona after 2017; the top-10 clubs mostly kept a back four. In 2015/16 Real Madrid took 2.06
-points per match under Benítez (18 matches) and 2.65 under Zidane (20), with a slightly higher press success (27.2% →
-30.4%) and slower attacks (2.14 → 1.88 m/s).
+**A Clásico is different, and the difference flipped.** Under Guardiola Barcelona pressed *harder* against Real
+Madrid than against anyone else; by 2017-21 it pressed clearly *less* in the Clásicos than against the rest of the
+league. Against every other club the press loosened too, but slowly (+1.9 [+0.9, +2.8] from 2009-13 to 2017-21).
+In every period Barcelona had less of the ball in a Clásico (−5 to −11 points of possession, all clear).
 
-New tempo metrics, which the event data supports without tracking data:
+Smaller clubs moved to back threes and fives against Barcelona after 2017 (35% of matches, against 10% for the
+top-10 clubs, which mostly kept a back four).
 
-| Metric | Definition |
-|---|---|
-| Possession | Share of possession time (first to last event of each possession). |
-| Pass interval | Median seconds between two consecutive passes of a team in the same open-play possession. |
-| Attack speed | Forward metres per second in open-play possessions of 3 s or more, from where the possession starts to the furthest point the ball reaches. |
-| Formation changes | Tactical shifts during the match (formation at kick-off comes from the starting XI). |
+**Benítez → Zidane (Real Madrid 2015/16).** 2.06 points per match under Benítez (18 matches), 2.65 under Zidane (20).
+The only clear change in how the team played is slower attacks: 2.14 → 1.88 m/s, −0.26 [−0.42, −0.09]. Press
+success (+3.2 [−0.8, +7.2] points) and PPDA (−1.0 [−3.1, +1.1]) moved, but within what the match sample allows.
 
 ```bash
 pip install -r requirements.txt
@@ -123,7 +122,8 @@ docker compose up -d                    # PostgreSQL 16 on localhost:5434
 python3 scripts/download.py             # ~2.5 GB of event files, in parallel; resumable
 python3 scripts/load_db.py              # every match into PostgreSQL (~5 min); `clasico` for the 29 only
 python3 analysis/league.py              # tables in data/league/
-python3 -m unittest tests.test_frames   # pandas == reference on the Clásicos
+python3 analysis/intervals.py           # 90% intervals -> data/league/intervals.csv (seconds)
+python3 -m unittest tests.test_frames tests.test_bootstrap   # pandas and numpy == reference on the Clásicos
 ```
 
 The schema ([`db/schema.sql`](db/schema.sql)) keeps the common event fields as columns and the full StatsBomb
@@ -139,9 +139,6 @@ WHERE f.starting AND c.team_name <> 'Barcelona'
 GROUP BY 1, 2 ORDER BY 1, 3 DESC;
 ```
 
-Results by period are averages over many matches but come without intervals yet; for now only the Clásico
-numbers carry bootstrap intervals.
-
 ## Project layout
 
 ```
@@ -151,8 +148,9 @@ clasico/            shared definitions (one place for every rule)
   output.py         JSON/CSV writing; each JSON carries the code that produced it
   db.py             PostgreSQL: connection, schema, COPY loader, match categories
   frames.py         the metrics in pandas, for any category of matches
+  bootstrap.py      match-level bootstrap with numpy
 db/schema.sql       tables (matches, lineups, events, standings) and views (formations, top_clubs)
-analysis/league.py  league-wide tables -> data/league/
+analysis/           league.py (tables) and intervals.py (bootstrap) -> data/league/
 scripts/            pipeline steps, run in this order by pipeline.py
   build.py          match-team metrics + every non-penalty shot
   losses.py         every ball lost after a controlled touch, with the opponent shot that followed
