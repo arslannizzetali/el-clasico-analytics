@@ -2,7 +2,8 @@
 
     python3 analysis/intervals.py
 
-Input: data/league/match_team_*.csv. Output: data/league/intervals.csv, three kinds of row:
+Input: data/league/match_team_*.csv. Output: data/league/finals.csv (below) and data/league/intervals.csv,
+three kinds of row:
 
   period    a metric for one group of matches in one period, with its interval
   change    the same group between two periods
@@ -10,7 +11,16 @@ Input: data/league/match_team_*.csv. Output: data/league/intervals.csv, three ki
 
 Groups are Barcelona's league matches split by opponent, so they do not overlap and the contrasts compare
 independent samples: Real Madrid (the Clásicos), the other top-10 clubs, every other club. Each is seen from
-both sides (Barcelona, and the opponent). Two special seasons are split by coach: Barcelona 2007/08 (Rijkaard)
+both sides (Barcelona, and the opponent).
+
+finals.csv sets every Champions League final against the team's own league football that season: Barcelona's
+league matches of the same season; for Real Madrid the 2015/16 season when it is the final's season, otherwise
+the Clásicos of the same period (the only Real Madrid league matches in the data). A final is one match, so it
+is compared with single matches, not with an average: `pct_below` is the share of baseline matches with a lower
+value, and `unusual` marks a final outside the middle 90% of those matches (below the 5th or above the 95th
+percentile). The baseline average and its interval are given for reference.
+
+Two special seasons are split by coach: Barcelona 2007/08 (Rijkaard)
 against 2008/09 (Guardiola's first season), and Real Madrid 2015/16 (Benítez, then Zidane).
 """
 import os
@@ -21,7 +31,7 @@ import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from clasico import ROOT  # noqa: E402
-from clasico.bootstrap import SEED, interval, ratio, resample  # noqa: E402
+from clasico.bootstrap import SEED, interval, percentile, ratio, resample  # noqa: E402
 
 LEAGUE = os.path.join(ROOT, 'data', 'league')
 PERIODS = ('2004-09', '2009-13', '2013-17', '2017-21')
@@ -100,6 +110,36 @@ def special_seasons(barca, rng):
     return out
 
 
+def finals_vs_baseline(rng):
+    fin = pd.read_csv(os.path.join(LEAGUE, 'match_team_ucl_finals.csv'))
+    barca = pd.read_csv(os.path.join(LEAGUE, 'match_team_barcelona_all.csv'))
+    s1516 = pd.read_csv(os.path.join(LEAGUE, 'match_team_season_2015_16.csv'))
+    clasico = pd.read_csv(os.path.join(LEAGUE, 'match_team_clasico.csv'))
+    out = []
+    for _, f in fin[fin['team'].isin(['Barcelona', 'Real Madrid'])].iterrows():
+        if f['team'] == 'Barcelona':
+            base, basis = barca[(barca['team'] == 'Barcelona') & (barca['season_name'] == f['season_name'])], 'La Liga, same season'
+        elif f['season_name'] == '2015/2016':
+            base, basis = s1516[s1516['team'] == 'Real Madrid'], 'La Liga, same season'
+        else:
+            base, basis = clasico[(clasico['team'] == 'Real Madrid') & (clasico['period'] == f['period'])], f"Clásicos {f['period']}"
+        base = base.assign(one=1)
+        for metric, (a, b, scale) in METRICS.items():
+            g = base.dropna(subset=[a])
+            value = scale * f[a] / f[b] if b != 'one' and f[b] > 0 else (f[a] if b == 'one' else np.nan)
+            lo, hi = interval(resample(g[a], g[b], scale, rng))
+            per_match = (scale * g[a] / g[b].where(g[b] > 0)).dropna().to_numpy() if b != 'one' else g[a].to_numpy(float)
+            p5, p95 = percentile(per_match, 0.05), percentile(per_match, 0.95)
+            out.append(dict(match_id=f['match_id'], match_date=f['match_date'], season_name=f['season_name'], team=f['team'],
+                            opponent=f['opponent'], metric=metric, value=round(value, 2),
+                            baseline=round(ratio(g[a].to_numpy(float), g[b].to_numpy(float), scale), 2),
+                            lo=round(lo, 2), hi=round(hi, 2), match_p5=round(p5, 2), match_p95=round(p95, 2),
+                            pct_below=round(100 * (per_match < value).mean()), baseline_matches=len(g), basis=basis,
+                            unusual=int(value < p5 or value > p95)))
+    pd.DataFrame(out).to_csv(os.path.join(LEAGUE, 'finals.csv'), index=False)
+    print(f"finals: {len(out) // len(METRICS)} finals, {sum(r['unusual'] for r in out)}/{len(out)} metrics outside the middle 90% of baseline matches")
+
+
 def main():
     rng = np.random.default_rng(SEED)
     top = set(pd.read_csv(os.path.join(ROOT, 'data', 'reference', 'standings.csv'))
@@ -129,6 +169,8 @@ def main():
                                              side=side, period=p, metric=metric))
 
     rows += special_seasons(d, rng)
+
+    finals_vs_baseline(rng)
 
     out = pd.DataFrame(rows)
     out['matches'] = out['matches'].astype('Int64')
