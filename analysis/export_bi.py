@@ -85,7 +85,7 @@ def main():
     f['is_top10_opponent'] = f['opponent'].isin(top)
     cols = ['match_id', 'team', 'opponent', 'venue', 'coach', 'formation', 'formation_changes', 'goals_for',
             'goals_against', 'points', 'is_top10_opponent',
-            'passes', 'open_play_shots', 'passes_before_shot_sum', 'pressures', 'pressures_won_5s',
+            'passes', 'opp_passes', 'open_play_shots', 'passes_before_shot_sum', 'pressures', 'pressures_won_5s',
             'opp_buildup_passes', 'def_actions', 'shots', 'np_xg',
             'passes_per_shot', 'press_success_pct', 'ppda', 'possession_pct', 'pass_interval_s', 'attack_speed_mps']
     fact = f[cols].sort_values(['match_id', 'team'])
