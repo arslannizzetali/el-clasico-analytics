@@ -2,3 +2,7 @@
 -r requirements.txt
 dbt-core==1.12.7
 dbt-postgres==1.11.0
+dagster==1.13.30
+# dbt needs protobuf 6; newer grpcio-health-checking (a Dagster dependency) needs 7. These versions satisfy both.
+protobuf==6.33.6
+grpcio-health-checking==1.78.2
