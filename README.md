@@ -47,6 +47,17 @@ resampled totals. The match is the unit of resampling because events within a ma
 between periods is called clear only when its interval excludes zero; 56 of the 108 period-to-period changes are.
 Example of one that is not: Real Madrid's PPDA with the score level, 2005-09 → 2017-21, +0.4 [−2.7, +3.2].
 
+**Read "clear" with two caveats.**
+
+- *Many comparisons.* 108 period-to-period changes are each tested with a 90% interval, so even if nothing had
+  changed, about 1 in 10 (around 11 of 108) would look clear by chance. 56 clear is far more than that, so the
+  overall picture is not luck, but any single clear change could be one of the chance ones. The same holds for the
+  league tables (138 of 252 changes and 86 of 182 contrasts clear). No correction for multiple comparisons is
+  applied; the headline findings above are the ones that are large and consistent across related metrics.
+- *Small samples.* With 6–8 matches per period, percentile bootstrap intervals tend to be too narrow: resampling
+  a handful of matches cannot show variation those matches did not happen to contain. The true uncertainty is
+  probably somewhat larger than the intervals suggest, so borderline "clear" results deserve the least trust.
+
 ## Interactive dashboard
 
 The [dashboard](https://arslannizzetali.github.io/el-clasico-analytics/) is a single static file
