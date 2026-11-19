@@ -1,0 +1,50 @@
+match_id,match_date,season_name,team,opponent,metric,value,baseline,lo,hi,match_p5,match_p95,pct_below,baseline_matches,basis,unusual
+3750201,2009-05-27,2008/2009,Barcelona,Manchester United,passes_per_shot,3.29,6.91,6.4,7.48,4.86,10.12,0,31,"La Liga, same season",1
+3750201,2009-05-27,2008/2009,Barcelona,Manchester United,press_success_pct,21.17,29.12,27.03,31.2,19.01,38.16,13,31,"La Liga, same season",0
+3750201,2009-05-27,2008/2009,Barcelona,Manchester United,ppda,16.41,10.22,9.46,11.03,7.39,13.93,97,31,"La Liga, same season",1
+3750201,2009-05-27,2008/2009,Barcelona,Manchester United,possession_pct,51.1,66.87,64.84,68.79,57.2,77.6,0,31,"La Liga, same season",1
+3750201,2009-05-27,2008/2009,Barcelona,Manchester United,pass_interval_s,2.5,2.92,2.85,2.99,2.68,3.34,3,31,"La Liga, same season",1
+3750201,2009-05-27,2008/2009,Barcelona,Manchester United,attack_speed_mps,1.41,1.8,1.73,1.88,1.52,2.18,0,31,"La Liga, same season",1
+3750201,2009-05-27,2008/2009,Barcelona,Manchester United,np_xg,1.2,2.14,1.87,2.41,0.82,3.5,16,31,"La Liga, same season",0
+18236,2011-05-28,2010/2011,Barcelona,Manchester United,passes_per_shot,13.23,10.46,9.34,11.69,5.38,18.0,76,33,"La Liga, same season",0
+18236,2011-05-28,2010/2011,Barcelona,Manchester United,press_success_pct,18.88,29.44,27.45,31.56,19.23,41.98,6,33,"La Liga, same season",1
+18236,2011-05-28,2010/2011,Barcelona,Manchester United,ppda,31.78,11.26,10.42,12.18,8.08,17.0,100,33,"La Liga, same season",1
+18236,2011-05-28,2010/2011,Barcelona,Manchester United,possession_pct,66.1,70.86,68.79,72.9,59.2,80.9,21,33,"La Liga, same season",0
+18236,2011-05-28,2010/2011,Barcelona,Manchester United,pass_interval_s,2.2,2.55,2.51,2.6,2.36,2.79,0,33,"La Liga, same season",1
+18236,2011-05-28,2010/2011,Barcelona,Manchester United,attack_speed_mps,1.73,1.51,1.43,1.58,1.23,2.03,85,33,"La Liga, same season",0
+18236,2011-05-28,2010/2011,Barcelona,Manchester United,np_xg,1.93,1.77,1.57,1.97,0.81,2.84,64,33,"La Liga, same season",0
+18241,2014-05-24,2013/2014,Real Madrid,Atlético Madrid,passes_per_shot,3.75,5.56,4.72,6.57,3.38,9.12,12,8,Clásicos 2013-17,0
+18241,2014-05-24,2013/2014,Real Madrid,Atlético Madrid,press_success_pct,26.44,18.7,16.95,20.51,14.59,22.44,100,8,Clásicos 2013-17,1
+18241,2014-05-24,2013/2014,Real Madrid,Atlético Madrid,ppda,12.19,16.85,14.85,19.21,11.9,24.0,12,8,Clásicos 2013-17,0
+18241,2014-05-24,2013/2014,Real Madrid,Atlético Madrid,possession_pct,64.6,42.84,39.38,46.04,33.4,50.2,100,8,Clásicos 2013-17,1
+18241,2014-05-24,2013/2014,Real Madrid,Atlético Madrid,pass_interval_s,2.41,2.64,2.51,2.77,2.33,3.07,12,8,Clásicos 2013-17,0
+18241,2014-05-24,2013/2014,Real Madrid,Atlético Madrid,attack_speed_mps,2.18,2.19,2.0,2.37,1.6,2.64,50,8,Clásicos 2013-17,0
+18241,2014-05-24,2013/2014,Real Madrid,Atlético Madrid,np_xg,0.8,1.41,1.18,1.76,0.98,2.68,0,8,Clásicos 2013-17,1
+18242,2015-06-06,2014/2015,Barcelona,Juventus,passes_per_shot,7.0,9.2,8.35,10.04,4.67,14.9,26,38,"La Liga, same season",0
+18242,2015-06-06,2014/2015,Barcelona,Juventus,press_success_pct,23.77,30.42,28.58,32.13,18.95,38.24,11,38,"La Liga, same season",0
+18242,2015-06-06,2014/2015,Barcelona,Juventus,ppda,12.75,11.18,10.46,11.97,7.67,19.31,63,38,"La Liga, same season",0
+18242,2015-06-06,2014/2015,Barcelona,Juventus,possession_pct,62.5,69.34,67.53,71.02,57.6,77.6,13,38,"La Liga, same season",0
+18242,2015-06-06,2014/2015,Barcelona,Juventus,pass_interval_s,2.52,2.68,2.64,2.74,2.42,3.03,16,38,"La Liga, same season",0
+18242,2015-06-06,2014/2015,Barcelona,Juventus,attack_speed_mps,1.82,1.63,1.55,1.71,1.26,2.33,76,38,"La Liga, same season",0
+18242,2015-06-06,2014/2015,Barcelona,Juventus,np_xg,2.27,2.07,1.86,2.29,0.85,3.3,66,38,"La Liga, same season",0
+18243,2016-05-28,2015/2016,Real Madrid,Atlético Madrid,passes_per_shot,8.88,7.33,6.86,7.78,4.5,11.1,84,38,"La Liga, same season",0
+18243,2016-05-28,2015/2016,Real Madrid,Atlético Madrid,press_success_pct,13.87,28.97,26.97,31.05,19.5,42.13,0,38,"La Liga, same season",1
+18243,2016-05-28,2015/2016,Real Madrid,Atlético Madrid,ppda,13.23,13.3,12.29,14.42,9.13,22.41,55,38,"La Liga, same season",0
+18243,2016-05-28,2015/2016,Real Madrid,Atlético Madrid,possession_pct,45.9,57.62,55.5,59.8,47.2,69.6,3,38,"La Liga, same season",1
+18243,2016-05-28,2015/2016,Real Madrid,Atlético Madrid,pass_interval_s,2.37,2.59,2.53,2.64,2.32,2.96,13,38,"La Liga, same season",0
+18243,2016-05-28,2015/2016,Real Madrid,Atlético Madrid,attack_speed_mps,1.98,2.0,1.91,2.09,1.57,2.53,50,38,"La Liga, same season",0
+18243,2016-05-28,2015/2016,Real Madrid,Atlético Madrid,np_xg,2.12,1.94,1.73,2.17,0.81,3.35,68,38,"La Liga, same season",0
+18244,2017-06-03,2016/2017,Real Madrid,Juventus,passes_per_shot,5.67,5.56,4.73,6.59,3.38,9.12,62,8,Clásicos 2013-17,0
+18244,2017-06-03,2016/2017,Real Madrid,Juventus,press_success_pct,21.98,18.7,16.88,20.54,14.59,22.44,88,8,Clásicos 2013-17,0
+18244,2017-06-03,2016/2017,Real Madrid,Juventus,ppda,13.59,16.85,14.86,19.27,11.9,24.0,12,8,Clásicos 2013-17,0
+18244,2017-06-03,2016/2017,Real Madrid,Juventus,possession_pct,58.8,42.84,39.41,46.03,33.4,50.2,100,8,Clásicos 2013-17,1
+18244,2017-06-03,2016/2017,Real Madrid,Juventus,pass_interval_s,2.87,2.64,2.52,2.78,2.33,3.07,75,8,Clásicos 2013-17,0
+18244,2017-06-03,2016/2017,Real Madrid,Juventus,attack_speed_mps,1.61,2.19,2.0,2.37,1.6,2.64,12,8,Clásicos 2013-17,0
+18244,2017-06-03,2016/2017,Real Madrid,Juventus,np_xg,1.57,1.41,1.18,1.76,0.98,2.68,88,8,Clásicos 2013-17,0
+18245,2018-05-26,2017/2018,Real Madrid,Liverpool,passes_per_shot,11.55,7.22,5.87,8.33,4.17,9.33,100,7,Clásicos 2017-21,1
+18245,2018-05-26,2017/2018,Real Madrid,Liverpool,press_success_pct,19.57,21.42,18.39,24.73,17.56,29.41,57,7,Clásicos 2017-21,0
+18245,2018-05-26,2017/2018,Real Madrid,Liverpool,ppda,21.5,15.6,13.62,17.81,11.16,21.32,100,7,Clásicos 2017-21,1
+18245,2018-05-26,2017/2018,Real Madrid,Liverpool,possession_pct,57.9,46.27,40.71,50.74,28.5,53.2,100,7,Clásicos 2017-21,1
+18245,2018-05-26,2017/2018,Real Madrid,Liverpool,pass_interval_s,2.44,2.55,2.44,2.66,2.26,2.81,43,7,Clásicos 2017-21,0
+18245,2018-05-26,2017/2018,Real Madrid,Liverpool,attack_speed_mps,1.44,1.92,1.68,2.16,1.35,2.53,14,7,Clásicos 2017-21,0
+18245,2018-05-26,2017/2018,Real Madrid,Liverpool,np_xg,1.68,1.29,1.03,1.58,0.87,2.12,71,7,Clásicos 2017-21,0

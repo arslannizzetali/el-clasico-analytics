@@ -306,6 +306,34 @@ match_id,team,period,minute,formation,starting
 16317,Eibar,1,0,4-4-2,1
 16317,Barcelona,1,0,4-3-3,1
 16317,Barcelona,2,66,4-3-3,0
+18236,Barcelona,1,0,4-1-2-2-1,1
+18236,Manchester United,1,0,4-2-2-2,1
+18236,Barcelona,1,1,4-1-2-2-1,0
+18236,Manchester United,2,45,4-2-2-1-1,0
+18236,Manchester United,2,62,4-2-2-1-1,0
+18236,Manchester United,2,68,4-2-2-1-1,0
+18236,Barcelona,2,87,4-1-2-2-1,0
+18236,Barcelona,2,89,4-1-2-2-1,0
+18241,Real Madrid,1,0,4-3-3,1
+18241,Atlético Madrid,1,0,4-4-2,1
+18242,Juventus,1,0,4-1-2-1-2,1
+18242,Barcelona,1,0,4-1-2-2-1,1
+18242,Juventus,2,88,3-1-2-1-1-2,0
+18242,Barcelona,2,91,4-1-2-2-1,0
+18243,Real Madrid,1,0,4-1-2-2-1,1
+18243,Atlético Madrid,1,0,4-2-2-2,1
+18243,Real Madrid,1,1,4-1-2-2-1,0
+18243,Atlético Madrid,2,62,4-2-2-2,0
+18243,Real Madrid,2,77,4-1-2-2-1,0
+18244,Juventus,1,0,4-2-3-1,1
+18244,Real Madrid,1,0,4-1-2-1-2,1
+18244,Real Madrid,1,16,4-1-2-1-2,0
+18244,Juventus,2,67,4-2-3-1,0
+18245,Real Madrid,1,0,4-1-2-1-2,1
+18245,Liverpool,1,0,4-3-3,1
+18245,Liverpool,1,31,4-3-3,0
+18245,Real Madrid,2,61,4-3-3,0
+18245,Real Madrid,2,88,4-3-3,0
 68313,Barcelona,1,0,4-3-3,1
 68313,Osasuna,1,0,4-2-3-1,1
 68314,Barcelona,1,0,4-3-3,1
@@ -1849,6 +1877,13 @@ match_id,team,period,minute,formation,starting
 303725,Barcelona,2,72,4-3-3,0
 303731,Barcelona,1,0,4-3-3,1
 303731,Eibar,1,0,4-2-3-1,1
+3750201,Barcelona,1,0,4-3-3,1
+3750201,Manchester United,1,0,4-5-1,1
+3750201,Barcelona,1,0,4-3-3,0
+3750201,Manchester United,1,4,4-5-1,0
+3750201,Manchester United,2,50,4-4-2,0
+3750201,Manchester United,2,75,4-4-2,0
+3750201,Manchester United,2,84,4-4-2,0
 3764440,Barcelona,1,0,4-3-3,1
 3764440,Elche,1,0,3-4-3,1
 3764440,Barcelona,2,45,4-2-3-1,0
