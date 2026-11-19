@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>El Clásico in La Liga, 2004-2021</title><meta name="description" content="How El Clásico changed over 16 years, and how it compares with the rest of La Liga: 29 Real Madrid - Barcelona matches, 524 Barcelona league matches, the full 2015/16 season and seven Champions League finals, StatsBomb open data."><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet"><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>El Clásico in La Liga, 2004-2021</title><meta name="description" content="How El Clásico changed over 16 years, and how it compares with the rest of La Liga: 29 Real Madrid - Barcelona matches, 524 Barcelona league matches, the full 2015/16 season and seven Champions League finals, StatsBomb open data."><meta name="theme-color" content="#0b1324"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1324'/%3E%3Cpath d='M16 6a10 10 0 0 0 0 20z' fill='%235fb0ff'/%3E%3Cpath d='M16 6a10 10 0 0 1 0 20z' fill='%23ffcb3d'/%3E%3C/svg%3E"><meta property="og:type" content="website"><meta property="og:url" content="https://arslannizzetali.github.io/el-clasico-analytics/"><meta property="og:title" content="El Clásico: two styles that met in the middle"><meta property="og:description" content="How El Clásico changed over 16 years, and how it compares with the rest of La Liga: 29 Real Madrid - Barcelona matches, 524 Barcelona league matches, the full 2015/16 season and seven Champions League finals, StatsBomb open data."><meta property="og:image" content="https://arslannizzetali.github.io/el-clasico-analytics/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Passes before an open-play shot per period: Barcelona and Real Madrid converge on about seven."><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet"><style>
 :root{color-scheme:light;
  --font-anthropic-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
  --font-anthropic-serif:"Source Serif 4",Georgia,serif;
@@ -18,15 +18,19 @@ html,body{margin:0;background:var(--page-bg)}
 #dash-root{max-width:1120px;margin:0 auto;padding:24px 16px 48px;box-sizing:border-box}
 .site-foot{max-width:1120px;margin:0 auto;padding:0 16px 32px;box-sizing:border-box;font:13px/1.5 var(--font-anthropic-sans);color:var(--color-fg-muted)}
 .site-foot a{color:inherit}
+.lg-brand{display:inline-flex;align-items:center;gap:8px}
+.lg-brand b{color:var(--color-fg);font-weight:600}
+.lg-mark{width:18px;height:18px;border-radius:50%;background:linear-gradient(90deg,#5fb0ff 50%,#ffcb3d 50%);box-shadow:0 0 0 3px #0b1324}
 select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--color-border-line);background:var(--color-panel);color:var(--color-fg);max-width:100%}
 </style><style>
 .lg-nav{display:flex;flex-wrap:wrap;gap:var(--cds-gap-md);align-items:center;justify-content:space-between;margin:0 0 var(--cds-gap-xl);font-family:var(--font-anthropic-sans);color:var(--color-fg)}
 .lg-brand{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0}
 .lg-tabbtn{font:inherit;font-weight:var(--cds-font-weight-medium);padding:8px 16px;background:var(--color-panel);color:var(--color-fg);border:0;cursor:pointer}
 .lg-tabbtn+.lg-tabbtn{border-left:1px solid var(--color-border-line)}
-.lg-tabbtn[aria-selected=true]{background:#2563eb;color:#fff}
+.lg-tabbtn{transition:background-color .2s,color .2s}
+.lg-tabbtn[aria-selected=true]{background:var(--color-fg);color:var(--page-bg, #fff)}
 /* own class: the Clásico page hides every .ec-find that is not its current finding */
-.lg-find{margin:0;max-width:75ch;padding:8px 12px;border-left:3px solid #2563eb;background:var(--color-bg-subtle, rgba(37,99,235,.06));border-radius:0 var(--cds-radius) var(--cds-radius) 0}
+.lg-find{margin:0;max-width:75ch;padding:8px 12px;border-left:3px solid var(--c-barca, #0b4ea2);background:color-mix(in srgb,var(--c-barca, #0b4ea2) 8%,transparent);border-radius:0 var(--cds-radius) var(--cds-radius) 0}
 .lg-cov{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;max-width:80ch}
 .lg-cov b{font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}
 .lg-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:var(--cds-gap-lg)}
@@ -34,11 +38,11 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
 .ec-table tr.lg-click{cursor:pointer}
 .ec-table tr.lg-click:hover td{background:var(--color-bg-subtle)}
 .ec-table tr.lg-sel td{background:var(--color-bg-subtle);font-weight:var(--cds-font-weight-medium)}
-.lg-clear{color:#2563eb;font-weight:var(--cds-font-weight-medium)}
+.lg-clear{color:var(--c-barca, #0b4ea2);font-weight:var(--cds-font-weight-medium)}
 .lg-heat td.lg-cell{text-align:center;min-width:64px}
-.lg-key3{display:inline-block;width:16px;height:0;border-top:2px solid #d97706}
+.lg-key3{display:inline-block;width:16px;height:0;border-top:2px solid #0f8b8d}
 .lg-key-grey{display:inline-block;width:16px;height:0;border-top:2px solid var(--cds-chart-muted)}
-.lg-key-blue{display:inline-block;width:16px;height:0;border-top:2px solid #2563eb}
+.lg-key-blue{display:inline-block;width:16px;height:0;border-top:2px solid var(--c-madrid, #946c00)}
 .lg-timeline{position:relative;min-height:120px}
 .lg-timeline text{font-family:var(--font-anthropic-sans);font-size:12px}
 .lg-chart{position:relative;min-height:300px}
@@ -72,7 +76,7 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
   let w = 0;
   window.addEventListener('resize', () => { if (Math.abs(innerWidth - w) > 20) { w = innerWidth; window.__dashAll(); } });
 })();
-</script></head><body><div id="dash-root"><nav class="lg-nav" aria-label="Sections"><p class="lg-brand">El Clásico in La Liga · StatsBomb open data</p>
+</script></head><body><div id="dash-root"><nav class="lg-nav" aria-label="Sections"><p class="lg-brand"><span class="lg-mark" aria-hidden="true"></span><b>El Clásico</b> in La Liga · StatsBomb open data</p>
 <div class="ec-seg" role="tablist">
 <button type="button" class="lg-tabbtn" role="tab" data-go="clasico" aria-selected="true">El Clásico</button>
 <button type="button" class="lg-tabbtn" role="tab" data-go="league" aria-selected="false">League context</button>
@@ -80,6 +84,15 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
 <button type="button" class="lg-tabbtn" role="tab" data-go="finals" aria-selected="false">UCL finals</button>
 </div></nav><div data-tab="clasico"><meta name="dash-one-writer">
 <style>
+/* Club colours. Red stays reserved for goals, so Barcelona is its blue and Real Madrid a dark gold (both >= 4.5:1 on white).
+   --team / --opp follow the selected team (data-team on .ec); the -p variants are the brighter tones drawn on the green pitch. */
+.ec{--c-barca:#0b4ea2;--c-madrid:#946c00;--c-barca-ink:#fff;--c-madrid-ink:#fff;--c-barca-p:#5fb0ff;--c-madrid-p:#ffcb3d;
+ --pitch-a:#2f7d47;--pitch-b:#2a7342;--pitch-line:rgba(255,255,255,.72);--pitch-dot:rgba(255,255,255,.92);
+ --hero-bg:#0b1324;--hero-fg:#f4f6fb;--hero-muted:#a9b3c7;
+ --team:var(--c-barca);--opp:var(--c-madrid);--team-p:var(--c-barca-p);--team-ink:var(--c-barca-ink)}
+@media (prefers-color-scheme:dark){.ec{--c-barca:#5b9cf0;--c-madrid:#e0b13a;--c-barca-ink:#08111f;--c-madrid-ink:#1b1400;
+ --pitch-a:#1f5a33;--pitch-b:#1c522f;--pitch-line:rgba(255,255,255,.55);--hero-bg:#0a1020}}
+.ec[data-team="Real Madrid"]{--team:var(--c-madrid);--opp:var(--c-barca);--team-p:var(--c-madrid-p);--team-ink:var(--c-madrid-ink)}
 .ec{display:flex;flex-direction:column;gap:var(--cds-gap-xl);font-family:var(--font-anthropic-sans);color:var(--color-fg);font-size:var(--cds-font-size-body)}
 .ec-title{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0 0 var(--cds-gap-sm)}
 .ec-lede{margin:0;max-width:70ch}
@@ -93,21 +106,24 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
 @media (max-width:700px){.ec-controls{position:static}}
 .ec-seg{display:inline-flex;border:1px solid var(--color-border-line);border-radius:var(--cds-radius);overflow:hidden}
 .ec-segbtn{font:inherit;font-weight:var(--cds-font-weight-medium);padding:8px 18px;background:transparent;color:var(--color-fg);border:0;cursor:pointer}
-.ec-segbtn[aria-pressed=true]{background:#2563eb;color:#fff}
+.ec-segbtn{transition:background-color .25s,color .25s}
+.ec-segbtn[data-team="Barcelona"][aria-pressed=true]{background:var(--c-barca);color:var(--c-barca-ink)}
+.ec-segbtn[data-team="Real Madrid"][aria-pressed=true]{background:var(--c-madrid);color:var(--c-madrid-ink)}
 .ec-key{display:inline-flex;align-items:center;gap:6px;font-size:var(--cds-font-size-caption)}
 .ec-dot{display:inline-block;border-radius:50%}
-.ec-dot-blue{width:8px;height:8px;background:#2563eb}
-.ec-dot-grey{width:8px;height:8px;background:var(--cds-chart-muted)}
-.ec-line{display:inline-block;width:16px;height:0;border-top:1.5px solid #2563eb}
-.ec-ring{display:inline-block;width:7px;height:7px;border-radius:50%;border:1.5px solid #2563eb;box-sizing:border-box}
-.ec-dot-hollow{width:8px;height:8px;border:1.5px solid #2563eb;box-sizing:border-box}
-.ec-find{margin:0;max-width:75ch;padding:8px 12px;border-left:3px solid #2563eb;background:var(--color-bg-subtle, rgba(37,99,235,.06));border-radius:0 var(--cds-radius) var(--cds-radius) 0}
+.ec-dot-blue{width:8px;height:8px;background:var(--team)}
+.ec-dot-p{width:8px;height:8px;background:var(--team-p);box-shadow:0 0 0 2.5px var(--pitch-a)}
+.ec-dot-grey{width:8px;height:8px;background:var(--opp);opacity:.6}
+.ec-line{display:inline-block;width:16px;height:0;border-top:1.5px solid var(--team-p);box-shadow:0 0 0 2px var(--pitch-a)}
+.ec-ring{display:inline-block;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--team-p);box-sizing:border-box;box-shadow:0 0 0 2px var(--pitch-a)}
+.ec-dot-hollow{width:8px;height:8px;border:1.5px solid var(--team);box-sizing:border-box}
+.ec-find{margin:0;max-width:75ch;padding:10px 14px;border-left:3px solid var(--team);background:color-mix(in srgb,var(--team) 8%,transparent);border-radius:0 var(--cds-radius) var(--cds-radius) 0}
 .ec-find b{font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}
 .ec-gsbtn{font:inherit;padding:6px 14px;background:transparent;color:var(--color-fg);border:0;cursor:pointer}
-.ec-gsbtn[aria-pressed=true]{background:#2563eb;color:#fff}
-.ec-dot-goal{width:13px;height:13px;background:var(--color-bad)}
-.ec-band{display:inline-block;width:16px;height:10px;background:#2563eb;opacity:.18;border-radius:2px}
-.ec-zone{display:inline-block;width:14px;height:10px;background:#2563eb;opacity:.55;border-radius:2px}
+.ec-gsbtn[aria-pressed=true]{background:var(--team);color:var(--team-ink)}
+.ec-dot-goal{width:11px;height:11px;background:var(--color-bad);box-shadow:0 0 0 2.5px var(--pitch-a)}
+.ec-band{display:inline-block;width:16px;height:10px;background:var(--team);opacity:.18;border-radius:2px}
+.ec-zone{display:inline-block;width:22px;height:10px;background:linear-gradient(90deg,var(--pitch-a),color-mix(in srgb,var(--pitch-a) 50%,#fff));border-radius:2px}
 .ec-chart{position:relative;min-height:320px}
 .ec-chart text.ec-tick{fill:var(--cds-text-secondary);font-size:var(--cds-font-size-caption);font-family:var(--font-anthropic-sans)}
 .ec-chart text.ec-val{font-size:var(--cds-font-size-caption);font-weight:var(--cds-font-weight-medium);font-family:var(--font-anthropic-sans);font-variant-numeric:tabular-nums}
@@ -116,8 +132,8 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
 .ec-pitches{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--cds-gap-lg)}
 .ec-pitchbox{display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
 .ec-pitch{position:relative;min-height:200px}
-.ec-pitch text.ec-zn{font-family:var(--font-anthropic-sans);font-size:5.5px;font-weight:600;fill:var(--color-fg);pointer-events:none;paint-order:stroke;stroke:var(--color-panel);stroke-width:1.4px;stroke-linejoin:round}
-.ec-pitch text.ec-zs{font-family:var(--font-anthropic-sans);font-size:3.4px;fill:var(--color-fg-muted);pointer-events:none;paint-order:stroke;stroke:var(--color-panel);stroke-width:1px;stroke-linejoin:round}
+.ec-pitch text.ec-zn{font-family:var(--font-anthropic-sans);font-size:5.5px;font-weight:600;fill:#fff;pointer-events:none;paint-order:stroke;stroke:rgba(0,0,0,.35);stroke-width:.8px;stroke-linejoin:round}
+.ec-pitch text.ec-zs{font-family:var(--font-anthropic-sans);font-size:3.4px;fill:rgba(255,255,255,.9);pointer-events:none;paint-order:stroke;stroke:rgba(0,0,0,.3);stroke-width:.6px;stroke-linejoin:round}
 .ec-pitch text.ec-dir{font-family:var(--font-anthropic-sans);font-size:3px;fill:var(--cds-text-secondary)}
 .ec-score{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-heading);margin:0}
 .ec-p{margin:0;max-width:75ch}
@@ -131,15 +147,67 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
 .ec-table tr.ec-goal td{font-weight:var(--cds-font-weight-medium);color:var(--color-bad)}
 [data-dash-source-state=refreshing]{opacity:.5}
 .ec [hidden]{display:none !important}
+/* Hero: the headline finding before any control */
+.ec-hero{position:relative;overflow:hidden;border-radius:18px;padding:32px;color:var(--hero-fg);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px;align-items:center;
+ background:radial-gradient(90% 120% at 0% 0%,rgba(11,78,162,.55),transparent 60%),radial-gradient(80% 110% at 100% 100%,rgba(201,150,20,.32),transparent 60%),var(--hero-bg)}
+.ec-hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'%3E%3Cg fill='none' stroke='%23fff' stroke-width='.5'%3E%3Crect x='1' y='1' width='118' height='78'/%3E%3Cline x1='60' y1='1' x2='60' y2='79'/%3E%3Ccircle cx='60' cy='40' r='10'/%3E%3Crect x='1' y='19' width='17' height='42'/%3E%3Crect x='102' y='19' width='17' height='42'/%3E%3C/g%3E%3C/svg%3E") center/cover no-repeat}
+.ec-hero>*{position:relative}
+.ec-eyebrow{margin:0 0 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--hero-muted);font-weight:600}
+.ec-hero-title{font-family:var(--font-anthropic-serif);font-weight:600;font-size:clamp(30px,4.4vw,46px);line-height:1.08;margin:0 0 14px;letter-spacing:-.01em}
+.ec-hero-lede{margin:0 0 22px;font-size:16px;line-height:1.55;color:#d5dbe8;max-width:46ch}
+.ec-hero-lede b{color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
+.ec-kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ec-kpi{border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-top:3px solid var(--k);display:flex;flex-direction:column;gap:2px}
+.ec-kpi-team{font-size:12px;font-weight:600;color:var(--k);letter-spacing:.04em;text-transform:uppercase}
+.ec-kpi-num{font-family:var(--font-anthropic-serif);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.15;white-space:nowrap}
+.ec-kpi-num b{font-weight:600}.ec-kpi-num .ec-kpi-from{color:var(--hero-muted);font-weight:400}
+.ec-kpi-arrow{color:var(--k);margin:0 6px;font-family:var(--font-anthropic-sans);font-size:22px}
+.ec-kpi-cap{font-size:12px;color:var(--hero-muted)}
+.ec-hero-chart{min-height:260px}
+.ec-hero-chart text{font-family:var(--font-anthropic-sans)}
+.ec-hero-cta{grid-column:1/-1;justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:#fff;color:#0b1324;font-weight:600;text-decoration:none;font-size:14px;transition:transform .2s,box-shadow .2s}
+.ec-hero-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.ec-hero-cta span{display:inline-block;transition:transform .2s}.ec-hero-cta:hover span{transform:translateY(2px)}
+.ec-intro{display:flex;flex-direction:column;gap:4px;margin-top:-8px}
+@media (max-width:820px){.ec-hero{grid-template-columns:1fr;padding:22px 18px;gap:18px}.ec-kpi-num{font-size:25px}}
+@media (max-width:420px){.ec-kpis{grid-template-columns:1fr}}
+/* Motion: cards rise in as they scroll into view (only when JS has armed it), pitch dots fade in */
+.ec-anim .ec-card{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.ec-anim .ec-card.ec-in{opacity:1;transform:none}
+.ec-anim .ec-controls.ec-in{transform:none}
+.ec-pitch svg circle{animation:ec-fade .55s ease-out both}
+@keyframes ec-fade{from{opacity:0}}
+.ec-card{transition:box-shadow .2s}
+@media (prefers-reduced-motion:reduce){.ec-anim .ec-card{opacity:1;transform:none;transition:none}.ec-pitch svg circle{animation:none}.ec-hero-cta,.ec-hero-cta span{transition:none}}
 </style>
 
-<div class="ec" lang="en">
+<div class="ec" lang="en" data-team="Barcelona">
 
-<header id="title">
-<h1 class="ec-title">El Clásico tactical analysis, 2005-2021</h1>
+<header id="title" class="ec-hero">
+<div class="ec-hero-copy">
+<p class="ec-eyebrow">29 La Liga Clásicos · 2005–2021 · StatsBomb event data</p>
+<h1 class="ec-hero-title">Two styles that met in the middle</h1>
+<p class="ec-hero-lede">Guardiola's Barcelona needed <b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="passes_per_shot">—</b> passes to reach a shot while Real Madrid went direct.
+By 2017-21 the two sides had converged on about seven, and both changes hold up under resampling.</p>
+<div class="ec-kpis">
+<div class="ec-kpi" style="--k:var(--c-barca-p)"><span class="ec-kpi-team">Barcelona</span>
+<span class="ec-kpi-num"><span class="ec-kpi-from"><b data-draw="pv" data-c="period_team" data-w="2009-13|Barcelona" data-f="passes_per_shot">—</b></span><span class="ec-kpi-arrow">→</span><b data-draw="pv" data-c="period_team" data-w="2017-21|Barcelona" data-f="passes_per_shot">—</b></span>
+<span class="ec-kpi-cap">passes before a shot, 2009-13 → 2017-21</span></div>
+<div class="ec-kpi" style="--k:var(--c-madrid-p)"><span class="ec-kpi-team">Real Madrid</span>
+<span class="ec-kpi-num"><span class="ec-kpi-from"><b data-draw="pv" data-c="period_team" data-w="2005-09|Real Madrid" data-f="passes_per_shot">—</b></span><span class="ec-kpi-arrow">→</span><b data-draw="pv" data-c="period_team" data-w="2017-21|Real Madrid" data-f="passes_per_shot">—</b></span>
+<span class="ec-kpi-cap">passes before a shot, 2005-09 → 2017-21</span></div>
+</div>
+</div>
+<div class="ec-hero-chart" data-draw="hero" data-source="match_team">—</div>
+<a class="ec-hero-cta" href="#controls">Explore all 29 matches <span aria-hidden="true">↓</span></a>
+</header>
+
+<div class="ec-intro">
+<h2 class="ec-title">El Clásico tactical analysis, 2005-2021</h2>
 <p class="ec-lede">Pick a team and a metric; the page follows your choice. The match report is at the bottom.</p>
 <p class="ec-muted">29 La Liga matches, StatsBomb open event data. Period averages rest on 6-8 matches; shaded bands show 90% intervals.</p>
-</header>
+</div>
 
 <section class="ec-card ec-controls" id="controls">
 <div class="ec-row">
@@ -215,9 +283,9 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
 <p class="ec-find" data-fin="losses" data-team="Real Madrid" hidden>Real Madrid lost the ball after a controlled touch <b data-draw="pv" data-c="loss_period" data-w="2005-09|Real Madrid" data-f="per_match">—</b> times per match in 2005-09 and <b data-draw="pv" data-c="loss_period" data-w="2017-21|Real Madrid" data-f="per_match">—</b> in 2017-21. These losses led to <b data-draw="pv" data-c="loss_team" data-w="Real Madrid" data-f="goals" data-fmt="n0">—</b> goals within 20 seconds; Barcelona's led to <b data-draw="pv" data-c="loss_team" data-w="Barcelona" data-f="goals" data-fmt="n0">—</b>.</p>
 <p class="ec-p">Losing the ball: <b><span data-draw="tn" data-k="own">—</span></b>. Scoring: <b><span data-draw="tn" data-k="opp">—</span></b>.</p>
 <div class="ec-row">
-<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Ball lost</span>
+<span class="ec-key"><i class="ec-dot ec-dot-p"></i>Ball lost</span>
 <span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Goal conceded within 20 s</span>
-<span class="ec-key"><i class="ec-zone"></i>Darker zone: more losses per match</span>
+<span class="ec-key"><i class="ec-zone"></i>Lighter zone: more losses per match</span>
 </div>
 <div class="ec-pitches">
 <div class="ec-pitchbox" id="losses-2005-09"><h3 class="ec-h3">2005-09</h3><div class="ec-pitch" data-draw="pitch" data-p="2005-09" data-source="losses match_team">—</div><p class="ec-muted" data-draw="psum" data-p="2005-09" data-source="losses match_team">—</p></div>
@@ -241,7 +309,7 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
 <p class="ec-find" data-fin="shots" data-team="Real Madrid" hidden>Real Madrid went from <b data-draw="pv" data-c="shot_period" data-w="2005-09|Real Madrid" data-f="shots_per_match">—</b> shots per match in 2005-09 to <b data-draw="pv" data-c="shot_period" data-w="2017-21|Real Madrid" data-f="shots_per_match">—</b> in 2017-21; the share from inside the box went from <b data-draw="pv" data-c="shot_period" data-w="2005-09|Real Madrid" data-f="box_pct" data-fmt="pct0">—</b> to <b data-draw="pv" data-c="shot_period" data-w="2017-21|Real Madrid" data-f="box_pct" data-fmt="pct0">—</b>.</p>
 <p class="ec-p">Shooting: <b><span data-draw="tn" data-k="own">—</span></b>. Opponent half, goal on the right.</p>
 <div class="ec-row">
-<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Shot (size = xG)</span>
+<span class="ec-key"><i class="ec-dot ec-dot-p"></i>Shot (size = xG)</span>
 <span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Goal</span>
 </div>
 <div class="ec-pitches">
@@ -264,7 +332,7 @@ select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px sol
 <select class="dash-select" data-draw="lsplayer" aria-label="Player" data-source="losses"></select>
 </div>
 <div class="ec-row">
-<span class="ec-key"><i class="ec-dot ec-dot-blue"></i>Ball lost / opponent shot (size = xG)</span>
+<span class="ec-key"><i class="ec-dot ec-dot-p"></i>Ball lost / opponent shot (size = xG)</span>
 <span class="ec-key"><i class="ec-dot ec-dot-goal"></i>Goal</span>
 <span class="ec-key"><i class="ec-ring"></i><i class="ec-line"></i>Where the ball was lost, and the path to the shot</span>
 </div>
@@ -519,7 +587,12 @@ of the metrics, as everywhere on this site.</p>
 Built from the project's Python pipeline; every metric is defined in the
 <a href="https://github.com/arslannizzetali/el-clasico-analytics">README</a>.</footer><script>
 (() => {
-  const BLUE = '#2563eb';
+  const BLUE = 'var(--team)', PBLUE = 'var(--team-p)', OPPC = 'var(--opp)';
+  const MOTION = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const SHORT = {'Luis Enrique': 'Luis Enrique', 'Juande Ramos': 'Juande Ramos'};
+  const coachShort = (n) => n ? SHORT[n] || n.split(' ').slice(-1)[0] : '—';
+  // coaches of one team in one period, in order of their first Clásico, with match counts
+  const coachesOf = (rows, team, period) => d3.rollups(rows.filter((r) => r.team === team && r.period === period).sort((a, b) => d3.ascending(a.date, b.date)), (v) => v.length, (r) => r.coach);
   const PERIODS = ['2005-09', '2009-13', '2013-17', '2017-21'];
   const STATS = {
     passes_per_shot: {kind: 'trend', fmt: 'n1', label: 'passes before a shot'},
@@ -653,7 +726,7 @@ Built from the project's Python pipeline; every metric is defined in the
     if (S.match == null || !rows.some((r) => String(r.match_id) === String(S.match))) S.match = rows[rows.length - 1].match_id;
     return {rows, per: p.data, sel: rows.filter((r) => String(r.match_id) === String(S.match))};
   }
-  const ALL = ['vtitle', 'tn', 'pv', 'trend', 'gsshare', 'pitch', 'psum', 'zhead', 'zlist', 'shotpitch', 'ssum', 'lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist', 'v', 'matchsel', 'mpitch', 'msum', 'shots'];
+  const ALL = ['hero', 'vtitle', 'tn', 'pv', 'trend', 'gsshare', 'pitch', 'psum', 'zhead', 'zlist', 'shotpitch', 'ssum', 'lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist', 'v', 'matchsel', 'mpitch', 'msum', 'shots'];
   const LS = ['lsplayer', 'lspitch', 'lssum', 'sspitch', 'sssum', 'lshead', 'lslist'];
   const redrawLS = () => LS.forEach((n) => dash.draw(n));
   const redraw = () => ALL.forEach((n) => dash.draw(n));
@@ -670,8 +743,13 @@ Built from the project's Python pipeline; every metric is defined in the
     };
     return {tip, show, hide: () => { tip.hidden = true; }};
   }
+  function grass(svg, half) {
+    const g = svg.append('g').style('pointer-events', 'none'), x0 = half ? 57.5 : -2.5;
+    g.append('rect').attr('x', x0).attr('y', -1.5).attr('width', 122.5 - x0).attr('height', 83).attr('rx', 1.5).style('fill', 'var(--pitch-a)');
+    d3.range(half ? 6 : 0, 12).filter((i) => i % 2).forEach((i) => g.append('rect').attr('x', i * 10).attr('y', -1.5).attr('width', 10).attr('height', 83).style('fill', 'var(--pitch-b)'));
+  }
   function pitchLines(g, half) {
-    const line = (s) => s.style('fill', 'none').style('stroke', 'var(--cds-chart-axis)').attr('stroke-width', 0.4);
+    const line = (s) => s.style('fill', 'none').style('stroke', 'var(--pitch-line)').attr('stroke-width', 0.45);
     if (!half) {
       line(g.append('rect').attr('width', 120).attr('height', 80));
       line(g.append('line').attr('x1', 60).attr('x2', 60).attr('y1', 0).attr('y2', 80));
@@ -680,7 +758,7 @@ Built from the project's Python pipeline; every metric is defined in the
     } else {
       line(g.append('rect').attr('x', 60).attr('width', 60).attr('height', 80));
       line(g.append('path').attr('d', 'M60,30 A10,10 0 0,1 60,50'));
-      g.append('circle').attr('cx', 108).attr('cy', 40).attr('r', 0.4).style('fill', 'var(--cds-chart-axis)');
+      g.append('circle').attr('cx', 108).attr('cy', 40).attr('r', 0.5).style('fill', 'var(--pitch-line)');
     }
     [[102, 18, 18, 44], [114, 30, 6, 20], [120, 36, 2, 8]].forEach(([x, y, w, h]) => line(g.append('rect').attr('x', x).attr('y', y).attr('width', w).attr('height', h)));
   }
@@ -746,7 +824,9 @@ Built from the project's Python pipeline; every metric is defined in the
     let lw = 0;
     ticks.forEach((t) => { probe.text(nfTick.format(t) + pre); lw = Math.max(lw, probe.node().getComputedTextLength()); });
     probe.remove();
-    const mg = {t: 26, r: 10, b: 24, l: Math.ceil(lw) + 10};
+    const mg = {t: 40, r: 10, b: 24, l: Math.ceil(lw) + 10};
+    const prev = el.__pos || new Map(), next = new Map(), base = H - mg.b;
+    const glide = (sel) => sel.transition().duration(MOTION ? 650 : 0).ease(d3.easeCubicOut);
     y.range([H - mg.b, mg.t]);
     const ymax = y.domain()[1];
     const yc = (v) => y(Math.min(v, ymax));
@@ -756,6 +836,12 @@ Built from the project's Python pipeline; every metric is defined in the
     const periods = d3.groups(s.rows, (r) => r.period).map(([period, rows]) => { const pid = [...new Set(rows.map((r) => r.match_id))]; return {period, x0: x(pid[0]), x1: x(pid[pid.length - 1])}; });
     periods.forEach((p, i) => {
       svg.append('text').attr('class', 'ec-tick').attr('x', (p.x0 + p.x1) / 2).attr('y', 12).attr('text-anchor', 'middle').text(p.period);
+      // the coaches who led the selected team in this period's Clásicos (2+ matches; the main one if space is short)
+      const cs = coachesOf(s.rows, S.team, p.period), room = (p.x1 - p.x0) + 24;
+      const main = cs.filter(([, n]) => n >= 2).map(([c]) => coachShort(c));
+      const ct = svg.append('text').attr('class', 'ec-tick').attr('x', (p.x0 + p.x1) / 2).attr('y', 27).attr('text-anchor', 'middle').style('fill', BLUE).style('font-weight', 600).text(main.join(' · '));
+      if (ct.node().getComputedTextLength() > room) ct.text(coachShort(d3.greatest(cs, ([, n]) => n)[0]));
+      ct.append('title').text(cs.map(([c, n]) => c + ' (' + n + ')').join(', '));
       if (i > 0) { const bx = (periods[i - 1].x1 + p.x0) / 2; svg.append('line').attr('x1', bx).attr('x2', bx).attr('y1', mg.t - 8).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-axis)').style('stroke-dasharray', '2 3'); }
     });
     let lastX = -Infinity, lastYear = null;
@@ -768,25 +854,33 @@ Built from the project's Python pipeline; every metric is defined in the
     svg.append('line').attr('x1', selX).attr('x2', selX).attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-reference)');
     const guide = svg.append('line').attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-axis)').style('display', 'none');
     const pBy = new Map(periods.map((p) => [p.period, p]));
-    svg.append('g').selectAll('rect').data(bands.filter((b) => pBy.has(b.period))).join('rect')
+    const bandBox = (b) => [yc(+b.hi), Math.max(1, yc(+b.lo) - yc(+b.hi))];
+    const bandSel = svg.append('g').selectAll('rect').data(bands.filter((b) => pBy.has(b.period))).join('rect')
       .attr('x', (b) => pBy.get(b.period).x0 - 6).attr('width', (b) => pBy.get(b.period).x1 - pBy.get(b.period).x0 + 12)
-      .attr('y', (b) => yc(+b.hi)).attr('height', (b) => Math.max(1, yc(+b.lo) - yc(+b.hi)))
-      .attr('rx', 3).style('fill', BLUE).style('fill-opacity', 0.13);
+      .attr('y', (b) => (prev.get('b|' + b.period) || [base])[0]).attr('height', (b) => (prev.get('b|' + b.period) || [base, 0])[1])
+      .attr('rx', 3).style('fill', BLUE).style('fill-opacity', 0.14);
+    bandSel.each((b) => next.set('b|' + b.period, bandBox(b)));
+    glide(bandSel).attr('y', (b) => bandBox(b)[0]).attr('height', (b) => bandBox(b)[1]);
     [opp(S.team), S.team].forEach((team) => {
-      const mine = team === S.team, color = mine ? BLUE : 'var(--cds-chart-muted)';
+      const mine = team === S.team, color = mine ? BLUE : OPPC;
       const rows = pts.filter((q) => q.team === team);
-      svg.append('g').selectAll('circle').data(rows).join('circle')
-        .attr('cx', (q) => x(q.id)).attr('cy', (q) => yc(q.v))
+      const dots = svg.append('g').selectAll('circle').data(rows).join('circle')
+        .attr('cx', (q) => x(q.id)).attr('cy', (q) => prev.get('c|' + team + '|' + q.id) ?? base)
         .attr('r', (q) => String(q.id) === String(S.match) ? 5.5 : (mine ? 4 : 3))
         .style('fill', (q) => q.n < fm.min ? 'var(--color-panel)' : color)
         .style('stroke', color).style('stroke-width', (q) => q.n < fm.min ? 1.5 : 0)
-        .style('opacity', mine ? 1 : 0.6);
+        .style('opacity', mine ? 1 : 0.45);
+      dots.each((q) => next.set('c|' + team + '|' + q.id, yc(q.v)));
+      glide(dots).attr('cy', (q) => yc(q.v));
       periods.forEach((p) => {
         const me = perAgg.get(p.period)?.get(team), other = perAgg.get(p.period)?.get(opp(team));
         if (me == null) return;
-        svg.append('line').attr('x1', p.x0 - 6).attr('x2', p.x1 + 6).attr('y1', yc(me)).attr('y2', yc(me)).style('stroke', color).style('stroke-width', mine ? 3 : 2).style('stroke-linecap', 'round');
-        const above = other == null || me >= other;
-        svg.append('text').attr('class', 'ec-val').attr('x', (p.x0 + p.x1) / 2).attr('y', yc(me) + (above ? -7 : 15)).attr('text-anchor', 'middle').style('fill', mine ? BLUE : 'var(--cds-text-secondary)').text(fmt(r1(me), ff));
+        const k = team + '|' + p.period, ly = yc(me), py = prev.get('l|' + k) ?? base, off = (other == null || me >= other) ? -7 : 15;
+        next.set('l|' + k, ly);
+        glide(svg.append('line').attr('x1', p.x0 - 6).attr('x2', p.x1 + 6).attr('y1', py).attr('y2', py).style('stroke', color).style('stroke-width', mine ? 3 : 2).style('stroke-linecap', 'round').style('opacity', mine ? 1 : 0.7))
+          .attr('y1', ly).attr('y2', ly);
+        glide(svg.append('text').attr('class', 'ec-val').attr('x', (p.x0 + p.x1) / 2).attr('y', py + off).attr('text-anchor', 'middle').style('fill', mine ? BLUE : 'var(--cds-text-secondary)').text(fmt(r1(me), ff)))
+          .attr('y', ly + off);
       });
     });
     const nearest = (ev) => { const px = d3.pointer(ev, svg.node())[0]; return ids.reduce((a, b) => Math.abs(x(b) - px) < Math.abs(x(a) - px) ? b : a); };
@@ -799,6 +893,7 @@ Built from the project's Python pipeline; every metric is defined in the
       })
       .on('pointerleave', () => { T.hide(); guide.style('display', 'none'); })
       .on('click', (ev) => { S.match = nearest(ev); redraw(); });
+    el.__pos = next;
   });
 
   dash.draw('gsshare', (el) => {
@@ -826,23 +921,24 @@ Built from the project's Python pipeline; every metric is defined in the
     const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', team + ' balls lost by zone and goals conceded, ' + p);
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
+    grass(svg, false);
     svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + team + ' goal');
     svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('attacking →');
     const isSel = (z) => S.sel && S.sel.p === p && S.sel.z === z.k;
     svg.append('g').selectAll('rect').data(zones).join('rect')
       .attr('x', (z) => z.x0).attr('y', (z) => z.y0).attr('width', 40).attr('height', 80 / 3)
-      .style('fill', BLUE).style('fill-opacity', (z) => 0.04 + 0.56 * (z.n / nm) / vmax).style('cursor', 'pointer')
-      .style('stroke', (z) => isSel(z) ? 'var(--color-fg)' : 'none').attr('stroke-width', 0.9)
+      .style('fill', '#fff').style('fill-opacity', (z) => 0.02 + 0.4 * (z.n / nm) / vmax).style('cursor', 'pointer')
+      .style('stroke', (z) => isSel(z) ? '#fff' : 'none').attr('stroke-width', 0.9)
       .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Zone ' + (z.k + 1) + ' · click to list', nf1.format(z.n / nm) + ' losses per match', nf0.format(z.n) + ' losses in ' + nf0.format(nm) + ' matches (' + nf1.format(rows.length ? 100 * z.n / rows.length : 0) + '%)', nf0.format(z.g) + ' goals conceded']))
       .on('pointerleave', T.hide)
       .on('click', (ev, z) => { S.sel = isSel(z) ? null : {p, z: z.k}; dash.draw('pitch'); dash.draw('zhead'); dash.draw('zlist'); });
     const g = svg.append('g').style('pointer-events', 'none');
-    [40, 80].forEach((xx) => g.append('line').attr('x1', xx).attr('x2', xx).attr('y1', 0).attr('y2', 80).style('stroke', 'var(--color-fg-muted)').attr('stroke-width', 0.25).attr('stroke-dasharray', '1.2 1.2'));
-    [80 / 3, 160 / 3].forEach((yy) => g.append('line').attr('x1', 0).attr('x2', 120).attr('y1', yy).attr('y2', yy).style('stroke', 'var(--color-fg-muted)').attr('stroke-width', 0.25).attr('stroke-dasharray', '1.2 1.2'));
+    [40, 80].forEach((xx) => g.append('line').attr('x1', xx).attr('x2', xx).attr('y1', 0).attr('y2', 80).style('stroke', 'var(--pitch-line)').attr('stroke-width', 0.25).attr('stroke-dasharray', '1.2 1.2'));
+    [80 / 3, 160 / 3].forEach((yy) => g.append('line').attr('x1', 0).attr('x2', 120).attr('y1', yy).attr('y2', yy).style('stroke', 'var(--pitch-line)').attr('stroke-width', 0.25).attr('stroke-dasharray', '1.2 1.2'));
     pitchLines(g, false);
     svg.append('g').selectAll('circle').data(rows.filter((r) => +r.goal !== 1)).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', 1.15)
-      .style('fill', BLUE).style('opacity', 0.9).style('stroke', 'var(--color-panel)').attr('stroke-width', 0.25)
+      .style('fill', PBLUE).style('opacity', 0.9).style('stroke', 'var(--pitch-dot)').attr('stroke-width', 0.25)
       .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + "' " + r.player, r.kind + (+r.shot === 1 ? ', ended in a shot' : '')]))
       .on('pointerleave', T.hide);
     const lab = svg.append('g');
@@ -853,7 +949,7 @@ Built from the project's Python pipeline; every metric is defined in the
     });
     svg.append('g').selectAll('circle').data(rows.filter((r) => +r.goal === 1)).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', 2.8)
-      .style('fill', 'var(--color-bad)').style('stroke', 'var(--color-panel)').attr('stroke-width', 0.7)
+      .style('fill', 'var(--color-bad)').style('stroke', 'var(--pitch-dot)').attr('stroke-width', 0.7)
       .on('pointerenter', (ev, r) => T.show(ev, ['GOAL: ' + opp(team), r.match, r.minute + "' lost by " + r.player, r.kind]))
       .on('pointerleave', T.hide);
   });
@@ -897,14 +993,14 @@ Built from the project's Python pipeline; every metric is defined in the
     const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '57 -7 67 89').attr('role', 'img').attr('aria-label', S.team + ' shots and expected goals, ' + p);
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
-    svg.append('rect').attr('x', 60).attr('width', 60).attr('height', 80).style('fill', BLUE).style('fill-opacity', 0.04);
-    svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').style('font-size', '2.2px').text(opp(S.team) + ' goal →');
+    grass(svg, true);
+        svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').style('font-size', '2.2px').text(opp(S.team) + ' goal →');
     pitchLines(svg.append('g').style('pointer-events', 'none'), true);
     svg.append('g').selectAll('circle').data(rows).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', (r) => 0.6 + 3.2 * Math.sqrt(+r.xg))
-      .style('fill', (r) => r.outcome === 'Goal' ? 'var(--color-bad)' : BLUE)
+      .style('fill', (r) => r.outcome === 'Goal' ? 'var(--color-bad)' : PBLUE)
       .style('fill-opacity', 1)
-      .style('stroke', 'var(--color-panel)').attr('stroke-width', 0.35)
+      .style('stroke', 'var(--pitch-dot)').attr('stroke-width', 0.35)
       .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + "' " + r.player, r.outcome + ' · xG ' + nf2.format(+r.xg) + ' · ' + r.start]))
       .on('pointerleave', T.hide);
   });
@@ -934,14 +1030,14 @@ Built from the project's Python pipeline; every metric is defined in the
     const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', 'Balls lost by ' + S.team + ' in the selected match');
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
-    svg.append('rect').attr('width', 120).attr('height', 80).style('fill', BLUE).style('fill-opacity', 0.04);
-    svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' goal');
+    grass(svg, false);
+        svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' goal');
     svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('attacking →');
     pitchLines(svg.append('g').style('pointer-events', 'none'), false);
     svg.append('g').selectAll('circle').data(rows.slice().sort((a, b) => a.goal - b.goal)).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', (r) => +r.goal === 1 ? 2.8 : +r.shot === 1 ? 1.9 : 1.4)
-      .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : BLUE)
-      .style('stroke', 'var(--color-panel)').attr('stroke-width', 0.35)
+      .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : PBLUE)
+      .style('stroke', 'var(--pitch-dot)').attr('stroke-width', 0.35)
       .on('pointerenter', (ev, r) => T.show(ev, [r.minute + "' " + r.player, r.kind + ', ' + (r.result === 'Goal' ? 'goal conceded' : r.result === 'Shot' ? 'shot conceded' : 'no shot')]))
       .on('pointerleave', T.hide);
   });
@@ -950,7 +1046,7 @@ Built from the project's Python pipeline; every metric is defined in the
     const L = dash.data('losses');
     if (L.status !== 'ok') { el.textContent = '—'; return; }
     const rows = L.data.filter((r) => String(r.match_id) === String(S.match) && r.team === S.team);
-    el.textContent = nf0.format(rows.length) + ' balls lost after a controlled touch; ' + nf0.format(d3.sum(rows, (r) => +r.shot)) + ' ended in a shot, ' + nf0.format(d3.sum(rows, (r) => +r.goal)) + ' in a goal. Larger blue dot: a loss followed by a shot.';
+    el.textContent = nf0.format(rows.length) + ' balls lost after a controlled touch; ' + nf0.format(d3.sum(rows, (r) => +r.shot)) + ' ended in a shot, ' + nf0.format(d3.sum(rows, (r) => +r.goal)) + ' in a goal. Larger dot: a loss followed by a shot.';
   });
 
   dash.draw('shots', (tb) => {
@@ -968,6 +1064,58 @@ Built from the project's Python pipeline; every metric is defined in the
     }));
   });
 
+  // ---- Hero: passes before a shot per period for both clubs, with each period's main coaches underneath
+  dash.draw('hero', (el) => {
+    const P = dash.data('period_team'), M = dash.data('match_team');
+    if (P.status !== 'ok' || !Array.isArray(P.data) || M.status !== 'ok') { el.textContent = '—'; return; }
+    const TEAMS = [{t: 'Barcelona', c: 'var(--c-barca-p)'}, {t: 'Real Madrid', c: 'var(--c-madrid-p)'}];
+    TEAMS.forEach((T) => { T.d = PERIODS.map((p) => ({p, v: +(P.data.find((r) => r.key === p + '|' + T.t) || {}).passes_per_shot})).filter((q) => q.v > 0); });
+    const W = Math.max(260, el.clientWidth || 480), H = 290, narrow = W < 420;
+    const mg = {t: 30, r: narrow ? 14 : 96, b: 62, l: 14};
+    const x = d3.scalePoint().domain(PERIODS).range([mg.l + 22, W - mg.r - 8]);
+    const y = d3.scaleLinear().domain([0, d3.max(TEAMS.flatMap((T) => T.d.map((q) => q.v))) * 1.18]).range([H - mg.b, mg.t]);
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img')
+      .attr('aria-label', 'Passes before an open-play shot by period. ' + TEAMS.map((T) => T.t + ': ' + T.d.map((q) => q.p + ' ' + nf1.format(q.v)).join(', ')).join('. '));
+    el.replaceChildren(svg.node());
+    const anim = MOTION && !el.__drawn;
+    el.__drawn = true;
+    svg.append('text').attr('x', 0).attr('y', 12).style('fill', 'var(--hero-muted)').style('font-size', '12px').text('Passes before an open-play shot, period average');
+    y.ticks(4).forEach((t) => svg.append('line').attr('x1', mg.l).attr('x2', W - mg.r).attr('y1', y(t)).attr('y2', y(t)).style('stroke', 'rgba(255,255,255,.08)'));
+    const [b, m] = TEAMS;
+    if (b.d.length === PERIODS.length && m.d.length === PERIODS.length) {
+      const gap = svg.append('path').datum(PERIODS.map((p, i) => [x(p), y(b.d[i].v), y(m.d[i].v)]))
+        .attr('d', d3.area().x((q) => q[0]).y0((q) => q[1]).y1((q) => q[2]).curve(d3.curveMonotoneX)).style('fill', 'rgba(255,255,255,.07)');
+      if (anim) gap.style('opacity', 0).transition().delay(700).duration(800).style('opacity', 1);
+    }
+    const step = x.step(), coaches = step >= 74;
+    PERIODS.forEach((p) => {
+      svg.append('text').attr('x', x(p)).attr('y', H - mg.b + 22).attr('text-anchor', 'middle').style('fill', '#fff').style('font-size', '12.5px').style('font-weight', 600).text(p);
+      if (!coaches) return;
+      TEAMS.forEach((T, i) => {
+        const cs = coachesOf(M.data, T.t, p), top = d3.greatest(cs, ([, n]) => n);
+        if (top) svg.append('text').attr('x', x(p)).attr('y', H - mg.b + 38 + i * 14).attr('text-anchor', 'middle').style('fill', T.c).style('font-size', '11px').text(coachShort(top[0]))
+          .append('title').text(T.t + ', ' + p + ': ' + cs.map(([c, n]) => c + ' (' + n + ')').join(', '));
+      });
+    });
+    TEAMS.forEach((T, i) => {
+      const path = svg.append('path').datum(T.d).attr('d', d3.line().x((q) => x(q.p)).y((q) => y(q.v)).curve(d3.curveMonotoneX))
+        .style('fill', 'none').style('stroke', T.c).style('stroke-width', 3.5).style('stroke-linecap', 'round');
+      if (anim) { const L = path.node().getTotalLength(); path.attr('stroke-dasharray', L + ' ' + L).attr('stroke-dashoffset', L).transition().delay(150 + i * 200).duration(1100).ease(d3.easeCubicInOut).attr('stroke-dashoffset', 0); }
+      const other = TEAMS[1 - i];
+      T.d.forEach((q, k) => {
+        const o = other.d.find((r) => r.p === q.p), above = !o || q.v >= o.v;
+        const g = svg.append('g');
+        g.append('circle').attr('cx', x(q.p)).attr('cy', y(q.v)).attr('r', 5.5).style('fill', T.c).style('stroke', 'var(--hero-bg)').style('stroke-width', 2.5);
+        g.append('text').attr('x', x(q.p)).attr('y', y(q.v) + (above ? -12 : 22)).attr('text-anchor', 'middle').style('fill', T.c).style('font-size', '13px').style('font-weight', 600).style('font-variant-numeric', 'tabular-nums').text(nf1.format(q.v));
+        if (anim) g.style('opacity', 0).transition().delay(250 + i * 200 + k * 260).duration(400).style('opacity', 1);
+      });
+      if (!narrow) {
+        const last = T.d[T.d.length - 1], o = other.d[other.d.length - 1];
+        svg.append('text').attr('x', x(last.p) + 14).attr('y', y(last.v) + (last.v >= o.v ? -2 : 12)).style('fill', T.c).style('font-size', '12.5px').style('font-weight', 600).text(T.t);
+      }
+    });
+  });
+
   // ---- Where the ball was lost, where the shot came from
   const lsRows = () => {
     const L = dash.data('losses');
@@ -977,8 +1125,8 @@ Built from the project's Python pipeline; every metric is defined in the
   const lsShots = (rows) => rows.filter((r) => +r.shot === 1 && r.shot_x != null && (S.lz == null || zoneOf(r) === S.lz));
   function zoneGrid(svg) {
     const g = svg.append('g').style('pointer-events', 'none');
-    [40, 80].forEach((xx) => g.append('line').attr('x1', xx).attr('x2', xx).attr('y1', 0).attr('y2', 80).style('stroke', 'var(--color-fg-muted)').attr('stroke-width', 0.25).attr('stroke-dasharray', '1.2 1.2'));
-    [80 / 3, 160 / 3].forEach((yy) => g.append('line').attr('x1', 0).attr('x2', 120).attr('y1', yy).attr('y2', yy).style('stroke', 'var(--color-fg-muted)').attr('stroke-width', 0.25).attr('stroke-dasharray', '1.2 1.2'));
+    [40, 80].forEach((xx) => g.append('line').attr('x1', xx).attr('x2', xx).attr('y1', 0).attr('y2', 80).style('stroke', 'var(--pitch-line)').attr('stroke-width', 0.25).attr('stroke-dasharray', '1.2 1.2'));
+    [80 / 3, 160 / 3].forEach((yy) => g.append('line').attr('x1', 0).attr('x2', 120).attr('y1', yy).attr('y2', yy).style('stroke', 'var(--pitch-line)').attr('stroke-width', 0.25).attr('stroke-dasharray', '1.2 1.2'));
     pitchLines(g, false);
   }
   const zones9 = () => d3.range(9).map((k) => ({k, x0: Math.floor(k / 3) * 40, y0: (k % 3) * 80 / 3, n: 0, s: 0, g: 0}));
@@ -1002,21 +1150,22 @@ Built from the project's Python pipeline; every metric is defined in the
     const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', S.team + ' balls lost by zone');
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
+    grass(svg, false);
     svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' goal');
     svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text('attacking →');
     const isSel = (z) => S.lz === z.k;
     svg.append('g').selectAll('rect').data(zones).join('rect')
       .attr('x', (z) => z.x0).attr('y', (z) => z.y0).attr('width', 40).attr('height', 80 / 3)
-      .style('fill', BLUE).style('fill-opacity', (z) => 0.04 + 0.5 * z.n / vmax).style('cursor', 'pointer')
-      .style('stroke', (z) => isSel(z) ? 'var(--color-fg)' : 'none').attr('stroke-width', 0.9)
+      .style('fill', '#fff').style('fill-opacity', (z) => 0.02 + 0.36 * z.n / vmax).style('cursor', 'pointer')
+      .style('stroke', (z) => isSel(z) ? '#fff' : 'none').attr('stroke-width', 0.9)
       .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Zone ' + (z.k + 1) + ' · click to filter shots', nf0.format(z.n) + ' losses', nf0.format(z.s) + ' ended in a shot (' + nf1.format(z.n ? 100 * z.s / z.n : 0) + '%)', nf0.format(z.g) + ' goals conceded']))
       .on('pointerleave', T.hide)
       .on('click', (ev, z) => { S.lz = isSel(z) ? null : z.k; redrawLS(); });
     zoneGrid(svg);
     svg.append('g').selectAll('circle').data(rows.slice().sort((a, b) => (+a.shot + +a.goal) - (+b.shot + +b.goal))).join('circle')
       .attr('cx', (r) => +r.x).attr('cy', (r) => +r.y).attr('r', (r) => +r.goal === 1 ? 2.6 : +r.shot === 1 ? 1.8 : 0.85)
-      .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : BLUE)
-      .style('stroke', 'var(--color-panel)').attr('stroke-width', (r) => +r.shot === 1 ? 0.5 : 0.25)
+      .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : PBLUE)
+      .style('stroke', 'var(--pitch-dot)').attr('stroke-width', (r) => +r.shot === 1 ? 0.5 : 0.25)
       .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.minute + "' " + r.player, r.kind + ', ' + (r.result === 'Goal' ? 'goal conceded' : r.result === 'Shot' ? 'shot conceded' : 'no shot')]))
       .on('pointerleave', T.hide);
     const lab = svg.append('g');
@@ -1045,25 +1194,26 @@ Built from the project's Python pipeline; every metric is defined in the
     const svg = d3.create('svg').attr('width', '100%').attr('viewBox', '-3 -7 126 89').attr('role', 'img').attr('aria-label', 'Where ' + opp(S.team) + ' shot from after ' + S.team + ' losses');
     const T = makeTip(el);
     el.replaceChildren(svg.node(), T.tip);
+    grass(svg, false);
     svg.append('text').attr('class', 'ec-dir').attr('x', 0).attr('y', -2.5).text('← ' + S.team + ' goal');
     svg.append('text').attr('class', 'ec-dir').attr('x', 120).attr('y', -2.5).attr('text-anchor', 'end').text(S.team + ' attacking →');
     svg.append('g').selectAll('rect').data(zones).join('rect')
       .attr('x', (z) => z.x0).attr('y', (z) => z.y0).attr('width', 40).attr('height', 80 / 3)
-      .style('fill', BLUE).style('fill-opacity', (z) => 0.04 + 0.5 * z.n / vmax)
+      .style('fill', '#fff').style('fill-opacity', (z) => 0.02 + 0.36 * z.n / vmax)
       .on('pointerenter pointermove', (ev, z) => T.show(ev, ['Zone ' + (z.k + 1), nf0.format(z.n) + ' shots', nf0.format(z.g) + ' goals']))
       .on('pointerleave', T.hide);
     zoneGrid(svg);
     const ln = svg.append('g').style('pointer-events', 'none');
     shots.forEach((r) => {
       ln.append('line').attr('x1', +r.x).attr('y1', +r.y).attr('x2', +r.shot_x).attr('y2', +r.shot_y)
-        .style('stroke', +r.goal === 1 ? 'var(--color-bad)' : BLUE).attr('stroke-width', 0.35).style('opacity', 0.7);
+        .style('stroke', +r.goal === 1 ? 'var(--color-bad)' : PBLUE).attr('stroke-width', 0.35).style('opacity', 0.7);
       ln.append('circle').attr('cx', +r.x).attr('cy', +r.y).attr('r', 0.9).style('fill', 'none')
-        .style('stroke', +r.goal === 1 ? 'var(--color-bad)' : BLUE).attr('stroke-width', 0.35);
+        .style('stroke', +r.goal === 1 ? 'var(--color-bad)' : PBLUE).attr('stroke-width', 0.35);
     });
     svg.append('g').selectAll('circle').data(uniq.slice().sort((a, b) => a.goal - b.goal || b.shot_xg - a.shot_xg)).join('circle')
       .attr('cx', (r) => +r.shot_x).attr('cy', (r) => +r.shot_y).attr('r', (r) => 1 + 4 * Math.sqrt(+r.shot_xg))
-      .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : BLUE)
-      .style('stroke', 'var(--color-panel)').attr('stroke-width', 0.35)
+      .style('fill', (r) => +r.goal === 1 ? 'var(--color-bad)' : PBLUE)
+      .style('stroke', 'var(--pitch-dot)').attr('stroke-width', 0.35)
       .on('pointerenter', (ev, r) => T.show(ev, [r.match, r.shot_minute + "' shot by " + r.shot_player, (r.result === 'Goal' ? 'Goal' : 'Shot') + ' · xG ' + nf2.format(+r.shot_xg), 'Lost by ' + r.player + ', zone ' + (zoneOf(r) + 1)]))
       .on('pointerleave', T.hide);
     const lab = svg.append('g');
@@ -1106,6 +1256,7 @@ Built from the project's Python pipeline; every metric is defined in the
   });
 
   const apply = () => {
+    document.querySelectorAll('.ec[data-team]').forEach((e) => { e.dataset.team = S.team; });
     document.querySelectorAll('.ec-segbtn').forEach((b) => b.setAttribute('aria-pressed', b.dataset.team === S.team ? 'true' : 'false'));
     document.querySelectorAll('.ec-stat').forEach((sel) => { sel.value = S.stat; });
     document.querySelectorAll('.ec-lsp').forEach((sel) => { sel.value = S.lp; });
@@ -1123,11 +1274,19 @@ Built from the project's Python pipeline; every metric is defined in the
   document.querySelectorAll('.ec-gsbtn').forEach((b) => b.addEventListener('click', () => { S.gs = b.dataset.gs; apply(); ['vtitle', 'trend', 'gsshare'].forEach((n) => dash.draw(n)); }));
   document.querySelectorAll('.ec-lsp').forEach((sel) => sel.addEventListener('change', () => { S.lp = sel.value; S.lz = null; redrawLS(); }));
   apply();
+  // cards rise in as they reach the viewport; armed only here, so without JS or IntersectionObserver nothing is hidden
+  if (MOTION && 'IntersectionObserver' in window && !window.__ecReveal) {
+    window.__ecReveal = true;
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('ec-in'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -6% 0px'});
+    document.querySelectorAll('.ec').forEach((e) => e.classList.add('ec-anim'));
+    document.querySelectorAll('.ec-card').forEach((c) => io.observe(c));
+  }
 })();
 </script>
 <script>
 (() => {
-  const BLUE = '#2563eb', AMBER = '#d97706', GREY = 'var(--cds-chart-muted)';
+  const BLUE = 'var(--c-barca, #0b4ea2)', MADRID = 'var(--c-madrid, #946c00)', AMBER = '#0f8b8d', GREY = 'var(--cds-chart-muted)';
+  const clubColor = (t) => t === 'Real Madrid' ? MADRID : BLUE;
   const PERIODS = ['2004-09', '2009-13', '2013-17', '2017-21'];
   const CAT = {clasico: 'Clásicos', barcelona_vs_top10: 'Barcelona against top-10 clubs', barcelona_all: 'All Barcelona league matches', season_2015_16: '2015/16, every club'};
   const M = {
@@ -1247,7 +1406,7 @@ Built from the project's Python pipeline; every metric is defined in the
     const I = data('league_intervals');
     if (!I) { el.textContent = '—'; return; }
     const m = M[G.metric], series = groupsOf(I, G.metric, sideName());
-    const colors = {'Real Madrid': BLUE, 'Top-10 club': AMBER, 'Other club': GREY};
+    const colors = {'Real Madrid': MADRID, 'Top-10 club': AMBER, 'Other club': GREY};
     const all = series.flatMap((s) => s.rows.flatMap((r) => [r.lo, r.hi]));
     const W = Math.max(300, el.clientWidth || 600), H = 300, mg = {t: 16, r: 16, b: 28, l: 44};
     const [lo, hi] = d3.extent(all), pad = (hi - lo) * 0.12 || 1;
@@ -1465,17 +1624,17 @@ Built from the project's Python pipeline; every metric is defined in the
     el.replaceChildren(svg.node(), T.tip);
     yAxis(svg, y, W, mg, m.f);
     bands.forEach((b) => {
-      const x0 = x(b.i0 - 0.45), x1 = x(b.i1 + 0.45), c = b.j ? BLUE : GREY;
+      const x0 = x(b.i0 - 0.45), x1 = x(b.i1 + 0.45), c = b.j ? clubColor(s.team) : GREY;
       svg.append('text').attr('class', 'ec-tick').attr('x', (x0 + x1) / 2).attr('y', 12).attr('text-anchor', 'middle').text(`${s.short[b.j]} · ${b.i1 - b.i0 + 1} matches`);
       if (b.iv) {
         svg.append('rect').attr('x', x0).attr('width', x1 - x0).attr('y', yc(b.iv.hi)).attr('height', Math.max(1, yc(b.iv.lo) - yc(b.iv.hi))).attr('rx', 3).style('fill', c).style('fill-opacity', 0.15);
         svg.append('line').attr('x1', x0).attr('x2', x1).attr('y1', yc(b.iv.value)).attr('y2', yc(b.iv.value)).style('stroke', c).style('stroke-width', 3).style('stroke-linecap', 'round');
-        svg.append('text').attr('class', 'ec-val').attr('x', (x0 + x1) / 2).attr('y', yc(b.iv.hi) - 6).attr('text-anchor', 'middle').style('fill', b.j ? BLUE : 'var(--cds-text-secondary)').text(fmt(b.iv.value, m.f));
+        svg.append('text').attr('class', 'ec-val').attr('x', (x0 + x1) / 2).attr('y', yc(b.iv.hi) - 6).attr('text-anchor', 'middle').style('fill', b.j ? clubColor(s.team) : 'var(--cds-text-secondary)').text(fmt(b.iv.value, m.f));
       }
     });
     svg.append('line').attr('x1', x(cut - 0.5)).attr('x2', x(cut - 0.5)).attr('y1', mg.t - 8).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-reference)').style('stroke-dasharray', '3 3');
     svg.append('g').selectAll('circle').data(pts).join('circle').attr('cx', (q) => x(q.i)).attr('cy', (q) => yc(q.v)).attr('r', 3.5)
-      .style('fill', (q) => q.r.coach === s.coaches[1] ? BLUE : GREY).style('opacity', 0.75);
+      .style('fill', (q) => q.r.coach === s.coaches[1] ? clubColor(s.team) : GREY).style('opacity', 0.75);
     const years = d3.groups(rows.map((r, i) => ({r, i})), (q) => q.r.match_date.slice(0, 7)).filter((d, k) => k % 2 === 0);
     years.forEach(([ym, qs]) => svg.append('text').attr('class', 'ec-tick').attr('x', x(qs[0].i)).attr('y', H - 6).attr('text-anchor', 'middle').text(new Date(ym + '-15').toLocaleString('en-US', {month: 'short'}) + (ym.endsWith('-01') || qs[0].i === 0 ? ' ' + ym.slice(2, 4) : '')));
     const nearest = (ev) => rows[Math.max(0, Math.min(rows.length - 1, Math.round(x.invert(d3.pointer(ev, svg.node())[0]))))];

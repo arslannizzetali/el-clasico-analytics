@@ -6,9 +6,10 @@ Data: league, league_intervals, tactical_shifts, ucl_finals, league_meta (data/l
 .lg-brand{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0}
 .lg-tabbtn{font:inherit;font-weight:var(--cds-font-weight-medium);padding:8px 16px;background:var(--color-panel);color:var(--color-fg);border:0;cursor:pointer}
 .lg-tabbtn+.lg-tabbtn{border-left:1px solid var(--color-border-line)}
-.lg-tabbtn[aria-selected=true]{background:#2563eb;color:#fff}
+.lg-tabbtn{transition:background-color .2s,color .2s}
+.lg-tabbtn[aria-selected=true]{background:var(--color-fg);color:var(--page-bg, #fff)}
 /* own class: the Clásico page hides every .ec-find that is not its current finding */
-.lg-find{margin:0;max-width:75ch;padding:8px 12px;border-left:3px solid #2563eb;background:var(--color-bg-subtle, rgba(37,99,235,.06));border-radius:0 var(--cds-radius) var(--cds-radius) 0}
+.lg-find{margin:0;max-width:75ch;padding:8px 12px;border-left:3px solid var(--c-barca, #0b4ea2);background:color-mix(in srgb,var(--c-barca, #0b4ea2) 8%,transparent);border-radius:0 var(--cds-radius) var(--cds-radius) 0}
 .lg-cov{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;max-width:80ch}
 .lg-cov b{font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}
 .lg-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:var(--cds-gap-lg)}
@@ -16,11 +17,11 @@ Data: league, league_intervals, tactical_shifts, ucl_finals, league_meta (data/l
 .ec-table tr.lg-click{cursor:pointer}
 .ec-table tr.lg-click:hover td{background:var(--color-bg-subtle)}
 .ec-table tr.lg-sel td{background:var(--color-bg-subtle);font-weight:var(--cds-font-weight-medium)}
-.lg-clear{color:#2563eb;font-weight:var(--cds-font-weight-medium)}
+.lg-clear{color:var(--c-barca, #0b4ea2);font-weight:var(--cds-font-weight-medium)}
 .lg-heat td.lg-cell{text-align:center;min-width:64px}
-.lg-key3{display:inline-block;width:16px;height:0;border-top:2px solid #d97706}
+.lg-key3{display:inline-block;width:16px;height:0;border-top:2px solid #0f8b8d}
 .lg-key-grey{display:inline-block;width:16px;height:0;border-top:2px solid var(--cds-chart-muted)}
-.lg-key-blue{display:inline-block;width:16px;height:0;border-top:2px solid #2563eb}
+.lg-key-blue{display:inline-block;width:16px;height:0;border-top:2px solid var(--c-madrid, #946c00)}
 .lg-timeline{position:relative;min-height:120px}
 .lg-timeline text{font-family:var(--font-anthropic-sans);font-size:12px}
 .lg-chart{position:relative;min-height:300px}
@@ -224,7 +225,8 @@ of the metrics, as everywhere on this site.</p>
 
 <script>
 (() => {
-  const BLUE = '#2563eb', AMBER = '#d97706', GREY = 'var(--cds-chart-muted)';
+  const BLUE = 'var(--c-barca, #0b4ea2)', MADRID = 'var(--c-madrid, #946c00)', AMBER = '#0f8b8d', GREY = 'var(--cds-chart-muted)';
+  const clubColor = (t) => t === 'Real Madrid' ? MADRID : BLUE;
   const PERIODS = ['2004-09', '2009-13', '2013-17', '2017-21'];
   const CAT = {clasico: 'Clásicos', barcelona_vs_top10: 'Barcelona against top-10 clubs', barcelona_all: 'All Barcelona league matches', season_2015_16: '2015/16, every club'};
   const M = {
@@ -344,7 +346,7 @@ of the metrics, as everywhere on this site.</p>
     const I = data('league_intervals');
     if (!I) { el.textContent = '—'; return; }
     const m = M[G.metric], series = groupsOf(I, G.metric, sideName());
-    const colors = {'Real Madrid': BLUE, 'Top-10 club': AMBER, 'Other club': GREY};
+    const colors = {'Real Madrid': MADRID, 'Top-10 club': AMBER, 'Other club': GREY};
     const all = series.flatMap((s) => s.rows.flatMap((r) => [r.lo, r.hi]));
     const W = Math.max(300, el.clientWidth || 600), H = 300, mg = {t: 16, r: 16, b: 28, l: 44};
     const [lo, hi] = d3.extent(all), pad = (hi - lo) * 0.12 || 1;
@@ -562,17 +564,17 @@ of the metrics, as everywhere on this site.</p>
     el.replaceChildren(svg.node(), T.tip);
     yAxis(svg, y, W, mg, m.f);
     bands.forEach((b) => {
-      const x0 = x(b.i0 - 0.45), x1 = x(b.i1 + 0.45), c = b.j ? BLUE : GREY;
+      const x0 = x(b.i0 - 0.45), x1 = x(b.i1 + 0.45), c = b.j ? clubColor(s.team) : GREY;
       svg.append('text').attr('class', 'ec-tick').attr('x', (x0 + x1) / 2).attr('y', 12).attr('text-anchor', 'middle').text(`${s.short[b.j]} · ${b.i1 - b.i0 + 1} matches`);
       if (b.iv) {
         svg.append('rect').attr('x', x0).attr('width', x1 - x0).attr('y', yc(b.iv.hi)).attr('height', Math.max(1, yc(b.iv.lo) - yc(b.iv.hi))).attr('rx', 3).style('fill', c).style('fill-opacity', 0.15);
         svg.append('line').attr('x1', x0).attr('x2', x1).attr('y1', yc(b.iv.value)).attr('y2', yc(b.iv.value)).style('stroke', c).style('stroke-width', 3).style('stroke-linecap', 'round');
-        svg.append('text').attr('class', 'ec-val').attr('x', (x0 + x1) / 2).attr('y', yc(b.iv.hi) - 6).attr('text-anchor', 'middle').style('fill', b.j ? BLUE : 'var(--cds-text-secondary)').text(fmt(b.iv.value, m.f));
+        svg.append('text').attr('class', 'ec-val').attr('x', (x0 + x1) / 2).attr('y', yc(b.iv.hi) - 6).attr('text-anchor', 'middle').style('fill', b.j ? clubColor(s.team) : 'var(--cds-text-secondary)').text(fmt(b.iv.value, m.f));
       }
     });
     svg.append('line').attr('x1', x(cut - 0.5)).attr('x2', x(cut - 0.5)).attr('y1', mg.t - 8).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-reference)').style('stroke-dasharray', '3 3');
     svg.append('g').selectAll('circle').data(pts).join('circle').attr('cx', (q) => x(q.i)).attr('cy', (q) => yc(q.v)).attr('r', 3.5)
-      .style('fill', (q) => q.r.coach === s.coaches[1] ? BLUE : GREY).style('opacity', 0.75);
+      .style('fill', (q) => q.r.coach === s.coaches[1] ? clubColor(s.team) : GREY).style('opacity', 0.75);
     const years = d3.groups(rows.map((r, i) => ({r, i})), (q) => q.r.match_date.slice(0, 7)).filter((d, k) => k % 2 === 0);
     years.forEach(([ym, qs]) => svg.append('text').attr('class', 'ec-tick').attr('x', x(qs[0].i)).attr('y', H - 6).attr('text-anchor', 'middle').text(new Date(ym + '-15').toLocaleString('en-US', {month: 'short'}) + (ym.endsWith('-01') || qs[0].i === 0 ? ' ' + ym.slice(2, 4) : '')));
     const nearest = (ev) => rows[Math.max(0, Math.min(rows.length - 1, Math.round(x.invert(d3.pointer(ev, svg.node())[0]))))];

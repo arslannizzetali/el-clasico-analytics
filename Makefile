@@ -48,6 +48,7 @@ analysis:  ## league tables, intervals, BI and Parquet export -> data/league, da
 site:  ## rebuild docs/index.html and the README charts
 	python3 site/build_site.py
 	python3 site/readme_charts.py
+	python3 site/og_image.py
 
 run: pipeline load quality dbt analysis site  ## everything, in order
 
