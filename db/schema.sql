@@ -116,3 +116,14 @@ SELECT m.match_id, m.season_name, m.match_date, h.team_name AS home, a.team_name
 FROM matches m
 JOIN teams h ON h.team_id = m.home_team_id
 JOIN teams a ON a.team_id = m.away_team_id;
+
+-- The 10 clubs with the most top-10 finishes 2004/05-2020/21; ties broken by average final position.
+CREATE OR REPLACE VIEW top_clubs AS
+SELECT team_name,
+       count(*) FILTER (WHERE position <= 10) AS top10_finishes,
+       round(avg(position), 1)                AS avg_position,
+       count(*)                               AS seasons_in_liga
+FROM standings
+GROUP BY team_name
+ORDER BY top10_finishes DESC, avg(position)
+LIMIT 10;
