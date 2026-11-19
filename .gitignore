@@ -5,3 +5,5 @@ __pycache__/
 .claude/
 TANITIM.md
 CONTEXT.md
+.venv/
+.env

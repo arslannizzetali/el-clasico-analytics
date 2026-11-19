@@ -2,7 +2,8 @@
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RAW = os.path.join(ROOT, 'data', 'raw')
+# Download cache; CLASICO_RAW lets several checkouts share one (the full league is a few GB)
+RAW = os.environ.get('CLASICO_RAW') or os.path.join(ROOT, 'data', 'raw')
 PROCESSED = os.path.join(ROOT, 'data', 'processed')
 TEAMS = ('Barcelona', 'Real Madrid')
 OPP = {'Real Madrid': 'Barcelona', 'Barcelona': 'Real Madrid'}

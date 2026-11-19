@@ -8,11 +8,12 @@ from . import RAW
 
 BASE = 'https://raw.githubusercontent.com/statsbomb/open-data/master/data/'
 LA_LIGA = 11
+UCL = 16
 FIRST_SEASON = '2005'
 
 
 def fetch(path, dest, retries=5, wait=2.0):
-    """Download BASE/path to dest, retrying network errors with a growing wait.
+    """Download BASE/path (or path itself, when it is a full URL) to dest, retrying network errors with a growing wait.
     Writes to a temporary file first so an interrupted download never leaves a broken cache file."""
     if os.path.exists(dest):
         return dest
@@ -20,7 +21,7 @@ def fetch(path, dest, retries=5, wait=2.0):
     tmp = dest + '.part'
     for attempt in range(1, retries + 1):
         try:
-            with urllib.request.urlopen(BASE + path, timeout=60) as r, open(tmp, 'wb') as fh:
+            with urllib.request.urlopen(path if path.startswith('https://') else BASE + path, timeout=60) as r, open(tmp, 'wb') as fh:
                 fh.write(r.read())
             os.replace(tmp, dest)
             return dest
@@ -49,6 +50,51 @@ def clasico_matches(raw=RAW):
                     g['season'] = c['season_name']
                     out.append(g)
     return sorted(out, key=lambda g: g['match_date'])
+
+
+def league_matches(first='2004/2005', last='2020/2021', raw=RAW):
+    """Every La Liga match in the open data between two seasons (inclusive), sorted by date.
+    Before 2015/16 and after it this is Barcelona's matches only; 2015/16 is the full season."""
+    comps = load_json('competitions.json', 'c.json', raw)
+    out = []
+    for c in comps:
+        if c['competition_id'] == LA_LIGA and first <= c['season_name'] <= last:
+            out.extend(load_json(f"matches/{LA_LIGA}/{c['season_id']}.json", f"matches_{LA_LIGA}_{c['season_id']}.json", raw))
+    return sorted(out, key=lambda g: (g['match_date'], g['match_id']))
+
+
+def ucl_finals(teams=('Barcelona', 'Real Madrid'), first='2005', raw=RAW):
+    """Champions League finals in the open data (2005/06 on) with Barcelona or Real Madrid, sorted by date."""
+    comps = load_json('competitions.json', 'c.json', raw)
+    out = []
+    for c in comps:
+        if c['competition_id'] == UCL and c['season_name'] >= first:
+            for g in load_json(f"matches/{UCL}/{c['season_id']}.json", f"matches_{UCL}_{c['season_id']}.json", raw):
+                if g['competition_stage']['name'] == 'Final' and set(teams) & {g['home_team']['home_team_name'], g['away_team']['away_team_name']}:
+                    out.append(g)
+    return sorted(out, key=lambda g: g['match_date'])
+
+
+SCOPES = ('all', 'league', 'clasico', 'ucl_finals')
+
+
+def scope_matches(scope='all', raw=RAW):
+    """'league': every La Liga match in the open data; 'clasico': the 29 Clásicos the reference pipeline uses;
+    'ucl_finals': Barcelona's and Real Madrid's Champions League finals; 'all': league + finals.
+    Match dicts are returned as StatsBomb has them (clasico_matches overwrites 'season' with its name)."""
+    if scope not in SCOPES:
+        raise ValueError(f'scope must be one of {SCOPES}')
+    if scope == 'ucl_finals':
+        return ucl_finals(raw=raw)
+    ms = league_matches(raw=raw)
+    if scope == 'clasico':
+        ids = {g['match_id'] for g in clasico_matches(raw)}
+        ms = [g for g in ms if g['match_id'] in ids]
+    return ms + ucl_finals(raw=raw) if scope == 'all' else ms
+
+
+def lineups(match_id, raw=RAW):
+    return load_json(f'lineups/{match_id}.json', f'lineups_{match_id}.json', raw)
 
 
 def events(match_id, raw=RAW, max_period=2):

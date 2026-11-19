@@ -1,0 +1,3487 @@
+match_id,team,period,minute,formation,starting
+9575,Barcelona,1,0,4-4-1-1,1
+9575,Real Betis,1,0,4-3-3,1
+9575,Barcelona,2,61,4-4-1-1,0
+9575,Real Betis,2,67,4-3-3,0
+9575,Barcelona,2,71,4-4-1-1,0
+9581,Deportivo Alavés,1,0,4-5-1,1
+9581,Barcelona,1,0,4-3-3,1
+9581,Barcelona,2,56,4-3-3,0
+9592,Barcelona,1,0,4-4-2,1
+9592,Espanyol,1,0,4-4-2,1
+9592,Barcelona,2,72,4-2-2-2,0
+9602,Getafe,1,0,4-2-3-1,1
+9602,Barcelona,1,0,4-3-3,1
+9602,Barcelona,1,17,4-3-3,0
+9602,Barcelona,1,28,4-3-3,0
+9602,Getafe,2,53,4-2-3-1,0
+9602,Getafe,2,70,4-4-2,0
+9609,Barcelona,1,0,4-3-3,1
+9609,Eibar,1,0,4-2-3-1,1
+9609,Eibar,1,1,4-2-3-1,0
+9620,Girona,1,0,3-5-1-1,1
+9620,Barcelona,1,0,4-4-2,1
+9636,Barcelona,1,0,4-4-2,1
+9636,Las Palmas,1,0,4-2-3-1,1
+9636,Barcelona,2,45,4-4-2,0
+9642,Atlético Madrid,1,0,4-4-2,1
+9642,Barcelona,1,0,4-4-2,1
+9642,Atlético Madrid,2,58,4-4-2,0
+9642,Barcelona,2,62,4-4-2,0
+9642,Atlético Madrid,2,73,4-4-2,0
+9642,Atlético Madrid,2,82,4-4-2,0
+9650,Barcelona,1,0,4-4-2,1
+9650,Málaga,1,0,4-2-3-1,1
+9650,Málaga,2,71,4-4-2,0
+9650,Barcelona,2,71,4-4-2,0
+9661,Athletic Club,1,0,4-2-3-1,1
+9661,Barcelona,1,0,4-4-2,1
+9661,Barcelona,2,82,4-4-2,0
+9673,Barcelona,1,0,4-4-2,1
+9673,Sevilla,1,0,4-2-3-1,1
+9673,Barcelona,2,75,4-4-2,0
+9673,Barcelona,2,89,4-4-2,0
+9682,Leganés,1,0,4-2-3-1,1
+9682,Barcelona,1,0,4-4-2,1
+9682,Barcelona,2,58,4-4-2,0
+9682,Leganés,2,66,4-1-2-1-2,0
+9682,Leganés,2,78,4-2-3-1,0
+9695,Valencia,1,0,4-4-2,1
+9695,Barcelona,1,0,4-4-2,1
+9695,Valencia,2,85,4-4-2,0
+9700,Barcelona,1,0,4-1-2-1-2,1
+9700,Celta Vigo,1,0,4-4-2,1
+9700,Celta Vigo,2,62,4-4-2,0
+9717,Villarreal,1,0,4-5-1,1
+9717,Barcelona,1,0,4-4-2,1
+9717,Villarreal,2,55,4-5-1,0
+9717,Villarreal,2,63,4-5-1,0
+9717,Barcelona,2,67,4-4-2,0
+9717,Villarreal,2,87,4-5-1,0
+9726,Barcelona,1,0,4-4-2,1
+9726,RC Deportivo La Coruña,1,0,4-2-3-1,1
+9726,Barcelona,1,23,4-4-2,0
+9726,RC Deportivo La Coruña,2,62,4-4-2,0
+9726,RC Deportivo La Coruña,2,83,4-4-2,0
+9736,Real Madrid,1,0,4-4-2,1
+9736,Barcelona,1,0,4-4-2,1
+9736,Real Madrid,2,65,4-1-4-1,0
+9736,Real Madrid,2,72,4-3-3,0
+9736,Barcelona,2,78,4-4-2,0
+9742,Barcelona,1,0,4-4-2,1
+9742,Levante UD,1,0,4-5-1,1
+9742,Barcelona,2,67,4-4-2,0
+9742,Barcelona,2,85,4-4-2,0
+9754,Real Sociedad,1,0,4-4-1-1,1
+9754,Barcelona,1,0,4-2-2-2,1
+9765,Real Betis,1,0,3-4-3,1
+9765,Barcelona,1,0,4-2-2-2,1
+9765,Barcelona,2,67,4-2-2-2,0
+9765,Real Betis,2,88,3-4-3,0
+9774,Barcelona,1,0,4-4-2,1
+9774,Deportivo Alavés,1,0,4-4-2,1
+9774,Deportivo Alavés,2,64,4-4-2,0
+9774,Deportivo Alavés,2,88,4-4-2,0
+9783,Espanyol,1,0,4-4-2,1
+9783,Barcelona,1,0,4-3-3,1
+9783,Barcelona,2,74,4-1-2-1-2,0
+9783,Espanyol,2,86,4-4-2,0
+9794,Barcelona,1,0,4-4-2,1
+9794,Getafe,1,0,4-4-2,1
+9794,Getafe,1,33,4-4-2,0
+9794,Getafe,2,78,4-4-2,0
+9794,Getafe,2,90,3-4-3,0
+9799,Eibar,1,0,4-2-3-1,1
+9799,Barcelona,1,0,4-1-2-1-2,1
+9799,Barcelona,2,79,4-4-2,0
+9811,Barcelona,1,0,4-4-2,1
+9811,Girona,1,0,3-4-3,1
+9811,Barcelona,2,63,4-4-2,0
+9811,Girona,2,66,3-5-2,0
+9811,Barcelona,2,85,4-1-2-1-2,0
+9827,Las Palmas,1,0,4-2-3-1,1
+9827,Barcelona,1,0,4-4-2,1
+9827,Barcelona,2,62,4-4-2,0
+9827,Las Palmas,2,75,4-2-3-1,0
+9827,Barcelona,2,75,4-4-2,0
+9827,Las Palmas,2,85,3-4-3,0
+9837,Barcelona,1,0,4-4-2,1
+9837,Atlético Madrid,1,0,4-4-2,1
+9837,Barcelona,1,35,4-4-2,0
+9837,Atlético Madrid,2,59,4-4-2,0
+9837,Atlético Madrid,2,65,4-4-2,0
+9837,Barcelona,2,84,4-4-2,0
+9855,Barcelona,1,0,4-4-2,1
+9855,Athletic Club,1,0,4-4-2,1
+9855,Barcelona,2,63,4-1-4-1,0
+9860,Sevilla,1,0,4-2-3-1,1
+9860,Barcelona,1,0,4-3-3,1
+9860,Barcelona,2,57,3-5-1-1,0
+9860,Barcelona,2,80,3-5-1-1,0
+9860,Sevilla,2,83,4-5-1,0
+9870,Barcelona,1,0,4-2-3-1,1
+9870,Leganés,1,0,4-2-3-1,1
+9870,Leganés,2,74,4-4-2,0
+9870,Barcelona,2,81,4-4-2,0
+9870,Leganés,2,81,4-4-2,0
+9880,Barcelona,1,0,4-4-2,1
+9880,Valencia,1,0,4-4-2,1
+9880,Valencia,2,70,4-4-2,0
+9889,Celta Vigo,1,0,3-5-2,1
+9889,Barcelona,1,0,4-2-3-1,1
+9889,Celta Vigo,1,2,3-1-4-2,0
+9889,Barcelona,2,59,4-3-3,0
+9912,RC Deportivo La Coruña,1,0,4-1-2-1-2,1
+9912,Barcelona,1,0,4-3-3,1
+9912,Barcelona,2,73,4-4-2,0
+9912,Barcelona,2,86,4-4-2,0
+9912,RC Deportivo La Coruña,2,87,4-1-2-1-2,0
+9924,Barcelona,1,0,4-4-2,1
+9924,Real Madrid,1,0,4-3-3,1
+9924,Barcelona,2,45,4-1-2-1-2,0
+9924,Real Madrid,2,72,3-5-2,0
+9924,Real Madrid,2,83,3-5-2,0
+9928,Barcelona,1,0,4-3-2-1,1
+9928,Villarreal,1,0,4-4-2,1
+9928,Villarreal,2,50,4-4-2,0
+9928,Barcelona,2,63,4-2-2-2,0
+9948,Barcelona,1,0,4-3-3,1
+9948,Real Sociedad,1,0,4-4-1-1,1
+9948,Barcelona,2,67,4-4-2,0
+9948,Barcelona,2,82,4-4-2,0
+9948,Real Sociedad,2,87,4-4-1-1,0
+15946,Barcelona,1,0,4-4-2,1
+15946,Deportivo Alavés,1,0,4-5-1,1
+15946,Barcelona,2,45,4-3-3,0
+15946,Deportivo Alavés,2,67,4-4-2,0
+15946,Barcelona,2,76,4-3-3,0
+15946,Barcelona,2,84,4-3-3,0
+15956,Real Valladolid,1,0,4-1-2-1-2,1
+15956,Barcelona,1,0,4-3-3,1
+15956,Barcelona,2,57,4-4-2,0
+15956,Real Valladolid,2,66,4-4-2,0
+15973,Barcelona,1,0,4-3-3,1
+15973,Huesca,1,0,4-4-2,1
+15973,Huesca,2,57,4-4-1-1,0
+15973,Huesca,2,64,4-4-1-1,0
+15973,Barcelona,2,70,4-4-2,0
+15978,Real Sociedad,1,0,4-4-2,1
+15978,Barcelona,1,0,4-3-3,1
+15978,Barcelona,2,46,4-3-3,0
+15978,Barcelona,2,59,4-3-3,0
+15978,Real Sociedad,2,72,4-4-2,0
+15978,Barcelona,2,78,4-3-3,0
+15986,Barcelona,1,0,4-3-3,1
+15986,Girona,1,0,3-5-2,1
+15986,Barcelona,1,36,4-3-3,0
+15986,Barcelona,2,45,4-1-2-1-2,0
+15986,Girona,2,73,3-5-2,0
+15998,Leganés,1,0,3-2-2-2-1,1
+15998,Barcelona,1,0,4-1-2-2-1,1
+16010,Barcelona,1,0,4-3-3,1
+16010,Athletic Club,1,0,4-4-2,1
+16010,Barcelona,2,57,4-2-3-1,0
+16023,Valencia,1,0,4-4-2,1
+16023,Barcelona,1,0,4-3-3,1
+16029,Barcelona,1,0,4-3-3,1
+16029,Sevilla,1,0,3-5-2,1
+16029,Sevilla,2,54,3-2-1-2-2,0
+16029,Sevilla,2,78,3-2-1-2-2,0
+16056,Barcelona,1,0,4-3-3,1
+16056,Real Betis,1,0,3-4-1-2,1
+16056,Real Betis,2,62,3-4-3,0
+16056,Barcelona,2,69,4-3-3,0
+16056,Barcelona,2,83,4-2-3-1,0
+16073,Atlético Madrid,1,0,4-4-2,1
+16073,Barcelona,1,0,4-4-2,1
+16073,Barcelona,2,45,4-4-2,0
+16073,Barcelona,2,79,4-4-2,0
+16073,Atlético Madrid,2,81,4-4-2,0
+16073,Barcelona,2,85,4-4-2,0
+16079,Barcelona,1,0,4-1-4-1,1
+16079,Villarreal,1,0,4-1-4-1,1
+16079,Villarreal,2,71,4-1-4-1,0
+16086,Espanyol,1,0,4-2-3-1,1
+16086,Barcelona,1,0,4-1-2-2-1,1
+16086,Barcelona,2,81,4-1-2-2-1,0
+16095,Levante UD,1,0,3-4-1-2,1
+16095,Barcelona,1,0,3-5-1-1,1
+16095,Barcelona,2,51,3-5-1-1,0
+16095,Levante UD,2,70,4-4-2,0
+16095,Barcelona,2,77,3-5-1-1,0
+16095,Levante UD,2,78,4-4-1-1,0
+16109,Barcelona,1,0,4-3-3,1
+16109,Celta Vigo,1,0,4-4-2,1
+16109,Celta Vigo,2,51,4-2-3-1,0
+16109,Barcelona,2,63,4-3-3,0
+16109,Barcelona,2,87,4-3-3,0
+16120,Getafe,1,0,4-4-2,1
+16120,Barcelona,1,0,4-1-2-2-1,1
+16120,Getafe,2,57,4-2-2-2,0
+16120,Barcelona,2,70,4-1-2-2-1,0
+16120,Getafe,2,77,4-2-2-2,0
+16131,Barcelona,1,0,4-3-3,1
+16131,Eibar,1,0,4-2-3-1,1
+16131,Barcelona,2,68,4-3-3,0
+16131,Barcelona,2,74,4-4-2,0
+16131,Eibar,2,76,4-2-3-1,0
+16136,Barcelona,1,0,4-3-3,1
+16136,Leganés,1,0,3-4-3,1
+16136,Leganés,2,45,3-5-2,0
+16136,Barcelona,2,63,4-2-3-1,0
+16149,Girona,1,0,3-5-2,1
+16149,Barcelona,1,0,4-3-3,1
+16149,Girona,2,52,4-1-2-1-2,0
+16149,Barcelona,2,57,4-3-3,0
+16149,Barcelona,2,81,4-3-3,0
+16157,Barcelona,1,0,4-3-3,1
+16157,Valencia,1,0,4-4-2,1
+16157,Barcelona,2,45,4-1-2-2-1,0
+16157,Valencia,2,47,4-4-2,0
+16173,Athletic Club,1,0,4-2-3-1,1
+16173,Barcelona,1,0,4-3-3,1
+16173,Barcelona,1,14,4-3-3,0
+16173,Athletic Club,2,56,4-2-3-1,0
+16173,Athletic Club,2,62,4-2-3-1,0
+16173,Athletic Club,2,91,4-4-1-1,0
+16182,Barcelona,1,0,4-1-2-2-1,1
+16182,Real Valladolid,1,0,3-4-1-2,1
+16182,Barcelona,2,45,4-1-2-2-1,0
+16182,Real Valladolid,2,80,3-4-1-2,0
+16190,Sevilla,1,0,4-2-2-1-1,1
+16190,Barcelona,1,0,4-1-2-2-1,1
+16190,Barcelona,2,46,4-2-3-1,0
+16190,Sevilla,2,51,4-2-2-1-1,0
+16190,Sevilla,2,57,4-2-2-1-1,0
+16190,Sevilla,2,66,3-4-2-1,0
+16190,Barcelona,2,67,4-2-3-1,0
+16190,Barcelona,2,79,4-1-2-2-1,0
+16196,Real Madrid,1,0,4-3-3,1
+16196,Barcelona,1,0,4-3-3,1
+16196,Barcelona,2,74,4-3-3,0
+16196,Real Madrid,2,75,4-2-3-1,0
+16196,Barcelona,2,91,4-3-3,0
+16205,Barcelona,1,0,4-3-3,1
+16205,Rayo Vallecano,1,0,3-4-3,1
+16205,Barcelona,2,45,4-2-3-1,0
+16205,Rayo Vallecano,2,63,4-1-4-1,0
+16205,Barcelona,2,80,4-4-2,0
+16205,Barcelona,2,82,4-4-2,0
+16205,Barcelona,2,84,4-2-3-1,0
+16215,Real Betis,1,0,3-5-2,1
+16215,Barcelona,1,0,4-4-2,1
+16215,Barcelona,2,63,4-4-2,0
+16215,Real Betis,2,76,3-4-1-2,0
+16215,Real Betis,2,77,3-4-1-2,0
+16215,Barcelona,2,90,4-4-2,0
+16231,Barcelona,1,0,4-3-3,1
+16231,Espanyol,1,0,3-5-2,1
+16231,Barcelona,2,84,4-3-3,0
+16240,Villarreal,1,0,3-4-3,1
+16240,Barcelona,1,0,4-3-3,1
+16240,Barcelona,2,68,4-3-3,0
+16248,Barcelona,1,0,4-3-3,1
+16248,Atlético Madrid,1,0,4-4-2,1
+16248,Atlético Madrid,1,42,4-1-2-1-2,0
+16248,Atlético Madrid,2,58,4-1-2-1-2,0
+16248,Barcelona,2,91,4-3-3,0
+16265,Barcelona,1,0,4-3-3,1
+16265,Real Sociedad,1,0,4-3-3,1
+16265,Real Sociedad,2,54,4-3-3,0
+16265,Barcelona,2,55,4-3-3,0
+16265,Real Sociedad,2,89,4-3-3,0
+16275,Deportivo Alavés,1,0,3-4-3,1
+16275,Barcelona,1,0,4-3-3,1
+16275,Barcelona,2,45,4-3-3,0
+16275,Deportivo Alavés,2,70,4-3-3,0
+16275,Deportivo Alavés,2,81,4-4-2,0
+16289,Barcelona,1,0,4-3-3,1
+16289,Levante UD,1,0,4-1-4-1,1
+16289,Barcelona,2,45,4-3-3,0
+16289,Levante UD,2,64,4-1-4-1,0
+16289,Levante UD,2,83,4-1-4-1,0
+16306,Barcelona,1,0,4-3-3,1
+16306,Getafe,1,0,4-4-2,1
+16306,Barcelona,2,78,4-4-2,0
+16317,Eibar,1,0,4-4-2,1
+16317,Barcelona,1,0,4-3-3,1
+16317,Barcelona,2,66,4-3-3,0
+18236,Barcelona,1,0,4-1-2-2-1,1
+18236,Manchester United,1,0,4-2-2-2,1
+18236,Barcelona,1,1,4-1-2-2-1,0
+18236,Manchester United,2,45,4-2-2-1-1,0
+18236,Manchester United,2,62,4-2-2-1-1,0
+18236,Manchester United,2,68,4-2-2-1-1,0
+18236,Barcelona,2,87,4-1-2-2-1,0
+18236,Barcelona,2,89,4-1-2-2-1,0
+18241,Real Madrid,1,0,4-3-3,1
+18241,Atlético Madrid,1,0,4-4-2,1
+18242,Juventus,1,0,4-1-2-1-2,1
+18242,Barcelona,1,0,4-1-2-2-1,1
+18242,Juventus,2,88,3-1-2-1-1-2,0
+18242,Barcelona,2,91,4-1-2-2-1,0
+18243,Real Madrid,1,0,4-1-2-2-1,1
+18243,Atlético Madrid,1,0,4-2-2-2,1
+18243,Real Madrid,1,1,4-1-2-2-1,0
+18243,Atlético Madrid,2,62,4-2-2-2,0
+18243,Real Madrid,2,77,4-1-2-2-1,0
+18244,Juventus,1,0,4-2-3-1,1
+18244,Real Madrid,1,0,4-1-2-1-2,1
+18244,Real Madrid,1,16,4-1-2-1-2,0
+18244,Juventus,2,67,4-2-3-1,0
+18245,Real Madrid,1,0,4-1-2-1-2,1
+18245,Liverpool,1,0,4-3-3,1
+18245,Liverpool,1,31,4-3-3,0
+18245,Real Madrid,2,61,4-3-3,0
+18245,Real Madrid,2,88,4-3-3,0
+68313,Barcelona,1,0,4-3-3,1
+68313,Osasuna,1,0,4-2-3-1,1
+68314,Barcelona,1,0,4-3-3,1
+68314,Málaga,1,0,4-2-3-1,1
+68314,Málaga,1,33,4-2-3-1,0
+68314,Barcelona,2,81,4-3-3,0
+68315,Barcelona,1,0,4-3-3,1
+68315,Levante UD,1,0,4-2-3-1,1
+68315,Barcelona,2,57,4-3-3,0
+68316,Barcelona,1,0,4-3-3,1
+68316,Albacete,1,0,4-5-1,1
+68317,Barcelona,1,0,4-3-3,1
+68317,Real Zaragoza,1,0,4-2-3-1,1
+68317,Barcelona,2,61,4-3-3,0
+68317,Barcelona,2,70,4-4-2,0
+68318,Barcelona,1,0,4-3-3,1
+68318,Osasuna,1,0,4-2-3-1,1
+68318,Barcelona,1,21,4-3-3,0
+68318,Osasuna,2,55,4-4-2,0
+68318,Osasuna,2,65,4-4-2,0
+68319,Real Madrid,1,0,4-2-3-1,1
+68319,Barcelona,1,0,4-3-3,1
+68319,Real Madrid,2,57,4-2-3-1,0
+68319,Real Madrid,2,66,4-2-3-1,0
+68320,Villarreal,1,0,4-2-3-1,1
+68320,Barcelona,1,0,4-3-3,1
+68321,Barcelona,1,0,4-3-3,1
+68321,Sevilla,1,0,4-4-2,1
+68321,Sevilla,2,85,4-4-2,0
+68322,Cádiz,1,0,4-2-3-1,1
+68322,Barcelona,1,0,4-3-3,1
+68322,Barcelona,2,45,4-3-3,0
+68322,Barcelona,2,65,4-3-3,0
+68323,Barcelona,1,0,4-3-3,1
+68323,Celta Vigo,1,0,4-2-3-1,1
+68323,Celta Vigo,2,67,4-4-2,0
+68324,Barcelona,1,0,4-3-3,1
+68324,Deportivo Alavés,1,0,4-4-2,1
+68324,Deportivo Alavés,2,57,4-4-2,0
+68324,Barcelona,2,84,4-3-3,0
+68325,Mallorca,1,0,4-2-3-1,1
+68325,Barcelona,1,0,4-3-3,1
+68326,Celta Vigo,1,0,4-2-3-1,1
+68326,Barcelona,1,0,4-3-3,1
+68326,Celta Vigo,1,0,4-2-3-1,0
+68326,Barcelona,1,1,4-3-3,0
+68327,Barcelona,1,0,4-3-3,1
+68327,Osasuna,1,0,4-2-3-1,1
+68328,Barcelona,1,0,4-3-3,1
+68328,Valencia,1,0,4-2-3-1,1
+68329,Barcelona,1,0,4-3-3,1
+68329,Sevilla,1,0,4-4-2,1
+68329,Barcelona,2,74,4-3-3,0
+68329,Sevilla,2,84,4-4-2,0
+68330,Real Madrid,1,0,4-2-3-1,1
+68330,Barcelona,1,0,4-3-3,1
+68331,Barcelona,1,0,4-3-3,1
+68331,Real Zaragoza,1,0,4-4-2,1
+68332,Valencia,1,0,4-4-2,1
+68332,Barcelona,1,0,4-3-3,1
+68332,Barcelona,2,45,4-3-3,0
+68332,Valencia,2,65,4-4-2,0
+68332,Valencia,2,71,4-4-2,0
+68333,Barcelona,1,0,4-3-3,1
+68333,Athletic Club,1,0,4-4-1-1,1
+68333,Athletic Club,2,45,4-4-1-1,0
+68334,Sevilla,1,0,4-4-2,1
+68334,Barcelona,1,0,3-4-3,1
+68334,Barcelona,2,45,4-3-3,0
+68334,Sevilla,2,48,4-1-2-1-2,0
+68334,Barcelona,2,68,4-3-3,0
+68334,Barcelona,2,79,4-3-3,0
+68335,Barcelona,1,0,3-4-3,1
+68335,Real Madrid,1,0,4-2-3-1,1
+68335,Barcelona,1,22,3-4-3,0
+68335,Barcelona,2,45,4-1-2-1-2,0
+68335,Barcelona,2,49,4-1-2-1-2,0
+68335,Real Madrid,2,61,4-3-3,0
+68335,Real Madrid,2,63,4-3-3,0
+68335,Barcelona,2,70,4-1-2-1-2,0
+68335,Barcelona,2,82,4-3-3,0
+68336,Gimnàstic Tarragona,1,0,4-3-3,1
+68336,Barcelona,1,0,4-3-3,1
+68336,Barcelona,1,8,4-3-3,0
+68339,Getafe,1,0,4-3-3,1
+68339,Barcelona,1,0,4-3-3,1
+68339,Barcelona,2,81,4-3-3,0
+68340,Racing Santander,1,0,4-4-2,1
+68340,Barcelona,1,0,4-3-3,1
+68340,Racing Santander,2,89,4-4-2,0
+68341,Recreativo Huelva,1,0,4-4-2,1
+68341,Barcelona,1,0,4-3-3,1
+68341,Barcelona,1,1,4-3-3,0
+68341,Barcelona,2,87,4-3-3,0
+68342,Barcelona,1,0,4-3-3,1
+68342,Athletic Club,1,0,3-4-2-1,1
+68347,Athletic Club,1,0,4-2-3-1,1
+68347,Barcelona,1,0,4-3-3,1
+68347,Athletic Club,1,21,4-2-3-1,0
+68347,Barcelona,2,45,4-2-3-1,0
+68347,Athletic Club,2,64,4-2-3-1,0
+68347,Athletic Club,2,72,4-1-2-1-2,0
+68348,Espanyol,1,0,4-2-3-1,1
+68348,Barcelona,1,0,4-3-3,1
+68348,Barcelona,2,78,4-3-3,0
+68350,Barcelona,1,0,4-3-3,1
+68350,Atlético Madrid,1,0,4-4-2,1
+68350,Barcelona,1,11,4-3-3,0
+68350,Barcelona,2,49,4-3-3,0
+68350,Atlético Madrid,2,81,4-4-2,0
+68351,Real Zaragoza,1,0,4-4-2,1
+68351,Barcelona,1,0,4-3-3,1
+68351,Real Zaragoza,2,85,4-4-2,0
+68352,Barcelona,1,0,4-3-3,1
+68352,Getafe,1,0,4-4-2,1
+68352,Barcelona,1,9,4-3-3,0
+68352,Getafe,2,69,4-4-2,0
+68352,Getafe,2,77,4-4-2,0
+68353,Espanyol,1,0,4-3-3,1
+68353,Barcelona,1,0,4-3-3,1
+68353,Espanyol,2,60,4-3-3,0
+68353,Barcelona,2,63,4-3-3,0
+68353,Barcelona,2,81,4-3-3,0
+68354,Barcelona,1,0,4-3-3,1
+68354,Racing Santander,1,0,4-5-1,1
+68354,Barcelona,2,69,4-3-3,0
+68356,Espanyol,1,0,4-4-2,1
+68356,Barcelona,1,0,4-3-3,1
+68356,Barcelona,2,71,4-3-3,0
+68358,Recreativo Huelva,1,0,4-4-1-1,1
+68358,Barcelona,1,0,4-3-3,1
+68359,Barcelona,1,0,4-3-3,1
+68359,Espanyol,1,0,4-2-3-1,1
+68359,Barcelona,2,47,4-3-3,0
+68360,Barcelona,1,0,4-3-3,1
+68360,Levante UD,1,0,4-4-2,1
+68360,Barcelona,2,67,4-3-3,0
+68361,Real Madrid,1,0,4-2-3-1,1
+68361,Barcelona,1,0,4-3-3,1
+68361,Barcelona,1,23,4-2-3-1,0
+68361,Barcelona,2,45,4-2-3-1,0
+68361,Barcelona,2,60,4-2-3-1,0
+68363,Real Valladolid,1,0,4-4-2,1
+68363,Barcelona,1,0,4-3-3,1
+68363,Real Valladolid,1,34,4-2-3-1,0
+68364,Villarreal,1,0,4-4-1-1,1
+68364,Barcelona,1,0,4-3-3,1
+68364,Barcelona,2,45,3-5-1-1,0
+68364,Barcelona,2,79,4-3-3,0
+68365,Atlético Madrid,1,0,4-4-2,1
+68365,Barcelona,1,0,4-3-3,1
+68365,Barcelona,2,62,4-3-3,0
+68366,Barcelona,1,0,4-3-3,1
+68366,Mallorca,1,0,4-4-2,1
+68366,Mallorca,2,65,4-4-2,0
+69138,Sporting Gijón,1,0,4-4-2,1
+69138,Barcelona,1,0,4-3-3,1
+69138,Sporting Gijón,2,60,4-2-3-1,0
+69138,Sporting Gijón,2,65,4-2-3-1,0
+69138,Barcelona,2,70,4-3-3,0
+69138,Barcelona,2,71,4-3-3,0
+69139,Barcelona,1,0,4-3-3,1
+69139,Espanyol,1,0,4-1-4-1,1
+69139,Espanyol,2,45,4-1-4-1,0
+69139,Espanyol,2,48,4-4-1-1,0
+69139,Barcelona,2,50,4-3-3,0
+69139,Barcelona,2,51,4-3-3,0
+69139,Espanyol,2,76,4-4-1-1,0
+69141,Barcelona,1,0,4-3-3,1
+69141,Valencia,1,0,4-2-3-1,1
+69141,Barcelona,1,2,4-3-3,0
+69141,Valencia,2,57,4-2-3-1,0
+69141,Barcelona,2,82,4-3-3,0
+69142,Barcelona,1,0,4-3-3,1
+69142,Málaga,1,0,4-2-3-1,1
+69144,Barcelona,1,0,4-3-3,1
+69144,Atlético Madrid,1,0,4-4-2,1
+69145,Valencia,1,0,4-3-3,1
+69145,Barcelona,1,0,4-3-3,1
+69145,Valencia,2,45,4-3-3,0
+69146,Sevilla,1,0,4-4-2,1
+69146,Barcelona,1,0,4-3-3,1
+69146,Barcelona,2,45,4-3-3,0
+69146,Sevilla,2,83,4-3-3,0
+69147,CD Numancia de Soria,1,0,4-4-1-1,1
+69147,Barcelona,1,0,4-3-3,1
+69147,Barcelona,2,62,4-3-3,0
+69147,Barcelona,2,65,4-3-3,0
+69148,Barcelona,1,0,4-3-3,1
+69148,Sevilla,1,0,4-5-1,1
+69148,Barcelona,2,63,4-3-3,0
+69149,Barcelona,1,0,4-3-3,1
+69149,Valencia,1,0,4-3-3,1
+69149,Barcelona,1,4,4-3-3,0
+69149,Barcelona,2,85,4-3-3,0
+69151,Levante UD,1,0,4-4-2,1
+69151,Barcelona,1,0,4-3-3,1
+69151,Barcelona,1,37,4-3-3,0
+69151,Levante UD,2,52,4-4-2,0
+69151,Barcelona,2,53,4-3-3,0
+69151,Barcelona,2,79,4-3-3,0
+69153,Albacete,1,0,4-2-3-1,1
+69153,Barcelona,1,0,4-3-3,1
+69154,Barcelona,1,0,4-3-3,1
+69154,Racing Santander,1,0,4-4-2,1
+69155,Villarreal,1,0,4-2-3-1,1
+69155,Barcelona,1,0,4-3-3,1
+69155,Barcelona,2,75,4-4-2,0
+69156,Barcelona,1,0,4-3-3,1
+69156,Levante UD,1,0,4-3-3,1
+69156,Barcelona,2,46,4-3-3,0
+69156,Levante UD,2,58,4-3-3,0
+69156,Barcelona,2,61,4-3-3,0
+69157,Barcelona,1,0,4-3-3,1
+69157,Getafe,1,0,4-4-2,1
+69157,Barcelona,2,89,4-4-1-1,0
+69158,Barcelona,1,0,4-3-3,1
+69158,Almería,1,0,4-3-3,1
+69158,Almería,2,76,4-3-3,0
+69159,Barcelona,1,0,4-3-3,1
+69159,Mallorca,1,0,4-2-3-1,1
+69159,Barcelona,2,45,4-3-3,0
+69159,Mallorca,2,48,4-2-3-1,0
+69159,Barcelona,2,60,4-3-3,0
+69160,Real Sociedad,1,0,4-2-3-1,1
+69160,Barcelona,1,0,4-3-3,1
+69162,Barcelona,1,0,4-3-3,1
+69162,Real Betis,1,0,4-2-3-1,1
+69162,Barcelona,2,68,4-3-3,0
+69162,Real Betis,2,70,4-2-3-1,0
+69162,Barcelona,2,74,4-3-3,0
+69164,Barcelona,1,0,4-3-3,1
+69164,Málaga,1,0,4-4-2,1
+69164,Barcelona,2,45,4-3-3,0
+69165,Barcelona,1,0,4-3-3,1
+69165,Espanyol,1,0,4-4-1-1,1
+69165,Barcelona,2,45,4-3-3,0
+69165,Espanyol,2,45,4-4-1-1,0
+69165,Barcelona,2,79,4-3-3,0
+69166,Barcelona,1,0,4-3-3,1
+69166,Real Betis,1,0,4-2-3-1,1
+69166,Barcelona,2,83,4-3-3,0
+69169,Barcelona,1,0,4-3-3,1
+69169,Athletic Club,1,0,4-4-1-1,1
+69169,Athletic Club,1,40,4-4-1-1,0
+69169,Barcelona,2,46,4-3-3,0
+69169,Athletic Club,2,56,4-4-1-1,0
+69169,Barcelona,2,78,4-3-3,0
+69169,Barcelona,2,80,4-3-3,0
+69169,Athletic Club,2,80,4-4-1-1,0
+69170,Barcelona,1,0,4-3-3,1
+69170,RC Deportivo La Coruña,1,0,4-2-3-1,1
+69170,Barcelona,2,45,4-3-3,0
+69171,Sevilla,1,0,4-2-3-1,1
+69171,Barcelona,1,0,4-3-3,1
+69171,Sevilla,2,74,4-2-3-1,0
+69172,Barcelona,1,0,4-3-3,1
+69172,Real Betis,1,0,4-2-3-1,1
+69172,Real Betis,2,45,4-2-3-1,0
+69172,Barcelona,2,77,4-3-3,0
+69173,Barcelona,1,0,4-3-3,1
+69173,Racing Santander,1,0,4-4-2,1
+69173,Barcelona,2,59,4-3-3,0
+69173,Racing Santander,2,61,4-4-2,0
+69174,RC Deportivo La Coruña,1,0,4-2-3-1,1
+69174,Barcelona,1,0,4-3-3,1
+69174,Barcelona,2,66,4-3-3,0
+69174,RC Deportivo La Coruña,2,77,4-2-3-1,0
+69175,Barcelona,1,0,4-3-3,1
+69175,RC Deportivo La Coruña,1,0,4-2-3-1,1
+69175,Barcelona,2,74,4-3-3,0
+69175,RC Deportivo La Coruña,2,84,4-3-3,0
+69176,Atlético Madrid,1,0,4-2-3-1,1
+69176,Barcelona,1,0,4-3-3,1
+69176,Atlético Madrid,2,47,4-2-3-1,0
+69177,Almería,1,0,4-4-2,1
+69177,Barcelona,1,0,4-3-3,1
+69178,Getafe,1,0,4-1-2-1-2,1
+69178,Barcelona,1,0,4-3-3,1
+69178,Barcelona,2,45,4-3-3,0
+69179,Real Zaragoza,1,0,4-3-3,1
+69179,Barcelona,1,0,3-4-3,1
+69179,Barcelona,2,45,4-3-3,0
+69179,Barcelona,2,65,4-3-3,0
+69179,Barcelona,2,71,4-3-3,0
+69179,Real Zaragoza,2,76,4-3-3,0
+69180,Racing Santander,1,0,4-4-2,1
+69180,Barcelona,1,0,4-3-3,1
+69180,Barcelona,2,61,4-3-3,0
+69180,Barcelona,2,69,4-3-3,0
+69180,Barcelona,2,78,4-3-3,0
+69181,Athletic Club,1,0,4-2-3-1,1
+69181,Barcelona,1,0,4-3-3,1
+69181,Athletic Club,1,4,4-2-3-1,0
+69181,Athletic Club,1,18,4-2-3-1,0
+69181,Athletic Club,2,46,4-2-3-1,0
+69181,Athletic Club,2,68,4-4-2,0
+69182,Real Zaragoza,1,0,4-4-2,1
+69182,Barcelona,1,0,4-3-3,1
+69183,Barcelona,1,0,4-3-3,1
+69183,RC Deportivo La Coruña,1,0,4-2-3-1,1
+69183,RC Deportivo La Coruña,2,64,4-2-3-1,0
+69183,Barcelona,2,70,4-3-3,0
+69183,RC Deportivo La Coruña,2,79,4-1-4-1,0
+69183,RC Deportivo La Coruña,2,85,4-1-4-1,0
+69184,Barcelona,1,0,4-3-3,1
+69184,Recreativo Huelva,1,0,4-1-4-1,1
+69185,Atlético Madrid,1,0,4-4-2,1
+69185,Barcelona,1,0,4-3-3,1
+69186,Real Murcia CF,1,0,4-4-2,1
+69186,Barcelona,1,0,4-3-3,1
+69186,Real Murcia CF,1,37,4-4-2,0
+69186,Barcelona,2,71,4-3-3,0
+69187,Barcelona,1,0,4-3-3,1
+69187,Osasuna,1,0,4-2-3-1,1
+69189,Barcelona,1,0,4-3-3,1
+69189,CD Numancia de Soria,1,0,4-3-2-1,1
+69189,Barcelona,2,74,4-3-3,0
+69195,Real Betis,1,0,4-2-3-1,1
+69195,Barcelona,1,0,4-3-3,1
+69195,Barcelona,2,57,4-3-3,0
+69195,Barcelona,2,80,4-2-3-1,0
+69207,Barcelona,1,0,4-3-3,1
+69207,Real Betis,1,0,4-2-3-1,1
+69207,Real Betis,2,46,4-4-2,0
+69207,Real Betis,2,66,4-4-2,0
+69207,Barcelona,2,77,4-3-3,0
+69209,Racing Santander,1,0,4-2-3-1,1
+69209,Barcelona,1,0,4-3-3,1
+69209,Barcelona,1,6,4-3-3,0
+69209,Barcelona,2,63,4-3-3,0
+69209,Barcelona,2,91,4-3-3,0
+69210,Real Valladolid,1,0,4-2-3-1,1
+69210,Barcelona,1,0,4-3-3,1
+69210,Real Valladolid,1,21,4-2-3-1,0
+69210,Real Valladolid,2,78,4-2-3-1,0
+69211,Espanyol,1,0,4-3-3,1
+69211,Barcelona,1,0,4-3-3,1
+69211,Espanyol,2,45,4-4-2,0
+69212,Barcelona,1,0,4-3-3,1
+69212,Atlético Madrid,1,0,4-4-2,1
+69212,Atlético Madrid,2,46,4-4-2,0
+69212,Barcelona,2,73,4-3-3,0
+69213,Espanyol,1,0,4-2-3-1,1
+69213,Barcelona,1,0,4-3-3,1
+69213,Espanyol,1,15,4-2-3-1,0
+69213,Barcelona,2,58,4-3-3,0
+69214,Barcelona,1,0,4-3-3,1
+69214,Xerez,1,0,3-4-3,1
+69214,Xerez,2,46,3-4-3,0
+69215,Barcelona,1,0,4-3-3,1
+69215,Racing Santander,1,0,4-4-2,1
+69215,Barcelona,1,39,4-3-3,0
+69215,Barcelona,2,59,4-3-3,0
+69215,Barcelona,2,85,3-5-2,0
+69215,Racing Santander,2,91,4-1-4-1,0
+69216,Barcelona,1,0,4-3-3,1
+69216,Athletic Club,1,0,4-2-3-1,1
+69216,Barcelona,1,2,4-3-3,0
+69216,Athletic Club,2,45,4-4-2,0
+69217,Barcelona,1,0,4-3-3,1
+69217,Villarreal,1,0,4-1-2-1-2,1
+69217,Barcelona,2,79,4-1-4-1,0
+69218,RC Deportivo La Coruña,1,0,4-2-3-1,1
+69218,Barcelona,1,0,4-3-3,1
+69218,RC Deportivo La Coruña,2,63,4-1-4-1,0
+69218,RC Deportivo La Coruña,2,83,4-3-3,0
+69219,Tenerife,1,0,4-2-3-1,1
+69219,Barcelona,1,0,4-3-3,1
+69219,Barcelona,1,3,4-3-3,0
+69219,Tenerife,2,45,4-2-3-1,0
+69220,Sporting Gijón,1,0,4-2-3-1,1
+69220,Barcelona,1,0,4-3-3,1
+69220,Sporting Gijón,2,61,4-4-2,0
+69221,Barcelona,1,0,4-3-3,1
+69221,RC Deportivo La Coruña,1,0,4-2-3-1,1
+69221,Barcelona,2,50,4-3-3,0
+69221,Barcelona,2,74,4-2-3-1,0
+69222,Barcelona,1,0,4-3-3,1
+69222,Recreativo Huelva,1,0,4-4-2,1
+69222,Barcelona,2,63,4-3-3,0
+69222,Recreativo Huelva,2,73,4-4-2,0
+69223,Getafe,1,0,4-1-2-1-2,1
+69223,Barcelona,1,0,4-3-3,1
+69223,Barcelona,2,74,4-3-3,0
+69224,Barcelona,1,0,4-3-3,1
+69224,Valencia,1,0,4-2-3-1,1
+69224,Valencia,2,76,4-2-3-1,0
+69225,Barcelona,1,0,4-3-3,1
+69225,Real Madrid,1,0,4-4-2,1
+69226,Almería,1,0,3-4-1-2,1
+69226,Barcelona,1,0,4-3-3,1
+69226,Barcelona,2,60,4-3-3,0
+69226,Almería,2,66,4-2-2-2,0
+69226,Almería,2,74,4-2-2-2,0
+69227,Real Zaragoza,1,0,4-5-1,1
+69227,Barcelona,1,0,4-3-3,1
+69227,Barcelona,2,79,4-3-3,0
+69228,Villarreal,1,0,4-2-3-1,1
+69228,Barcelona,1,0,4-3-3,1
+69228,Barcelona,2,80,4-3-3,0
+69229,Getafe,1,0,4-2-3-1,1
+69229,Barcelona,1,0,4-3-3,1
+69229,Barcelona,2,58,4-3-3,0
+69229,Getafe,2,67,4-2-3-1,0
+69230,Osasuna,1,0,4-2-3-1,1
+69230,Barcelona,1,0,4-3-3,1
+69230,Barcelona,2,64,4-4-2,0
+69230,Barcelona,2,76,4-3-3,0
+69230,Barcelona,2,89,4-4-2,0
+69231,Barcelona,1,0,4-3-3,1
+69231,Sporting Gijón,1,0,4-4-2,1
+69231,Barcelona,2,68,4-3-3,0
+69231,Sporting Gijón,2,73,4-4-2,0
+69232,Barcelona,1,0,4-3-3,1
+69232,Almería,1,0,4-4-2,1
+69232,Barcelona,2,70,4-3-3,0
+69232,Almería,2,71,4-4-2,0
+69232,Barcelona,2,75,4-3-3,0
+69232,Almería,2,87,4-1-4-1,0
+69233,Barcelona,1,0,4-3-3,1
+69233,Racing Santander,1,0,4-2-3-1,1
+69234,Barcelona,1,0,4-3-3,1
+69234,Espanyol,1,0,4-4-2,1
+69234,Espanyol,1,25,4-2-3-1,0
+69234,Espanyol,2,46,4-2-3-1,0
+69235,Málaga,1,0,4-2-3-1,1
+69235,Barcelona,1,0,4-3-3,1
+69235,Málaga,2,71,4-2-3-1,0
+69236,Barcelona,1,0,4-3-3,1
+69236,Mallorca,1,0,4-2-3-1,1
+69236,Barcelona,2,89,3-4-1-2,0
+69237,Atlético Madrid,1,0,4-4-2,1
+69237,Barcelona,1,0,4-3-3,1
+69237,Barcelona,1,7,4-3-3,0
+69238,Barcelona,1,0,4-2-3-1,1
+69238,Málaga,1,0,4-2-3-1,1
+69238,Málaga,1,16,4-2-3-1,0
+69238,Málaga,2,45,4-2-3-1,0
+69238,Málaga,2,71,3-5-2,0
+69239,Sevilla,1,0,4-4-2,1
+69239,Barcelona,1,0,4-3-3,1
+69240,Barcelona,1,0,4-3-3,1
+69240,Getafe,1,0,4-2-3-1,1
+69240,Barcelona,1,30,4-3-3,0
+69240,Barcelona,2,52,4-4-2,0
+69240,Getafe,2,65,3-4-1-2,0
+69241,Barcelona,1,0,4-3-3,1
+69241,Tenerife,1,0,4-3-3,1
+69241,Tenerife,1,40,4-3-3,0
+69241,Barcelona,2,45,4-3-3,0
+69241,Barcelona,2,45,4-2-3-1,0
+69241,Barcelona,2,64,4-3-3,0
+69241,Barcelona,2,74,4-3-3,0
+69242,Barcelona,1,0,4-3-3,1
+69242,Real Valladolid,1,0,3-4-3,1
+69242,Barcelona,1,1,4-3-3,0
+69242,Barcelona,1,3,4-3-3,0
+69242,Real Valladolid,1,16,3-4-3,0
+69242,Barcelona,1,19,4-3-3,0
+69242,Real Valladolid,1,32,3-4-3,0
+69242,Real Valladolid,2,64,4-3-3,0
+69242,Real Valladolid,2,66,4-3-3,0
+69242,Barcelona,2,79,4-3-3,0
+69243,Barcelona,1,0,4-3-3,1
+69243,Sevilla,1,0,4-2-3-1,1
+69243,Barcelona,1,0,4-3-3,0
+69243,Sevilla,1,9,4-3-2-1,0
+69243,Sevilla,1,25,4-2-3-1,0
+69243,Sevilla,1,28,4-3-2-1,0
+69243,Sevilla,1,42,4-2-3-1,0
+69243,Barcelona,2,45,4-3-3,0
+69243,Sevilla,2,59,4-2-3-1,0
+69244,Villarreal,1,0,4-4-2,1
+69244,Barcelona,1,0,4-3-3,1
+69244,Villarreal,1,7,4-4-2,0
+69245,Real Madrid,1,0,4-3-3,1
+69245,Barcelona,1,0,4-3-3,1
+69245,Real Madrid,2,52,4-3-3,0
+69245,Barcelona,2,62,4-3-3,0
+69245,Real Madrid,2,66,4-3-3,0
+69246,Real Sociedad,1,0,4-2-3-1,1
+69246,Barcelona,1,0,4-3-3,1
+69247,Barcelona,1,0,4-4-2,1
+69247,Athletic Club,1,0,4-4-2,1
+69247,Athletic Club,2,46,4-2-3-1,0
+69247,Athletic Club,2,70,4-4-2,0
+69248,Sporting Gijón,1,0,4-2-3-1,1
+69248,Barcelona,1,0,4-3-3,1
+69249,Real Madrid,1,0,4-4-2,1
+69249,Barcelona,1,0,4-3-3,1
+69249,Barcelona,2,60,4-3-3,0
+69249,Real Madrid,2,65,4-4-2,0
+69249,Real Madrid,2,73,4-4-2,0
+69250,Barcelona,1,0,4-3-3,1
+69250,Mallorca,1,0,4-2-3-1,1
+69250,Barcelona,2,45,4-3-3,0
+69250,Mallorca,2,73,4-2-3-1,0
+69251,Valencia,1,0,4-2-3-1,1
+69251,Barcelona,1,0,4-3-3,1
+69251,Barcelona,2,62,4-3-3,0
+69251,Valencia,2,76,4-2-3-1,0
+69252,Valencia,1,0,4-4-1-1,1
+69252,Barcelona,1,0,4-3-3,1
+69252,Valencia,2,71,4-4-1-1,0
+69253,Barcelona,1,0,4-3-3,1
+69253,Real Zaragoza,1,0,4-4-2,1
+69253,Real Zaragoza,2,60,4-4-2,0
+69254,Racing Santander,1,0,4-4-2,1
+69254,Barcelona,1,0,4-3-3,1
+69254,Barcelona,2,52,4-3-3,0
+69254,Barcelona,2,71,4-3-3,0
+69255,Málaga,1,0,4-2-3-1,1
+69255,Barcelona,1,0,4-3-3,1
+69256,Barcelona,1,0,4-3-3,1
+69256,Almería,1,0,4-2-3-1,1
+69257,Barcelona,1,0,4-3-3,1
+69257,Osasuna,1,0,4-3-3,1
+69259,Real Madrid,1,0,4-1-2-1-2,1
+69259,Barcelona,1,0,4-3-3,1
+69259,Barcelona,2,45,4-3-3,0
+69260,Barcelona,1,0,4-3-3,1
+69260,Valencia,1,0,4-2-3-1,1
+69262,Barcelona,1,0,4-3-3,1
+69262,Real Madrid,1,0,4-2-3-1,1
+69262,Real Madrid,2,80,4-2-3-1,0
+69263,Real Zaragoza,1,0,3-5-2,1
+69263,Barcelona,1,0,3-4-1-2,1
+69263,Real Zaragoza,2,63,4-4-2,0
+69263,Barcelona,2,64,4-1-2-1-2,0
+69263,Barcelona,2,81,4-3-3,0
+69264,Real Sociedad,1,0,4-2-3-1,1
+69264,Barcelona,1,0,4-3-3,1
+69264,Real Sociedad,2,50,4-2-3-1,0
+69264,Barcelona,2,63,4-3-3,0
+69265,Sporting Gijón,1,0,4-2-3-1,1
+69265,Barcelona,1,0,4-3-3,1
+69265,Barcelona,2,56,4-3-3,0
+69265,Sporting Gijón,2,79,4-2-3-1,0
+69267,Xerez,1,0,4-2-3-1,1
+69267,Barcelona,1,0,4-3-3,1
+69267,Barcelona,2,66,4-3-3,0
+69268,Barcelona,1,0,3-4-3,1
+69268,Villarreal,1,0,4-4-2,1
+69269,Atlético Madrid,1,0,4-4-2,1
+69269,Barcelona,1,0,4-1-2-1-2,1
+69269,Barcelona,2,78,4-3-3,0
+69269,Barcelona,2,91,4-3-3,0
+69270,Getafe,1,0,4-3-3,1
+69270,Barcelona,1,0,4-3-3,1
+69270,Barcelona,1,29,4-3-3,0
+69270,Barcelona,1,30,4-3-3,0
+69270,Barcelona,2,72,4-3-3,0
+69270,Barcelona,2,90,4-4-1-1,0
+69271,Barcelona,1,0,4-3-3,1
+69271,Osasuna,1,0,4-2-3-1,1
+69271,Barcelona,2,53,4-3-3,0
+69271,Barcelona,2,67,4-3-3,0
+69271,Barcelona,2,76,4-3-3,0
+69272,Levante UD,1,0,4-3-3,1
+69272,Barcelona,1,0,4-3-3,1
+69272,Levante UD,2,50,4-3-3,0
+69273,Real Valladolid,1,0,4-2-3-1,1
+69273,Barcelona,1,0,4-3-3,1
+69273,Barcelona,2,59,4-3-3,0
+69273,Real Valladolid,2,63,4-2-3-1,0
+69274,Valencia,1,0,4-2-3-1,1
+69274,Barcelona,1,0,3-5-1-1,1
+69274,Valencia,2,46,4-4-2,0
+69274,Barcelona,2,62,4-3-3,0
+69275,Espanyol,1,0,4-3-3,1
+69275,Barcelona,1,0,4-3-3,1
+69276,Barcelona,1,0,4-3-3,1
+69276,Atlético Madrid,1,0,4-2-3-1,1
+69277,Osasuna,1,0,4-2-3-1,1
+69277,Barcelona,1,0,4-3-3,1
+69277,Barcelona,2,62,4-3-3,0
+69278,Barcelona,1,0,4-3-3,1
+69278,Málaga,1,0,4-2-3-1,1
+69278,Málaga,2,59,4-4-2,0
+69279,Barcelona,1,0,4-3-3,1
+69279,Real Valladolid,1,0,4-3-3,1
+69280,RC Deportivo La Coruña,1,0,4-2-3-1,1
+69280,Barcelona,1,0,4-3-3,1
+69282,Barcelona,1,0,4-3-3,1
+69282,Athletic Club,1,0,4-2-3-1,1
+69282,Barcelona,2,64,4-3-3,0
+69282,Barcelona,2,83,4-3-3,0
+69283,Mallorca,1,0,4-2-3-1,1
+69283,Barcelona,1,0,4-3-3,1
+69283,Barcelona,2,70,4-3-3,0
+69285,Recreativo Huelva,1,0,4-4-2,1
+69285,Barcelona,1,0,4-3-3,1
+69285,Recreativo Huelva,2,58,4-1-4-1,0
+69285,Barcelona,2,79,4-3-3,0
+69285,Barcelona,2,87,4-3-3,0
+69286,Racing Santander,1,0,4-4-2,1
+69286,Barcelona,1,0,4-3-3,1
+69286,Racing Santander,1,13,4-4-2,0
+69286,Racing Santander,1,13,4-4-2,0
+69286,Racing Santander,2,74,4-4-2,0
+69287,Barcelona,1,0,4-3-3,1
+69287,Hércules,1,0,4-2-3-1,1
+69287,Barcelona,2,70,4-2-3-1,0
+69288,Athletic Club,1,0,4-4-1-1,1
+69288,Barcelona,1,0,4-3-3,1
+69288,Athletic Club,1,5,4-4-1-1,0
+69288,Athletic Club,1,38,4-4-1-1,0
+69288,Athletic Club,2,57,4-4-1-1,0
+69288,Barcelona,2,84,4-3-3,0
+69289,Barcelona,1,0,4-3-3,1
+69289,Sevilla,1,0,4-4-1-1,1
+69289,Sevilla,2,49,4-4-1-1,0
+69289,Barcelona,2,66,4-3-3,0
+69291,Sevilla,1,0,4-2-3-1,1
+69291,Barcelona,1,0,4-3-3,1
+69291,Barcelona,1,5,4-1-2-1-2,0
+69291,Sevilla,2,51,4-2-3-1,0
+69292,Barcelona,1,0,4-3-3,1
+69292,Atlético Madrid,1,0,4-1-2-1-2,1
+69293,Barcelona,1,0,4-3-3,1
+69293,Racing Santander,1,0,4-1-4-1,1
+69293,Barcelona,1,8,4-3-3,0
+69293,Barcelona,1,28,4-3-3,0
+69293,Barcelona,2,73,4-3-3,0
+69295,Barcelona,1,0,4-3-3,1
+69295,Racing Santander,1,0,4-2-3-1,1
+69295,Racing Santander,2,66,4-2-3-1,0
+69296,Hércules,1,0,4-2-3-1,1
+69296,Barcelona,1,0,4-3-3,1
+69296,Hércules,2,79,4-4-2,0
+69296,Hércules,2,85,4-4-2,0
+69297,Barcelona,1,0,4-3-3,1
+69297,Atlético Madrid,1,0,4-3-3,1
+69297,Atlético Madrid,2,45,4-3-3,0
+69297,Barcelona,2,53,4-3-3,0
+69297,Atlético Madrid,2,79,4-3-3,0
+69298,Mallorca,1,0,4-4-2,1
+69298,Barcelona,1,0,4-3-3,1
+69298,Mallorca,2,58,4-4-1-1,0
+69298,Barcelona,2,75,4-3-3,0
+69299,Barcelona,1,0,4-3-3,1
+69299,Real Madrid,1,0,4-2-3-1,1
+69300,Barcelona,1,0,4-3-3,1
+69300,Real Zaragoza,1,0,3-4-1-2,1
+69302,Barcelona,1,0,4-3-3,1
+69302,Real Sociedad,1,0,4-1-4-1,1
+69303,Barcelona,1,0,4-3-3,1
+69303,Getafe,1,0,4-2-3-1,1
+69303,Barcelona,2,89,4-3-3,0
+69304,Villarreal,1,0,4-4-2,1
+69304,Barcelona,1,0,4-3-3,1
+69304,Barcelona,2,52,4-3-3,0
+69304,Villarreal,2,70,4-2-2-2,0
+69304,Barcelona,2,70,4-3-3,0
+69305,Barcelona,1,0,4-3-3,1
+69305,Almería,1,0,4-2-3-1,1
+69305,Barcelona,2,53,4-3-3,0
+69306,Almería,1,0,4-1-2-1-2,1
+69306,Barcelona,1,0,4-3-3,1
+69306,Barcelona,2,57,4-3-3,0
+69306,Barcelona,2,74,4-3-3,0
+69307,Osasuna,1,0,4-2-3-1,1
+69307,Barcelona,1,0,4-3-3,1
+69307,Osasuna,2,61,4-2-3-1,0
+69307,Barcelona,2,81,4-3-3,0
+69307,Barcelona,2,87,4-3-3,0
+69308,Barcelona,1,0,4-3-3,1
+69308,Villarreal,1,0,4-4-2,1
+69308,Villarreal,2,69,4-4-2,0
+69308,Barcelona,2,71,4-1-2-1-2,0
+69312,Espanyol,1,0,4-2-3-1,1
+69312,Barcelona,1,0,4-3-3,1
+69312,Espanyol,2,80,4-2-3-1,0
+69314,Barcelona,1,0,4-4-1-1,1
+69314,Mallorca,1,0,4-2-3-1,1
+69314,Mallorca,2,45,4-4-2,0
+69314,Barcelona,2,45,4-3-3,0
+69314,Barcelona,2,60,4-3-3,0
+69314,Mallorca,2,73,4-4-2,0
+69315,Getafe,1,0,4-2-3-1,1
+69315,Barcelona,1,0,4-3-3,1
+69316,Barcelona,1,0,4-3-3,1
+69316,Real Sociedad,1,0,4-2-3-1,1
+69316,Real Sociedad,2,57,4-2-3-1,0
+69316,Barcelona,2,75,4-3-3,0
+69316,Real Sociedad,2,83,4-2-3-1,0
+69316,Barcelona,2,83,4-3-3,0
+69318,Granada,1,0,4-4-1-1,1
+69318,Barcelona,1,0,4-3-3,1
+69319,Real Betis,1,0,4-4-2,1
+69319,Barcelona,1,0,4-3-3,1
+69319,Barcelona,2,59,4-3-3,0
+69320,Barcelona,1,0,4-3-3,1
+69320,Espanyol,1,0,4-2-3-1,1
+69322,Racing Santander,1,0,4-2-3-1,1
+69322,Barcelona,1,0,3-5-1-1,1
+69322,Racing Santander,2,69,4-3-3,0
+69322,Barcelona,2,72,3-5-1-1,0
+69323,Barcelona,1,0,4-3-3,1
+69323,Athletic Club,1,0,4-3-3,1
+69324,Barcelona,1,0,3-5-1-1,1
+69324,Real Madrid,1,0,4-2-3-1,1
+69324,Barcelona,2,68,3-5-1-1,0
+69324,Barcelona,2,74,3-5-1-1,0
+69325,Mallorca,1,0,4-4-2,1
+69325,Barcelona,1,0,3-4-1-2,1
+69325,Barcelona,2,59,4-3-3,0
+69325,Barcelona,2,68,4-3-3,0
+69326,Sevilla,1,0,4-4-2,1
+69326,Barcelona,1,0,4-3-3,1
+69326,Barcelona,2,81,4-3-3,0
+69327,Barcelona,1,0,3-4-2-1,1
+69327,Real Betis,1,0,4-3-3,1
+69327,Real Betis,2,45,4-2-3-1,0
+69327,Real Betis,2,75,4-2-3-1,0
+69328,Barcelona,1,0,4-3-3,1
+69328,Valencia,1,0,4-2-3-1,1
+69328,Valencia,2,65,4-2-3-1,0
+69329,Barcelona,1,0,4-3-3,1
+69329,Sevilla,1,0,4-2-3-1,1
+69329,Barcelona,2,61,4-3-3,0
+69330,Athletic Club,1,0,4-2-3-1,1
+69330,Barcelona,1,0,3-5-1-1,1
+69330,Barcelona,2,65,3-5-1-1,0
+69330,Barcelona,2,72,4-3-3,0
+69330,Barcelona,2,81,3-5-1-1,0
+69330,Athletic Club,2,88,4-2-3-1,0
+69330,Athletic Club,2,90,4-2-3-1,0
+69331,Barcelona,1,0,4-3-3,1
+69331,Real Zaragoza,1,0,4-2-3-1,1
+69331,Barcelona,2,58,4-3-3,0
+69331,Barcelona,2,66,4-3-3,0
+69331,Barcelona,2,67,4-3-3,0
+69332,Barcelona,1,0,4-3-3,1
+69332,Rayo Vallecano,1,0,4-2-3-1,1
+69332,Barcelona,2,52,4-3-3,0
+69333,Barcelona,1,0,3-5-1-1,1
+69333,Levante UD,1,0,4-1-4-1,1
+69333,Barcelona,1,36,3-5-1-1,0
+69333,Barcelona,1,37,3-5-1-1,0
+69333,Barcelona,2,81,3-5-1-1,0
+69334,Real Madrid,1,0,4-2-3-1,1
+69334,Barcelona,1,0,4-3-3,1
+69334,Barcelona,2,78,4-3-3,0
+69335,Málaga,1,0,4-2-3-1,1
+69335,Barcelona,1,0,4-3-3,1
+69335,Málaga,2,59,4-3-3,0
+69335,Barcelona,2,67,4-3-3,0
+69335,Barcelona,2,75,4-3-3,0
+69336,Osasuna,1,0,4-3-3,1
+69336,Barcelona,1,0,4-3-3,1
+69336,Barcelona,2,45,4-2-3-1,0
+69336,Barcelona,2,70,3-5-1-1,0
+69337,Atlético Madrid,1,0,4-4-2,1
+69337,Barcelona,1,0,4-3-3,1
+69337,Atlético Madrid,2,77,4-1-4-1,0
+69337,Barcelona,2,84,4-4-2,0
+69338,Villarreal,1,0,4-4-2,1
+69338,Barcelona,1,0,3-5-1-1,1
+69338,Barcelona,2,59,4-3-3,0
+69340,Barcelona,1,0,4-3-3,1
+69340,Málaga,1,0,4-1-4-1,1
+69340,Málaga,2,73,4-4-2,0
+69343,Barcelona,1,0,3-5-2,1
+69343,Getafe,1,0,4-5-1,1
+69343,Barcelona,2,83,4-3-3,0
+70219,Real Zaragoza,1,0,4-2-3-1,1
+70219,Barcelona,1,0,4-3-3,1
+70219,Barcelona,1,30,4-3-3,0
+70219,Real Zaragoza,2,45,4-2-3-1,0
+70219,Real Zaragoza,2,65,4-2-3-1,0
+70219,Real Zaragoza,2,81,4-2-3-1,0
+70220,Barcelona,1,0,4-1-2-1-2,1
+70220,Osasuna,1,0,4-2-3-1,1
+70220,Barcelona,2,45,4-1-2-1-2,0
+70220,Osasuna,2,45,4-1-4-1,0
+70220,Osasuna,2,53,4-1-4-1,0
+70220,Barcelona,2,55,4-1-2-1-2,0
+70221,Levante UD,1,0,4-2-3-1,1
+70221,Barcelona,1,0,3-5-1-1,1
+70221,Barcelona,1,37,3-5-2,0
+70221,Barcelona,2,46,3-5-1-1,0
+70221,Barcelona,2,75,4-3-3,0
+70223,Valencia,1,0,4-2-3-1,1
+70223,Barcelona,1,0,3-4-2-1,1
+70223,Barcelona,2,45,4-3-3,0
+70223,Barcelona,2,45,4-3-3,0
+70223,Barcelona,2,62,3-4-2-1,0
+70224,Rayo Vallecano,1,0,4-4-2,1
+70224,Barcelona,1,0,4-3-3,1
+70224,Barcelona,1,1,4-3-3,0
+70224,Barcelona,2,62,4-3-3,0
+70225,Barcelona,1,0,4-3-3,1
+70225,Granada,1,0,4-2-3-1,1
+70225,Barcelona,2,45,4-3-3,0
+70225,Barcelona,2,74,4-3-3,0
+70256,Celta Vigo,1,0,4-4-1-1,1
+70256,Barcelona,1,0,4-3-3,1
+70256,Celta Vigo,2,74,4-4-1-1,0
+70259,Barcelona,1,0,4-3-3,1
+70259,Real Sociedad,1,0,4-3-3,1
+70260,Barcelona,1,0,4-3-3,1
+70260,Osasuna,1,0,4-2-3-1,1
+70260,Osasuna,1,31,4-2-3-1,0
+70260,Osasuna,2,49,4-2-3-1,0
+70262,Osasuna,1,0,4-2-3-1,1
+70262,Barcelona,1,0,4-3-3,1
+70262,Barcelona,2,63,4-3-3,0
+70263,Barcelona,1,0,4-3-3,1
+70263,Athletic Club,1,0,4-3-3,1
+70263,Athletic Club,2,72,4-3-3,0
+70264,Getafe,1,0,4-1-4-1,1
+70264,Barcelona,1,0,4-3-3,1
+70270,Barcelona,1,0,4-3-3,1
+70270,Granada,1,0,4-2-3-1,1
+70270,Barcelona,2,72,3-5-1-1,0
+70271,Barcelona,1,0,4-3-3,1
+70271,Sevilla,1,0,4-2-3-1,1
+70271,Barcelona,2,82,4-3-3,0
+70271,Sevilla,2,84,4-4-2,0
+70272,Real Madrid,1,0,4-2-3-1,1
+70272,Barcelona,1,0,4-3-3,1
+70272,Real Madrid,2,57,4-2-3-1,0
+70272,Barcelona,2,88,4-3-3,0
+70273,Barcelona,1,0,4-3-3,1
+70273,Athletic Club,1,0,4-2-3-1,1
+70273,Athletic Club,2,82,4-4-2,0
+70275,Sevilla,1,0,4-2-3-1,1
+70275,Barcelona,1,0,4-3-3,1
+70275,Sevilla,2,75,4-2-3-1,0
+70275,Barcelona,2,78,3-5-2,0
+70275,Sevilla,2,80,4-2-3-1,0
+70276,Rayo Vallecano,1,0,4-1-4-1,1
+70276,Barcelona,1,0,4-3-3,1
+70276,Barcelona,2,80,4-3-3,0
+70277,Barcelona,1,0,4-3-3,1
+70277,Levante UD,1,0,4-2-3-1,1
+70277,Levante UD,2,45,4-4-2,0
+70277,Barcelona,2,70,4-3-3,0
+70280,Levante UD,1,0,4-2-3-1,1
+70280,Barcelona,1,0,4-3-3,1
+70281,Barcelona,1,0,4-3-3,1
+70281,Real Betis,1,0,4-2-3-1,1
+70281,Real Betis,2,47,4-2-3-1,0
+70281,Real Betis,2,50,4-4-1-1,0
+70281,Real Betis,2,51,4-4-1-1,0
+70281,Real Betis,2,72,4-4-1-1,0
+70281,Barcelona,2,79,4-3-3,0
+70282,Valencia,1,0,4-2-3-1,1
+70282,Barcelona,1,0,4-3-3,1
+70282,Barcelona,2,71,4-3-3,0
+70283,Barcelona,1,0,4-3-3,1
+70283,Espanyol,1,0,4-3-3,1
+70284,Atlético Madrid,1,0,4-3-3,1
+70284,Barcelona,1,0,4-3-3,1
+70284,Barcelona,2,48,4-3-3,0
+70284,Barcelona,2,63,3-4-1-2,0
+70284,Barcelona,2,78,4-4-1-1,0
+70286,Barcelona,1,0,4-3-3,1
+70286,Valencia,1,0,4-2-3-1,1
+70286,Barcelona,2,45,4-3-3,0
+70286,Barcelona,2,89,4-3-3,0
+70287,Real Sociedad,1,0,4-4-1-1,1
+70287,Barcelona,1,0,4-3-3,1
+70287,Barcelona,2,64,4-3-3,0
+70287,Real Sociedad,2,74,4-4-1-1,0
+70288,Levante UD,1,0,4-4-2,1
+70288,Barcelona,1,0,4-3-3,1
+70288,Levante UD,2,77,4-4-2,0
+70289,Villarreal,1,0,4-2-3-1,1
+70289,Barcelona,1,0,4-3-3,1
+70289,Villarreal,2,45,4-1-2-1-2,0
+70289,Barcelona,2,61,4-3-3,0
+70291,Barcelona,1,0,4-3-3,1
+70291,Málaga,1,0,4-3-3,1
+70292,Getafe,1,0,4-2-3-1,1
+70292,Barcelona,1,0,4-3-3,1
+70292,Barcelona,1,42,4-3-3,0
+70292,Barcelona,2,49,4-3-3,0
+70292,Barcelona,2,58,4-3-3,0
+70292,Barcelona,2,74,4-3-3,0
+70292,Barcelona,2,75,4-3-3,0
+70293,Barcelona,1,0,4-3-3,1
+70293,Real Madrid,1,0,4-3-3,1
+70293,Barcelona,1,1,4-3-3,0
+70294,Granada,1,0,4-2-3-1,1
+70294,Barcelona,1,0,4-3-3,1
+70294,Barcelona,1,0,4-3-3,0
+70294,Barcelona,1,37,4-3-3,0
+70294,Barcelona,2,45,4-3-3,0
+70294,Barcelona,2,72,4-3-3,0
+70295,Real Betis,1,0,4-2-3-1,1
+70295,Barcelona,1,0,4-3-3,1
+70295,Barcelona,1,9,4-3-3,0
+70295,Real Betis,2,45,4-4-2,0
+70295,Barcelona,2,81,4-3-3,0
+70296,Barcelona,1,0,4-3-3,1
+70296,Atlético Madrid,1,0,4-4-2,1
+70296,Atlético Madrid,2,45,4-2-3-1,0
+70297,Barcelona,1,0,4-3-3,1
+70297,Getafe,1,0,4-4-1-1,1
+70297,Getafe,2,70,4-2-3-1,0
+70298,Valencia,1,0,4-2-3-1,1
+70298,Barcelona,1,0,4-3-3,1
+70300,Barcelona,1,0,4-3-3,1
+70300,Real Madrid,1,0,4-2-3-1,1
+70300,Barcelona,2,61,4-3-3,0
+70301,Barcelona,1,0,4-3-3,1
+70301,Sevilla,1,0,4-2-3-1,1
+70301,Sevilla,2,70,4-4-1-1,0
+70302,Rayo Vallecano,1,0,4-3-3,1
+70302,Barcelona,1,0,4-3-3,1
+70302,Rayo Vallecano,2,45,4-3-3,0
+70302,Rayo Vallecano,2,47,4-2-3-1,0
+70302,Rayo Vallecano,2,57,4-2-3-1,0
+70302,Barcelona,2,74,4-3-3,0
+70303,Barcelona,1,0,4-3-3,1
+70303,Atlético Madrid,1,0,4-4-1-1,1
+70303,Atlético Madrid,1,38,4-1-4-1,0
+70303,Atlético Madrid,2,45,4-4-1-1,0
+70303,Atlético Madrid,2,67,4-4-2,0
+70303,Atlético Madrid,2,75,4-4-2,0
+70304,RC Deportivo La Coruña,1,0,4-2-3-1,1
+70304,Barcelona,1,0,4-3-3,1
+70304,Barcelona,2,53,4-4-1-1,0
+70304,RC Deportivo La Coruña,2,60,4-4-2,0
+70304,RC Deportivo La Coruña,2,78,4-4-2,0
+70305,Barcelona,1,0,4-3-3,1
+70305,RC Deportivo La Coruña,1,0,4-2-3-1,1
+70305,RC Deportivo La Coruña,2,68,4-2-3-1,0
+70305,Barcelona,2,74,4-3-3,0
+70306,Espanyol,1,0,4-2-3-1,1
+70306,Barcelona,1,0,4-3-3,1
+70306,Barcelona,2,76,4-3-3,0
+70306,Espanyol,2,83,4-1-2-1-2,0
+70307,Barcelona,1,0,4-3-3,1
+70307,Rayo Vallecano,1,0,4-2-3-1,1
+70308,Barcelona,1,0,4-3-3,1
+70308,Celta Vigo,1,0,4-2-3-1,1
+70308,Barcelona,2,45,4-3-3,0
+70309,Barcelona,1,0,4-3-3,1
+70309,Real Zaragoza,1,0,4-4-1-1,1
+70309,Real Zaragoza,2,57,4-4-1-1,0
+70309,Real Zaragoza,2,80,4-4-1-1,0
+265830,Atlético Madrid,1,0,4-4-2,1
+265830,Barcelona,1,0,4-1-2-1-2,1
+265830,Barcelona,2,45,4-1-2-1-2,0
+265830,Barcelona,2,71,4-3-3,0
+265835,Barcelona,1,0,4-3-3,1
+265835,Sevilla,1,0,4-2-3-1,1
+265835,Barcelona,2,73,4-3-3,0
+265837,Real Sociedad,1,0,4-2-3-1,1
+265837,Barcelona,1,0,4-3-3,1
+265837,Barcelona,2,72,4-2-3-1,0
+265837,Real Sociedad,2,84,3-5-2,0
+265839,Barcelona,1,0,4-3-3,1
+265839,Sevilla,1,0,4-2-3-1,1
+265839,Sevilla,2,63,4-2-3-1,0
+265839,Sevilla,2,74,4-4-2,0
+265857,Real Madrid,1,0,4-3-3,1
+265857,Barcelona,1,0,4-3-3,1
+265857,Real Madrid,2,65,4-1-2-1-2,0
+265857,Barcelona,2,77,4-3-3,0
+265857,Real Madrid,2,89,4-3-3,0
+265866,Córdoba CF,1,0,4-2-3-1,1
+265866,Barcelona,1,0,4-3-3,1
+265894,Málaga,1,0,4-4-2,1
+265894,Barcelona,1,0,4-3-3,1
+265894,Barcelona,2,57,4-3-3,0
+265896,Barcelona,1,0,4-3-3,1
+265896,Eibar,1,0,3-5-2,1
+265896,Eibar,2,69,3-5-2,0
+265918,Barcelona,1,0,4-3-3,1
+265918,Rayo Vallecano,1,0,4-2-3-1,1
+265944,Barcelona,1,0,4-3-3,1
+265944,Sporting Gijón,1,0,4-2-3-1,1
+265944,Sporting Gijón,2,62,4-2-3-1,0
+265944,Sporting Gijón,2,88,4-2-3-1,0
+265952,Barcelona,1,0,3-4-3,1
+265952,Sporting Gijón,1,0,4-5-1,1
+265952,Sporting Gijón,2,45,4-5-1,0
+265952,Barcelona,2,61,3-4-3,0
+265952,Barcelona,2,73,4-1-2-1-2,0
+265958,Barcelona,1,0,4-3-3,1
+265958,Espanyol,1,0,4-3-3,1
+265963,Barcelona,1,0,4-3-3,1
+265963,Getafe,1,0,4-2-3-1,1
+266015,Real Valladolid,1,0,4-2-3-1,1
+266015,Barcelona,1,0,4-3-3,1
+266015,Real Valladolid,2,65,4-2-3-1,0
+266033,Valencia,1,0,4-2-3-1,1
+266033,Barcelona,1,0,4-3-3,1
+266033,Valencia,2,45,4-2-3-1,0
+266033,Valencia,2,77,4-2-3-1,0
+266045,Barcelona,1,0,4-3-3,1
+266045,Real Sociedad,1,0,4-2-3-1,1
+266045,Barcelona,2,61,4-3-3,0
+266056,Eibar,1,0,4-4-2,1
+266056,Barcelona,1,0,4-3-3,1
+266056,Eibar,2,67,4-2-3-1,0
+266056,Barcelona,2,79,4-3-3,0
+266056,Eibar,2,84,4-2-3-1,0
+266056,Eibar,2,89,4-2-3-1,0
+266066,Barcelona,1,0,4-3-3,1
+266066,Almería,1,0,4-2-3-1,1
+266066,Almería,2,61,4-2-3-1,0
+266066,Almería,2,78,4-2-3-1,0
+266066,Barcelona,2,87,4-3-3,0
+266074,Barcelona,1,0,4-3-3,1
+266074,Osasuna,1,0,4-2-3-1,1
+266074,Barcelona,2,76,4-3-3,0
+266106,Villarreal,1,0,4-4-2,1
+266106,Barcelona,1,0,4-3-3,1
+266106,Barcelona,2,54,4-3-3,0
+266106,Barcelona,2,56,4-3-3,0
+266106,Villarreal,2,73,4-4-2,0
+266117,Barcelona,1,0,4-3-3,1
+266117,Granada,1,0,4-4-2,1
+266117,Barcelona,2,66,4-3-3,0
+266117,Granada,2,68,4-4-2,0
+266142,Sevilla,1,0,4-2-3-1,1
+266142,Barcelona,1,0,4-3-3,1
+266142,Barcelona,2,73,4-1-2-1-2,0
+266148,Barcelona,1,0,4-3-3,1
+266148,Málaga,1,0,4-4-2,1
+266148,Málaga,2,51,4-4-2,0
+266148,Barcelona,2,78,3-4-3,0
+266148,Málaga,2,87,4-4-2,0
+266149,Barcelona,1,0,4-3-3,1
+266149,Athletic Club,1,0,4-4-1-1,1
+266149,Athletic Club,1,6,4-4-1-1,0
+266149,Barcelona,2,70,4-3-3,0
+266160,Levante UD,1,0,4-3-3,1
+266160,Barcelona,1,0,4-3-3,1
+266160,Levante UD,2,69,4-3-3,0
+266166,Atlético Madrid,1,0,4-4-2,1
+266166,Barcelona,1,0,4-3-3,1
+266166,Barcelona,2,59,4-3-3,0
+266191,Real Sociedad,1,0,4-3-3,1
+266191,Barcelona,1,0,4-3-3,1
+266201,Elche,1,0,4-2-3-1,1
+266201,Barcelona,1,0,4-3-3,1
+266230,RC Deportivo La Coruña,1,0,4-2-3-1,1
+266230,Barcelona,1,0,4-3-3,1
+266230,RC Deportivo La Coruña,2,45,4-2-3-1,0
+266230,Barcelona,2,65,4-3-3,0
+266230,RC Deportivo La Coruña,2,78,4-4-2,0
+266236,Athletic Club,1,0,4-2-3-1,1
+266236,Barcelona,1,0,4-3-3,1
+266236,Athletic Club,2,50,4-2-3-1,0
+266236,Athletic Club,2,62,4-2-3-1,0
+266236,Barcelona,2,67,4-3-3,0
+266240,Real Sociedad,1,0,4-2-3-1,1
+266240,Barcelona,1,0,4-3-3,1
+266240,Barcelona,2,69,4-3-3,0
+266240,Real Sociedad,2,70,4-2-3-1,0
+266254,Barcelona,1,0,4-3-3,1
+266254,Celta Vigo,1,0,4-3-3,1
+266254,Celta Vigo,2,77,4-4-2,0
+266256,Barcelona,1,0,4-3-3,1
+266256,Atlético Madrid,1,0,4-4-2,1
+266256,Barcelona,2,81,4-1-2-1-2,0
+266273,Deportivo Alavés,1,0,4-4-2,1
+266273,Barcelona,1,0,4-3-3,1
+266273,Deportivo Alavés,2,45,3-4-3,0
+266273,Barcelona,2,65,4-3-3,0
+266273,Barcelona,2,71,4-3-3,0
+266273,Barcelona,2,86,4-3-3,0
+266274,Barcelona,1,0,4-3-3,1
+266274,Celta Vigo,1,0,4-2-3-1,1
+266274,Barcelona,1,23,4-3-3,0
+266274,Celta Vigo,2,45,4-2-3-1,0
+266274,Barcelona,2,53,4-3-3,0
+266274,Celta Vigo,2,65,4-2-3-1,0
+266274,Celta Vigo,2,85,4-3-3,0
+266280,Barcelona,1,0,3-5-1-1,1
+266280,Sevilla,1,0,3-4-3,1
+266280,Barcelona,2,77,4-3-3,0
+266299,Barcelona,1,0,3-4-3,1
+266299,Celta Vigo,1,0,4-2-3-1,1
+266299,Celta Vigo,1,11,4-2-3-1,0
+266299,Celta Vigo,1,15,4-2-3-1,0
+266299,Celta Vigo,1,27,3-5-1-1,0
+266299,Celta Vigo,2,61,3-5-1-1,0
+266299,Barcelona,2,67,3-4-3,0
+266299,Celta Vigo,2,68,3-5-1-1,0
+266310,RC Deportivo La Coruña,1,0,4-1-2-1-2,1
+266310,Barcelona,1,0,4-3-3,1
+266310,RC Deportivo La Coruña,2,63,4-4-2,0
+266310,RC Deportivo La Coruña,2,70,4-4-2,0
+266310,Barcelona,2,76,4-3-3,0
+266320,Barcelona,1,0,4-3-3,1
+266320,Espanyol,1,0,4-4-2,1
+266320,Espanyol,2,82,4-4-2,0
+266320,Barcelona,2,82,4-3-3,0
+266357,Osasuna,1,0,4-4-2,1
+266357,Barcelona,1,0,4-3-3,1
+266406,Villarreal,1,0,4-1-2-1-2,1
+266406,Barcelona,1,0,4-3-3,1
+266420,Almería,1,0,4-2-3-1,1
+266420,Barcelona,1,0,4-3-3,1
+266420,Barcelona,1,28,4-3-3,0
+266420,Almería,2,71,4-4-2,0
+266420,Almería,2,84,4-2-3-1,0
+266424,Real Madrid,1,0,4-2-3-1,1
+266424,Barcelona,1,0,4-3-3,1
+266424,Barcelona,2,56,4-3-3,0
+266424,Real Madrid,2,59,4-2-3-1,0
+266424,Barcelona,2,76,4-3-3,0
+266424,Real Madrid,2,84,4-2-3-1,0
+266433,Barcelona,1,0,4-3-3,1
+266433,Espanyol,1,0,4-2-3-1,1
+266433,Barcelona,2,69,4-3-3,0
+266433,Espanyol,2,78,4-2-3-1,0
+266440,Barcelona,1,0,3-4-3,1
+266440,Valencia,1,0,4-3-3,1
+266440,Valencia,2,45,4-3-3,0
+266462,Osasuna,1,0,4-2-3-1,1
+266462,Barcelona,1,0,4-3-3,1
+266462,Barcelona,2,67,4-3-3,0
+266467,Celta Vigo,1,0,4-4-2,1
+266467,Barcelona,1,0,4-3-3,1
+266467,Barcelona,2,57,4-4-2,0
+266467,Celta Vigo,2,77,4-5-1,0
+266477,Villarreal,1,0,4-4-2,1
+266477,Barcelona,1,0,4-3-3,1
+266477,Villarreal,2,81,4-4-2,0
+266477,Villarreal,2,84,4-4-2,0
+266490,Barcelona,1,0,4-2-3-1,1
+266490,Levante UD,1,0,3-5-2,1
+266491,Barcelona,1,0,4-3-3,1
+266491,Getafe,1,0,4-4-1-1,1
+266491,Barcelona,2,65,4-3-3,0
+266491,Getafe,2,68,4-3-3,0
+266498,Barcelona,1,0,4-3-3,1
+266498,Getafe,1,0,4-4-2,1
+266498,Getafe,2,54,4-4-2,0
+266498,Barcelona,2,60,4-3-3,0
+266498,Getafe,2,77,4-4-1-1,0
+266516,Real Betis,1,0,3-5-2,1
+266516,Barcelona,1,0,4-3-3,1
+266516,Real Betis,2,85,3-5-2,0
+266525,Barcelona,1,0,4-3-3,1
+266525,Valencia,1,0,4-3-3,1
+266525,Barcelona,2,45,4-3-3,0
+266525,Barcelona,2,64,4-3-3,0
+266528,Barcelona,1,0,4-3-3,1
+266528,Espanyol,1,0,4-4-2,1
+266528,Espanyol,2,52,4-4-2,0
+266528,Barcelona,2,74,4-3-3,0
+266531,Espanyol,1,0,4-4-2,1
+266531,Barcelona,1,0,4-3-3,1
+266531,Barcelona,2,64,4-3-3,0
+266531,Barcelona,2,79,4-3-3,0
+266557,Barcelona,1,0,4-3-3,1
+266557,Valencia,1,0,4-5-1,1
+266557,Valencia,2,76,4-5-1,0
+266560,Valencia,1,0,4-3-3,1
+266560,Barcelona,1,0,4-3-3,1
+266560,Valencia,2,47,4-3-3,0
+266560,Barcelona,2,68,4-3-3,0
+266603,Real Valladolid,1,0,4-4-2,1
+266603,Barcelona,1,0,4-3-3,1
+266603,Barcelona,2,60,4-2-3-1,0
+266603,Barcelona,2,72,4-4-1-1,0
+266613,Barcelona,1,0,4-3-3,1
+266613,Valencia,1,0,4-4-1-1,1
+266613,Barcelona,2,79,3-5-1-1,0
+266620,Barcelona,1,0,4-3-3,1
+266620,Granada,1,0,3-5-2,1
+266620,Granada,2,45,3-5-2,0
+266631,Atlético Madrid,1,0,4-4-2,1
+266631,Barcelona,1,0,4-3-3,1
+266631,Atlético Madrid,2,67,4-4-2,0
+266631,Atlético Madrid,2,73,4-4-2,0
+266631,Atlético Madrid,2,79,4-4-1-1,0
+266653,Rayo Vallecano,1,0,4-2-3-1,1
+266653,Barcelona,1,0,4-3-3,1
+266653,Rayo Vallecano,2,70,4-2-3-1,0
+266653,Barcelona,2,78,4-3-3,0
+266664,Real Sociedad,1,0,4-3-3,1
+266664,Barcelona,1,0,4-3-3,1
+266664,Barcelona,2,58,4-3-3,0
+266669,Barcelona,1,0,4-3-3,1
+266669,Deportivo Alavés,1,0,3-4-3,1
+266669,Barcelona,2,63,4-3-3,0
+266670,Espanyol,1,0,4-2-3-1,1
+266670,Barcelona,1,0,4-3-3,1
+266670,Espanyol,2,59,4-2-3-1,0
+266670,Espanyol,2,68,4-2-3-1,0
+266724,Mallorca,1,0,4-4-2,1
+266724,Barcelona,1,0,4-3-3,1
+266731,Eibar,1,0,4-2-3-1,1
+266731,Barcelona,1,0,4-3-3,1
+266741,Barcelona,1,0,4-3-3,1
+266741,Levante UD,1,0,4-4-2,1
+266741,Barcelona,1,20,4-3-3,0
+266741,Barcelona,2,66,4-3-3,0
+266741,Levante UD,2,70,4-4-2,0
+266770,Levante UD,1,0,4-3-3,1
+266770,Barcelona,1,0,4-3-3,1
+266770,Levante UD,1,40,4-4-1-1,0
+266770,Barcelona,2,61,4-3-3,0
+266770,Levante UD,2,71,4-4-1-1,0
+266770,Barcelona,2,73,4-3-3,0
+266794,Elche,1,0,4-2-3-1,1
+266794,Barcelona,1,0,4-3-3,1
+266794,Elche,2,45,4-2-3-1,0
+266794,Barcelona,2,69,4-3-3,0
+266815,Sporting Gijón,1,0,4-2-3-1,1
+266815,Barcelona,1,0,4-3-3,1
+266827,Málaga,1,0,4-2-3-1,1
+266827,Barcelona,1,0,4-3-3,1
+266838,Málaga,1,0,4-2-3-1,1
+266838,Barcelona,1,0,4-3-3,1
+266846,Barcelona,1,0,4-3-3,1
+266846,Córdoba CF,1,0,4-2-3-1,1
+266846,Córdoba CF,2,60,4-2-3-1,0
+266871,Athletic Club,1,0,4-2-3-1,1
+266871,Barcelona,1,0,4-3-3,1
+266871,Barcelona,2,45,4-3-3,0
+266871,Athletic Club,2,69,4-2-3-1,0
+266871,Athletic Club,2,76,4-1-2-1-2,0
+266871,Athletic Club,2,78,4-4-1-1,0
+266871,Barcelona,2,80,4-3-3,0
+266874,Barcelona,1,0,4-3-3,1
+266874,Athletic Club,1,0,4-2-3-1,1
+266874,Athletic Club,2,51,4-2-3-1,0
+266874,Barcelona,2,63,4-4-2,0
+266883,Real Betis,1,0,4-2-3-1,1
+266883,Barcelona,1,0,4-3-3,1
+266883,Barcelona,1,22,4-3-3,0
+266883,Real Betis,2,64,4-2-3-1,0
+266885,Barcelona,1,0,4-3-3,1
+266885,Real Sociedad,1,0,4-4-2,1
+266885,Real Sociedad,2,72,4-4-2,0
+266892,Athletic Club,1,0,4-2-3-1,1
+266892,Barcelona,1,0,4-3-3,1
+266916,Barcelona,1,0,4-3-3,1
+266916,Rayo Vallecano,1,0,4-2-3-1,1
+266916,Rayo Vallecano,2,56,4-1-2-1-2,0
+266916,Rayo Vallecano,2,64,4-5-1,0
+266916,Barcelona,2,81,3-5-2,0
+266921,Barcelona,1,0,4-3-3,1
+266921,Elche,1,0,4-1-4-1,1
+266921,Barcelona,2,47,4-1-2-1-2,0
+266921,Elche,2,61,4-4-2,0
+266929,Celta Vigo,1,0,4-2-3-1,1
+266929,Barcelona,1,0,4-3-3,1
+266929,Celta Vigo,2,84,4-2-3-1,0
+266929,Barcelona,2,85,4-3-3,0
+266952,Barcelona,1,0,4-3-3,1
+266952,Villarreal,1,0,4-4-2,1
+266952,Villarreal,2,71,4-4-2,0
+266961,Barcelona,1,0,4-3-3,1
+266961,RC Deportivo La Coruña,1,0,4-1-2-1-2,1
+266967,Eibar,1,0,3-5-2,1
+266967,Barcelona,1,0,4-3-3,1
+266967,Eibar,2,76,4-3-3,0
+266986,Real Betis,1,0,4-2-3-1,1
+266986,Barcelona,1,0,4-3-3,1
+266986,Real Betis,1,36,4-4-2,0
+266986,Barcelona,2,88,4-3-3,0
+266989,Sevilla,1,0,4-1-4-1,1
+266989,Barcelona,1,0,4-3-3,1
+266989,Sevilla,2,67,4-4-2,0
+267039,Las Palmas,1,0,4-5-1,1
+267039,Barcelona,1,0,4-3-3,1
+267058,Barcelona,1,0,4-3-3,1
+267058,Granada,1,0,3-4-3,1
+267076,Barcelona,1,0,4-3-3,1
+267076,Real Madrid,1,0,4-2-3-1,1
+267076,Barcelona,2,59,4-3-3,0
+267076,Real Madrid,2,66,4-3-3,0
+267076,Real Madrid,2,77,4-3-3,0
+267076,Barcelona,2,87,4-3-3,0
+267076,Real Madrid,2,87,4-4-2,0
+267077,Espanyol,1,0,4-4-2,1
+267077,Barcelona,1,0,4-3-3,1
+267077,Espanyol,2,68,4-4-2,0
+267077,Barcelona,2,82,4-3-3,0
+267085,Real Madrid,1,0,4-4-2,1
+267085,Barcelona,1,0,4-3-3,1
+267085,Real Madrid,2,86,4-5-1,0
+267101,Barcelona,1,0,3-5-2,1
+267101,Osasuna,1,0,4-5-1,1
+267101,Barcelona,2,65,3-5-2,0
+267138,Granada,1,0,4-3-3,1
+267138,Barcelona,1,0,4-3-3,1
+267138,Granada,2,65,4-3-3,0
+267138,Barcelona,2,73,4-2-3-1,0
+267183,Barcelona,1,0,4-3-3,1
+267183,Real Madrid,1,0,4-3-3,1
+267183,Real Madrid,2,80,4-4-2,0
+267192,Celta Vigo,1,0,4-2-3-1,1
+267192,Barcelona,1,0,4-3-3,1
+267197,Barcelona,1,0,4-3-3,1
+267197,RC Deportivo La Coruña,1,0,4-2-3-1,1
+267197,RC Deportivo La Coruña,2,45,4-2-3-1,0
+267197,Barcelona,2,62,4-3-3,0
+267212,Leganés,1,0,4-3-3,1
+267212,Barcelona,1,0,3-4-3,1
+267212,Leganés,2,60,4-3-3,0
+267212,Barcelona,2,64,3-4-3,0
+267220,Barcelona,1,0,4-3-3,1
+267220,Atlético Madrid,1,0,4-2-3-1,1
+267220,Atlético Madrid,2,75,4-2-3-1,0
+267273,Las Palmas,1,0,4-1-4-1,1
+267273,Barcelona,1,0,4-3-3,1
+267273,Barcelona,2,71,4-3-3,0
+267273,Las Palmas,2,75,4-1-4-1,0
+267274,Valencia,1,0,4-3-3,1
+267274,Barcelona,1,0,4-3-3,1
+267274,Valencia,2,71,4-3-3,0
+267274,Valencia,2,82,4-3-3,0
+267301,Barcelona,1,0,4-3-3,1
+267301,Celta Vigo,1,0,4-3-3,1
+267301,Barcelona,2,69,4-4-2,0
+267327,Barcelona,1,0,4-3-3,1
+267327,Real Betis,1,0,4-4-2,1
+267327,Barcelona,2,56,4-3-3,0
+267343,Granada,1,0,4-4-2,1
+267343,Barcelona,1,0,4-3-3,1
+267343,Barcelona,2,74,4-3-3,0
+267368,Barcelona,1,0,4-3-3,1
+267368,Real Betis,1,0,4-3-3,1
+267368,Real Betis,2,60,4-3-3,0
+267368,Real Betis,2,81,4-3-3,0
+267373,Barcelona,1,0,4-1-2-1-2,1
+267373,Real Sociedad,1,0,4-2-3-1,1
+267373,Real Sociedad,1,25,4-2-3-1,0
+267373,Real Sociedad,1,33,4-2-3-1,0
+267395,Barcelona,1,0,4-3-3,1
+267395,Las Palmas,1,0,4-4-1-1,1
+267395,Las Palmas,2,62,4-4-1-1,0
+267395,Barcelona,2,74,4-3-3,0
+267400,Barcelona,1,0,4-3-3,1
+267400,Almería,1,0,4-2-3-1,1
+267400,Almería,2,63,4-2-3-1,0
+267400,Almería,2,71,4-2-3-1,0
+267400,Almería,2,78,4-4-2,0
+267422,Barcelona,1,0,4-3-3,1
+267422,Málaga,1,0,4-4-2,1
+267422,Málaga,1,33,4-4-2,0
+267422,Málaga,2,45,4-2-3-1,0
+267432,Barcelona,1,0,4-3-3,1
+267432,Eibar,1,0,4-4-2,1
+267432,Barcelona,2,71,4-3-3,0
+267432,Eibar,2,76,4-4-2,0
+267464,Atlético Madrid,1,0,4-4-2,1
+267464,Barcelona,1,0,4-3-3,1
+267464,Atlético Madrid,2,67,4-4-2,0
+267464,Atlético Madrid,2,71,4-2-3-1,0
+267492,Barcelona,1,0,3-4-3,1
+267492,RC Deportivo La Coruña,1,0,4-4-2,1
+267492,Barcelona,2,58,3-4-3,0
+267492,RC Deportivo La Coruña,2,69,4-4-2,0
+267499,Almería,1,0,4-2-3-1,1
+267499,Barcelona,1,0,4-3-3,1
+267499,Barcelona,2,46,4-3-3,0
+267502,Athletic Club,1,0,4-2-3-1,1
+267502,Barcelona,1,0,4-3-3,1
+267502,Barcelona,2,77,4-3-3,0
+267502,Athletic Club,2,85,3-4-3,0
+267506,Granada,1,0,4-2-3-1,1
+267506,Barcelona,1,0,4-3-3,1
+267506,Granada,2,45,4-2-3-1,0
+267520,Barcelona,1,0,4-3-3,1
+267520,Real Sociedad,1,0,4-2-3-1,1
+267520,Real Sociedad,2,45,4-2-3-1,0
+267520,Barcelona,2,45,4-3-3,0
+267533,Barcelona,1,0,4-3-3,1
+267533,Real Madrid,1,0,4-3-3,1
+267533,Real Madrid,2,84,4-3-3,0
+267561,Rayo Vallecano,1,0,4-2-3-1,1
+267561,Barcelona,1,0,4-3-3,1
+267561,Rayo Vallecano,2,48,4-3-2-1,0
+267567,Barcelona,1,0,4-3-3,1
+267567,Athletic Club,1,0,4-2-3-1,1
+267567,Athletic Club,2,85,4-4-2,0
+267569,Real Madrid,1,0,4-3-3,1
+267569,Barcelona,1,0,4-1-2-1-2,1
+267569,Real Madrid,1,16,4-3-3,0
+267569,Real Madrid,1,33,4-3-3,0
+267569,Real Madrid,2,78,4-3-3,0
+267569,Barcelona,2,79,4-4-1-1,0
+267569,Real Madrid,2,87,4-3-3,0
+267576,Barcelona,1,0,4-3-3,1
+267576,Atlético Madrid,1,0,4-4-2,1
+267576,Atlético Madrid,2,45,4-4-1-1,0
+267576,Atlético Madrid,2,66,4-1-4-1,0
+267590,Málaga,1,0,3-5-2,1
+267590,Barcelona,1,0,4-3-3,1
+267590,Barcelona,2,46,4-3-3,0
+267590,Barcelona,2,62,3-4-1-2,0
+267590,Barcelona,2,67,3-4-1-2,0
+267596,Barcelona,1,0,4-3-3,1
+267596,Leganés,1,0,4-5-1,1
+267596,Leganés,2,64,4-5-1,0
+267597,Barcelona,1,0,4-3-3,1
+267597,Villarreal,1,0,4-4-2,1
+267597,Barcelona,2,70,4-3-3,0
+267597,Barcelona,2,78,4-3-3,0
+267611,Barcelona,1,0,4-3-3,1
+267611,Las Palmas,1,0,3-5-2,1
+267660,RC Deportivo La Coruña,1,0,4-2-3-1,1
+267660,Barcelona,1,0,3-4-3,1
+267670,Barcelona,1,0,4-3-3,1
+267670,Real Betis,1,0,3-5-2,1
+267670,Real Betis,2,54,3-5-2,0
+267670,Barcelona,2,69,4-3-3,0
+267675,Sevilla,1,0,4-2-3-1,1
+267675,Barcelona,1,0,4-3-3,1
+267675,Barcelona,2,75,4-3-3,0
+303377,Barcelona,1,0,4-3-3,1
+303377,Getafe,1,0,4-4-2,1
+303377,Getafe,2,53,4-4-2,0
+303377,Barcelona,2,84,4-1-2-1-2,0
+303400,Valencia,1,0,4-4-2,1
+303400,Barcelona,1,0,3-5-2,1
+303421,Deportivo Alavés,1,0,4-4-2,1
+303421,Barcelona,1,0,4-3-3,1
+303421,Deportivo Alavés,2,46,4-1-4-1,0
+303421,Barcelona,2,49,4-3-3,0
+303430,Barcelona,1,0,4-3-3,1
+303430,Villarreal,1,0,4-2-3-1,1
+303430,Barcelona,2,77,4-3-3,0
+303451,Barcelona,1,0,4-3-3,1
+303451,Mallorca,1,0,4-4-2,1
+303451,Mallorca,2,58,4-4-2,0
+303470,Real Madrid,1,0,4-1-4-1,1
+303470,Barcelona,1,0,4-4-2,1
+303470,Barcelona,2,70,4-3-3,0
+303473,Barcelona,1,0,4-3-3,1
+303473,Sevilla,1,0,4-3-3,1
+303473,Barcelona,2,64,4-3-3,0
+303473,Barcelona,2,90,4-4-2,0
+303479,Barcelona,1,0,4-3-3,1
+303479,Real Sociedad,1,0,4-2-3-1,1
+303479,Barcelona,2,86,4-3-3,0
+303479,Barcelona,2,89,4-5-1,0
+303487,Barcelona,1,0,4-3-3,1
+303487,Celta Vigo,1,0,3-5-2,1
+303487,Barcelona,1,22,4-3-3,0
+303487,Barcelona,2,45,4-3-3,0
+303487,Barcelona,2,72,4-3-3,0
+303493,Barcelona,1,0,4-3-3,1
+303493,Athletic Club,1,0,4-2-3-1,1
+303504,Levante UD,1,0,4-4-2,1
+303504,Barcelona,1,0,4-3-3,1
+303504,Barcelona,1,39,4-3-3,0
+303504,Barcelona,2,64,4-3-3,0
+303504,Levante UD,2,64,4-4-2,0
+303504,Barcelona,2,66,4-2-3-1,0
+303504,Levante UD,2,91,4-4-2,0
+303516,Celta Vigo,1,0,3-5-2,1
+303516,Barcelona,1,0,4-3-3,1
+303516,Celta Vigo,2,60,3-5-2,0
+303516,Celta Vigo,2,80,3-4-2-1,0
+303517,Barcelona,1,0,4-3-3,1
+303517,Deportivo Alavés,1,0,4-4-1-1,1
+303517,Barcelona,2,86,4-3-3,0
+303524,Atlético Madrid,1,0,4-4-2,1
+303524,Barcelona,1,0,4-3-3,1
+303524,Barcelona,1,28,4-3-3,0
+303524,Barcelona,2,76,4-3-3,0
+303532,Barcelona,1,0,4-3-3,1
+303532,Leganés,1,0,3-5-2,1
+303532,Leganés,2,45,3-4-1-2,0
+303532,Leganés,2,49,3-4-1-2,0
+303532,Leganés,2,62,3-5-2,0
+303548,Mallorca,1,0,4-4-2,1
+303548,Barcelona,1,0,4-3-3,1
+303548,Mallorca,1,21,4-4-2,0
+303548,Mallorca,2,83,4-4-2,0
+303548,Barcelona,2,85,4-3-3,0
+303596,Barcelona,1,0,4-3-3,1
+303596,Real Madrid,1,0,4-1-2-1-2,1
+303596,Barcelona,2,55,4-3-3,0
+303600,Barcelona,1,0,4-3-3,1
+303600,Real Valladolid,1,0,3-4-1-2,1
+303600,Real Valladolid,1,32,4-1-2-1-2,0
+303600,Real Valladolid,2,56,4-4-1-1,0
+303600,Barcelona,2,79,4-3-3,0
+303610,Barcelona,1,0,3-5-2,1
+303610,Granada,1,0,4-2-3-1,1
+303610,Granada,2,72,4-4-1-1,0
+303615,Barcelona,1,0,4-1-2-1-2,1
+303615,Espanyol,1,0,3-5-2,1
+303615,Barcelona,2,45,4-1-2-1-2,0
+303615,Espanyol,2,53,3-5-2,0
+303615,Espanyol,2,67,4-1-2-1-2,0
+303615,Barcelona,2,71,4-1-2-1-2,0
+303634,Barcelona,1,0,4-3-3,1
+303634,Osasuna,1,0,3-5-2,1
+303634,Osasuna,2,50,3-5-2,0
+303634,Barcelona,2,58,4-3-3,0
+303634,Osasuna,2,80,3-5-1-1,0
+303652,Espanyol,1,0,4-4-2,1
+303652,Barcelona,1,0,4-3-3,1
+303652,Espanyol,2,79,4-4-2,0
+303652,Barcelona,2,80,4-4-1-1,0
+303664,Real Sociedad,1,0,4-1-4-1,1
+303664,Barcelona,1,0,4-3-3,1
+303664,Barcelona,2,76,4-3-3,0
+303666,Granada,1,0,4-2-3-1,1
+303666,Barcelona,1,0,4-3-3,1
+303666,Barcelona,2,45,4-2-3-1,0
+303674,Sevilla,1,0,4-3-3,1
+303674,Barcelona,1,0,4-4-2,1
+303674,Sevilla,2,60,4-3-3,0
+303674,Sevilla,2,72,3-4-3,0
+303680,Real Valladolid,1,0,4-1-2-1-2,1
+303680,Barcelona,1,0,4-1-2-1-2,1
+303680,Real Valladolid,2,45,4-4-2,0
+303680,Barcelona,2,58,4-4-2,0
+303680,Barcelona,2,74,3-5-2,0
+303682,Barcelona,1,0,4-3-3,1
+303682,Levante UD,1,0,4-4-2,1
+303682,Levante UD,2,59,4-4-2,0
+303682,Barcelona,2,70,4-1-4-1,0
+303696,Barcelona,1,0,4-1-2-1-2,1
+303696,Atlético Madrid,1,0,4-4-2,1
+303696,Atlético Madrid,2,84,4-4-2,0
+303696,Barcelona,2,85,4-1-2-1-2,0
+303700,Eibar,1,0,4-4-2,1
+303700,Barcelona,1,0,4-3-3,1
+303700,Barcelona,2,70,4-3-3,0
+303707,Real Betis,1,0,4-1-4-1,1
+303707,Barcelona,1,0,4-1-2-1-2,1
+303715,Leganés,1,0,3-4-3,1
+303715,Barcelona,1,0,4-2-3-1,1
+303715,Barcelona,1,23,4-2-3-1,0
+303715,Barcelona,2,69,4-2-3-1,0
+303725,Villarreal,1,0,4-4-2,1
+303725,Barcelona,1,0,4-1-2-1-2,1
+303725,Villarreal,2,45,4-2-3-1,0
+303725,Villarreal,2,55,4-2-3-1,0
+303725,Barcelona,2,59,4-1-2-1-2,0
+303725,Barcelona,2,72,4-3-3,0
+303731,Barcelona,1,0,4-3-3,1
+303731,Eibar,1,0,4-2-3-1,1
+3750201,Barcelona,1,0,4-3-3,1
+3750201,Manchester United,1,0,4-5-1,1
+3750201,Barcelona,1,0,4-3-3,0
+3750201,Manchester United,1,4,4-5-1,0
+3750201,Manchester United,2,50,4-4-2,0
+3750201,Manchester United,2,75,4-4-2,0
+3750201,Manchester United,2,84,4-4-2,0
+3764440,Barcelona,1,0,4-3-3,1
+3764440,Elche,1,0,3-4-3,1
+3764440,Barcelona,2,45,4-2-3-1,0
+3764440,Elche,2,65,3-4-3,0
+3764661,Athletic Club,1,0,4-4-2,1
+3764661,Barcelona,1,0,4-3-3,1
+3773369,Barcelona,1,0,3-4-2-1,1
+3773369,Huesca,1,0,3-5-2,1
+3773369,Huesca,2,67,3-5-1-1,0
+3773369,Barcelona,2,69,3-4-2-1,0
+3773369,Huesca,2,77,3-5-1-1,0
+3773369,Huesca,2,78,3-5-1-1,0
+3773369,Huesca,2,79,3-5-1-1,0
+3773372,Barcelona,1,0,3-5-2,1
+3773372,Atlético Madrid,1,0,3-4-3,1
+3773372,Barcelona,2,76,4-3-3,0
+3773377,Barcelona,1,0,4-1-4-1,1
+3773377,Valencia,1,0,4-4-2,1
+3773377,Barcelona,2,45,4-2-3-1,0
+3773377,Barcelona,2,72,4-2-3-1,0
+3773377,Barcelona,2,78,3-4-3,0
+3773386,Deportivo Alavés,1,0,4-1-4-1,1
+3773386,Barcelona,1,0,4-2-3-1,1
+3773386,Barcelona,2,45,4-2-3-1,0
+3773387,Levante UD,1,0,4-4-2,1
+3773387,Barcelona,1,0,3-5-2,1
+3773387,Barcelona,1,3,3-5-2,0
+3773387,Levante UD,2,60,4-4-2,0
+3773403,Barcelona,1,0,4-2-3-1,1
+3773403,Athletic Club,1,0,4-4-2,1
+3773403,Barcelona,2,83,3-4-2-1,0
+3773415,Barcelona,1,0,4-3-3,1
+3773415,Cádiz,1,0,4-1-4-1,1
+3773415,Cádiz,2,58,4-1-4-1,0
+3773415,Barcelona,2,61,4-3-3,0
+3773415,Barcelona,2,64,4-3-3,0
+3773415,Barcelona,2,74,4-2-3-1,0
+3773415,Cádiz,2,75,3-5-2,0
+3773415,Barcelona,2,80,4-3-3,0
+3773428,Cádiz,1,0,4-1-4-1,1
+3773428,Barcelona,1,0,4-2-3-1,1
+3773428,Cádiz,2,45,4-1-4-1,0
+3773428,Barcelona,2,47,4-2-3-1,0
+3773457,Barcelona,1,0,3-5-2,1
+3773457,Celta Vigo,1,0,4-4-2,1
+3773457,Barcelona,2,70,3-5-2,0
+3773466,Celta Vigo,1,0,3-5-2,1
+3773466,Barcelona,1,0,4-2-3-1,1
+3773466,Celta Vigo,1,32,3-5-2,0
+3773466,Celta Vigo,1,32,3-5-2,0
+3773466,Celta Vigo,1,35,3-5-2,0
+3773466,Celta Vigo,1,37,3-5-2,0
+3773466,Barcelona,1,48,4-2-3-1,0
+3773466,Celta Vigo,2,47,3-5-2,0
+3773466,Celta Vigo,2,59,4-2-3-1,0
+3773466,Celta Vigo,2,64,4-2-3-1,0
+3773466,Celta Vigo,2,67,4-2-3-1,0
+3773466,Celta Vigo,2,71,4-2-3-1,0
+3773466,Barcelona,2,73,4-2-3-1,0
+3773474,Barcelona,1,0,3-4-2-1,1
+3773474,Real Valladolid,1,0,3-5-2,1
+3773474,Barcelona,2,45,4-1-4-1,0
+3773474,Barcelona,2,63,4-3-3,0
+3773477,Barcelona,1,0,4-4-2,1
+3773477,Real Betis,1,0,4-2-3-1,1
+3773477,Barcelona,2,45,4-4-2,0
+3773477,Real Betis,2,62,4-2-3-1,0
+3773477,Real Betis,2,72,4-2-3-1,0
+3773497,Real Madrid,1,0,4-1-4-1,1
+3773497,Barcelona,1,0,3-4-3,1
+3773497,Barcelona,2,49,3-5-2,0
+3773497,Barcelona,2,80,3-5-2,0
+3773523,Barcelona,1,0,4-2-3-1,1
+3773523,Real Sociedad,1,0,4-3-3,1
+3773523,Real Sociedad,2,56,4-3-3,0
+3773523,Barcelona,2,75,4-3-3,0
+3773526,Barcelona,1,0,4-3-3,1
+3773526,Deportivo Alavés,1,0,4-4-2,1
+3773526,Barcelona,2,45,4-3-3,0
+3773526,Deportivo Alavés,2,46,4-4-2,0
+3773547,Barcelona,1,0,4-3-3,1
+3773547,Osasuna,1,0,4-4-2,1
+3773547,Barcelona,2,61,4-3-3,0
+3773547,Barcelona,2,66,4-2-3-1,0
+3773552,Huesca,1,0,4-3-3,1
+3773552,Barcelona,1,0,4-3-3,1
+3773552,Huesca,2,77,4-3-3,0
+3773552,Barcelona,2,81,4-3-3,0
+3773565,Granada,1,0,4-2-3-1,1
+3773565,Barcelona,1,0,4-3-3,1
+3773565,Granada,2,45,4-2-3-1,0
+3773565,Barcelona,2,75,4-3-3,0
+3773565,Granada,2,77,4-2-3-1,0
+3773571,Real Valladolid,1,0,4-4-2,1
+3773571,Barcelona,1,0,3-4-2-1,1
+3773571,Real Valladolid,2,78,4-4-2,0
+3773585,Barcelona,1,0,4-4-2,1
+3773585,Real Madrid,1,0,4-3-3,1
+3773585,Barcelona,2,89,3-5-2,0
+3773586,Barcelona,1,0,3-5-2,1
+3773586,Granada,1,0,3-4-3,1
+3773586,Barcelona,2,73,4-1-4-1,0
+3773586,Barcelona,2,80,4-2-3-1,0
+3773587,Getafe,1,0,4-4-2,1
+3773587,Barcelona,1,0,4-2-3-1,1
+3773587,Barcelona,2,79,4-2-3-1,0
+3773587,Getafe,2,92,4-4-2,0
+3773593,Barcelona,1,0,4-2-3-1,1
+3773593,Villarreal,1,0,4-4-2,1
+3773593,Villarreal,2,47,4-3-3,0
+3773597,Real Sociedad,1,0,3-4-3,1
+3773597,Barcelona,1,0,3-4-2-1,1
+3773597,Barcelona,2,67,3-4-2-1,0
+3773597,Real Sociedad,2,73,3-4-3,0
+3773597,Barcelona,2,84,3-5-2,0
+3773597,Real Sociedad,2,85,3-4-3,0
+3773625,Sevilla,1,0,4-2-3-1,1
+3773625,Barcelona,1,0,3-5-2,1
+3773625,Sevilla,2,45,4-2-3-1,0
+3773631,Real Betis,1,0,4-2-3-1,1
+3773631,Barcelona,1,0,4-3-3,1
+3773631,Barcelona,2,56,4-2-3-1,0
+3773631,Barcelona,2,76,4-2-3-1,0
+3773656,Atlético Madrid,1,0,3-5-2,1
+3773656,Barcelona,1,0,4-2-3-1,1
+3773656,Barcelona,2,61,4-2-3-1,0
+3773656,Atlético Madrid,2,83,3-5-2,0
+3773656,Barcelona,2,83,4-1-4-1,0
+3773660,Barcelona,1,0,4-2-3-1,1
+3773660,Levante UD,1,0,4-4-2,1
+3773660,Barcelona,2,45,4-2-3-1,0
+3773660,Barcelona,2,88,3-4-3,0
+3773661,Barcelona,1,0,3-5-2,1
+3773661,Getafe,1,0,4-3-3,1
+3773661,Barcelona,2,46,3-5-2,0
+3773661,Barcelona,2,74,3-5-2,0
+3773665,Osasuna,1,0,4-4-2,1
+3773665,Barcelona,1,0,3-5-2,1
+3773665,Barcelona,2,45,4-3-3,0
+3773672,Barcelona,1,0,4-2-3-1,1
+3773672,Sevilla,1,0,4-3-3,1
+3773672,Sevilla,2,49,4-3-3,0
+3773689,Villarreal,1,0,4-4-2,1
+3773689,Barcelona,1,0,3-5-2,1
+3773689,Barcelona,2,87,3-5-2,0
+3773689,Villarreal,2,89,4-4-2,0
+3773695,Valencia,1,0,3-5-2,1
+3773695,Barcelona,1,0,3-5-2,1
+3773695,Valencia,2,78,4-4-2,0
+3825562,Málaga,1,0,4-4-2,1
+3825562,Sevilla,1,0,4-2-3-1,1
+3825562,Málaga,2,45,4-4-2,0
+3825562,Sevilla,2,64,4-2-3-1,0
+3825562,Málaga,2,66,4-4-2,0
+3825562,Sevilla,2,72,4-2-3-1,0
+3825562,Málaga,2,84,4-4-2,0
+3825563,Atlético Madrid,1,0,4-4-2,1
+3825563,Las Palmas,1,0,3-4-3,1
+3825563,Atlético Madrid,1,33,4-3-3,0
+3825563,Atlético Madrid,2,64,4-2-3-1,0
+3825563,Las Palmas,2,79,4-2-3-1,0
+3825564,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825564,Real Sociedad,1,0,4-4-2,1
+3825564,RC Deportivo La Coruña,2,73,4-4-2,0
+3825565,Espanyol,1,0,4-2-3-1,1
+3825565,Getafe,1,0,4-2-3-1,1
+3825565,Espanyol,2,71,4-2-3-1,0
+3825565,Espanyol,2,78,4-2-3-1,0
+3825566,Rayo Vallecano,1,0,4-4-2,1
+3825566,Valencia,1,0,4-3-3,1
+3825566,Rayo Vallecano,2,66,4-4-2,0
+3825566,Valencia,2,68,4-3-3,0
+3825566,Rayo Vallecano,2,72,4-4-2,0
+3825567,Sporting Gijón,1,0,4-4-2,1
+3825567,Real Madrid,1,0,4-2-3-1,1
+3825567,Real Madrid,2,55,4-2-3-1,0
+3825567,Real Madrid,2,71,4-2-3-1,0
+3825567,Sporting Gijón,2,85,4-4-2,0
+3825568,Real Betis,1,0,4-4-2,1
+3825568,Villarreal,1,0,4-4-2,1
+3825568,Villarreal,2,66,4-4-2,0
+3825569,Levante UD,1,0,3-5-2,1
+3825569,Celta Vigo,1,0,4-3-3,1
+3825569,Celta Vigo,2,68,4-3-3,0
+3825569,Celta Vigo,2,85,4-3-3,0
+3825570,Granada,1,0,4-2-3-1,1
+3825570,Eibar,1,0,4-2-3-1,1
+3825570,Granada,2,45,4-2-3-1,0
+3825570,Eibar,2,65,4-2-3-1,0
+3825571,Villarreal,1,0,4-4-2,1
+3825571,Espanyol,1,0,4-4-2,1
+3825571,Espanyol,2,73,4-3-3,0
+3825572,Real Madrid,1,0,4-2-3-1,1
+3825572,Real Betis,1,0,4-4-2,1
+3825572,Real Betis,2,45,4-4-2,0
+3825573,Real Sociedad,1,0,4-2-3-1,1
+3825573,Sporting Gijón,1,0,4-4-2,1
+3825574,Celta Vigo,1,0,4-3-3,1
+3825574,Rayo Vallecano,1,0,4-2-3-1,1
+3825574,Rayo Vallecano,1,9,4-2-3-1,0
+3825574,Rayo Vallecano,2,45,4-2-3-1,0
+3825574,Celta Vigo,2,79,4-3-3,0
+3825575,Las Palmas,1,0,3-5-2,1
+3825575,Levante UD,1,0,3-5-2,1
+3825576,Valencia,1,0,4-3-3,1
+3825576,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825576,RC Deportivo La Coruña,1,28,4-2-3-1,0
+3825576,Valencia,2,83,4-2-3-1,0
+3825577,Getafe,1,0,4-2-3-1,1
+3825577,Granada,1,0,4-2-3-1,1
+3825577,Getafe,1,38,4-2-3-1,0
+3825577,Getafe,2,66,4-2-3-1,0
+3825577,Granada,2,80,4-2-3-1,0
+3825578,Eibar,1,0,4-2-3-1,1
+3825578,Athletic Club,1,0,4-2-3-1,1
+3825578,Athletic Club,2,45,4-2-3-1,0
+3825579,Sevilla,1,0,4-2-3-1,1
+3825579,Atlético Madrid,1,0,4-4-2,1
+3825579,Sevilla,2,56,4-2-3-1,0
+3825579,Atlético Madrid,2,63,4-4-2,0
+3825579,Sevilla,2,69,4-2-3-1,0
+3825580,Levante UD,1,0,3-5-2,1
+3825580,Sevilla,1,0,4-4-2,1
+3825580,Levante UD,2,89,3-5-2,0
+3825581,Espanyol,1,0,4-4-2,1
+3825581,Real Madrid,1,0,4-2-3-1,1
+3825581,Espanyol,1,17,3-5-2,0
+3825581,Espanyol,2,45,4-4-2,0
+3825581,Espanyol,2,46,4-4-2,0
+3825581,Espanyol,2,46,4-4-2,0
+3825581,Espanyol,2,48,4-4-2,0
+3825581,Real Madrid,2,70,4-2-3-1,0
+3825581,Espanyol,2,84,4-4-2,0
+3825582,Real Betis,1,0,4-4-2,1
+3825582,Real Sociedad,1,0,4-2-3-1,1
+3825582,Real Betis,2,45,4-4-2,0
+3825583,Sporting Gijón,1,0,4-4-2,1
+3825583,Valencia,1,0,4-3-3,1
+3825584,Granada,1,0,4-2-3-1,1
+3825584,Villarreal,1,0,4-4-2,1
+3825584,Villarreal,2,68,4-4-2,0
+3825585,Celta Vigo,1,0,4-3-3,1
+3825585,Las Palmas,1,0,4-4-2,1
+3825585,Las Palmas,1,12,4-4-2,0
+3825585,Las Palmas,2,58,3-5-1-1,0
+3825585,Celta Vigo,2,65,4-4-2,0
+3825585,Celta Vigo,2,83,4-4-2,0
+3825586,Málaga,1,0,4-2-3-1,1
+3825586,Eibar,1,0,4-2-3-1,1
+3825586,Málaga,2,68,4-2-3-1,0
+3825586,Málaga,2,84,4-2-3-1,0
+3825587,Athletic Club,1,0,4-2-3-1,1
+3825587,Getafe,1,0,4-2-3-1,1
+3825588,Rayo Vallecano,1,0,4-2-3-1,1
+3825588,RC Deportivo La Coruña,1,0,4-5-1,1
+3825588,RC Deportivo La Coruña,2,75,4-5-1,0
+3825589,Getafe,1,0,4-2-3-1,1
+3825589,Málaga,1,0,4-2-3-1,1
+3825590,Real Madrid,1,0,4-2-3-1,1
+3825590,Granada,1,0,4-2-3-1,1
+3825590,Granada,1,22,4-2-3-1,0
+3825590,Granada,2,72,4-2-3-1,0
+3825590,Real Madrid,2,77,4-2-3-1,0
+3825590,Granada,2,77,4-2-3-1,0
+3825590,Real Madrid,2,85,4-3-3,0
+3825591,Valencia,1,0,4-3-3,1
+3825591,Real Betis,1,0,4-4-2,1
+3825591,Valencia,2,45,4-2-3-1,0
+3825591,Real Betis,2,53,4-4-2,0
+3825591,Valencia,2,66,4-2-3-1,0
+3825591,Real Betis,2,70,4-4-2,0
+3825591,Valencia,2,84,3-5-2,0
+3825592,Real Sociedad,1,0,4-2-3-1,1
+3825592,Espanyol,1,0,4-2-3-1,1
+3825592,Real Sociedad,1,43,4-2-3-1,0
+3825592,Real Sociedad,1,44,4-2-3-1,0
+3825592,Real Sociedad,2,49,4-2-3-1,0
+3825593,Eibar,1,0,4-2-3-1,1
+3825593,Atlético Madrid,1,0,4-3-3,1
+3825593,Atlético Madrid,2,60,4-2-3-1,0
+3825594,Sevilla,1,0,4-2-3-1,1
+3825594,Celta Vigo,1,0,4-2-3-1,1
+3825594,Sevilla,1,29,4-2-3-1,0
+3825594,Sevilla,2,45,4-4-2,0
+3825594,Celta Vigo,2,57,4-2-3-1,0
+3825595,Villarreal,1,0,4-4-2,1
+3825595,Athletic Club,1,0,4-2-3-1,1
+3825595,Villarreal,2,67,4-4-2,0
+3825596,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825596,Sporting Gijón,1,0,4-4-2,1
+3825596,Sporting Gijón,1,0,4-4-2,0
+3825596,Sporting Gijón,1,0,4-4-2,0
+3825596,RC Deportivo La Coruña,2,61,4-2-3-1,0
+3825597,Las Palmas,1,0,3-5-2,1
+3825597,Rayo Vallecano,1,0,4-2-3-1,1
+3825597,Rayo Vallecano,2,49,4-2-3-1,0
+3825597,Rayo Vallecano,2,55,4-2-3-1,0
+3825597,Las Palmas,2,65,4-3-3,0
+3825597,Las Palmas,2,72,4-3-3,0
+3825598,Atlético Madrid,1,0,4-4-2,1
+3825598,Getafe,1,0,4-2-3-1,1
+3825598,Atlético Madrid,2,48,4-4-2,0
+3825598,Atlético Madrid,2,71,4-4-2,0
+3825598,Getafe,2,82,4-2-3-1,0
+3825598,Atlético Madrid,2,84,4-1-4-1,0
+3825598,Atlético Madrid,2,85,4-1-4-1,0
+3825598,Atlético Madrid,2,91,4-4-2,0
+3825599,Espanyol,1,0,4-2-3-1,1
+3825599,Valencia,1,0,4-3-3,1
+3825599,Valencia,2,65,4-3-3,0
+3825600,Málaga,1,0,4-2-3-1,1
+3825600,Villarreal,1,0,4-4-2,1
+3825600,Málaga,2,54,4-2-3-1,0
+3825601,Rayo Vallecano,1,0,4-2-3-1,1
+3825601,Sporting Gijón,1,0,4-4-2,1
+3825601,Rayo Vallecano,1,28,4-2-3-1,0
+3825601,Sporting Gijón,1,42,4-4-1-1,0
+3825601,Sporting Gijón,2,45,4-4-1-1,0
+3825601,Rayo Vallecano,2,63,4-2-3-1,0
+3825602,Athletic Club,1,0,4-2-3-1,1
+3825602,Real Madrid,1,0,4-2-3-1,1
+3825602,Real Madrid,2,80,4-2-3-1,0
+3825602,Athletic Club,2,80,4-2-3-1,0
+3825602,Athletic Club,2,84,4-4-2,0
+3825602,Real Madrid,2,88,4-2-3-1,0
+3825603,Real Betis,1,0,4-4-2,1
+3825603,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825604,Valencia,1,0,4-4-2,1
+3825604,Granada,1,0,4-2-3-1,1
+3825605,Sevilla,1,0,4-2-3-1,1
+3825605,Rayo Vallecano,1,0,4-2-3-1,1
+3825605,Sevilla,2,76,4-2-3-1,0
+3825605,Rayo Vallecano,2,85,4-2-3-1,0
+3825606,Real Madrid,1,0,4-3-3,1
+3825606,Málaga,1,0,4-4-2,1
+3825606,Real Madrid,2,60,4-3-3,0
+3825606,Málaga,2,80,4-4-1-1,0
+3825607,Villarreal,1,0,4-4-2,1
+3825607,Atlético Madrid,1,0,4-4-2,1
+3825607,Atlético Madrid,2,45,4-4-2,0
+3825607,Villarreal,2,74,4-4-2,0
+3825608,Eibar,1,0,4-4-2,1
+3825608,Celta Vigo,1,0,4-3-3,1
+3825608,Celta Vigo,2,47,4-2-3-1,0
+3825608,Eibar,2,68,4-4-1-1,0
+3825609,Real Sociedad,1,0,4-2-3-1,1
+3825609,Athletic Club,1,0,4-2-3-1,1
+3825609,Real Sociedad,2,72,4-4-2,0
+3825609,Athletic Club,2,72,4-2-3-1,0
+3825609,Athletic Club,2,86,4-2-3-1,0
+3825610,Sporting Gijón,1,0,4-4-2,1
+3825610,Real Betis,1,0,4-1-4-1,1
+3825610,Sporting Gijón,2,61,4-4-2,0
+3825611,RC Deportivo La Coruña,1,0,4-4-2,1
+3825611,Espanyol,1,0,4-4-2,1
+3825611,RC Deportivo La Coruña,1,9,4-4-2,0
+3825611,RC Deportivo La Coruña,2,83,4-4-2,0
+3825612,Getafe,1,0,4-2-3-1,1
+3825612,Levante UD,1,0,3-5-2,1
+3825612,Levante UD,1,38,4-4-2,0
+3825612,Levante UD,2,67,4-4-2,0
+3825612,Levante UD,2,82,4-4-2,0
+3825613,Celta Vigo,1,0,4-3-3,1
+3825613,Getafe,1,0,4-2-3-1,1
+3825613,Celta Vigo,2,45,4-3-3,0
+3825614,Granada,1,0,4-2-3-1,1
+3825614,RC Deportivo La Coruña,1,0,4-4-2,1
+3825614,Granada,2,45,4-2-3-1,0
+3825614,Granada,2,76,4-2-3-1,0
+3825615,Espanyol,1,0,4-2-3-1,1
+3825615,Sporting Gijón,1,0,4-2-3-1,1
+3825615,Sporting Gijón,2,73,4-2-3-1,0
+3825616,Málaga,1,0,4-4-2,1
+3825616,Real Sociedad,1,0,4-2-3-1,1
+3825616,Málaga,2,72,4-4-1-1,0
+3825617,Sevilla,1,0,4-2-3-1,1
+3825617,Barcelona,1,0,4-3-3,1
+3825617,Barcelona,2,62,4-3-3,0
+3825618,Las Palmas,1,0,3-5-2,1
+3825618,Eibar,1,0,4-2-3-1,1
+3825619,Levante UD,1,0,3-5-2,1
+3825619,Villarreal,1,0,4-4-2,1
+3825619,Villarreal,1,37,4-3-3,0
+3825619,Levante UD,2,49,3-5-2,0
+3825619,Villarreal,2,57,4-3-3,0
+3825619,Villarreal,2,66,4-3-3,0
+3825620,Rayo Vallecano,1,0,4-2-3-1,1
+3825620,Real Betis,1,0,4-4-2,1
+3825620,Rayo Vallecano,1,33,4-2-3-1,0
+3825620,Rayo Vallecano,2,45,4-2-3-1,0
+3825620,Real Betis,2,79,4-4-2,0
+3825620,Real Betis,2,87,4-4-2,0
+3825621,Atlético Madrid,1,0,4-4-2,1
+3825621,Real Madrid,1,0,4-3-3,1
+3825621,Atlético Madrid,2,46,4-4-2,0
+3825621,Real Madrid,2,76,4-3-3,0
+3825622,Athletic Club,1,0,4-2-3-1,1
+3825622,Valencia,1,0,4-2-3-1,1
+3825622,Athletic Club,1,27,4-2-3-1,0
+3825622,Athletic Club,2,70,4-2-3-1,0
+3825623,Valencia,1,0,4-3-3,1
+3825623,Málaga,1,0,4-2-3-1,1
+3825624,Eibar,1,0,4-2-3-1,1
+3825624,Sevilla,1,0,4-2-3-1,1
+3825624,Eibar,2,53,4-2-3-1,0
+3825624,Eibar,2,55,4-2-3-1,0
+3825624,Sevilla,2,67,4-2-3-1,0
+3825625,Real Madrid,1,0,4-3-3,1
+3825625,Levante UD,1,0,3-5-2,1
+3825625,Real Madrid,1,16,4-3-3,0
+3825625,Levante UD,2,74,3-5-2,0
+3825626,Real Betis,1,0,4-2-3-1,1
+3825626,Espanyol,1,0,4-2-3-1,1
+3825626,Real Betis,2,56,4-2-3-1,0
+3825627,Barcelona,1,0,4-3-3,1
+3825627,Rayo Vallecano,1,0,4-2-3-1,1
+3825627,Rayo Vallecano,2,45,4-2-3-1,0
+3825628,Getafe,1,0,4-2-3-1,1
+3825628,Las Palmas,1,0,4-3-3,1
+3825628,Las Palmas,2,45,4-2-3-1,0
+3825628,Las Palmas,2,70,4-2-3-1,0
+3825628,Las Palmas,2,81,4-2-3-1,0
+3825629,Villarreal,1,0,4-4-2,1
+3825629,Celta Vigo,1,0,4-3-3,1
+3825629,Villarreal,2,50,4-1-2-1-2,0
+3825629,Celta Vigo,2,72,4-3-3,0
+3825629,Celta Vigo,2,85,4-2-3-1,0
+3825630,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825630,Athletic Club,1,0,4-2-3-1,1
+3825630,RC Deportivo La Coruña,2,45,4-2-3-1,0
+3825630,RC Deportivo La Coruña,2,60,4-2-3-1,0
+3825630,RC Deportivo La Coruña,2,69,4-2-3-1,0
+3825630,Athletic Club,2,75,4-2-3-1,0
+3825631,Real Sociedad,1,0,4-2-3-1,1
+3825631,Atlético Madrid,1,0,4-4-2,1
+3825631,Atlético Madrid,2,61,4-4-2,0
+3825631,Atlético Madrid,2,86,4-3-3,0
+3825632,Sporting Gijón,1,0,4-2-3-1,1
+3825632,Granada,1,0,4-3-3,1
+3825632,Granada,1,15,4-3-3,0
+3825632,Granada,2,82,4-3-3,0
+3825632,Granada,2,92,4-3-3,0
+3825633,Rayo Vallecano,1,0,4-2-3-1,1
+3825633,Espanyol,1,0,4-2-3-1,1
+3825633,Rayo Vallecano,2,53,4-2-3-1,0
+3825634,Granada,1,0,4-3-3,1
+3825634,Real Betis,1,0,4-4-2,1
+3825634,Granada,1,1,4-3-3,0
+3825634,Real Betis,2,54,4-2-3-1,0
+3825634,Granada,2,76,4-3-3,0
+3825634,Real Betis,2,81,4-2-3-1,0
+3825635,Celta Vigo,1,0,4-3-3,1
+3825635,Real Madrid,1,0,4-3-3,1
+3825635,Celta Vigo,2,66,4-3-3,0
+3825635,Celta Vigo,2,81,4-3-3,0
+3825636,Málaga,1,0,4-2-3-1,1
+3825636,RC Deportivo La Coruña,1,0,4-4-2,1
+3825636,RC Deportivo La Coruña,2,58,4-2-3-1,0
+3825637,Barcelona,1,0,4-3-3,1
+3825637,Eibar,1,0,4-2-3-1,1
+3825638,Atlético Madrid,1,0,4-4-2,1
+3825638,Valencia,1,0,4-3-3,1
+3825638,Atlético Madrid,1,23,4-4-2,0
+3825639,Las Palmas,1,0,4-4-1-1,1
+3825639,Villarreal,1,0,4-4-2,1
+3825639,Villarreal,1,26,4-4-2,0
+3825639,Villarreal,1,37,4-4-2,0
+3825639,Villarreal,2,83,4-4-2,0
+3825640,Levante UD,1,0,3-5-2,1
+3825640,Real Sociedad,1,0,4-2-3-1,1
+3825640,Levante UD,2,45,3-5-2,0
+3825640,Real Sociedad,2,74,4-2-3-1,0
+3825641,Athletic Club,1,0,4-2-3-1,1
+3825641,Sporting Gijón,1,0,4-3-3,1
+3825641,Sporting Gijón,2,69,4-3-3,0
+3825641,Athletic Club,2,73,4-2-3-1,0
+3825642,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825642,Atlético Madrid,1,0,4-4-2,1
+3825642,Atlético Madrid,2,77,4-3-3,0
+3825642,Atlético Madrid,2,85,4-3-3,0
+3825643,Real Madrid,1,0,4-3-3,1
+3825643,Las Palmas,1,0,4-1-4-1,1
+3825643,Real Madrid,2,79,4-3-3,0
+3825644,Real Sociedad,1,0,4-2-3-1,1
+3825644,Celta Vigo,1,0,4-3-3,1
+3825645,Getafe,1,0,4-4-2,1
+3825645,Barcelona,1,0,4-3-3,1
+3825645,Barcelona,2,61,4-1-4-1,0
+3825645,Barcelona,2,77,4-1-4-1,0
+3825646,Villarreal,1,0,4-4-2,1
+3825646,Sevilla,1,0,4-2-3-1,1
+3825646,Villarreal,2,72,4-4-2,0
+3825646,Sevilla,2,75,4-2-3-1,0
+3825647,Valencia,1,0,4-3-3,1
+3825647,Levante UD,1,0,4-3-3,1
+3825648,Eibar,1,0,4-2-3-1,1
+3825648,Rayo Vallecano,1,0,4-2-3-1,1
+3825648,Eibar,2,68,4-4-2,0
+3825648,Rayo Vallecano,2,70,4-4-2,0
+3825648,Eibar,2,88,4-4-2,0
+3825649,Sporting Gijón,1,0,4-2-3-1,1
+3825649,Málaga,1,0,4-2-3-1,1
+3825649,Málaga,1,29,4-2-3-1,0
+3825649,Sporting Gijón,2,75,4-2-3-1,0
+3825649,Málaga,2,80,4-2-3-1,0
+3825650,Real Betis,1,0,4-4-2,1
+3825650,Athletic Club,1,0,4-2-3-1,1
+3825650,Real Betis,2,45,4-3-3,0
+3825651,Espanyol,1,0,4-2-3-1,1
+3825651,Granada,1,0,4-2-3-1,1
+3825651,Granada,2,50,4-2-3-1,0
+3825651,Espanyol,2,65,4-2-3-1,0
+3825651,Espanyol,2,73,4-4-2,0
+3825652,Las Palmas,1,0,4-4-2,1
+3825652,Real Sociedad,1,0,4-2-3-1,1
+3825652,Las Palmas,2,84,4-4-2,0
+3825653,Eibar,1,0,4-4-2,1
+3825653,Getafe,1,0,4-2-3-1,1
+3825653,Getafe,2,62,4-2-3-1,0
+3825653,Getafe,2,66,4-2-3-1,0
+3825654,Celta Vigo,1,0,4-3-3,1
+3825654,Valencia,1,0,4-1-4-1,1
+3825654,Valencia,2,68,4-1-4-1,0
+3825655,Rayo Vallecano,1,0,4-2-3-1,1
+3825655,Granada,1,0,4-2-3-1,1
+3825655,Rayo Vallecano,2,47,4-2-3-1,0
+3825655,Rayo Vallecano,2,77,4-2-3-1,0
+3825656,Levante UD,1,0,4-3-3,1
+3825656,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825656,Levante UD,2,48,4-2-3-1,0
+3825656,Levante UD,2,80,4-2-3-1,0
+3825657,Málaga,1,0,4-4-2,1
+3825657,Real Betis,1,0,4-2-3-1,1
+3825657,Málaga,2,69,4-4-2,0
+3825657,Málaga,2,79,4-2-3-1,0
+3825658,Atlético Madrid,1,0,4-4-2,1
+3825658,Sporting Gijón,1,0,4-2-3-1,1
+3825658,Atlético Madrid,2,54,4-1-4-1,0
+3825658,Sporting Gijón,2,79,4-2-3-1,0
+3825659,Athletic Club,1,0,4-2-3-1,1
+3825659,Espanyol,1,0,4-2-3-1,1
+3825659,Athletic Club,2,65,4-2-3-1,0
+3825659,Espanyol,2,74,3-5-2,0
+3825660,Barcelona,1,0,4-3-3,1
+3825660,Villarreal,1,0,4-5-1,1
+3825661,Sevilla,1,0,4-2-3-1,1
+3825661,Real Madrid,1,0,4-3-3,1
+3825662,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825662,Celta Vigo,1,0,4-2-3-1,1
+3825662,Celta Vigo,2,73,4-2-3-1,0
+3825663,Espanyol,1,0,4-2-3-1,1
+3825663,Málaga,1,0,4-4-2,1
+3825663,Málaga,2,46,4-4-2,0
+3825664,Real Sociedad,1,0,4-2-3-1,1
+3825664,Sevilla,1,0,4-2-3-1,1
+3825664,Real Sociedad,2,86,4-2-3-1,0
+3825665,Granada,1,0,4-2-3-1,1
+3825665,Athletic Club,1,0,4-2-3-1,1
+3825666,Real Betis,1,0,4-2-3-1,1
+3825666,Atlético Madrid,1,0,4-3-3,1
+3825666,Real Betis,2,50,4-2-3-1,0
+3825666,Real Betis,2,62,4-2-3-1,0
+3825666,Real Betis,2,77,4-4-2,0
+3825667,Villarreal,1,0,4-4-2,1
+3825667,Eibar,1,0,4-4-2,1
+3825667,Eibar,2,76,4-4-2,0
+3825667,Eibar,2,87,4-4-2,0
+3825668,Sporting Gijón,1,0,4-2-3-1,1
+3825668,Levante UD,1,0,4-5-1,1
+3825668,Sporting Gijón,2,46,4-2-3-1,0
+3825668,Sporting Gijón,2,66,3-5-1-1,0
+3825668,Levante UD,2,70,4-5-1,0
+3825669,Getafe,1,0,4-2-3-1,1
+3825669,Rayo Vallecano,1,0,4-2-3-1,1
+3825669,Rayo Vallecano,2,59,4-2-3-1,0
+3825669,Getafe,2,76,4-2-3-1,0
+3825669,Rayo Vallecano,2,77,4-2-3-1,0
+3825669,Getafe,2,84,4-2-3-1,0
+3825670,Levante UD,1,0,4-3-3,1
+3825670,Real Betis,1,0,4-2-3-1,1
+3825670,Real Betis,2,84,4-2-3-1,0
+3825671,Celta Vigo,1,0,4-3-3,1
+3825671,Sporting Gijón,1,0,4-2-3-1,1
+3825672,Málaga,1,0,4-2-3-1,1
+3825672,Granada,1,0,4-2-3-1,1
+3825672,Granada,2,53,4-2-3-1,0
+3825673,Las Palmas,1,0,4-4-1-1,1
+3825673,RC Deportivo La Coruña,1,0,4-4-2,1
+3825674,Atlético Madrid,1,0,4-4-2,1
+3825674,Espanyol,1,0,4-2-3-1,1
+3825674,Atlético Madrid,1,33,4-4-2,0
+3825674,Atlético Madrid,2,74,4-5-1,0
+3825674,Espanyol,2,82,4-4-2,0
+3825675,Rayo Vallecano,1,0,4-2-3-1,1
+3825675,Athletic Club,1,0,4-2-3-1,1
+3825675,Rayo Vallecano,1,24,4-2-3-1,0
+3825675,Rayo Vallecano,2,45,3-5-1-1,0
+3825675,Rayo Vallecano,2,60,3-5-1-1,0
+3825675,Athletic Club,2,66,4-2-3-1,0
+3825675,Athletic Club,2,67,4-4-1-1,0
+3825675,Athletic Club,2,78,4-4-1-1,0
+3825676,Getafe,1,0,4-4-2,1
+3825676,Villarreal,1,0,4-3-3,1
+3825677,Sevilla,1,0,4-2-3-1,1
+3825677,Valencia,1,0,4-5-1,1
+3825677,Valencia,2,45,4-5-1,0
+3825677,Sevilla,2,86,4-2-3-1,0
+3825678,Eibar,1,0,4-3-3,1
+3825678,Real Madrid,1,0,4-4-2,1
+3825678,Eibar,1,23,4-3-3,0
+3825678,Eibar,2,46,4-3-3,0
+3825678,Real Madrid,2,79,4-3-3,0
+3825678,Real Madrid,2,85,4-3-3,0
+3825679,Real Betis,1,0,4-2-3-1,1
+3825679,Celta Vigo,1,0,4-2-3-1,1
+3825679,Celta Vigo,2,51,4-2-3-1,0
+3825679,Real Betis,2,74,4-2-3-1,0
+3825679,Celta Vigo,2,84,4-2-3-1,0
+3825680,RC Deportivo La Coruña,1,0,4-4-2,1
+3825680,Sevilla,1,0,4-2-3-1,1
+3825680,RC Deportivo La Coruña,2,62,4-4-2,0
+3825681,Real Madrid,1,0,4-3-3,1
+3825681,Getafe,1,0,4-1-4-1,1
+3825681,Getafe,2,53,4-4-2,0
+3825681,Getafe,2,63,4-4-2,0
+3825681,Real Madrid,2,78,4-3-3,0
+3825682,Granada,1,0,4-3-3,1
+3825682,Atlético Madrid,1,0,4-3-3,1
+3825682,Granada,1,32,4-3-3,0
+3825682,Atlético Madrid,2,85,4-4-2,0
+3825683,Real Sociedad,1,0,4-2-3-1,1
+3825683,Eibar,1,0,4-4-2,1
+3825683,Real Sociedad,2,78,4-2-3-1,0
+3825684,Villarreal,1,0,4-4-2,1
+3825684,Rayo Vallecano,1,0,4-2-3-1,1
+3825684,Rayo Vallecano,1,29,4-2-3-1,0
+3825684,Villarreal,2,45,4-4-2,0
+3825684,Rayo Vallecano,2,58,4-2-3-1,0
+3825684,Villarreal,2,78,4-4-2,0
+3825685,Sporting Gijón,1,0,4-4-2,1
+3825685,Las Palmas,1,0,4-2-3-1,1
+3825685,Las Palmas,2,74,4-4-1-1,0
+3825686,Athletic Club,1,0,4-2-3-1,1
+3825686,Málaga,1,0,4-4-2,1
+3825686,Athletic Club,2,45,4-2-3-1,0
+3825686,Málaga,2,64,4-4-2,0
+3825686,Athletic Club,2,84,4-2-3-1,0
+3825687,Espanyol,1,0,4-2-3-1,1
+3825687,Levante UD,1,0,4-3-3,1
+3825688,Getafe,1,0,4-4-2,1
+3825688,Real Sociedad,1,0,4-3-3,1
+3825688,Real Sociedad,2,45,4-3-3,0
+3825688,Real Sociedad,2,63,4-3-3,0
+3825688,Getafe,2,79,4-4-2,0
+3825688,Getafe,2,79,4-4-1-1,0
+3825689,Celta Vigo,1,0,4-2-3-1,1
+3825689,Espanyol,1,0,4-4-2,1
+3825689,Celta Vigo,2,48,4-2-3-1,0
+3825689,Celta Vigo,2,70,4-2-3-1,0
+3825689,Celta Vigo,2,87,4-2-3-1,0
+3825690,Las Palmas,1,0,4-4-1-1,1
+3825690,Real Betis,1,0,4-4-2,1
+3825691,Levante UD,1,0,4-3-3,1
+3825691,Granada,1,0,4-2-3-1,1
+3825691,Levante UD,1,21,4-3-3,0
+3825691,Granada,2,47,4-2-3-1,0
+3825691,Levante UD,2,59,4-3-3,0
+3825691,Granada,2,69,4-2-3-1,0
+3825691,Granada,2,83,4-2-3-1,0
+3825692,Sevilla,1,0,4-2-3-1,1
+3825692,Sporting Gijón,1,0,4-2-3-1,1
+3825692,Sevilla,2,45,4-2-3-1,0
+3825692,Sporting Gijón,2,60,4-2-3-1,0
+3825692,Sevilla,2,71,4-4-2,0
+3825692,Sporting Gijón,2,77,4-4-1-1,0
+3825692,Sevilla,2,82,4-2-3-1,0
+3825693,Atlético Madrid,1,0,4-4-2,1
+3825693,Athletic Club,1,0,4-2-3-1,1
+3825693,Athletic Club,2,71,4-2-3-1,0
+3825693,Atlético Madrid,2,74,4-4-2,0
+3825693,Athletic Club,2,85,4-2-3-1,0
+3825693,Atlético Madrid,2,87,3-4-3,0
+3825694,Eibar,1,0,4-4-2,1
+3825694,Valencia,1,0,4-3-3,1
+3825694,Valencia,2,67,4-3-3,0
+3825694,Valencia,2,75,4-1-2-1-2,0
+3825695,Villarreal,1,0,4-4-2,1
+3825695,Real Madrid,1,0,4-3-3,1
+3825696,Rayo Vallecano,1,0,4-2-3-1,1
+3825696,Málaga,1,0,4-4-2,1
+3825696,Rayo Vallecano,2,85,4-2-3-1,0
+3825697,Valencia,1,0,4-3-3,1
+3825697,Getafe,1,0,4-2-3-1,1
+3825697,Valencia,1,33,4-3-3,0
+3825697,Getafe,2,68,4-2-3-1,0
+3825697,Valencia,2,72,4-2-2-2,0
+3825697,Valencia,2,84,4-2-2-2,0
+3825698,RC Deportivo La Coruña,1,0,4-4-2,1
+3825698,Eibar,1,0,4-4-2,1
+3825699,Real Betis,1,0,4-2-3-1,1
+3825699,Sevilla,1,0,4-2-3-1,1
+3825699,Real Betis,2,69,4-2-3-1,0
+3825699,Sevilla,2,71,4-2-3-1,0
+3825699,Real Betis,2,83,4-2-3-1,0
+3825700,Real Madrid,1,0,4-3-3,1
+3825700,Rayo Vallecano,1,0,4-2-3-1,1
+3825700,Real Madrid,1,3,4-3-3,0
+3825700,Rayo Vallecano,1,20,4-2-3-1,0
+3825700,Rayo Vallecano,1,30,4-2-3-1,0
+3825700,Real Madrid,2,61,4-3-3,0
+3825700,Real Madrid,2,73,4-3-3,0
+3825700,Rayo Vallecano,2,79,4-2-3-1,0
+3825701,Málaga,1,0,4-4-2,1
+3825701,Atlético Madrid,1,0,4-1-4-1,1
+3825701,Atlético Madrid,2,45,4-4-2,0
+3825701,Atlético Madrid,2,56,4-1-4-1,0
+3825701,Atlético Madrid,2,63,4-1-2-1-2,0
+3825701,Málaga,2,78,4-4-2,0
+3825702,Real Sociedad,1,0,4-3-3,1
+3825702,Villarreal,1,0,4-4-2,1
+3825702,Real Sociedad,2,74,4-3-3,0
+3825703,Athletic Club,1,0,4-2-3-1,1
+3825703,Levante UD,1,0,4-1-4-1,1
+3825703,Levante UD,2,68,4-1-4-1,0
+3825703,Athletic Club,2,73,4-2-3-1,0
+3825703,Levante UD,2,77,4-4-2,0
+3825703,Athletic Club,2,84,4-2-3-1,0
+3825704,Granada,1,0,4-3-3,1
+3825704,Celta Vigo,1,0,4-2-3-1,1
+3825704,Granada,2,45,4-3-3,0
+3825704,Granada,2,75,4-2-3-1,0
+3825705,Eibar,1,0,4-2-3-1,1
+3825705,Sporting Gijón,1,0,4-2-3-1,1
+3825705,Sporting Gijón,2,78,4-2-3-1,0
+3825706,Celta Vigo,1,0,4-3-3,1
+3825706,Athletic Club,1,0,4-2-3-1,1
+3825706,Athletic Club,2,45,4-4-2,0
+3825706,Athletic Club,2,61,4-4-2,0
+3825707,Las Palmas,1,0,4-2-3-1,1
+3825707,Granada,1,0,4-1-4-1,1
+3825707,Granada,2,56,4-4-2,0
+3825708,Levante UD,1,0,4-3-3,1
+3825708,Málaga,1,0,4-4-2,1
+3825708,Levante UD,2,47,4-3-3,0
+3825708,Málaga,2,68,4-4-2,0
+3825709,Sevilla,1,0,4-2-3-1,1
+3825709,Espanyol,1,0,4-2-3-1,1
+3825709,Espanyol,1,33,4-2-3-1,0
+3825709,Espanyol,2,52,4-2-3-1,0
+3825709,Espanyol,2,72,4-2-3-1,0
+3825710,Real Madrid,1,0,4-3-3,1
+3825710,Real Sociedad,1,0,4-2-3-1,1
+3825710,Real Madrid,2,76,4-3-3,0
+3825711,Rayo Vallecano,1,0,3-5-2,1
+3825711,Atlético Madrid,1,0,4-3-3,1
+3825711,Atlético Madrid,2,47,4-3-3,0
+3825711,Atlético Madrid,2,69,4-3-3,0
+3825711,Rayo Vallecano,2,72,3-5-2,0
+3825712,Getafe,1,0,4-2-3-1,1
+3825712,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825712,Getafe,2,66,4-2-3-1,0
+3825712,RC Deportivo La Coruña,2,71,4-2-3-1,0
+3825712,RC Deportivo La Coruña,2,82,4-2-3-1,0
+3825713,Villarreal,1,0,4-4-2,1
+3825713,Valencia,1,0,3-5-2,1
+3825713,Valencia,1,6,3-5-2,0
+3825713,Valencia,1,13,3-5-2,0
+3825714,Atlético Madrid,1,0,4-3-3,1
+3825714,Levante UD,1,0,4-1-4-1,1
+3825714,Atlético Madrid,2,55,4-3-3,0
+3825714,Atlético Madrid,2,72,4-4-2,0
+3825714,Levante UD,2,82,4-1-4-1,0
+3825715,Málaga,1,0,4-4-2,1
+3825715,Celta Vigo,1,0,4-2-3-1,1
+3825715,Celta Vigo,2,60,4-2-3-1,0
+3825715,Celta Vigo,2,62,4-2-3-1,0
+3825715,Celta Vigo,2,65,4-2-3-1,0
+3825715,Celta Vigo,2,65,4-2-3-1,0
+3825716,Rayo Vallecano,1,0,4-2-3-1,1
+3825716,Real Sociedad,1,0,4-2-3-1,1
+3825716,Rayo Vallecano,2,86,4-2-3-1,0
+3825717,Granada,1,0,3-4-1-2,1
+3825717,Sevilla,1,0,4-4-2,1
+3825717,Sevilla,2,45,4-3-3,0
+3825717,Sevilla,2,76,4-3-3,0
+3825717,Granada,2,79,3-5-2,0
+3825717,Sevilla,2,87,4-3-3,0
+3825718,Valencia,1,0,4-3-3,1
+3825718,Real Madrid,1,0,4-3-3,1
+3825718,Real Madrid,2,70,4-1-4-1,0
+3825718,Valencia,2,80,4-3-3,0
+3825718,Valencia,2,87,4-3-3,0
+3825719,Athletic Club,1,0,4-2-3-1,1
+3825719,Las Palmas,1,0,4-2-3-1,1
+3825719,Athletic Club,2,65,4-2-3-1,0
+3825719,Athletic Club,2,81,4-2-3-1,0
+3825720,Real Betis,1,0,4-2-3-1,1
+3825720,Eibar,1,0,4-2-3-1,1
+3825720,Real Betis,2,69,4-2-3-1,0
+3825720,Real Betis,2,79,4-2-3-1,0
+3825721,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825721,Villarreal,1,0,4-4-2,1
+3825721,RC Deportivo La Coruña,2,84,4-2-3-1,0
+3825722,Sporting Gijón,1,0,4-4-2,1
+3825722,Getafe,1,0,4-2-3-1,1
+3825722,Getafe,1,28,4-2-3-1,0
+3825722,Sporting Gijón,2,71,4-4-2,0
+3825722,Sporting Gijón,2,74,3-4-3,0
+3825723,Levante UD,1,0,4-3-3,1
+3825723,Rayo Vallecano,1,0,4-4-2,1
+3825723,Levante UD,2,45,4-4-2,0
+3825723,Rayo Vallecano,2,62,4-2-3-1,0
+3825723,Levante UD,2,68,4-2-3-1,0
+3825723,Rayo Vallecano,2,76,3-5-2,0
+3825724,Real Madrid,1,0,4-2-3-1,1
+3825724,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825724,RC Deportivo La Coruña,2,45,4-2-3-1,0
+3825725,Getafe,1,0,4-2-3-1,1
+3825725,Real Betis,1,0,4-4-2,1
+3825725,Getafe,2,45,4-2-3-1,0
+3825725,Getafe,2,78,4-2-3-1,0
+3825726,Sevilla,1,0,4-2-3-1,1
+3825726,Athletic Club,1,0,4-2-3-1,1
+3825727,Eibar,1,0,4-4-2,1
+3825727,Espanyol,1,0,4-2-3-1,1
+3825728,Celta Vigo,1,0,4-2-3-1,1
+3825728,Atlético Madrid,1,0,4-4-2,1
+3825728,Celta Vigo,2,73,4-2-3-1,0
+3825728,Atlético Madrid,2,76,4-4-2,0
+3825728,Atlético Madrid,2,90,4-1-4-1,0
+3825729,Villarreal,1,0,4-4-2,1
+3825729,Sporting Gijón,1,0,4-2-3-1,1
+3825729,Sporting Gijón,2,68,4-4-2,0
+3825729,Villarreal,2,70,4-4-2,0
+3825730,Real Sociedad,1,0,4-3-3,1
+3825730,Valencia,1,0,4-4-2,1
+3825730,Valencia,2,70,4-4-2,0
+3825731,Las Palmas,1,0,4-2-3-1,1
+3825731,Málaga,1,0,4-4-2,1
+3825731,Las Palmas,2,69,4-2-3-1,0
+3825731,Las Palmas,2,83,4-2-3-1,0
+3825732,Celta Vigo,1,0,4-2-3-1,1
+3825732,Levante UD,1,0,4-1-4-1,1
+3825732,Celta Vigo,2,63,4-2-3-1,0
+3825732,Celta Vigo,2,72,4-2-3-1,0
+3825732,Levante UD,2,76,4-1-4-1,0
+3825732,Levante UD,2,84,4-4-2,0
+3825732,Celta Vigo,2,90,3-4-3,0
+3825733,Sevilla,1,0,4-2-3-1,1
+3825733,Málaga,1,0,4-4-2,1
+3825734,Real Sociedad,1,0,4-2-3-1,1
+3825734,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825735,Villarreal,1,0,4-4-2,1
+3825735,Real Betis,1,0,4-2-3-1,1
+3825736,Valencia,1,0,4-1-4-1,1
+3825736,Rayo Vallecano,1,0,4-2-3-1,1
+3825736,Valencia,2,81,4-1-4-1,0
+3825737,Getafe,1,0,4-2-3-1,1
+3825737,Espanyol,1,0,4-2-3-1,1
+3825737,Espanyol,2,61,4-2-3-1,0
+3825737,Espanyol,2,73,4-2-3-1,0
+3825738,Las Palmas,1,0,4-2-3-1,1
+3825738,Atlético Madrid,1,0,4-2-3-1,1
+3825738,Atlético Madrid,2,61,4-2-3-1,0
+3825738,Las Palmas,2,81,4-2-3-1,0
+3825739,Real Madrid,1,0,4-3-3,1
+3825739,Sporting Gijón,1,0,4-2-3-1,1
+3825739,Real Madrid,2,45,4-3-3,0
+3825739,Real Madrid,2,64,4-3-3,0
+3825739,Real Madrid,2,83,4-4-2,0
+3825740,Eibar,1,0,4-4-2,1
+3825740,Granada,1,0,4-3-3,1
+3825740,Granada,2,45,4-4-2,0
+3825740,Granada,2,65,4-4-2,0
+3825740,Granada,2,68,4-4-2,0
+3825740,Eibar,2,81,4-2-3-1,0
+3825740,Granada,2,86,4-4-2,0
+3825741,Sporting Gijón,1,0,4-2-3-1,1
+3825741,Real Sociedad,1,0,4-3-3,1
+3825742,Granada,1,0,4-2-3-1,1
+3825742,Getafe,1,0,4-2-3-1,1
+3825742,Granada,1,0,4-2-3-1,0
+3825742,Getafe,2,56,4-2-3-1,0
+3825743,Rayo Vallecano,1,0,4-2-3-1,1
+3825743,Celta Vigo,1,0,4-2-3-1,1
+3825743,Rayo Vallecano,2,62,4-2-3-1,0
+3825743,Rayo Vallecano,2,71,4-2-3-1,0
+3825744,Espanyol,1,0,4-2-3-1,1
+3825744,Villarreal,1,0,4-4-2,1
+3825744,Espanyol,1,42,4-2-3-1,0
+3825745,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825745,Valencia,1,0,4-2-3-1,1
+3825745,Valencia,2,63,4-2-3-1,0
+3825745,RC Deportivo La Coruña,2,78,4-2-3-1,0
+3825745,RC Deportivo La Coruña,2,86,4-2-3-1,0
+3825746,Real Betis,1,0,4-2-3-1,1
+3825746,Real Madrid,1,0,4-3-3,1
+3825747,Athletic Club,1,0,4-2-3-1,1
+3825747,Eibar,1,0,4-4-2,1
+3825747,Athletic Club,2,86,4-2-3-1,0
+3825748,Atlético Madrid,1,0,4-4-2,1
+3825748,Sevilla,1,0,4-2-3-1,1
+3825748,Atlético Madrid,2,45,4-4-2,0
+3825748,Sevilla,2,63,4-2-3-1,0
+3825748,Atlético Madrid,2,75,4-4-2,0
+3825748,Atlético Madrid,2,82,4-4-2,0
+3825749,Levante UD,1,0,4-3-3,1
+3825749,Las Palmas,1,0,4-2-3-1,1
+3825749,Levante UD,2,74,4-4-2,0
+3825750,Real Sociedad,1,0,4-2-3-1,1
+3825750,Real Betis,1,0,4-2-3-1,1
+3825750,Real Betis,2,45,4-2-3-1,0
+3825750,Real Betis,2,73,4-2-3-1,0
+3825750,Real Sociedad,2,74,4-2-3-1,0
+3825751,Getafe,1,0,4-2-3-1,1
+3825751,Athletic Club,1,0,4-2-3-1,1
+3825751,Athletic Club,2,75,3-4-2-1,0
+3825752,Eibar,1,0,4-4-2,1
+3825752,Málaga,1,0,4-4-2,1
+3825753,Villarreal,1,0,4-4-2,1
+3825753,Granada,1,0,4-2-3-1,1
+3825753,Granada,2,78,4-2-3-1,0
+3825753,Granada,2,83,4-2-3-1,0
+3825754,Las Palmas,1,0,4-2-3-1,1
+3825754,Celta Vigo,1,0,4-2-3-1,1
+3825755,Valencia,1,0,4-3-3,1
+3825755,Sporting Gijón,1,0,4-2-3-1,1
+3825755,Valencia,2,73,4-2-3-1,0
+3825755,Sporting Gijón,2,84,4-2-3-1,0
+3825756,Sevilla,1,0,4-2-3-1,1
+3825756,Levante UD,1,0,4-4-2,1
+3825756,Levante UD,2,70,4-2-3-1,0
+3825757,Real Madrid,1,0,4-3-3,1
+3825757,Espanyol,1,0,4-2-3-1,1
+3825757,Espanyol,2,45,4-2-3-1,0
+3825757,Espanyol,2,57,4-4-2,0
+3825757,Real Madrid,2,74,4-3-3,0
+3825758,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825758,Rayo Vallecano,1,0,4-2-3-1,1
+3825759,Málaga,1,0,4-4-2,1
+3825759,Getafe,1,0,4-2-3-1,1
+3825759,Getafe,2,45,4-4-2,0
+3825759,Getafe,2,66,4-4-2,0
+3825760,Atlético Madrid,1,0,4-4-2,1
+3825760,Eibar,1,0,4-1-4-1,1
+3825760,Atlético Madrid,2,75,4-4-2,0
+3825761,Athletic Club,1,0,4-2-3-1,1
+3825761,Villarreal,1,0,4-4-2,1
+3825761,Athletic Club,2,89,4-2-3-1,0
+3825762,Sporting Gijón,1,0,4-2-3-1,1
+3825762,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825763,Rayo Vallecano,1,0,4-2-3-1,1
+3825763,Las Palmas,1,0,4-4-1-1,1
+3825763,Rayo Vallecano,2,50,4-2-3-1,0
+3825763,Las Palmas,2,66,4-4-1-1,0
+3825763,Rayo Vallecano,2,74,4-2-3-1,0
+3825763,Las Palmas,2,85,4-4-1-1,0
+3825764,Granada,1,0,4-2-3-1,1
+3825764,Real Madrid,1,0,4-3-3,1
+3825764,Granada,2,80,4-3-3,0
+3825765,Celta Vigo,1,0,4-2-3-1,1
+3825765,Sevilla,1,0,4-2-3-1,1
+3825765,Sevilla,1,28,4-2-3-1,0
+3825765,Celta Vigo,2,61,4-2-3-1,0
+3825765,Celta Vigo,2,61,4-2-3-1,0
+3825765,Celta Vigo,2,61,4-2-3-1,0
+3825765,Sevilla,2,74,4-2-3-1,0
+3825766,Real Betis,1,0,4-4-2,1
+3825766,Valencia,1,0,4-2-3-1,1
+3825766,Valencia,2,75,4-2-3-1,0
+3825767,Espanyol,1,0,4-2-3-1,1
+3825767,Real Sociedad,1,0,4-1-4-1,1
+3825767,Espanyol,2,45,4-2-3-1,0
+3825767,Espanyol,2,53,4-2-3-1,0
+3825767,Real Sociedad,2,71,4-1-4-1,0
+3825767,Real Sociedad,2,81,4-1-4-1,0
+3825768,Sporting Gijón,1,0,4-2-3-1,1
+3825768,Rayo Vallecano,1,0,4-2-3-1,1
+3825768,Rayo Vallecano,2,45,4-2-3-1,0
+3825769,Villarreal,1,0,4-4-2,1
+3825769,Málaga,1,0,4-4-2,1
+3825769,Villarreal,2,87,4-2-3-1,0
+3825770,Real Madrid,1,0,4-3-3,1
+3825770,Athletic Club,1,0,4-2-3-1,1
+3825770,Real Madrid,2,69,4-3-3,0
+3825770,Real Madrid,2,88,4-3-3,0
+3825771,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825771,Real Betis,1,0,4-4-2,1
+3825771,RC Deportivo La Coruña,2,78,4-4-2,0
+3825771,RC Deportivo La Coruña,2,86,4-4-2,0
+3825772,Valencia,1,0,4-2-3-1,1
+3825772,Espanyol,1,0,4-4-2,1
+3825772,Valencia,2,83,4-2-3-1,0
+3825773,Eibar,1,0,4-2-3-1,1
+3825773,Levante UD,1,0,4-4-2,1
+3825773,Levante UD,2,71,4-4-2,0
+3825774,Getafe,1,0,4-1-4-1,1
+3825774,Atlético Madrid,1,0,4-3-3,1
+3825774,Atlético Madrid,1,24,4-4-2,0
+3825774,Atlético Madrid,1,32,4-4-2,0
+3825774,Atlético Madrid,2,66,4-3-3,0
+3825774,Getafe,2,71,4-1-4-1,0
+3825774,Getafe,2,74,4-1-4-1,0
+3825774,Getafe,2,85,4-1-4-1,0
+3825775,Real Sociedad,1,0,4-2-3-1,1
+3825775,Granada,1,0,4-2-3-1,1
+3825775,Real Sociedad,2,68,4-2-3-1,0
+3825775,Granada,2,82,4-2-3-1,0
+3825775,Real Sociedad,2,88,4-2-3-1,0
+3825776,Sevilla,1,0,4-2-3-1,1
+3825776,Las Palmas,1,0,4-1-4-1,1
+3825777,Levante UD,1,0,4-4-2,1
+3825777,Getafe,1,0,4-2-3-1,1
+3825777,Getafe,1,18,4-2-3-1,0
+3825778,Real Betis,1,0,4-4-2,1
+3825778,Sporting Gijón,1,0,4-4-2,1
+3825778,Real Betis,2,82,4-4-2,0
+3825779,Celta Vigo,1,0,4-3-3,1
+3825779,Eibar,1,0,4-2-3-1,1
+3825779,Celta Vigo,2,78,4-3-3,0
+3825779,Eibar,2,86,4-2-3-1,0
+3825780,Espanyol,1,0,4-2-3-1,1
+3825780,RC Deportivo La Coruña,1,0,4-3-3,1
+3825780,RC Deportivo La Coruña,1,28,4-3-3,0
+3825780,RC Deportivo La Coruña,2,71,4-3-3,0
+3825780,RC Deportivo La Coruña,2,81,4-3-3,0
+3825780,Espanyol,2,83,4-2-3-1,0
+3825781,Rayo Vallecano,1,0,4-2-3-1,1
+3825781,Sevilla,1,0,4-2-3-1,1
+3825781,Rayo Vallecano,1,34,4-4-2,0
+3825782,Granada,1,0,4-2-3-1,1
+3825782,Valencia,1,0,4-3-3,1
+3825782,Granada,2,79,4-2-3-1,0
+3825782,Valencia,2,83,4-2-3-1,0
+3825783,Athletic Club,1,0,4-2-3-1,1
+3825783,Real Sociedad,1,0,4-3-3,1
+3825783,Athletic Club,1,36,4-2-3-1,0
+3825783,Real Sociedad,2,74,4-2-3-1,0
+3825783,Athletic Club,2,80,4-2-3-1,0
+3825784,Atlético Madrid,1,0,4-4-2,1
+3825784,Villarreal,1,0,4-4-2,1
+3825784,Atlético Madrid,2,50,4-4-2,0
+3825784,Atlético Madrid,2,70,4-4-2,0
+3825784,Atlético Madrid,2,80,4-4-2,0
+3825785,Málaga,1,0,4-4-2,1
+3825785,Real Madrid,1,0,4-3-3,1
+3825785,Málaga,2,71,4-4-2,0
+3825786,Eibar,1,0,4-4-2,1
+3825786,Las Palmas,1,0,4-1-4-1,1
+3825786,Eibar,2,45,4-3-3,0
+3825786,Las Palmas,2,73,4-2-3-1,0
+3825787,Real Madrid,1,0,4-3-3,1
+3825787,Atlético Madrid,1,0,4-4-2,1
+3825787,Real Madrid,2,69,4-4-2,0
+3825788,Getafe,1,0,4-2-3-1,1
+3825788,Celta Vigo,1,0,4-2-3-1,1
+3825788,Celta Vigo,2,59,4-2-3-1,0
+3825788,Getafe,2,73,4-1-2-1-2,0
+3825788,Getafe,2,84,4-1-2-1-2,0
+3825788,Celta Vigo,2,86,3-4-3,0
+3825789,Real Sociedad,1,0,4-2-3-1,1
+3825789,Málaga,1,0,4-4-2,1
+3825789,Real Sociedad,2,78,4-2-3-1,0
+3825790,Sporting Gijón,1,0,4-4-2,1
+3825790,Espanyol,1,0,4-3-3,1
+3825790,Espanyol,2,71,4-3-3,0
+3825790,Espanyol,2,72,4-4-2,0
+3825790,Sporting Gijón,2,89,4-4-2,0
+3825791,Real Betis,1,0,4-4-2,1
+3825791,Rayo Vallecano,1,0,4-2-3-1,1
+3825791,Rayo Vallecano,1,30,4-2-3-1,0
+3825791,Rayo Vallecano,2,62,4-2-3-1,0
+3825791,Rayo Vallecano,2,73,4-2-3-1,0
+3825791,Real Betis,2,81,4-4-2,0
+3825792,RC Deportivo La Coruña,1,0,4-3-3,1
+3825792,Granada,1,0,4-4-2,1
+3825792,Granada,2,62,4-4-2,0
+3825792,RC Deportivo La Coruña,2,62,4-4-2,0
+3825792,Granada,2,86,4-4-2,0
+3825792,Granada,2,91,3-5-2,0
+3825792,RC Deportivo La Coruña,2,93,4-3-3,0
+3825793,Valencia,1,0,4-1-4-1,1
+3825793,Athletic Club,1,0,4-2-3-1,1
+3825793,Athletic Club,2,45,4-2-3-1,0
+3825793,Valencia,2,45,4-1-4-1,0
+3825793,Athletic Club,2,67,4-3-3,0
+3825793,Valencia,2,78,4-2-3-1,0
+3825794,Villarreal,1,0,4-4-2,1
+3825794,Levante UD,1,0,4-4-2,1
+3825794,Villarreal,2,45,4-4-2,0
+3825794,Levante UD,2,62,4-4-2,0
+3825794,Levante UD,2,79,4-4-2,0
+3825795,Atlético Madrid,1,0,4-4-2,1
+3825795,Real Sociedad,1,0,4-3-3,1
+3825795,Real Sociedad,2,45,4-3-3,0
+3825795,Atlético Madrid,2,46,4-5-1,0
+3825795,Real Sociedad,2,56,4-3-3,0
+3825795,Real Sociedad,2,61,4-2-3-1,0
+3825795,Atlético Madrid,2,81,4-4-2,0
+3825796,Las Palmas,1,0,4-5-1,1
+3825796,Getafe,1,0,4-2-3-1,1
+3825796,Getafe,2,61,4-2-3-1,0
+3825796,Getafe,2,68,4-4-1-1,0
+3825796,Las Palmas,2,83,4-2-3-1,0
+3825797,Athletic Club,1,0,4-2-3-1,1
+3825797,RC Deportivo La Coruña,1,0,4-4-2,1
+3825797,RC Deportivo La Coruña,2,51,3-4-3,0
+3825797,Athletic Club,2,74,4-4-2,0
+3825797,RC Deportivo La Coruña,2,85,3-4-3,0
+3825798,Levante UD,1,0,4-4-2,1
+3825798,Real Madrid,1,0,4-2-3-1,1
+3825798,Levante UD,1,29,4-4-2,0
+3825798,Real Madrid,2,85,4-2-3-1,0
+3825799,Málaga,1,0,4-4-2,1
+3825799,Valencia,1,0,4-3-3,1
+3825799,Málaga,2,70,4-4-2,0
+3825799,Valencia,2,94,3-5-2,0
+3825800,Celta Vigo,1,0,4-2-3-1,1
+3825800,Villarreal,1,0,4-4-2,1
+3825800,Villarreal,2,63,4-4-2,0
+3825800,Celta Vigo,2,70,4-2-3-1,0
+3825800,Villarreal,2,81,4-4-2,0
+3825800,Celta Vigo,2,89,4-4-2,0
+3825801,Sevilla,1,0,4-2-3-1,1
+3825801,Eibar,1,0,4-4-2,1
+3825801,Eibar,2,88,3-4-1-2,0
+3825802,Espanyol,1,0,4-4-2,1
+3825802,Real Betis,1,0,4-2-3-1,1
+3825802,Real Betis,2,45,4-2-3-1,0
+3825802,Real Betis,2,56,4-2-3-1,0
+3825802,Espanyol,2,56,3-4-1-2,0
+3825802,Espanyol,2,62,3-4-1-2,0
+3825803,Granada,1,0,4-4-2,1
+3825803,Sporting Gijón,1,0,4-4-2,1
+3825803,Sporting Gijón,2,85,4-4-2,0
+3825804,RC Deportivo La Coruña,1,0,4-3-3,1
+3825804,Málaga,1,0,4-4-2,1
+3825804,Málaga,1,36,4-4-2,0
+3825804,Málaga,2,60,4-4-2,0
+3825804,RC Deportivo La Coruña,2,69,4-4-2,0
+3825805,Villarreal,1,0,4-4-2,1
+3825805,Las Palmas,1,0,4-2-3-1,1
+3825806,Real Madrid,1,0,4-3-3,1
+3825806,Celta Vigo,1,0,4-2-3-1,1
+3825806,Celta Vigo,2,45,4-2-3-1,0
+3825806,Celta Vigo,2,76,4-2-3-1,0
+3825806,Real Madrid,2,81,4-4-2,0
+3825807,Valencia,1,0,4-3-3,1
+3825807,Atlético Madrid,1,0,4-3-3,1
+3825807,Atlético Madrid,2,62,4-4-2,0
+3825807,Atlético Madrid,2,67,4-2-3-1,0
+3825807,Atlético Madrid,2,72,4-3-3,0
+3825807,Valencia,2,88,3-4-1-2,0
+3825808,Sporting Gijón,1,0,4-2-3-1,1
+3825808,Athletic Club,1,0,4-2-3-1,1
+3825808,Sporting Gijón,2,53,4-2-3-1,0
+3825808,Sporting Gijón,2,70,4-4-2,0
+3825808,Athletic Club,2,78,4-4-1-1,0
+3825808,Sporting Gijón,2,80,4-2-3-1,0
+3825809,Real Betis,1,0,4-2-3-1,1
+3825809,Granada,1,0,4-4-2,1
+3825809,Real Betis,1,31,4-4-2,0
+3825809,Real Betis,2,51,4-4-2,0
+3825809,Real Betis,2,55,4-4-1-1,0
+3825809,Granada,2,83,4-4-2,0
+3825809,Granada,2,93,4-4-2,0
+3825810,Real Sociedad,1,0,4-3-3,1
+3825810,Levante UD,1,0,4-4-2,1
+3825810,Real Sociedad,2,70,4-2-3-1,0
+3825811,Espanyol,1,0,4-3-3,1
+3825811,Rayo Vallecano,1,0,4-2-3-1,1
+3825811,Rayo Vallecano,1,32,4-2-3-1,0
+3825811,Rayo Vallecano,2,56,4-2-3-1,0
+3825811,Rayo Vallecano,2,65,4-2-3-1,0
+3825811,Espanyol,2,68,4-2-3-1,0
+3825811,Espanyol,2,77,4-1-4-1,0
+3825812,Málaga,1,0,4-4-2,1
+3825812,Sporting Gijón,1,0,4-2-3-1,1
+3825812,Málaga,2,64,4-4-1-1,0
+3825812,Málaga,2,76,4-4-1-1,0
+3825813,Atlético Madrid,1,0,4-4-2,1
+3825813,RC Deportivo La Coruña,1,0,4-3-3,1
+3825813,RC Deportivo La Coruña,2,60,4-3-3,0
+3825813,Atlético Madrid,2,64,4-4-2,0
+3825813,RC Deportivo La Coruña,2,73,4-4-2,0
+3825814,Celta Vigo,1,0,4-2-3-1,1
+3825814,Real Sociedad,1,0,4-3-3,1
+3825814,Real Sociedad,2,55,4-3-3,0
+3825814,Celta Vigo,2,61,4-2-3-1,0
+3825814,Celta Vigo,2,78,4-2-3-1,0
+3825815,Levante UD,1,0,4-4-2,1
+3825815,Valencia,1,0,4-3-3,1
+3825815,Valencia,2,60,4-3-3,0
+3825815,Valencia,2,69,4-3-3,0
+3825815,Levante UD,2,73,4-4-2,0
+3825815,Levante UD,2,79,4-4-2,0
+3825816,Sevilla,1,0,4-2-3-1,1
+3825816,Villarreal,1,0,4-4-2,1
+3825816,Villarreal,2,48,4-4-2,0
+3825817,Getafe,1,0,4-4-2,1
+3825817,Eibar,1,0,4-2-3-1,1
+3825817,Eibar,2,83,4-4-2,0
+3825817,Getafe,2,88,4-4-2,0
+3825818,Real Sociedad,1,0,4-2-3-1,1
+3825818,Las Palmas,1,0,4-1-4-1,1
+3825818,Real Sociedad,2,61,4-2-3-1,0
+3825818,Las Palmas,2,87,4-1-4-1,0
+3825819,Valencia,1,0,4-2-3-1,1
+3825819,Celta Vigo,1,0,4-2-3-1,1
+3825819,Celta Vigo,2,70,4-2-3-1,0
+3825819,Celta Vigo,2,84,4-2-3-1,0
+3825819,Celta Vigo,2,88,4-2-3-1,0
+3825820,Real Madrid,1,0,4-3-3,1
+3825820,Sevilla,1,0,4-4-1-1,1
+3825820,Sevilla,2,74,4-2-3-1,0
+3825821,Espanyol,1,0,4-3-3,1
+3825821,Athletic Club,1,0,4-2-3-1,1
+3825821,Espanyol,2,58,4-4-2,0
+3825821,Athletic Club,2,66,4-2-3-1,0
+3825821,Espanyol,2,76,4-3-3,0
+3825822,Las Palmas,1,0,4-1-4-1,1
+3825822,Valencia,1,0,4-4-2,1
+3825822,Valencia,2,63,4-4-2,0
+3825822,Las Palmas,2,70,4-2-3-1,0
+3825822,Valencia,2,70,4-3-3,0
+3825822,Las Palmas,2,74,4-4-2,0
+3825822,Las Palmas,2,82,4-4-2,0
+3825823,Sevilla,1,0,4-2-3-1,1
+3825823,Real Sociedad,1,0,4-3-3,1
+3825823,Sevilla,2,46,4-4-2,0
+3825823,Real Sociedad,2,60,4-3-3,0
+3825823,Sevilla,2,65,4-4-2,0
+3825823,Real Sociedad,2,69,4-4-1-1,0
+3825823,Real Sociedad,2,86,4-4-1-1,0
+3825823,Sevilla,2,89,3-4-1-2,0
+3825824,Eibar,1,0,4-2-3-1,1
+3825824,Villarreal,1,0,4-4-2,1
+3825824,Eibar,2,66,4-4-2,0
+3825825,Levante UD,1,0,4-4-2,1
+3825825,Sporting Gijón,1,0,4-2-3-1,1
+3825825,Levante UD,2,78,4-2-3-1,0
+3825825,Levante UD,2,84,4-2-3-1,0
+3825825,Levante UD,2,85,4-2-3-1,0
+3825826,Granada,1,0,4-2-3-1,1
+3825826,Málaga,1,0,4-4-2,1
+3825826,Granada,2,65,4-2-3-1,0
+3825827,Real Betis,1,0,4-4-2,1
+3825827,Levante UD,1,0,4-4-2,1
+3825827,Real Betis,2,45,4-4-2,0
+3825828,Espanyol,1,0,3-4-3,1
+3825828,Atlético Madrid,1,0,4-3-3,1
+3825828,Espanyol,2,64,3-5-2,0
+3825829,Athletic Club,1,0,4-2-3-1,1
+3825829,Rayo Vallecano,1,0,4-4-2,1
+3825829,Athletic Club,2,45,4-2-3-1,0
+3825829,Athletic Club,2,54,4-2-3-1,0
+3825830,Villarreal,1,0,4-4-2,1
+3825830,Getafe,1,0,4-4-2,1
+3825831,Valencia,1,0,4-3-3,1
+3825831,Sevilla,1,0,4-2-3-1,1
+3825831,Valencia,2,64,4-3-3,0
+3825831,Valencia,2,77,4-3-3,0
+3825831,Valencia,2,85,4-3-3,0
+3825832,Sporting Gijón,1,0,4-2-3-1,1
+3825832,Celta Vigo,1,0,4-3-3,1
+3825832,Celta Vigo,2,63,4-3-3,0
+3825833,Getafe,1,0,4-4-2,1
+3825833,Real Madrid,1,0,4-3-3,1
+3825833,Real Madrid,2,68,4-3-3,0
+3825834,Atlético Madrid,1,0,4-4-2,1
+3825834,Granada,1,0,4-3-3,1
+3825834,Atlético Madrid,1,18,4-4-2,0
+3825834,Atlético Madrid,1,29,4-4-2,0
+3825834,Atlético Madrid,2,55,4-4-2,0
+3825834,Granada,2,63,4-2-3-1,0
+3825834,Granada,2,70,4-2-3-1,0
+3825835,Málaga,1,0,4-4-2,1
+3825835,Athletic Club,1,0,4-2-3-1,1
+3825835,Athletic Club,2,68,4-2-3-1,0
+3825835,Málaga,2,72,4-4-2,0
+3825835,Athletic Club,2,75,4-2-3-1,0
+3825835,Athletic Club,2,80,3-5-2,0
+3825836,Rayo Vallecano,1,0,4-4-2,1
+3825836,Villarreal,1,0,4-4-2,1
+3825836,Villarreal,2,68,4-4-2,0
+3825836,Villarreal,2,74,4-4-2,0
+3825836,Rayo Vallecano,2,82,4-4-2,0
+3825836,Villarreal,2,84,4-4-2,0
+3825837,Real Betis,1,0,4-2-3-1,1
+3825837,Las Palmas,1,0,4-3-3,1
+3825837,Las Palmas,1,41,4-3-3,0
+3825837,Las Palmas,2,45,4-4-1-1,0
+3825837,Real Betis,2,65,3-4-1-2,0
+3825837,Real Betis,2,80,3-4-1-2,0
+3825837,Real Betis,2,85,4-1-2-1-2,0
+3825838,Athletic Club,1,0,4-2-3-1,1
+3825838,Atlético Madrid,1,0,4-4-2,1
+3825838,Athletic Club,2,59,4-2-3-1,0
+3825838,Atlético Madrid,2,62,4-5-1,0
+3825838,Athletic Club,2,65,4-2-3-1,0
+3825839,Sporting Gijón,1,0,4-2-3-1,1
+3825839,Sevilla,1,0,4-2-3-1,1
+3825839,Sevilla,2,47,4-2-3-1,0
+3825839,Sporting Gijón,2,83,4-2-3-1,0
+3825840,Valencia,1,0,4-3-3,1
+3825840,Eibar,1,0,4-3-3,1
+3825841,Real Sociedad,1,0,4-3-3,1
+3825841,Getafe,1,0,4-2-3-1,1
+3825841,Getafe,1,17,4-2-3-1,0
+3825841,Real Sociedad,2,60,4-3-3,0
+3825841,Real Sociedad,2,77,4-3-3,0
+3825841,Real Sociedad,2,81,4-3-3,0
+3825842,Levante UD,1,0,4-4-2,1
+3825842,Athletic Club,1,0,4-2-3-1,1
+3825842,Athletic Club,2,56,4-2-3-1,0
+3825842,Levante UD,2,65,4-4-2,0
+3825842,Athletic Club,2,72,4-2-3-1,0
+3825842,Athletic Club,2,81,4-2-3-1,0
+3825843,Málaga,1,0,4-4-2,1
+3825843,Rayo Vallecano,1,0,4-4-2,1
+3825843,Málaga,2,71,4-4-2,0
+3825843,Rayo Vallecano,2,77,4-4-2,0
+3825844,Athletic Club,1,0,4-2-3-1,1
+3825844,Real Betis,1,0,4-4-2,1
+3825844,Real Betis,2,51,4-2-3-1,0
+3825844,Athletic Club,2,66,4-1-4-1,0
+3825845,Espanyol,1,0,4-1-4-1,1
+3825845,Sevilla,1,0,4-2-3-1,1
+3825845,Espanyol,1,33,4-1-4-1,0
+3825845,Sevilla,2,45,4-2-3-1,0
+3825845,Sevilla,2,60,4-2-3-1,0
+3825845,Espanyol,2,78,4-3-3,0
+3825846,RC Deportivo La Coruña,1,0,4-5-1,1
+3825846,Real Madrid,1,0,4-3-3,1
+3825846,Real Madrid,2,45,4-3-3,0
+3825846,RC Deportivo La Coruña,2,45,4-4-1-1,0
+3825846,RC Deportivo La Coruña,2,75,4-4-1-1,0
+3825847,Eibar,1,0,4-4-1-1,1
+3825847,RC Deportivo La Coruña,1,0,4-4-2,1
+3825847,Eibar,2,72,4-4-1-1,0
+3825847,Eibar,2,81,4-4-1-1,0
+3825847,Eibar,2,89,4-3-3,0
+3825848,Levante UD,1,0,3-5-2,1
+3825848,Eibar,1,0,4-2-3-1,1
+3825848,Levante UD,2,45,4-3-3,0
+3825848,Eibar,2,72,4-2-3-1,0
+3825848,Levante UD,2,79,4-4-2,0
+3825849,Valencia,1,0,4-3-3,1
+3825849,Real Sociedad,1,0,4-2-3-1,1
+3825849,Valencia,1,38,4-3-3,0
+3825849,Real Sociedad,2,45,4-2-3-1,0
+3825849,Valencia,2,45,4-3-3,0
+3825849,Real Sociedad,2,59,4-2-3-1,0
+3825849,Real Sociedad,2,75,4-2-3-1,0
+3825849,Valencia,2,84,4-3-3,0
+3825849,Valencia,2,89,4-3-3,0
+3825850,Celta Vigo,1,0,4-2-3-1,1
+3825850,Málaga,1,0,4-4-2,1
+3825850,Málaga,2,65,4-4-2,0
+3825851,Villarreal,1,0,4-4-2,1
+3825851,RC Deportivo La Coruña,1,0,4-1-4-1,1
+3825852,Las Palmas,1,0,4-2-3-1,1
+3825852,Sporting Gijón,1,0,4-4-2,1
+3825853,Sevilla,1,0,4-4-2,1
+3825853,Granada,1,0,4-4-2,1
+3825853,Sevilla,2,72,4-4-2,0
+3825853,Granada,2,81,4-4-2,0
+3825854,Sporting Gijón,1,0,4-2-3-1,1
+3825854,Eibar,1,0,4-2-3-1,1
+3825854,Eibar,2,61,4-4-2,0
+3825854,Eibar,2,73,4-4-2,0
+3825854,Sporting Gijón,2,78,4-2-3-1,0
+3825855,Málaga,1,0,4-4-2,1
+3825855,Levante UD,1,0,4-4-2,1
+3825855,Málaga,1,10,4-4-2,0
+3825856,Real Madrid,1,0,4-3-3,1
+3825856,Eibar,1,0,4-2-3-1,1
+3825856,Eibar,2,45,4-4-2,0
+3825857,Levante UD,1,0,4-4-2,1
+3825857,Espanyol,1,0,4-3-3,1
+3825857,Espanyol,1,18,4-3-3,0
+3825857,Espanyol,1,24,4-3-3,0
+3825857,Levante UD,2,63,4-4-2,0
+3825857,Levante UD,2,74,4-4-2,0
+3825857,Levante UD,2,90,4-3-2-1,0
+3825858,Rayo Vallecano,1,0,4-2-3-1,1
+3825858,Eibar,1,0,4-1-4-1,1
+3825858,Rayo Vallecano,2,46,4-2-3-1,0
+3825859,Granada,1,0,4-4-2,1
+3825859,Las Palmas,1,0,4-2-3-1,1
+3825859,Las Palmas,2,77,4-2-3-1,0
+3825859,Las Palmas,2,82,4-2-3-1,0
+3825860,Levante UD,1,0,4-2-3-1,1
+3825860,Atlético Madrid,1,0,4-4-2,1
+3825860,Atlético Madrid,2,50,4-4-2,0
+3825861,Real Sociedad,1,0,4-2-3-1,1
+3825861,Rayo Vallecano,1,0,4-3-3,1
+3825861,Rayo Vallecano,2,45,4-4-2,0
+3825861,Rayo Vallecano,2,63,3-4-1-2,0
+3825861,Rayo Vallecano,2,77,3-4-3,0
+3825861,Real Sociedad,2,77,4-4-1-1,0
+3825862,Espanyol,1,0,4-3-3,1
+3825862,Celta Vigo,1,0,4-2-3-1,1
+3825862,Espanyol,2,70,4-2-3-1,0
+3825863,RC Deportivo La Coruña,1,0,4-4-2,1
+3825863,Las Palmas,1,0,4-5-1,1
+3825863,RC Deportivo La Coruña,2,75,4-4-2,0
+3825864,Real Sociedad,1,0,4-3-3,1
+3825864,Real Madrid,1,0,4-3-3,1
+3825864,Real Madrid,2,45,4-3-3,0
+3825864,Real Sociedad,2,76,4-3-3,0
+3825864,Real Sociedad,2,81,4-2-3-1,0
+3825865,Getafe,1,0,4-3-3,1
+3825865,Sporting Gijón,1,0,4-2-3-1,1
+3825865,Getafe,2,54,3-5-2,0
+3825865,Sporting Gijón,2,57,4-2-3-1,0
+3825865,Sporting Gijón,2,67,4-4-2,0
+3825866,Las Palmas,1,0,4-2-3-1,1
+3825866,Athletic Club,1,0,4-2-3-1,1
+3825866,Athletic Club,2,66,4-2-3-1,0
+3825866,Las Palmas,2,83,4-2-3-1,0
+3825867,Getafe,1,0,4-2-3-1,1
+3825867,Sevilla,1,0,4-2-3-1,1
+3825867,Sevilla,2,52,4-2-3-1,0
+3825868,Celta Vigo,1,0,4-3-3,1
+3825868,Granada,1,0,4-4-2,1
+3825868,Celta Vigo,2,67,4-3-3,0
+3825869,Athletic Club,1,0,4-2-3-1,1
+3825869,Sevilla,1,0,4-4-2,1
+3825869,Sevilla,2,45,4-2-3-1,0
+3825869,Athletic Club,2,48,4-2-3-1,0
+3825869,Sevilla,2,60,4-3-2-1,0
+3825869,Athletic Club,2,75,4-2-3-1,0
+3825869,Athletic Club,2,87,4-2-3-1,0
+3825870,Athletic Club,1,0,4-2-3-1,1
+3825870,Celta Vigo,1,0,4-2-3-1,1
+3825870,Celta Vigo,2,54,4-2-3-1,0
+3825870,Athletic Club,2,59,4-2-3-1,0
+3825871,Las Palmas,1,0,4-2-3-1,1
+3825871,Espanyol,1,0,4-4-2,1
+3825871,Espanyol,2,45,4-2-3-1,0
+3825871,Espanyol,2,58,4-1-4-1,0
+3825871,Las Palmas,2,66,4-2-3-1,0
+3825872,Atlético Madrid,1,0,4-1-2-1-2,1
+3825872,Real Betis,1,0,4-2-3-1,1
+3825872,Real Betis,2,70,4-2-3-1,0
+3825873,Valencia,1,0,4-3-3,1
+3825873,Villarreal,1,0,4-4-2,1
+3825873,Villarreal,2,61,4-4-2,0
+3825873,Villarreal,2,69,4-4-2,0
+3825873,Valencia,2,75,3-4-1-2,0
+3825873,Valencia,2,81,3-4-1-2,0
+3825874,Sevilla,1,0,4-2-3-1,1
+3825874,Getafe,1,0,4-2-3-1,1
+3825874,Getafe,2,61,4-2-3-1,0
+3825875,Villarreal,1,0,4-4-2,1
+3825875,Real Sociedad,1,0,4-3-3,1
+3825875,Villarreal,2,67,4-4-2,0
+3825875,Real Sociedad,2,82,4-3-3,0
+3825875,Real Sociedad,2,90,4-3-3,0
+3825876,Real Betis,1,0,4-4-2,1
+3825876,Getafe,1,0,4-3-3,1
+3825876,Real Betis,2,45,4-4-2,0
+3825876,Getafe,2,57,4-3-3,0
+3825876,Real Betis,2,64,4-2-3-1,0
+3825876,Getafe,2,64,4-3-3,0
+3825876,Getafe,2,67,4-3-3,0
+3825876,Real Betis,2,79,4-2-3-1,0
+3825877,Athletic Club,1,0,4-2-3-1,1
+3825877,Granada,1,0,4-4-2,1
+3825877,Athletic Club,2,70,4-3-3,0
+3825877,Athletic Club,2,80,4-2-3-1,0
+3825878,Atlético Madrid,1,0,4-4-2,1
+3825878,Rayo Vallecano,1,0,4-4-2,1
+3825878,Atlético Madrid,2,45,4-4-2,0
+3825878,Atlético Madrid,2,54,4-4-2,0
+3825878,Rayo Vallecano,2,57,4-4-2,0
+3825878,Rayo Vallecano,2,63,4-1-2-1-2,0
+3825879,Las Palmas,1,0,4-1-4-1,1
+3825879,Real Madrid,1,0,4-3-3,1
+3825879,Las Palmas,1,29,4-1-4-1,0
+3825879,Las Palmas,2,84,4-4-2,0
+3825879,Real Madrid,2,89,3-4-2-1,0
+3825880,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825880,Levante UD,1,0,4-4-2,1
+3825880,Levante UD,2,61,4-4-2,0
+3825880,RC Deportivo La Coruña,2,82,4-2-3-1,0
+3825880,RC Deportivo La Coruña,2,90,4-2-3-1,0
+3825881,Granada,1,0,4-4-2,1
+3825881,Espanyol,1,0,4-1-4-1,1
+3825881,Espanyol,2,70,4-1-4-1,0
+3825882,Atlético Madrid,1,0,4-4-2,1
+3825882,Celta Vigo,1,0,4-2-3-1,1
+3825882,Celta Vigo,2,45,4-2-3-1,0
+3825882,Celta Vigo,2,59,4-2-3-1,0
+3825882,Celta Vigo,2,74,4-2-3-1,0
+3825882,Atlético Madrid,2,79,4-5-1,0
+3825883,Málaga,1,0,4-4-2,1
+3825883,Las Palmas,1,0,4-1-4-1,1
+3825884,Sevilla,1,0,4-2-3-1,1
+3825884,Real Betis,1,0,4-2-3-1,1
+3825885,Rayo Vallecano,1,0,3-4-1-2,1
+3825885,Getafe,1,0,4-1-4-1,1
+3825885,Getafe,2,58,4-4-2,0
+3825885,Getafe,2,75,4-2-3-1,0
+3825885,Getafe,2,87,4-2-3-1,0
+3825886,Rayo Vallecano,1,0,4-2-3-1,1
+3825886,Real Madrid,1,0,4-3-3,1
+3825886,Real Madrid,1,42,4-3-3,0
+3825886,Rayo Vallecano,2,57,4-2-3-1,0
+3825886,Real Madrid,2,63,4-3-3,0
+3825886,Real Madrid,2,78,4-2-3-1,0
+3825886,Real Madrid,2,84,4-2-3-1,0
+3825887,Granada,1,0,4-4-2,1
+3825887,Rayo Vallecano,1,0,4-2-3-1,1
+3825887,Rayo Vallecano,1,40,4-2-3-1,0
+3825887,Rayo Vallecano,2,73,3-5-2,0
+3825888,Valencia,1,0,4-3-3,1
+3825888,Las Palmas,1,0,4-2-3-1,1
+3825888,Valencia,2,67,4-3-3,0
+3825889,Celta Vigo,1,0,4-2-3-1,1
+3825889,Real Betis,1,0,4-2-3-1,1
+3825889,Celta Vigo,2,72,4-2-3-1,0
+3825889,Real Betis,2,86,4-2-3-1,0
+3825890,Atlético Madrid,1,0,4-4-2,1
+3825890,Málaga,1,0,4-4-2,1
+3825891,Espanyol,1,0,4-2-3-1,1
+3825891,Las Palmas,1,0,4-2-3-1,1
+3825891,Las Palmas,2,65,4-4-2,0
+3825892,Granada,1,0,4-2-3-1,1
+3825892,Real Sociedad,1,0,4-2-3-1,1
+3825893,Real Madrid,1,0,4-3-3,1
+3825893,Villarreal,1,0,4-4-2,1
+3825894,RC Deportivo La Coruña,1,0,4-4-2,1
+3825894,Getafe,1,0,4-1-4-1,1
+3825894,RC Deportivo La Coruña,2,64,4-4-2,0
+3825894,Getafe,2,65,4-1-4-1,0
+3825894,Getafe,2,72,4-1-4-1,0
+3825894,RC Deportivo La Coruña,2,86,4-4-2,0
+3825895,Las Palmas,1,0,3-5-2,1
+3825895,Sevilla,1,0,4-4-2,1
+3825895,Sevilla,2,63,4-4-2,0
+3825895,Las Palmas,2,82,3-5-2,0
+3825896,Granada,1,0,4-2-3-1,1
+3825896,Levante UD,1,0,4-4-2,1
+3825896,Levante UD,2,45,4-4-2,0
+3825897,Eibar,1,0,4-4-2,1
+3825897,Real Sociedad,1,0,4-2-3-1,1
+3825897,Real Sociedad,2,66,4-2-3-1,0
+3825897,Real Sociedad,2,75,4-2-3-1,0
+3825898,Celta Vigo,1,0,4-2-3-1,1
+3825898,RC Deportivo La Coruña,1,0,4-2-3-1,1
+3825898,RC Deportivo La Coruña,1,37,4-2-3-1,0
+3825898,RC Deportivo La Coruña,2,64,4-4-2,0
+3825898,RC Deportivo La Coruña,2,70,4-4-2,0
+3825898,Celta Vigo,2,73,4-2-3-1,0
+3825899,Getafe,1,0,4-5-1,1
+3825899,Valencia,1,0,4-1-4-1,1
+3825899,Valencia,2,45,4-1-4-1,0
+3825899,Getafe,2,57,4-5-1,0
+3825900,Sporting Gijón,1,0,4-4-2,1
+3825900,Villarreal,1,0,4-4-2,1
+3825900,Villarreal,2,65,4-4-2,0
+3825900,Sporting Gijón,2,79,4-4-2,0
+3825901,Real Madrid,1,0,4-3-3,1
+3825901,Valencia,1,0,4-3-3,1
+3825901,Valencia,2,45,4-3-3,0
+3825901,Real Madrid,2,64,4-3-3,0
+3825901,Real Madrid,2,75,4-3-3,0
+3825901,Real Madrid,2,78,4-3-3,0
+3825901,Valencia,2,85,4-3-3,0
+3825902,Rayo Vallecano,1,0,4-2-3-1,1
+3825902,Levante UD,1,0,4-1-4-1,1
+3825902,Rayo Vallecano,2,53,4-1-4-1,0
+3825902,Levante UD,2,74,4-1-4-1,0
+3825903,Real Betis,1,0,4-4-2,1
+3825903,Málaga,1,0,4-4-2,1
+3825904,Eibar,1,0,4-2-3-1,1
+3825904,Real Betis,1,0,4-2-3-1,1
+3825904,Real Betis,1,33,4-2-3-1,0
+3825904,Eibar,2,45,4-4-2,0
+3825904,Eibar,2,61,4-4-2,0
+3825904,Real Betis,2,73,4-2-3-1,0
+3825905,Málaga,1,0,4-4-2,1
+3825905,Espanyol,1,0,4-1-4-1,1
+3825906,Sevilla,1,0,4-2-3-1,1
+3825906,RC Deportivo La Coruña,1,0,3-5-2,1
+3825906,RC Deportivo La Coruña,1,42,3-5-2,0
+3825906,RC Deportivo La Coruña,2,46,4-4-2,0
+3825906,Sevilla,2,48,4-2-3-1,0
+3825906,RC Deportivo La Coruña,2,76,4-4-2,0
+3825906,Sevilla,2,77,4-2-3-1,0
+3825907,Sporting Gijón,1,0,4-3-3,1
+3825907,Atlético Madrid,1,0,4-1-4-1,1
+3825907,Atlético Madrid,1,29,4-1-4-1,0
+3825907,Sporting Gijón,2,56,4-4-2,0
+3825907,Atlético Madrid,2,65,4-4-2,0
+3825907,Atlético Madrid,2,84,4-4-2,0
+3825907,Atlético Madrid,2,86,4-4-2,0
+3825908,Espanyol,1,0,4-3-3,1
+3825908,Eibar,1,0,4-4-2,1

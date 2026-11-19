@@ -1,0 +1,5 @@
+# The reference pipeline (pipeline.py, scripts/) uses only the standard library.
+# These are needed for the PostgreSQL + pandas layer (scripts/load_db.py, clasico/frames.py, analysis/).
+pandas==2.2.3
+psycopg[binary]==3.2.3
+SQLAlchemy==2.0.36

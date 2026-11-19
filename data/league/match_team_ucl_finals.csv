@@ -1,0 +1,15 @@
+match_id,team,season_name,match_date,opponent,venue,goals_for,goals_against,coach,formation,open_play_shots,passes_before_shot_sum,direct_shots,long_shots,passes_per_shot,passes,pressures,pressures_won_5s,def_actions,opp_passes,opp_buildup_passes,press_success_pct,ppda,possession_pct,pass_interval_s,attack_speed_mps,shots,np_xg,formation_changes,period
+3750201,Barcelona,2008/2009,2009-05-27,Manchester United,Home,2,0,Pep Guardiola,4-3-3,7,23,3,0,3.3,518,137,29,22,485,361,21.2,16.4,51.1,2.5,1.41,11,1.2,1,2004-09
+3750201,Manchester United,2008/2009,2009-05-27,Barcelona,Away,0,2,Alex Ferguson,4-5-1,3,14,0,0,4.7,485,94,22,15,518,321,23.4,21.4,48.9,2.94,2.19,12,1.15,4,2004-09
+18236,Barcelona,2010/2011,2011-05-28,Manchester United,Home,3,1,Pep Guardiola,4-1-2-2-1,13,172,0,9,13.2,827,143,27,9,395,286,18.9,31.8,66.1,2.2,1.73,22,1.93,3,2009-13
+18236,Manchester United,2010/2011,2011-05-28,Barcelona,Away,1,3,Alex Ferguson,4-2-2-2,4,20,0,0,5.0,395,246,28,36,827,526,11.4,14.6,33.9,2.48,2.16,4,0.3,3,2009-13
+18241,Real Madrid,2013/2014,2014-05-24,Atlético Madrid,Home,4,1,Carlo Ancelotti,4-3-3,4,15,2,1,3.8,616,87,23,21,388,256,26.4,12.2,64.6,2.41,2.18,12,0.8,0,2013-17
+18241,Atlético Madrid,2013/2014,2014-05-24,Real Madrid,Away,1,4,Diego Simeone,4-4-2,3,12,1,0,4.0,388,140,17,26,616,403,12.1,15.5,35.4,2.39,2.66,9,0.82,0,2013-17
+18242,Juventus,2014/2015,2015-06-06,Barcelona,Home,1,3,Massimiliano Allegri,4-1-2-1-2,8,33,2,1,4.1,377,144,17,23,600,348,11.8,15.1,37.5,2.67,2.29,15,1.38,1,2013-17
+18242,Barcelona,2014/2015,2015-06-06,Juventus,Away,3,1,Luis Enrique,4-1-2-2-1,8,56,2,2,7.0,600,122,29,20,377,255,23.8,12.8,62.5,2.52,1.82,17,2.27,1,2013-17
+18243,Real Madrid,2015/2016,2016-05-28,Atlético Madrid,Home,1,1,Zinédine Zidane,4-1-2-2-1,8,71,2,2,8.9,498,137,19,26,548,344,13.9,13.2,45.9,2.37,1.98,15,2.12,2,2013-17
+18243,Atlético Madrid,2015/2016,2016-05-28,Real Madrid,Away,1,1,Diego Simeone,4-2-2-2,11,80,1,4,7.3,548,96,22,19,498,371,22.9,19.5,54.1,2.85,1.83,15,1.67,1,2013-17
+18244,Juventus,2016/2017,2017-06-03,Real Madrid,Home,1,4,Massimiliano Allegri,4-2-3-1,7,39,3,3,5.6,442,103,8,34,559,408,7.8,12.0,41.2,2.61,2.09,9,0.42,1,2013-17
+18244,Real Madrid,2016/2017,2017-06-03,Juventus,Away,4,1,Zinédine Zidane,4-1-2-1-2,6,34,0,1,5.7,559,91,20,22,442,299,22.0,13.6,58.8,2.87,1.61,18,1.57,1,2013-17
+18245,Real Madrid,2017/2018,2018-05-26,Liverpool,Home,3,1,Zinédine Zidane,4-1-2-1-2,11,127,2,8,11.5,673,92,18,12,360,258,19.6,21.5,57.9,2.44,1.44,14,1.68,2,2017-21
+18245,Liverpool,2017/2018,2018-05-26,Real Madrid,Away,1,3,Jürgen Klopp,4-3-3,5,53,0,4,10.6,360,134,28,29,673,472,20.9,16.3,42.1,2.22,1.83,14,1.43,1,2017-21
