@@ -587,24 +587,45 @@ contrast,Top-10 club - Other club,Opponent,2017-21,possession_pct,,3.02,0.55,5.6
 contrast,Top-10 club - Other club,Opponent,2017-21,pass_interval_s,,0.05,-0.03,0.12,0
 contrast,Top-10 club - Other club,Opponent,2017-21,attack_speed_mps,,-0.16,-0.29,-0.02,1
 contrast,Top-10 club - Other club,Opponent,2017-21,np_xg,,0.11,-0.06,0.27,0
-period,Real Madrid 2015/16,Rafael Benítez,2015/16,passes_per_shot,18,7.58,6.84,8.36,
-period,Real Madrid 2015/16,Rafael Benítez,2015/16,press_success_pct,18,27.18,24.84,29.67,
-period,Real Madrid 2015/16,Rafael Benítez,2015/16,ppda,18,13.82,12.56,15.38,
-period,Real Madrid 2015/16,Rafael Benítez,2015/16,possession_pct,18,56.88,54.13,59.86,
-period,Real Madrid 2015/16,Rafael Benítez,2015/16,pass_interval_s,18,2.56,2.49,2.63,
-period,Real Madrid 2015/16,Rafael Benítez,2015/16,attack_speed_mps,18,2.14,2.01,2.26,
-period,Real Madrid 2015/16,Rafael Benítez,2015/16,np_xg,18,1.99,1.67,2.34,
-period,Real Madrid 2015/16,Zinédine Zidane,2015/16,passes_per_shot,20,7.05,6.5,7.55,
-period,Real Madrid 2015/16,Zinédine Zidane,2015/16,press_success_pct,20,30.36,27.4,33.43,
-period,Real Madrid 2015/16,Zinédine Zidane,2015/16,ppda,20,12.85,11.38,14.53,
-period,Real Madrid 2015/16,Zinédine Zidane,2015/16,possession_pct,20,58.29,55.1,61.36,
-period,Real Madrid 2015/16,Zinédine Zidane,2015/16,pass_interval_s,20,2.61,2.53,2.69,
-period,Real Madrid 2015/16,Zinédine Zidane,2015/16,attack_speed_mps,20,1.88,1.77,1.99,
-period,Real Madrid 2015/16,Zinédine Zidane,2015/16,np_xg,20,1.89,1.62,2.19,
-contrast,Zidane - Benítez,Real Madrid,2015/16,passes_per_shot,,-0.53,-1.48,0.35,0
-contrast,Zidane - Benítez,Real Madrid,2015/16,press_success_pct,,3.18,-0.76,7.16,0
-contrast,Zidane - Benítez,Real Madrid,2015/16,ppda,,-0.97,-3.12,1.1,0
-contrast,Zidane - Benítez,Real Madrid,2015/16,possession_pct,,1.41,-2.95,5.48,0
-contrast,Zidane - Benítez,Real Madrid,2015/16,pass_interval_s,,0.05,-0.06,0.16,0
-contrast,Zidane - Benítez,Real Madrid,2015/16,attack_speed_mps,,-0.26,-0.42,-0.09,1
-contrast,Zidane - Benítez,Real Madrid,2015/16,np_xg,,-0.1,-0.54,0.33,0
+period,Barcelona 2007-09,Frank Rijkaard,special,passes_per_shot,27,6.72,6.09,7.32,
+period,Barcelona 2007-09,Frank Rijkaard,special,press_success_pct,27,23.29,21.39,25.28,
+period,Barcelona 2007-09,Frank Rijkaard,special,ppda,27,11.05,10.39,11.78,
+period,Barcelona 2007-09,Frank Rijkaard,special,possession_pct,27,62.11,59.94,64.26,
+period,Barcelona 2007-09,Frank Rijkaard,special,pass_interval_s,27,2.88,2.82,2.95,
+period,Barcelona 2007-09,Frank Rijkaard,special,attack_speed_mps,27,1.89,1.8,1.99,
+period,Barcelona 2007-09,Frank Rijkaard,special,np_xg,27,1.48,1.25,1.71,
+period,Barcelona 2007-09,Pep Guardiola,special,passes_per_shot,31,6.91,6.38,7.48,
+period,Barcelona 2007-09,Pep Guardiola,special,press_success_pct,31,29.12,27.05,31.2,
+period,Barcelona 2007-09,Pep Guardiola,special,ppda,31,10.22,9.51,11.01,
+period,Barcelona 2007-09,Pep Guardiola,special,possession_pct,31,66.87,64.86,68.83,
+period,Barcelona 2007-09,Pep Guardiola,special,pass_interval_s,31,2.92,2.85,3.0,
+period,Barcelona 2007-09,Pep Guardiola,special,attack_speed_mps,31,1.8,1.74,1.88,
+period,Barcelona 2007-09,Pep Guardiola,special,np_xg,31,2.14,1.87,2.41,
+contrast,Guardiola - Rijkaard,Barcelona,special,passes_per_shot,,0.19,-0.62,1.05,0
+contrast,Guardiola - Rijkaard,Barcelona,special,press_success_pct,,5.83,2.95,8.67,1
+contrast,Guardiola - Rijkaard,Barcelona,special,ppda,,-0.83,-1.87,0.2,0
+contrast,Guardiola - Rijkaard,Barcelona,special,possession_pct,,4.76,1.85,7.57,1
+contrast,Guardiola - Rijkaard,Barcelona,special,pass_interval_s,,0.04,-0.06,0.13,0
+contrast,Guardiola - Rijkaard,Barcelona,special,attack_speed_mps,,-0.09,-0.21,0.03,0
+contrast,Guardiola - Rijkaard,Barcelona,special,np_xg,,0.66,0.3,1.02,1
+period,Real Madrid 2015/16,Rafael Benítez,special,passes_per_shot,18,7.58,6.86,8.37,
+period,Real Madrid 2015/16,Rafael Benítez,special,press_success_pct,18,27.18,24.81,29.6,
+period,Real Madrid 2015/16,Rafael Benítez,special,ppda,18,13.82,12.54,15.38,
+period,Real Madrid 2015/16,Rafael Benítez,special,possession_pct,18,56.88,54.17,59.68,
+period,Real Madrid 2015/16,Rafael Benítez,special,pass_interval_s,18,2.56,2.49,2.63,
+period,Real Madrid 2015/16,Rafael Benítez,special,attack_speed_mps,18,2.14,2.01,2.26,
+period,Real Madrid 2015/16,Rafael Benítez,special,np_xg,18,1.99,1.66,2.33,
+period,Real Madrid 2015/16,Zinédine Zidane,special,passes_per_shot,20,7.05,6.5,7.56,
+period,Real Madrid 2015/16,Zinédine Zidane,special,press_success_pct,20,30.36,27.42,33.38,
+period,Real Madrid 2015/16,Zinédine Zidane,special,ppda,20,12.85,11.34,14.57,
+period,Real Madrid 2015/16,Zinédine Zidane,special,possession_pct,20,58.29,55.08,61.33,
+period,Real Madrid 2015/16,Zinédine Zidane,special,pass_interval_s,20,2.61,2.52,2.69,
+period,Real Madrid 2015/16,Zinédine Zidane,special,attack_speed_mps,20,1.88,1.77,1.98,
+period,Real Madrid 2015/16,Zinédine Zidane,special,np_xg,20,1.89,1.61,2.18,
+contrast,Zidane - Benítez,Real Madrid,special,passes_per_shot,,-0.53,-1.49,0.36,0
+contrast,Zidane - Benítez,Real Madrid,special,press_success_pct,,3.18,-0.68,6.91,0
+contrast,Zidane - Benítez,Real Madrid,special,ppda,,-0.97,-3.12,1.12,0
+contrast,Zidane - Benítez,Real Madrid,special,possession_pct,,1.41,-2.9,5.52,0
+contrast,Zidane - Benítez,Real Madrid,special,pass_interval_s,,0.05,-0.06,0.15,0
+contrast,Zidane - Benítez,Real Madrid,special,attack_speed_mps,,-0.26,-0.43,-0.09,1
+contrast,Zidane - Benítez,Real Madrid,special,np_xg,,-0.1,-0.54,0.35,0
