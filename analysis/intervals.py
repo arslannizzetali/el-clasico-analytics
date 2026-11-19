@@ -10,7 +10,8 @@ Input: data/league/match_team_*.csv. Output: data/league/intervals.csv, three ki
 
 Groups are Barcelona's league matches split by opponent, so they do not overlap and the contrasts compare
 independent samples: Real Madrid (the Clásicos), the other top-10 clubs, every other club. Each is seen from
-both sides (Barcelona, and the opponent). Real Madrid's 2015/16 season is split by coach.
+both sides (Barcelona, and the opponent). Two special seasons are split by coach: Barcelona 2007/08 (Rijkaard)
+against 2008/09 (Guardiola's first season), and Real Madrid 2015/16 (Benítez, then Zidane).
 """
 import os
 import sys
@@ -73,6 +74,32 @@ def diff_row(kind, s1, s2, v1, v2, **labels):
                 clear=int(lo > 0 or hi < 0))
 
 
+SPECIAL = (
+    # group, team, (before coach, after coach), label of the difference
+    ('Barcelona 2007-09', 'Barcelona', ('Frank Rijkaard', 'Pep Guardiola'), 'Guardiola - Rijkaard'),
+    ('Real Madrid 2015/16', 'Real Madrid', ('Rafael Benítez', 'Zinédine Zidane'), 'Zidane - Benítez'),
+)
+
+
+def special_seasons(barca, rng):
+    """Before/after a new coach: Barcelona 2007/08 vs 2008/09, Real Madrid 2015/16 before and after January."""
+    rm = pd.read_csv(os.path.join(LEAGUE, 'match_team_season_2015_16.csv'))
+    src = {'Barcelona': barca[barca['season_name'].isin(['2007/2008', '2008/2009'])],
+           'Real Madrid': rm.assign(one=1)}
+    out = []
+    for group, team, coaches, label in SPECIAL:
+        t = src[team]
+        t = t[(t['team'] == team) & t['coach'].isin(coaches)].assign(group=group, side=t['coach'], period='special')
+        r, S = rows_for(t, ['group', 'side'], rng)
+        out += r
+        v = {(x['side'], x['metric']): x['value'] for x in r}
+        for metric in METRICS:
+            k = [(group, c, 'special', metric) for c in coaches]
+            out.append(diff_row('contrast', S[k[0]], S[k[1]], v[(coaches[0], metric)], v[(coaches[1], metric)],
+                                group=label, side=team, period='special', metric=metric))
+    return out
+
+
 def main():
     rng = np.random.default_rng(SEED)
     top = set(pd.read_csv(os.path.join(ROOT, 'data', 'reference', 'standings.csv'))
@@ -101,15 +128,7 @@ def main():
                         rows.append(diff_row('contrast', S[k1], S[k2], value[k1], value[k2], group=f'{g1} - {g2}',
                                              side=side, period=p, metric=metric))
 
-    rm = pd.read_csv(os.path.join(LEAGUE, 'match_team_season_2015_16.csv'))
-    rm = rm[rm['team'] == 'Real Madrid'].assign(one=1, group='Real Madrid 2015/16', side=lambda x: x['coach'])
-    r2, S2 = rows_for(rm.assign(period='2015/16'), ['group', 'side'], rng)
-    rows += r2
-    v2 = {(r['side'], r['metric']): r['value'] for r in r2}
-    for metric in METRICS:
-        k1, k2 = ('Real Madrid 2015/16', 'Rafael Benítez', '2015/16', metric), ('Real Madrid 2015/16', 'Zinédine Zidane', '2015/16', metric)
-        rows.append(diff_row('contrast', S2[k1], S2[k2], v2[('Rafael Benítez', metric)], v2[('Zinédine Zidane', metric)],
-                             group='Zidane - Benítez', side='Real Madrid', period='2015/16', metric=metric))
+    rows += special_seasons(d, rng)
 
     out = pd.DataFrame(rows)
     out['matches'] = out['matches'].astype('Int64')
