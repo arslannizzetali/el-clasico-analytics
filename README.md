@@ -12,6 +12,17 @@ Data: [StatsBomb Open Data](https://github.com/statsbomb/open-data). These match
 StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Barcelona's league Clásicos: it is a
 study of these 29 matches in that era, not of how football as a whole changed.
 
+## Who is this for, and which decision does it serve?
+
+| Audience | Decision it supports | Where to look |
+|---|---|---|
+| Coaching staff / opposition analysts | How to set up against a possession side: press high or sit deep, where to win the ball, which zones to protect after losing it | Pressing and loss maps (El Clásico tab), opponent explorer and formations (League context) |
+| Recruitment / performance department | Did a new coach change how the team plays, and how fast? Which changes are real and which are noise? | Special seasons tab, intervals in every table |
+| Broadcasters and club media | Which talking points survive the data ("Barça stopped pressing", "finals are different") and with what caveats | Key findings, [one-page summary](docs/summary.md) |
+
+It is a retrospective study: it explains what happened in these matches and how sure we can be, it does not
+predict results or rate individual players.
+
 ## Key findings
 
 | | 2005-09 | 2009-13 | 2013-17 | 2017-21 | Change [90% interval] |
