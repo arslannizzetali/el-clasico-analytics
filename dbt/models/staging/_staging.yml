@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_events
+    description: One row per event.
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+      - name: match_id
+        data_tests:
+          - not_null
+          - relationships: {arguments: {to: ref('stg_matches'), field: match_id}}
+      - name: team_id
+        data_tests:
+          - not_null
+          - relationships: {arguments: {to: ref('stg_teams'), field: team_id}}
+      - name: event_type
+        data_tests: [not_null]
+      - name: seconds_in_period
+        data_tests: [not_null]
+  - name: stg_matches
+    columns:
+      - name: match_id
+        data_tests: [unique, not_null]
+      - name: home_team_id
+        data_tests:
+          - not_null
+          - relationships: {arguments: {to: ref('stg_teams'), field: team_id}}
+      - name: away_team_id
+        data_tests:
+          - not_null
+          - relationships: {arguments: {to: ref('stg_teams'), field: team_id}}
+      - name: competition
+        data_tests:
+          - accepted_values: {arguments: {values: ['La Liga', 'Champions League']}}
+  - name: stg_teams
+    columns:
+      - name: team_id
+        data_tests: [unique, not_null]
+      - name: team_name
+        data_tests: [unique, not_null]
+  - name: stg_match_categories
+    columns:
+      - name: match_id
+        data_tests:
+          - relationships: {arguments: {to: ref('stg_matches'), field: match_id}}
