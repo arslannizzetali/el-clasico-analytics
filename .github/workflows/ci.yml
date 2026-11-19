@@ -76,7 +76,9 @@ jobs:
         with:
           path: data/raw
           key: statsbomb-raw-clasico-v1
-      - name: Load the Clásicos into PostgreSQL
-        run: python scripts/load_db.py clasico
+      - name: Load the Clásicos and the Champions League finals into PostgreSQL
+        run: |
+          python scripts/load_db.py clasico
+          python scripts/load_db.py ucl_finals
       - name: pandas metrics and bootstrap agree with the reference pipeline
-        run: python -m unittest tests.test_frames tests.test_bootstrap -v
+        run: python -m unittest tests.test_frames tests.test_finals tests.test_bootstrap -v
