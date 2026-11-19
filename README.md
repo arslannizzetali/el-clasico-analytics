@@ -209,7 +209,10 @@ splits summing to match totals, loss and strip tables lining up row by row, inte
 CI runs on every push: the tests; a check that the site and charts are up to date with the data; and a full rebuild
 from raw StatsBomb data that must reproduce every committed output byte for byte (the bootstrap uses a fixed seed).
 
-## Credits
+## License and credits
+
+The code is released under the [MIT License](LICENSE). The license covers the code only, not the data: the
+StatsBomb event data and the derived files in `data/` remain subject to StatsBomb's terms below.
 
 League results for the standings: [engsoccerdata](https://github.com/jalapic/engsoccerdata) by James Curley.
 
