@@ -11,3 +11,4 @@ dbt/target/
 dbt/logs/
 dbt/.user.yml
 logs/
+.dagster_home/

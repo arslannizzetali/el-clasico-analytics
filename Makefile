@@ -5,7 +5,7 @@ PY      ?= .venv/bin/python
 # load scope: all | league | clasico | ucl_finals
 SCOPE   ?= all
 
-.PHONY: help setup db download load quality dbt pipeline analysis site run test clean
+.PHONY: help setup db download load quality dbt dagster pipeline analysis site run test clean
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  make %-10s %s\n", $$1, $$2}'
@@ -31,6 +31,10 @@ quality:  ## data quality checks on the loaded database (fails on errors)
 
 dbt:  ## dbt models and their tests (staging -> intermediate -> marts)
 	cd dbt && ../.venv/bin/dbt build --profiles-dir .
+
+dagster:  ## run the whole pipeline as the Dagster job full_pipeline (SCOPE sets the load scope)
+	mkdir -p .dagster_home && touch .dagster_home/dagster.yaml
+	DAGSTER_HOME=$(CURDIR)/.dagster_home CLASICO_SCOPE=$(SCOPE) .venv/bin/dagster job execute -m orchestration.clasico_pipeline -j full_pipeline
 
 pipeline:  ## reference Clásico pipeline -> data/processed (standard library only)
 	python3 pipeline.py

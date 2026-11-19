@@ -82,10 +82,12 @@ jobs:
           python scripts/load_db.py ucl_finals
       - name: Data quality checks
         run: python scripts/check_quality.py
+      - name: Dagster definitions are valid
+        run: dagster definitions validate -m orchestration.clasico_pipeline
       - name: dbt models and tests
         working-directory: dbt
         env:
           PGPORT: '5432'
         run: dbt build --profiles-dir .
       - name: Metrics match the reference; quality checks catch defects; loads are idempotent
-        run: python -m unittest tests.test_frames tests.test_finals tests.test_bootstrap tests.test_quality tests.test_load_db tests.test_parquet tests.test_dbt -v
+        run: python -m unittest tests.test_frames tests.test_finals tests.test_bootstrap tests.test_quality tests.test_load_db tests.test_parquet tests.test_dbt tests.test_dagster -v
