@@ -29,7 +29,11 @@ class SameAsReference(unittest.TestCase):
     def setUpClass(cls):
         with open(os.path.join(PROCESSED, 'match_team.csv'), encoding='utf-8') as fh:
             cls.ref = {(int(r['match_id']), r['team']): r for r in csv.DictReader(fh)}
-        ev, ms = frames.load('clasico', db.engine())
+        eng = db.engine()
+        try:
+            ev, ms = frames.load('clasico', eng)
+        finally:
+            eng.dispose()   # close pooled connections
         cls.new = {(r.match_id, r.team): r for r in frames.match_team(ev, ms).itertuples()}
 
     def test_same_match_teams(self):
