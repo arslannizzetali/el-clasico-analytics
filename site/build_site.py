@@ -18,7 +18,7 @@ from clasico.output import read_json, read_rows  # noqa: E402
 D3 = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js'
 P = lambda n: os.path.join(ROOT, 'data', 'processed', n)  # noqa: E731
 L = lambda n: os.path.join(ROOT, 'data', 'league', n)  # noqa: E731
-CATEGORIES = ('clasico', 'barcelona_vs_top10', 'barcelona_all', 'season_2015_16')
+CATEGORIES = ('clasico', 'barcelona_vs_top10', 'barcelona_all', 'season_2015_16', 'ucl_finals')
 LEAGUE_FIELDS = ('match_id', 'match_date', 'season_name', 'period', 'team', 'opponent', 'venue', 'goals_for',
                  'goals_against', 'coach', 'formation', 'formation_changes', 'passes_before_shot_sum', 'open_play_shots',
                  'pressures_won_5s', 'pressures', 'opp_buildup_passes', 'def_actions', 'possession_pct',
@@ -83,6 +83,7 @@ NAV = """<nav class="lg-nav" aria-label="Sections"><p class="lg-brand">El Clási
 <button type="button" class="lg-tabbtn" role="tab" data-go="clasico" aria-selected="true">El Clásico</button>
 <button type="button" class="lg-tabbtn" role="tab" data-go="league" aria-selected="false">League context</button>
 <button type="button" class="lg-tabbtn" role="tab" data-go="seasons" aria-selected="false">Special seasons</button>
+<button type="button" class="lg-tabbtn" role="tab" data-go="finals" aria-selected="false">UCL finals</button>
 </div></nav>"""
 
 FOOT = """<footer class="site-foot">Data: <a href="https://github.com/statsbomb/open-data">StatsBomb Open Data</a>.
@@ -129,7 +130,9 @@ def league_data():
               for r in _csv(L('tactical_shifts.csv'))]
     intervals = [{k: (_num(v) if k in ('matches', 'value', 'lo', 'hi', 'clear') else v) for k, v in r.items()}
                  for r in _csv(L('intervals.csv'))]
-    return {'league_raw': columnar(out), 'league_intervals_raw': columnar(intervals),
+    finals = [{k: (_num(v) if k not in ('match_date', 'season_name', 'team', 'opponent', 'metric', 'basis') else v)
+               for k, v in r.items()} for r in _csv(L('finals.csv'))]
+    return {'league_raw': columnar(out), 'league_intervals_raw': columnar(intervals), 'ucl_finals_raw': columnar(finals),
             'tactical_shifts_raw': columnar(shifts),
             'league_meta': [{'top_clubs': top, 'top_finishes': {t: finishes[t] for t in top}}]}
 
@@ -148,7 +151,7 @@ def main():
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>El Clásico in La Liga, 2004-2021</title>'
             '<meta name="description" content="How El Clásico changed over 16 years, and how it compares with the rest of La Liga: '
-            '29 Real Madrid - Barcelona matches, 524 Barcelona league matches and the full 2015/16 season, StatsBomb open data.">'
+            '29 Real Madrid - Barcelona matches, 524 Barcelona league matches, the full 2015/16 season and seven Champions League finals, StatsBomb open data.">'
             '<link rel="preconnect" href="https://fonts.googleapis.com">'
             '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">'
             f'<style>{TOKENS}</style>{style}'
@@ -159,6 +162,7 @@ def main():
             f'<div data-tab="clasico">{page[:i]}</div>'
             f'<div data-tab="league" hidden>{tab("league")}</div>'
             f'<div data-tab="seasons" hidden>{tab("seasons")}</div>'
+            f'<div data-tab="finals" hidden>{tab("finals")}</div>'
             f'</div>{FOOT}'
             f'{page[i:]}{script}'
             '<script>window.__dashAll();</script>'
