@@ -19,6 +19,24 @@ from clasico.log import get_logger  # noqa: E402
 log = get_logger('build_site')
 
 D3 = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js'
+SITE = 'https://arslannizzetali.github.io/el-clasico-analytics/'
+TITLE = 'El Clásico in La Liga, 2004-2021'
+DESCRIPTION = ('How El Clásico changed over 16 years, and how it compares with the rest of La Liga: 29 Real Madrid - Barcelona '
+               'matches, 524 Barcelona league matches, the full 2015/16 season and seven Champions League finals, StatsBomb open data.')
+# a ball split into the two clubs' colours
+FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
+           "%3Crect width='32' height='32' rx='7' fill='%230b1324'/%3E%3Cpath d='M16 6a10 10 0 0 0 0 20z' fill='%235fb0ff'/%3E"
+           "%3Cpath d='M16 6a10 10 0 0 1 0 20z' fill='%23ffcb3d'/%3E%3C/svg%3E")
+# Open Graph / Twitter card; docs/og.png is drawn by site/og_image.py
+META = (f'<meta name="description" content="{DESCRIPTION}">'
+        f'<meta name="theme-color" content="#0b1324"><link rel="icon" href="{FAVICON}">'
+        f'<meta property="og:type" content="website"><meta property="og:url" content="{SITE}">'
+        f'<meta property="og:title" content="El Clásico: two styles that met in the middle">'
+        f'<meta property="og:description" content="{DESCRIPTION}">'
+        f'<meta property="og:image" content="{SITE}og.png"><meta property="og:image:width" content="1200">'
+        f'<meta property="og:image:height" content="630">'
+        f'<meta property="og:image:alt" content="Passes before an open-play shot per period: Barcelona and Real Madrid converge on about seven.">'
+        f'<meta name="twitter:card" content="summary_large_image">')
 P = lambda n: os.path.join(ROOT, 'data', 'processed', n)  # noqa: E731
 L = lambda n: os.path.join(ROOT, 'data', 'league', n)  # noqa: E731
 CATEGORIES = ('clasico', 'barcelona_vs_top10', 'barcelona_all', 'season_2015_16', 'ucl_finals')
@@ -48,6 +66,9 @@ html,body{margin:0;background:var(--page-bg)}
 #dash-root{max-width:1120px;margin:0 auto;padding:24px 16px 48px;box-sizing:border-box}
 .site-foot{max-width:1120px;margin:0 auto;padding:0 16px 32px;box-sizing:border-box;font:13px/1.5 var(--font-anthropic-sans);color:var(--color-fg-muted)}
 .site-foot a{color:inherit}
+.lg-brand{display:inline-flex;align-items:center;gap:8px}
+.lg-brand b{color:var(--color-fg);font-weight:600}
+.lg-mark{width:18px;height:18px;border-radius:50%;background:linear-gradient(90deg,#5fb0ff 50%,#ffcb3d 50%);box-shadow:0 0 0 3px #0b1324}
 select.dash-select{font:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--color-border-line);background:var(--color-panel);color:var(--color-fg);max-width:100%}
 """
 
@@ -81,7 +102,7 @@ SHIM = r"""
 })();
 """
 
-NAV = """<nav class="lg-nav" aria-label="Sections"><p class="lg-brand">El Clásico in La Liga · StatsBomb open data</p>
+NAV = """<nav class="lg-nav" aria-label="Sections"><p class="lg-brand"><span class="lg-mark" aria-hidden="true"></span><b>El Clásico</b> in La Liga · StatsBomb open data</p>
 <div class="ec-seg" role="tablist">
 <button type="button" class="lg-tabbtn" role="tab" data-go="clasico" aria-selected="true">El Clásico</button>
 <button type="button" class="lg-tabbtn" role="tab" data-go="league" aria-selected="false">League context</button>
@@ -152,9 +173,7 @@ def main():
     i = page.index('<script>')
     html = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>El Clásico in La Liga, 2004-2021</title>'
-            '<meta name="description" content="How El Clásico changed over 16 years, and how it compares with the rest of La Liga: '
-            '29 Real Madrid - Barcelona matches, 524 Barcelona league matches, the full 2015/16 season and seven Champions League finals, StatsBomb open data.">'
+            f'<title>{TITLE}</title>{META}'
             '<link rel="preconnect" href="https://fonts.googleapis.com">'
             '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">'
             f'<style>{TOKENS}</style>{style}'
