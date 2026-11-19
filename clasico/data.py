@@ -51,6 +51,21 @@ def clasico_matches(raw=RAW):
     return sorted(out, key=lambda g: g['match_date'])
 
 
+def league_matches(first='2004/2005', last='2020/2021', raw=RAW):
+    """Every La Liga match in the open data between two seasons (inclusive), sorted by date.
+    Before 2015/16 and after it this is Barcelona's matches only; 2015/16 is the full season."""
+    comps = load_json('competitions.json', 'c.json', raw)
+    out = []
+    for c in comps:
+        if c['competition_id'] == LA_LIGA and first <= c['season_name'] <= last:
+            out.extend(load_json(f"matches/{LA_LIGA}/{c['season_id']}.json", f"matches_{LA_LIGA}_{c['season_id']}.json", raw))
+    return sorted(out, key=lambda g: (g['match_date'], g['match_id']))
+
+
+def lineups(match_id, raw=RAW):
+    return load_json(f'lineups/{match_id}.json', f'lineups_{match_id}.json', raw)
+
+
 def events(match_id, raw=RAW, max_period=2):
     """A match's events in file order, extra time excluded."""
     ev = load_json(f'events/{match_id}.json', f'{match_id}.json', raw)
