@@ -89,9 +89,16 @@ CHECKS = schema_checks() + [
 
 
 def run(conn):
-    """[(check, count, passed)] for every check."""
+    """[(check, count, passed)] for every check. A check whose query cannot run (a column is missing, say) fails
+    with count None; each check runs in its own savepoint, so one broken query does not stop the others."""
+    import psycopg
     out = []
     for c in CHECKS:
-        n = conn.execute(c.sql).fetchone()[0]
+        try:
+            with conn.transaction():
+                n = conn.execute(c.sql).fetchone()[0]
+        except psycopg.Error:
+            out.append((c, None, False))
+            continue
         out.append((c, n, n <= c.limit))
     return out

@@ -20,7 +20,8 @@ def main():
     failed = 0
     for c, n, ok in results:
         level = 'info' if ok else ('error' if c.severity == 'error' else 'warning')
-        getattr(log, level)('check', extra={'check': c.name, 'severity': c.severity, 'offending': n, 'limit': c.limit,
+        getattr(log, level)('check', extra={'check': c.name, 'severity': c.severity,
+                                            'offending': 'query failed' if n is None else n, 'limit': c.limit,
                                             'result': 'pass' if ok else 'FAIL'})
         failed += (not ok) and c.severity == 'error'
     log.info('quality done', extra={'checks': len(results), 'errors': failed})
