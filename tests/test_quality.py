@@ -61,7 +61,9 @@ class QualityChecks(unittest.TestCase):
         self.assertIn('consistency: goals in the events equal the score', bad)
 
     def test_catches_schema_change(self):
-        bad = self.inject('ALTER TABLE events ALTER COLUMN xg TYPE numeric')
+        # a rename, not a type change: the dbt staging view depends on the column, and Postgres refuses to change
+        # the type of a column a view uses, but follows a rename (rolled back with the transaction)
+        bad = self.inject('ALTER TABLE events RENAME COLUMN xg TO xg_renamed')
         self.assertIn('schema: events has the expected columns and types', bad)
 
 
