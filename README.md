@@ -50,12 +50,22 @@ Example of one that is not: Real Madrid's PPDA with the score level, 2005-09 →
 ## Interactive dashboard
 
 The [dashboard](https://arslannizzetali.github.io/el-clasico-analytics/) is a single static file
-([`docs/index.html`](docs/index.html)): pick a team and a metric, see every match as a point and every period as an
-average with its interval, split pressing and build-up metrics by score state, click a pitch zone to list the losses
-behind it, and open a match report with both teams against their period average. Light and dark mode, works on a phone.
+([`docs/index.html`](docs/index.html)) with three tabs:
 
-It runs exactly the same page code as the working dashboard; `site/build_site.py` embeds the processed data and a
-small stand-in for the dashboard API, so the two versions cannot drift apart.
+- **El Clásico**: pick a team and a metric, see every match as a point and every period as an average with its
+  interval, split pressing and build-up metrics by score state, click a pitch zone to list the losses behind it, and
+  open a match report with both teams against their period average.
+- **League context**: the Clásico against Barcelona's other league matches, with the differences and their
+  intervals; any group of matches (Clásicos, Barcelona against top-10 clubs, all Barcelona matches, any club in
+  2015/16) match by match; an opponent explorer ranking clubs by how hard they made it for the team, down to the
+  formations and tactical shifts of each match; and how opponents lined up, period by period.
+- **Special seasons**: a new coach's first season. Barcelona under Rijkaard (2007/08) and Guardiola (2008/09),
+  Real Madrid under Benítez and Zidane (2015/16), every metric before and after with a 90% interval.
+
+Light and dark mode, works on a phone. It runs exactly the same page code as the working dashboard
+([`dashboard/index.html`](dashboard/index.html) and [`dashboard/league.html`](dashboard/league.html));
+`site/build_site.py` embeds the processed data and a small stand-in for the dashboard API, so the two versions
+cannot drift apart.
 
 ## How the metrics are measured
 
@@ -165,7 +175,7 @@ site/               build_site.py (static dashboard -> docs/index.html), readme_
 docs/               published site: index.html + README charts
 tests/              unit tests on hand-built events + consistency tests on outputs
 data/processed/     outputs (data/raw is downloaded and not committed)
-dashboard/          dashboard page source
+dashboard/          dashboard page source: index.html (El Clásico), league.html (League context, Special seasons)
 .github/workflows/  CI: tests, freshness of generated files, full rebuild from raw data
 ```
 
