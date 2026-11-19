@@ -32,10 +32,11 @@ quality:  ## data quality checks on the loaded database (fails on errors)
 pipeline:  ## reference Clásico pipeline -> data/processed (standard library only)
 	python3 pipeline.py
 
-analysis:  ## league tables, intervals and BI export -> data/league, data/bi
+analysis:  ## league tables, intervals, BI and Parquet export -> data/league, data/bi, data/parquet
 	$(PY) analysis/league.py > /dev/null
 	$(PY) analysis/intervals.py
 	$(PY) analysis/export_bi.py
+	$(PY) analysis/export_parquet.py
 
 site:  ## rebuild docs/index.html and the README charts
 	python3 site/build_site.py
