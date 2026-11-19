@@ -78,5 +78,5 @@ jobs:
           key: statsbomb-raw-clasico-v1
       - name: Load the Clásicos into PostgreSQL
         run: python scripts/load_db.py clasico
-      - name: pandas metrics equal the reference pipeline's
-        run: python -m unittest tests.test_frames -v
+      - name: pandas metrics and bootstrap agree with the reference pipeline
+        run: python -m unittest tests.test_frames tests.test_bootstrap -v
