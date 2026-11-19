@@ -1,6 +1,7 @@
 """PostgreSQL access: connection, schema, and loading StatsBomb matches with COPY.
 
 Needs the packages in requirements.txt; the reference pipeline does not import this module."""
+import csv
 import json
 import os
 
@@ -11,6 +12,7 @@ from .events import sec
 
 DEFAULT_URL = 'postgresql+psycopg://clasico:clasico@localhost:5434/clasico'
 SCHEMA = os.path.join(ROOT, 'db', 'schema.sql')
+STANDINGS = os.path.join(ROOT, 'data', 'reference', 'standings.csv')
 
 
 def url():
@@ -92,3 +94,41 @@ def load_match(conn, g, ev, lineup):
         with cur.copy(f'COPY events ({EVENT_COLS}) FROM STDIN') as cp:
             for e in ev:
                 cp.write_row(event_row(mid, e))
+
+
+def load_standings(conn, path=STANDINGS):
+    with open(path, encoding='utf-8') as fh:
+        rows = list(csv.DictReader(fh))
+    conn.execute('DELETE FROM standings')
+    with conn.cursor().copy('COPY standings (season_name, position, team_name, played, won, drawn, lost, '
+                            'goals_for, goals_against, points) FROM STDIN') as cp:
+        for r in rows:
+            cp.write_row([r[k] for k in ('season_name', 'position', 'team_name', 'played', 'won', 'drawn', 'lost',
+                                         'goals_for', 'goals_against', 'points')])
+
+
+# Every category is one SQL query over the loaded matches. A match can be in several.
+CATEGORIES = {
+    # The 29 Real Madrid - Barcelona matches the reference pipeline analyses (2005/06 on)
+    'clasico': """
+        SELECT match_id FROM match_list
+        WHERE 'Real Madrid' IN (home, away) AND 'Barcelona' IN (home, away) AND season_name >= '2005'""",
+    'barcelona_all': """
+        SELECT match_id FROM match_list WHERE 'Barcelona' IN (home, away)""",
+    'barcelona_vs_top10': """
+        SELECT match_id FROM match_list
+        WHERE 'Barcelona' IN (home, away)
+          AND (CASE WHEN home = 'Barcelona' THEN away ELSE home END) IN (SELECT team_name FROM top_clubs)""",
+    'season_2015_16': """
+        SELECT match_id FROM match_list WHERE season_name = '2015/2016'""",
+    'top10_2015_16': """
+        SELECT match_id FROM match_list
+        WHERE season_name = '2015/2016'
+          AND home IN (SELECT team_name FROM top_clubs) AND away IN (SELECT team_name FROM top_clubs)""",
+}
+
+
+def assign_categories(conn):
+    conn.execute('DELETE FROM match_categories')
+    for name, sql in CATEGORIES.items():
+        conn.execute(f'INSERT INTO match_categories SELECT match_id, %s FROM ({sql}) q', (name,))

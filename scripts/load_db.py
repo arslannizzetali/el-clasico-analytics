@@ -33,6 +33,11 @@ def main():
             conn.commit()
             if k % 50 == 0 or k == len(todo):
                 print(f'  {k}/{len(todo)}  ({time.time() - t0:.0f} s)', flush=True)
+        db.load_standings(conn)
+        db.assign_categories(conn)
+        conn.commit()
+        for cat, n in conn.execute('SELECT category, count(*) FROM match_categories GROUP BY 1 ORDER BY 1'):
+            print(f'  {cat}: {n} matches')
         n_m, n_e = conn.execute('SELECT (SELECT count(*) FROM matches), (SELECT count(*) FROM events)').fetchone()
     print(f'load_db: {n_m} matches, {n_e} events in the database')
 
