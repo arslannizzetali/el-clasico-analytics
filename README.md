@@ -50,7 +50,7 @@ Example of one that is not: Real Madrid's PPDA with the score level, 2005-09 →
 ## Interactive dashboard
 
 The [dashboard](https://arslannizzetali.github.io/el-clasico-analytics/) is a single static file
-([`docs/index.html`](docs/index.html)) with three tabs:
+([`docs/index.html`](docs/index.html)) with four tabs:
 
 - **El Clásico**: pick a team and a metric, see every match as a point and every period as an average with its
   interval, split pressing and build-up metrics by score state, click a pitch zone to list the losses behind it, and
