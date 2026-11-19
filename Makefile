@@ -5,7 +5,7 @@ PY      ?= .venv/bin/python
 # load scope: all | league | clasico | ucl_finals
 SCOPE   ?= all
 
-.PHONY: help setup db download load quality pipeline analysis site run test clean
+.PHONY: help setup db download load quality dbt pipeline analysis site run test clean
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  make %-10s %s\n", $$1, $$2}'
@@ -13,7 +13,7 @@ help:  ## list targets
 setup:  ## create .venv and install requirements
 	python3 -m venv .venv
 	$(PY) -m pip install -q --upgrade pip
-	$(PY) -m pip install -q -r requirements.txt
+	$(PY) -m pip install -q -r requirements-pipeline.txt
 
 db:  ## start PostgreSQL (localhost:5434) and wait until it accepts connections
 	docker compose up -d
@@ -29,6 +29,9 @@ load: db  ## load SCOPE into PostgreSQL (idempotent: only missing matches)
 quality:  ## data quality checks on the loaded database (fails on errors)
 	$(PY) scripts/check_quality.py
 
+dbt:  ## dbt models and their tests (staging -> intermediate -> marts)
+	cd dbt && ../.venv/bin/dbt build --profiles-dir .
+
 pipeline:  ## reference Clásico pipeline -> data/processed (standard library only)
 	python3 pipeline.py
 
@@ -42,7 +45,7 @@ site:  ## rebuild docs/index.html and the README charts
 	python3 site/build_site.py
 	python3 site/readme_charts.py
 
-run: pipeline load quality analysis site  ## everything, in order
+run: pipeline load quality dbt analysis site  ## everything, in order
 
 test:  ## all tests (database tests skip if PostgreSQL is not loaded)
 	$(PY) -W error::ResourceWarning -m unittest discover -s tests -v
