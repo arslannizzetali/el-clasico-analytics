@@ -71,6 +71,77 @@ small stand-in for the dashboard API, so the two versions cannot drift apart.
 | Game state | Every event is labelled Ahead / Level / Behind from goals scored *before* it (penalties and own goals included). Metrics are re-aggregated by state; the three states always sum to the match totals. |
 | Pitch zones | 9 equal zones (3 × 3, 40 × 26.7 units) from the view of the team losing the ball, attacking left to right: 1-3 own third, 4-6 middle third, 7-9 attacking third. |
 
+## League-wide data: PostgreSQL + pandas
+
+The Clásico analysis above runs on the standard library alone and stays the reference. Next to it, every La Liga
+match in the open data goes into a PostgreSQL event store, and the same metrics are computed with pandas on any
+group of matches. A test checks that both give identical numbers on the Clásicos, and CI runs it against a real
+PostgreSQL service.
+
+What the open data covers decides what can be compared: Barcelona's league matches 2004/05–2020/21 (Messi's
+career), plus the complete 2015/16 season with all 20 clubs.
+
+| Category | Matches | Question it answers |
+|---|---|---|
+| `clasico` | 29 | How did the two styles change? (the analysis above) |
+| `barcelona_vs_top10` | 235 | How did La Liga's strongest clubs play against Barcelona? |
+| `barcelona_all` | 524 | Is a Clásico different from Barcelona's other league matches? |
+| `season_2015_16` | 380 | Every club, every match; top-10 clubs against each other; Benítez vs Zidane at Real Madrid |
+| `top10_2015_16` | 90 | 2015/16 matches between two top-10 clubs |
+
+"Top-10 clubs" are not picked by hand: they are the 10 clubs with the most top-10 finishes 2004/05–2020/21,
+computed from every league result ([`scripts/standings.py`](scripts/standings.py), La Liga's head-to-head
+tie-breaks included), ties broken by average final position: Barcelona, Real Madrid, Sevilla, Atlético Madrid,
+Villarreal, Valencia, Athletic Club, Real Sociedad, Getafe, Málaga.
+
+First results (`data/league/`, no intervals yet):
+
+| | 2004-09 | 2009-13 | 2013-17 | 2017-21 |
+|---|---|---|---|---|
+| Barcelona PPDA, all league matches | 10.2 | 11.3 | 11.4 | 13.8 |
+| Barcelona PPDA, Clásicos | 10.0 | 9.5 | 12.0 | 17.9 |
+| Opponents of Barcelona with a back three or five (%), other clubs | 0 | 7 | 12 | 35 |
+| Same, top-10 clubs | 2 | 0 | 3 | 10 |
+
+Barcelona's press loosened in every kind of match, but far more in the Clásicos. Smaller clubs moved to back threes
+and fives against Barcelona after 2017; the top-10 clubs mostly kept a back four. In 2015/16 Real Madrid took 2.06
+points per match under Benítez (18 matches) and 2.65 under Zidane (20), with a slightly higher press success (27.2% →
+30.4%) and slower attacks (2.14 → 1.88 m/s).
+
+New tempo metrics, which the event data supports without tracking data:
+
+| Metric | Definition |
+|---|---|
+| Possession | Share of possession time (first to last event of each possession). |
+| Pass interval | Median seconds between two consecutive passes of a team in the same open-play possession. |
+| Attack speed | Forward metres per second in open-play possessions of 3 s or more, from where the possession starts to the furthest point the ball reaches. |
+| Formation changes | Tactical shifts during the match (formation at kick-off comes from the starting XI). |
+
+```bash
+pip install -r requirements.txt
+docker compose up -d                    # PostgreSQL 16 on localhost:5434
+python3 scripts/download.py             # ~2.5 GB of event files, in parallel; resumable
+python3 scripts/load_db.py              # every match into PostgreSQL (~5 min); `clasico` for the 29 only
+python3 analysis/league.py              # tables in data/league/
+python3 -m unittest tests.test_frames   # pandas == reference on the Clásicos
+```
+
+The schema ([`db/schema.sql`](db/schema.sql)) keeps the common event fields as columns and the full StatsBomb
+event as `jsonb`, so a new metric never needs a new download. Example:
+
+```sql
+-- How Barcelona's opponents lined up, top-10 clubs vs the rest
+SELECT c.team_name IN (SELECT team_name FROM top_clubs) AS top10_club, f.formation, count(*)
+FROM formations f
+JOIN teams c USING (team_id)
+JOIN match_categories mc ON mc.match_id = f.match_id AND mc.category = 'barcelona_all'
+WHERE f.starting AND c.team_name <> 'Barcelona'
+GROUP BY 1, 2 ORDER BY 1, 3 DESC;
+```
+
+Results by period are averages over many matches but come without intervals yet; for now only the Clásico
+numbers carry bootstrap intervals.
+
 ## Project layout
 
 ```
@@ -78,6 +149,10 @@ clasico/            shared definitions (one place for every rule)
   data.py           download with retries + local cache (data/raw)
   events.py         time, ball-strip detection, possessions, zones, game state
   output.py         JSON/CSV writing; each JSON carries the code that produced it
+  db.py             PostgreSQL: connection, schema, COPY loader, match categories
+  frames.py         the metrics in pandas, for any category of matches
+db/schema.sql       tables (matches, lineups, events, standings) and views (formations, top_clubs)
+analysis/league.py  league-wide tables -> data/league/
 scripts/            pipeline steps, run in this order by pipeline.py
   build.py          match-team metrics + every non-penalty shot
   losses.py         every ball lost after a controlled touch, with the opponent shot that followed
@@ -85,6 +160,9 @@ scripts/            pipeline steps, run in this order by pipeline.py
   game_state.py     main metrics split by Ahead / Level / Behind
   uncertainty.py    bootstrap intervals for period averages and period-to-period changes
   loss_table.py     flat loss table (CSV) for spreadsheet use
+  download.py       all La Liga event files, in parallel (not part of pipeline.py)
+  load_db.py        load matches, standings and categories into PostgreSQL
+  standings.py      final tables from every result -> data/reference/standings.csv
 site/               build_site.py (static dashboard -> docs/index.html), readme_charts.py (docs/img/*.svg)
 docs/               published site: index.html + README charts
 tests/              unit tests on hand-built events + consistency tests on outputs
@@ -95,7 +173,7 @@ dashboard/          dashboard page source
 
 ## Run it
 
-Python 3.10+ and the standard library only; nothing to install.
+Python 3.10+ and the standard library only; nothing to install (the PostgreSQL layer above needs `requirements.txt`).
 
 ```bash
 python3 pipeline.py                      # downloads the data on first run, then ~40 s
@@ -112,6 +190,8 @@ CI runs on every push: the tests; a check that the site and charts are up to dat
 from raw StatsBomb data that must reproduce every committed output byte for byte (the bootstrap uses a fixed seed).
 
 ## Credits
+
+League results for the standings: [engsoccerdata](https://github.com/jalapic/engsoccerdata) by James Curley.
 
 Event data © StatsBomb, released as open data under their
 [user agreement](https://github.com/statsbomb/open-data/blob/master/LICENSE.pdf).
