@@ -1,4 +1,4 @@
-# El Clásico, 2005–2021: how the game changed
+# El Clásico in the Messi era: 29 league Clásicos, 2005–2021
 
 [![CI](https://github.com/arslannizzetali/el-clasico-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/arslannizzetali/el-clasico-analytics/actions/workflows/ci.yml)
 
@@ -9,7 +9,8 @@ individual events, matches and pitch locations, and every claim comes with how s
 **[Open the interactive dashboard →](https://arslannizzetali.github.io/el-clasico-analytics/)**
 
 Data: [StatsBomb Open Data](https://github.com/statsbomb/open-data). These matches are in the open data because
-StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Barcelona's league Clásicos.
+StatsBomb released Lionel Messi's full Barcelona career, so coverage follows Barcelona's league Clásicos: it is a
+study of these 29 matches in that era, not of how football as a whole changed.
 
 ## Key findings
 
