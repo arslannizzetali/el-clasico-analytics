@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from clasico import ROOT, db, frames  # noqa: E402
 
 OUT = os.path.join(ROOT, 'data', 'league')
-CATEGORIES = ('clasico', 'barcelona_vs_top10', 'barcelona_all', 'season_2015_16')
+CATEGORIES = ('clasico', 'barcelona_vs_top10', 'barcelona_all', 'season_2015_16', 'ucl_finals')
 
 
 def era(season):
