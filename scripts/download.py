@@ -11,13 +11,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from clasico import RAW, data  # noqa: E402
 
 
-def matches(scope):
-    return data.clasico_matches() if scope == 'clasico' else data.league_matches()
-
-
 def main():
     scope = sys.argv[1] if len(sys.argv) > 1 else 'all'
-    ms = matches(scope)
+    ms = data.scope_matches(scope)
     jobs = [(f"events/{g['match_id']}.json", f"{g['match_id']}.json") for g in ms]
     jobs += [(f"lineups/{g['match_id']}.json", f"lineups_{g['match_id']}.json") for g in ms]
     todo = [j for j in jobs if not os.path.exists(os.path.join(RAW, j[1]))]
