@@ -12,7 +12,7 @@ FIRST_SEASON = '2005'
 
 
 def fetch(path, dest, retries=5, wait=2.0):
-    """Download BASE/path to dest, retrying network errors with a growing wait.
+    """Download BASE/path (or path itself, when it is a full URL) to dest, retrying network errors with a growing wait.
     Writes to a temporary file first so an interrupted download never leaves a broken cache file."""
     if os.path.exists(dest):
         return dest
@@ -20,7 +20,7 @@ def fetch(path, dest, retries=5, wait=2.0):
     tmp = dest + '.part'
     for attempt in range(1, retries + 1):
         try:
-            with urllib.request.urlopen(BASE + path, timeout=60) as r, open(tmp, 'wb') as fh:
+            with urllib.request.urlopen(path if path.startswith('https://') else BASE + path, timeout=60) as r, open(tmp, 'wb') as fh:
                 fh.write(r.read())
             os.replace(tmp, dest)
             return dest
