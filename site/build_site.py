@@ -6,6 +6,7 @@ therefore run the same code and their numbers cannot drift apart.
 
     python3 site/build_site.py
 """
+import csv
 import json
 import os
 import sys
@@ -16,6 +17,13 @@ from clasico.output import read_json, read_rows  # noqa: E402
 
 D3 = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js'
 P = lambda n: os.path.join(ROOT, 'data', 'processed', n)  # noqa: E731
+L = lambda n: os.path.join(ROOT, 'data', 'league', n)  # noqa: E731
+CATEGORIES = ('clasico', 'barcelona_vs_top10', 'barcelona_all', 'season_2015_16')
+LEAGUE_FIELDS = ('match_id', 'match_date', 'season_name', 'period', 'team', 'opponent', 'venue', 'goals_for',
+                 'goals_against', 'coach', 'formation', 'formation_changes', 'passes_before_shot_sum', 'open_play_shots',
+                 'pressures_won_5s', 'pressures', 'opp_buildup_passes', 'def_actions', 'possession_pct',
+                 'pass_interval_s', 'attack_speed_mps', 'np_xg')
+TEXT = {'match_date', 'season_name', 'period', 'team', 'opponent', 'venue', 'coach', 'formation'}
 
 TOKENS = """
 :root{color-scheme:light;
@@ -70,29 +78,89 @@ SHIM = r"""
 })();
 """
 
+NAV = """<nav class="lg-nav" aria-label="Sections"><p class="lg-brand">El Clásico in La Liga · StatsBomb open data</p>
+<div class="ec-seg" role="tablist">
+<button type="button" class="lg-tabbtn" role="tab" data-go="clasico" aria-selected="true">El Clásico</button>
+<button type="button" class="lg-tabbtn" role="tab" data-go="league" aria-selected="false">League context</button>
+<button type="button" class="lg-tabbtn" role="tab" data-go="seasons" aria-selected="false">Special seasons</button>
+</div></nav>"""
+
 FOOT = """<footer class="site-foot">Data: <a href="https://github.com/statsbomb/open-data">StatsBomb Open Data</a>.
 Built from the project's Python pipeline; every metric is defined in the
 <a href="https://github.com/arslannizzetali/el-clasico-analytics">README</a>.</footer>"""
+
+
+def _csv(path):
+    with open(path, encoding='utf-8') as fh:
+        return list(csv.DictReader(fh))
+
+
+def _num(v):
+    if v == '':
+        return None
+    f = float(v)
+    return int(f) if f.is_integer() else f
+
+
+def columnar(rows):
+    """[{...}, ...] -> {cols, rows}: field names once, values as arrays (the page expands them back)."""
+    cols = list(rows[0])
+    return [{'cols': cols, 'rows': [[r[c] for c in cols] for r in rows]}]
+
+
+def league_data():
+    """The league-wide tables (data/league, written by analysis/league.py and intervals.py) for the League
+    and Special seasons tabs: one row per team per match, with the categories the match belongs to."""
+    rows, cats = {}, {}
+    for cat in CATEGORIES:
+        for r in _csv(L(f'match_team_{cat}.csv')):
+            rows[(r['match_id'], r['team'])] = {f: (r[f] or None) if f in TEXT else _num(r[f]) for f in LEAGUE_FIELDS}
+            if cat not in cats.setdefault(r['match_id'], []):
+                cats[r['match_id']].append(cat)
+    out = sorted(rows.values(), key=lambda r: (r['match_date'], r['match_id'], r['venue'] != 'Home'))
+    for r in out:
+        r['cats'] = '|'.join(cats[str(r['match_id'])])
+    by_club = {}
+    for r in _csv(os.path.join(ROOT, 'data', 'reference', 'standings.csv')):
+        by_club.setdefault(r['team_name'], []).append(int(r['position']))
+    finishes = {t: sum(p <= 10 for p in ps) for t, ps in by_club.items()}
+    top = sorted(by_club, key=lambda t: (-finishes[t], sum(by_club[t]) / len(by_club[t])))[:10]
+    shifts = [{k: (_num(v) if k in ('match_id', 'period', 'minute', 'starting') else v) for k, v in r.items()}
+              for r in _csv(L('tactical_shifts.csv'))]
+    intervals = [{k: (_num(v) if k in ('matches', 'value', 'lo', 'hi', 'clear') else v) for k, v in r.items()}
+                 for r in _csv(L('intervals.csv'))]
+    return {'league_raw': columnar(out), 'league_intervals_raw': columnar(intervals),
+            'tactical_shifts_raw': columnar(shifts),
+            'league_meta': [{'top_clubs': top, 'top_finishes': {t: finishes[t] for t in top}}]}
 
 
 def main():
     page = open(os.path.join(ROOT, 'dashboard', 'index.html'), encoding='utf-8').read()
     data = {'match_team': read_json(P('match_team.json')), 'shots': read_json(P('shots.json')),
             'losses': read_rows(P('losses_ds.json')), 'game_state': read_rows(P('game_state.json')),
-            'uncertainty': read_rows(P('uncertainty.json'))}
+            'uncertainty': read_rows(P('uncertainty.json')), **league_data()}
+    league = open(os.path.join(ROOT, 'dashboard', 'league.html'), encoding='utf-8').read()
+    style = league[league.index('<style>'):league.index('</style>') + len('</style>')]
+    tab = lambda name: league[league.index(f'<!--tab:{name}-->') + len(f'<!--tab:{name}-->'):league.index('<!--/tab-->', league.index(f'<!--tab:{name}-->'))]  # noqa: E731
+    script = league[league.index('<script>'):]
     i = page.index('<script>')
     html = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>El Clásico tactical analysis, 2005-2021</title>'
-            '<meta name="description" content="How El Clásico changed over 16 years, match by match and on the pitch: 29 Real Madrid - Barcelona La Liga games, StatsBomb open data.">'
+            '<title>El Clásico in La Liga, 2004-2021</title>'
+            '<meta name="description" content="How El Clásico changed over 16 years, and how it compares with the rest of La Liga: '
+            '29 Real Madrid - Barcelona matches, 524 Barcelona league matches and the full 2015/16 season, StatsBomb open data.">'
             '<link rel="preconnect" href="https://fonts.googleapis.com">'
             '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">'
-            f'<style>{TOKENS}</style>'
+            f'<style>{TOKENS}</style>{style}'
             f'<script src="{D3}"></script>'
             f'<script>window.__DATA={json.dumps(data, ensure_ascii=False, separators=(",", ":"))};{SHIM}</script>'
             '</head><body>'
-            f'<div id="dash-root">{page[:i]}</div>{FOOT}'
-            f'{page[i:]}'
+            f'<div id="dash-root">{NAV}'
+            f'<div data-tab="clasico">{page[:i]}</div>'
+            f'<div data-tab="league" hidden>{tab("league")}</div>'
+            f'<div data-tab="seasons" hidden>{tab("seasons")}</div>'
+            f'</div>{FOOT}'
+            f'{page[i:]}{script}'
             '<script>window.__dashAll();</script>'
             '</body></html>')
     out = os.path.join(ROOT, 'docs', 'index.html')
