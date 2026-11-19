@@ -33,6 +33,7 @@ def main():
             conn.commit()
             if k % 50 == 0 or k == len(todo):
                 print(f'  {k}/{len(todo)}  ({time.time() - t0:.0f} s)', flush=True)
+        print(f'  managers filled where the season names only one: {db.fill_missing_managers(conn)}')
         db.load_standings(conn)
         db.assign_categories(conn)
         conn.commit()

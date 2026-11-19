@@ -132,3 +132,32 @@ def assign_categories(conn):
     conn.execute('DELETE FROM match_categories')
     for name, sql in CATEGORIES.items():
         conn.execute(f'INSERT INTO match_categories SELECT match_id, %s FROM ({sql}) q', (name,))
+
+
+# Seasons where the open data never names the manager. Tito Vilanova was Barcelona's head coach all of 2012/13
+# (Jordi Roura stood in during his treatment, but Vilanova kept the post); the reference pipeline uses the same.
+KNOWN_MANAGERS = {('2012/2013', 'Barcelona'): 'Tito Vilanova'}
+
+
+def fill_missing_managers(conn):
+    """Fill an empty manager field when the team had exactly one named manager in that season's loaded matches,
+    or from KNOWN_MANAGERS. Teams that changed manager mid-season keep the gap. Returns the number of fields filled."""
+    filled = 0
+    for side in ('home', 'away'):
+        filled += conn.execute(f"""
+            WITH named AS (
+                SELECT season_name, team_id, min(manager) AS manager
+                FROM (SELECT season_name, home_team_id AS team_id, home_manager AS manager FROM matches
+                      UNION ALL SELECT season_name, away_team_id, away_manager FROM matches) q
+                WHERE manager IS NOT NULL AND manager <> ''
+                GROUP BY 1, 2 HAVING count(DISTINCT manager) = 1)
+            UPDATE matches m SET {side}_manager = n.manager
+            FROM named n
+            WHERE n.season_name = m.season_name AND n.team_id = m.{side}_team_id
+              AND ({side}_manager IS NULL OR {side}_manager = '')""").rowcount
+        for (season, team), manager in KNOWN_MANAGERS.items():
+            filled += conn.execute(f"""
+                UPDATE matches m SET {side}_manager = %s FROM teams t
+                WHERE t.team_id = m.{side}_team_id AND t.team_name = %s AND m.season_name = %s
+                  AND ({side}_manager IS NULL OR {side}_manager = '')""", (manager, team, season)).rowcount
+    return filled
