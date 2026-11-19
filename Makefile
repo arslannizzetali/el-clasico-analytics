@@ -5,7 +5,7 @@ PY      ?= .venv/bin/python
 # load scope: all | league | clasico | ucl_finals
 SCOPE   ?= all
 
-.PHONY: help setup db download load pipeline analysis site run test clean
+.PHONY: help setup db download load quality pipeline analysis site run test clean
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  make %-10s %s\n", $$1, $$2}'
@@ -26,6 +26,9 @@ download:  ## download raw StatsBomb files for SCOPE (all = ~2.5 GB)
 load: db  ## load SCOPE into PostgreSQL (idempotent: only missing matches)
 	$(PY) scripts/load_db.py $(SCOPE)
 
+quality:  ## data quality checks on the loaded database (fails on errors)
+	$(PY) scripts/check_quality.py
+
 pipeline:  ## reference Clásico pipeline -> data/processed (standard library only)
 	python3 pipeline.py
 
@@ -38,7 +41,7 @@ site:  ## rebuild docs/index.html and the README charts
 	python3 site/build_site.py
 	python3 site/readme_charts.py
 
-run: pipeline load analysis site  ## everything, in order
+run: pipeline load quality analysis site  ## everything, in order
 
 test:  ## all tests (database tests skip if PostgreSQL is not loaded)
 	$(PY) -W error::ResourceWarning -m unittest discover -s tests -v

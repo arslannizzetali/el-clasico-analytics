@@ -80,5 +80,7 @@ jobs:
         run: |
           python scripts/load_db.py clasico
           python scripts/load_db.py ucl_finals
-      - name: pandas metrics and bootstrap agree with the reference pipeline
-        run: python -m unittest tests.test_frames tests.test_finals tests.test_bootstrap -v
+      - name: Data quality checks
+        run: python scripts/check_quality.py
+      - name: Metrics match the reference; quality checks catch defects; loads are idempotent
+        run: python -m unittest tests.test_frames tests.test_finals tests.test_bootstrap tests.test_quality tests.test_load_db -v
