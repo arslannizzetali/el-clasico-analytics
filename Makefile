@@ -1,0 +1,47 @@
+# Common tasks. `make help` lists them.
+# The reference Clásico pipeline needs only Python; everything else uses the virtualenv and PostgreSQL in Docker.
+
+PY      ?= .venv/bin/python
+# load scope: all | league | clasico | ucl_finals
+SCOPE   ?= all
+
+.PHONY: help setup db download load pipeline analysis site run test clean
+
+help:  ## list targets
+	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  make %-10s %s\n", $$1, $$2}'
+
+setup:  ## create .venv and install requirements
+	python3 -m venv .venv
+	$(PY) -m pip install -q --upgrade pip
+	$(PY) -m pip install -q -r requirements.txt
+
+db:  ## start PostgreSQL (localhost:5434) and wait until it accepts connections
+	docker compose up -d
+	@until docker compose exec -T db pg_isready -U clasico -d clasico >/dev/null 2>&1; do sleep 1; done
+	@echo "PostgreSQL ready"
+
+download:  ## download raw StatsBomb files for SCOPE (all = ~2.5 GB)
+	$(PY) scripts/download.py $(SCOPE)
+
+load: db  ## load SCOPE into PostgreSQL (idempotent: only missing matches)
+	$(PY) scripts/load_db.py $(SCOPE)
+
+pipeline:  ## reference Clásico pipeline -> data/processed (standard library only)
+	python3 pipeline.py
+
+analysis:  ## league tables, intervals and BI export -> data/league, data/bi
+	$(PY) analysis/league.py > /dev/null
+	$(PY) analysis/intervals.py
+	$(PY) analysis/export_bi.py
+
+site:  ## rebuild docs/index.html and the README charts
+	python3 site/build_site.py
+	python3 site/readme_charts.py
+
+run: pipeline load analysis site  ## everything, in order
+
+test:  ## all tests (database tests skip if PostgreSQL is not loaded)
+	$(PY) -W error::ResourceWarning -m unittest discover -s tests -v
+
+clean:  ## stop PostgreSQL (data is kept in the Docker volume)
+	docker compose stop
