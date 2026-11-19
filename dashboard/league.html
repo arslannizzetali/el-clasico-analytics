@@ -1,0 +1,577 @@
+<!-- League context and Special seasons tabs. site/build_site.py places the two blocks marked tab:league and
+tab:seasons next to the Clásico page (dashboard/index.html) and runs the script below with the same `dash` API.
+Data: league, league_intervals, tactical_shifts, league_meta (data/league, analysis/league.py + intervals.py). -->
+<style>
+.lg-nav{display:flex;flex-wrap:wrap;gap:var(--cds-gap-md);align-items:center;justify-content:space-between;margin:0 0 var(--cds-gap-xl);font-family:var(--font-anthropic-sans);color:var(--color-fg)}
+.lg-brand{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0}
+.lg-tabbtn{font:inherit;font-weight:var(--cds-font-weight-medium);padding:8px 16px;background:var(--color-panel);color:var(--color-fg);border:0;cursor:pointer}
+.lg-tabbtn+.lg-tabbtn{border-left:1px solid var(--color-border-line)}
+.lg-tabbtn[aria-selected=true]{background:#2563eb;color:#fff}
+.lg-cov{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;max-width:80ch}
+.lg-cov b{font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}
+.lg-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:var(--cds-gap-lg)}
+.lg-scroll{max-height:380px;overflow:auto}
+.ec-table tr.lg-click{cursor:pointer}
+.ec-table tr.lg-click:hover td{background:var(--color-bg-subtle)}
+.ec-table tr.lg-sel td{background:var(--color-bg-subtle);font-weight:var(--cds-font-weight-medium)}
+.lg-clear{color:#2563eb;font-weight:var(--cds-font-weight-medium)}
+.lg-heat td.lg-cell{text-align:center;min-width:64px}
+.lg-key3{display:inline-block;width:16px;height:0;border-top:2px solid #d97706}
+.lg-key-grey{display:inline-block;width:16px;height:0;border-top:2px solid var(--cds-chart-muted)}
+.lg-key-blue{display:inline-block;width:16px;height:0;border-top:2px solid #2563eb}
+.lg-timeline{position:relative;min-height:120px}
+.lg-timeline text{font-family:var(--font-anthropic-sans);font-size:12px}
+.lg-chart{position:relative;min-height:300px}
+.lg-chart text.ec-tick{fill:var(--cds-text-secondary);font-size:var(--cds-font-size-caption);font-family:var(--font-anthropic-sans)}
+.lg-chart text.ec-val{font-size:var(--cds-font-size-caption);font-weight:var(--cds-font-weight-medium);font-family:var(--font-anthropic-sans);font-variant-numeric:tabular-nums}
+</style>
+
+<!--tab:league-->
+<div class="ec" lang="en">
+<header>
+<h1 class="ec-title">La Liga context, 2004-2021</h1>
+<p class="ec-lede">The Clásico against the rest of the league: the same metrics on every league match in the open data,
+with 90% bootstrap intervals. Pick a group of matches, a metric and a side.</p>
+</header>
+
+<section class="ec-card" id="lg-coverage">
+<h2 class="ec-h">What the data covers</h2>
+<ul class="lg-cov" data-draw="lgcov" data-source="league"><li>—</li></ul>
+</section>
+
+<section class="ec-card ec-controls" id="lg-controls">
+<div class="ec-row">
+<span class="ec-lbl">Matches</span>
+<div class="ec-seg" role="group" aria-label="Matches">
+<button type="button" class="ec-gsbtn lg-cat" data-cat="clasico" aria-pressed="true">Clásicos</button>
+<button type="button" class="ec-gsbtn lg-cat" data-cat="barcelona_vs_top10" aria-pressed="false">Barcelona vs top-10 clubs</button>
+<button type="button" class="ec-gsbtn lg-cat" data-cat="barcelona_all" aria-pressed="false">All Barcelona matches</button>
+<button type="button" class="ec-gsbtn lg-cat" data-cat="season_2015_16" aria-pressed="false">2015/16, every club</button>
+</div>
+<select class="dash-select lg-team15" aria-label="Team in 2015/16" data-draw="lgteam15" data-source="league"></select>
+</div>
+<div class="ec-row">
+<span class="ec-lbl">Metric</span>
+<select class="dash-select lg-metric" aria-label="Metric">
+<option value="ppda">Passes allowed per defensive action (PPDA)</option>
+<option value="press_success_pct">Press success</option>
+<option value="passes_per_shot">Passes before a shot</option>
+<option value="possession_pct">Possession</option>
+<option value="pass_interval_s">Pass interval</option>
+<option value="attack_speed_mps">Attack speed</option>
+<option value="np_xg">Non-penalty xG</option>
+</select>
+<span class="ec-lbl">Side</span>
+<div class="ec-seg" role="group" aria-label="Side">
+<button type="button" class="ec-gsbtn lg-side" data-side="team" aria-pressed="true" data-draw="lgsidelbl">Barcelona</button>
+<button type="button" class="ec-gsbtn lg-side" data-side="opp" aria-pressed="false">Opponents</button>
+</div>
+</div>
+<p class="ec-muted" data-draw="lgdef">—</p>
+</section>
+
+<section class="ec-card" id="lg-compare">
+<h2 class="ec-h" data-draw="lgcomptitle">Is a Clásico different?</h2>
+<p class="ec-find" data-draw="lgcompfind" data-source="league_intervals">—</p>
+<div class="ec-row">
+<span class="ec-key"><i class="lg-key-blue"></i>Against Real Madrid (Clásicos)</span>
+<span class="ec-key"><i class="lg-key3"></i>Against the other top-10 clubs</span>
+<span class="ec-key"><i class="lg-key-grey"></i>Against every other club</span>
+<span class="ec-key"><i class="ec-band"></i>90% interval</span>
+</div>
+<div class="lg-chart" data-draw="lgcompare" data-source="league_intervals">—</div>
+<p class="ec-muted">Barcelona's league matches split by opponent, so the three groups never share a match. Always Barcelona's
+matches, whichever group is picked above.</p>
+<h3 class="ec-h3">Differences, with 90% intervals</h3>
+<div class="ec-wrap"><table class="ec-table">
+<thead><tr><th class="ec-l">Period</th><th>Clásico − other clubs</th><th>Clásico − top-10 clubs</th><th>Top-10 − other clubs</th></tr></thead>
+<tbody data-draw="lgcontrast" data-source="league_intervals"></tbody>
+</table></div>
+<p class="ec-muted">Bold blue: the interval excludes zero, so the difference is unlikely to come from which matches were played.</p>
+</section>
+
+<section class="ec-card" id="lg-matches">
+<h2 class="ec-h" data-draw="lgmhead">—</h2>
+<div class="lg-chart" data-draw="lgmatches" data-source="league">—</div>
+<p class="ec-muted">Each dot is a match; lines are period averages (rates from the period totals) and the shaded band its 90%
+bootstrap interval, computed in the page from the same matches. Click a match to open it in the explorer below.</p>
+</section>
+
+<section class="ec-card" id="lg-explorer">
+<h2 class="ec-h">Opponent explorer</h2>
+<p class="ec-p" data-draw="lgrankhead">—</p>
+<div class="ec-wrap lg-scroll"><table class="ec-table">
+<thead data-draw="lgrankthead"></thead>
+<tbody data-draw="lgrank" data-source="league"></tbody>
+</table></div>
+<h3 class="ec-h3" data-draw="lgohead">—</h3>
+<div class="ec-wrap lg-scroll"><table class="ec-table">
+<thead data-draw="lgothead"></thead>
+<tbody data-draw="lgopp" data-source="league"></tbody>
+</table></div>
+<h3 class="ec-h3" data-draw="lgthead">—</h3>
+<div class="lg-timeline" data-draw="lgtimeline" data-source="tactical_shifts">—</div>
+<p class="ec-muted">Formation at kick-off and after every tactical shift recorded in the event data.</p>
+</section>
+
+<section class="ec-card" id="lg-formations">
+<h2 class="ec-h" data-draw="lgfhead">—</h2>
+<div class="ec-row" data-draw="lgfgrouprow">
+<span class="ec-lbl">Opponents</span>
+<div class="ec-seg" role="group" aria-label="Opponents">
+<button type="button" class="ec-gsbtn lg-fg" data-fg="all" aria-pressed="true">All</button>
+<button type="button" class="ec-gsbtn lg-fg" data-fg="top" aria-pressed="false">Top-10 clubs</button>
+<button type="button" class="ec-gsbtn lg-fg" data-fg="other" aria-pressed="false">Other clubs</button>
+</div>
+</div>
+<div class="ec-wrap"><table class="ec-table lg-heat">
+<thead data-draw="lgheathead"></thead>
+<tbody data-draw="lgheat" data-source="league"></tbody>
+</table></div>
+<p class="ec-muted">Share of matches in which the opponent started in each formation. Darker = more common.</p>
+</section>
+</div>
+<!--/tab-->
+
+<!--tab:seasons-->
+<div class="ec" lang="en">
+<header>
+<h1 class="ec-title">Special seasons: a new coach</h1>
+<p class="ec-lede">Two seasons that changed each club. Barcelona in Guardiola's first season against Rijkaard's last;
+Real Madrid in 2015/16, when Zidane replaced Benítez in January. Same metrics, before and after, with 90% intervals.</p>
+</header>
+<section class="ec-card ec-controls">
+<div class="ec-row">
+<span class="ec-lbl">Metric</span>
+<select class="dash-select ss-metric" aria-label="Metric">
+<option value="press_success_pct">Press success</option>
+<option value="ppda">Passes allowed per defensive action (PPDA)</option>
+<option value="passes_per_shot">Passes before a shot</option>
+<option value="possession_pct">Possession</option>
+<option value="pass_interval_s">Pass interval</option>
+<option value="attack_speed_mps">Attack speed</option>
+<option value="np_xg">Non-penalty xG</option>
+</select>
+</div>
+<p class="ec-muted" data-draw="ssdef">—</p>
+</section>
+<section class="ec-card" id="ss-barca">
+<h2 class="ec-h">Barcelona: Rijkaard 2007/08 → Guardiola 2008/09</h2>
+<p class="ec-find" data-draw="ssfind" data-s="barca" data-source="league_intervals">—</p>
+<div class="lg-chart" data-draw="sschart" data-s="barca" data-source="league league_intervals">—</div>
+<div class="ec-wrap"><table class="ec-table">
+<thead><tr><th class="ec-l">Metric</th><th>Rijkaard 2007/08</th><th>Guardiola 2008/09</th><th>Change [90% interval]</th></tr></thead>
+<tbody data-draw="sstable" data-s="barca" data-source="league league_intervals"></tbody>
+</table></div>
+<p class="ec-muted" data-draw="sscov" data-s="barca" data-source="league">—</p>
+</section>
+<section class="ec-card" id="ss-madrid">
+<h2 class="ec-h">Real Madrid 2015/16: Benítez → Zidane</h2>
+<p class="ec-find" data-draw="ssfind" data-s="madrid" data-source="league_intervals">—</p>
+<div class="lg-chart" data-draw="sschart" data-s="madrid" data-source="league league_intervals">—</div>
+<div class="ec-wrap"><table class="ec-table">
+<thead><tr><th class="ec-l">Metric</th><th>Benítez</th><th>Zidane</th><th>Change [90% interval]</th></tr></thead>
+<tbody data-draw="sstable" data-s="madrid" data-source="league league_intervals"></tbody>
+</table></div>
+<p class="ec-muted" data-draw="sscov" data-s="madrid" data-source="league">—</p>
+</section>
+</div>
+<!--/tab-->
+
+<script>
+(() => {
+  const BLUE = '#2563eb', AMBER = '#d97706', GREY = 'var(--cds-chart-muted)';
+  const PERIODS = ['2004-09', '2009-13', '2013-17', '2017-21'];
+  const CAT = {clasico: 'Clásicos', barcelona_vs_top10: 'Barcelona against top-10 clubs', barcelona_all: 'All Barcelona league matches', season_2015_16: '2015/16, every club'};
+  const M = {
+    ppda: {a: 'opp_buildup_passes', b: 'def_actions', k: 1, f: 'n1', label: 'PPDA', def: 'Opponent passes in their own build-up zone per defensive action. Lower means a more intense press.'},
+    press_success_pct: {a: 'pressures_won_5s', b: 'pressures', k: 100, f: 'pct', label: 'press success', def: "Share of the team's pressures followed by its own possession within 5 seconds."},
+    passes_per_shot: {a: 'passes_before_shot_sum', b: 'open_play_shots', k: 1, f: 'n1', label: 'passes before a shot', def: 'Completed passes before the first shot of an open-play possession.'},
+    possession_pct: {a: 'possession_pct', f: 'pct', label: 'possession', def: 'Share of possession time (first to last event of each possession).'},
+    pass_interval_s: {a: 'pass_interval_s', f: 's', label: 'pass interval', def: 'Median seconds between two consecutive passes of the team in the same open-play possession. Higher = slower circulation.'},
+    attack_speed_mps: {a: 'attack_speed_mps', f: 'ms', label: 'attack speed', def: 'Forward metres per second in open-play possessions of 3 s or more, to the furthest point the ball reaches. Higher = more direct.'},
+    np_xg: {a: 'np_xg', f: 'n2', label: 'non-penalty xG', def: 'Expected goals from non-penalty shots, per match.'},
+  };
+  const SS = {
+    barca: {team: 'Barcelona', seasons: ['2007/2008', '2008/2009'], coaches: ['Frank Rijkaard', 'Pep Guardiola'], short: ['Rijkaard', 'Guardiola'], group: 'Barcelona 2007-09', diff: 'Guardiola - Rijkaard'},
+    madrid: {team: 'Real Madrid', seasons: ['2015/2016'], coaches: ['Rafael Benítez', 'Zinédine Zidane'], short: ['Benítez', 'Zidane'], group: 'Real Madrid 2015/16', diff: 'Zidane - Benítez'},
+  };
+  const nf0 = new Intl.NumberFormat('en-US', {maximumFractionDigits: 0});
+  const nf1 = new Intl.NumberFormat('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+  const nf2 = new Intl.NumberFormat('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  const num = (v, f) => f === 'pct' || f === 'n1' ? nf1.format(v) : nf2.format(v);
+  const unit = (f) => f === 'pct' ? '%' : f === 's' ? ' s' : f === 'ms' ? ' m/s' : '';
+  const fmt = (v, f) => v == null || Number.isNaN(v) ? '—' : num(v, f) + unit(f);
+  const sgn = (v, f) => v == null ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + num(Math.abs(v), f);
+  const ival = (r, f) => sgn(r.value, f) + ' [' + sgn(r.lo, f) + ', ' + sgn(r.hi, f) + ']' + (f === 'pct' ? ' pts' : unit(f));
+
+  const expand = (raw) => { const t = raw && raw[0]; return t ? t.rows.map((r) => Object.fromEntries(t.cols.map((c, i) => [c, r[i]]))) : []; };
+  dash.calc('league', {inputs: ['league_raw'], title: 'League match-team rows', fn: expand});
+  dash.calc('league_intervals', {inputs: ['league_intervals_raw'], title: 'League intervals', fn: expand});
+  dash.calc('tactical_shifts', {inputs: ['tactical_shifts_raw'], title: 'Tactical shifts', fn: expand});
+  const data = (id) => { const D = dash.data(id); return D.status === 'ok' && Array.isArray(D.data) && D.data.length ? D.data : null; };
+  const meta = () => (data('league_meta') || [{}])[0];
+
+  const G = window.lg = window.lg || {};
+  if (!M[G.metric]) G.metric = 'ppda';
+  if (!M[G.ssMetric]) G.ssMetric = 'press_success_pct';
+  if (!CAT[G.cat]) G.cat = 'clasico';
+  if (!['team', 'opp'].includes(G.side)) G.side = 'team';
+  if (!['all', 'top', 'other'].includes(G.fg)) G.fg = 'all';
+  if (!G.team15) G.team15 = 'Real Madrid';
+
+  // ---- shared helpers ----
+  const focal = () => G.cat === 'season_2015_16' ? G.team15 : 'Barcelona';
+  const inCat = (r) => r.cats.split('|').includes(G.cat);
+  const perMatch = (r, m) => m.b ? (r[m.b] > 0 ? m.k * r[m.a] / r[m.b] : null) : r[m.a];
+  const agg = (rows, m) => {
+    if (m.b) { const d = d3.sum(rows, (r) => r[m.b]); return d > 0 ? m.k * d3.sum(rows, (r) => r[m.a]) / d : null; }
+    const v = rows.map((r) => r[m.a]).filter((x) => x != null); return v.length ? d3.mean(v) : null;
+  };
+  // Match-level bootstrap in the page (same rule as clasico/bootstrap.py, 2,000 draws, fixed seed)
+  const rng = (seed) => () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const boot = (rows, m, B = 2000) => {
+    const rs = m.b ? rows : rows.filter((r) => r[m.a] != null);
+    if (rs.length < 2) return null;
+    const rand = rng(2021), obs = agg(rs, m), out = new Float64Array(B), n = rs.length;
+    for (let i = 0; i < B; i++) {
+      let a = 0, b = 0;
+      for (let j = 0; j < n; j++) { const r = rs[Math.floor(rand() * n)]; if (m.b) { a += r[m.a]; b += r[m.b]; } else { a += r[m.a]; b += 1; } }
+      out[i] = b > 0 ? (m.b ? m.k : 1) * a / b : obs;
+    }
+    out.sort();
+    const q = (p) => out[Math.min(B - 1, Math.max(0, Math.round(p * (B - 1))))];
+    return [q(0.05), q(0.95)];
+  };
+  const label = (r) => r.venue === 'Home' ? `${r.match_date}  ${r.team} ${r.goals_for}-${r.goals_against} ${r.opponent}` : `${r.match_date}  ${r.opponent} ${r.goals_against}-${r.goals_for} ${r.team}`;
+  const points = (r) => r.goals_for > r.goals_against ? 3 : r.goals_for === r.goals_against ? 1 : 0;
+  const backLine = (f) => f ? +String(f).split('-')[0] : null;
+  function makeTip(el) {
+    const tip = document.createElement('div');
+    tip.className = 'ec-tip'; tip.hidden = true;
+    const show = (ev, lines) => {
+      tip.replaceChildren(...lines.map((text, i) => { const d = document.createElement('div'); if (i === 0) d.className = 'ec-tip-h'; d.textContent = text; return d; }));
+      tip.hidden = false;
+      const [px, py] = d3.pointer(ev, el);
+      tip.style.left = Math.max(0, Math.min(el.clientWidth - tip.offsetWidth, px + 10)) + 'px';
+      tip.style.top = Math.max(0, py - tip.offsetHeight - 8) + 'px';
+    };
+    return {tip, show, hide: () => { tip.hidden = true; }};
+  }
+  const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; return c; };
+  const th = (text, left) => { const c = document.createElement('th'); if (left) c.className = 'ec-l'; c.textContent = text; return c; };
+  const tr = (cells, cls) => { const r = document.createElement('tr'); if (cls) r.className = cls; r.append(...cells); return r; };
+  function yAxis(svg, y, W, mg, f) {
+    const ticks = y.ticks(5);
+    svg.append('g').selectAll('line').data(ticks).join('line').attr('x1', mg.l).attr('x2', W - mg.r).attr('y1', (t) => y(t)).attr('y2', (t) => y(t)).style('stroke', 'var(--cds-chart-grid)');
+    svg.append('g').selectAll('text').data(ticks).join('text').attr('class', 'ec-tick').attr('x', mg.l - 6).attr('y', (t) => y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text((t) => d3.format('~g')(t) + (f === 'pct' ? '%' : ''));
+  }
+
+  // ---- coverage and controls ----
+  dash.draw('lgcov', (el) => {
+    const L = data('league');
+    if (!L) { el.textContent = '—'; return; }
+    const ids = (pred) => new Set(L.filter(pred).map((r) => r.match_id)).size;
+    const barca = ids((r) => r.team === 'Barcelona'), seasons = new Set(L.filter((r) => r.team === 'Barcelona').map((r) => r.season_name)).size;
+    const items = [
+      [`<b>${nf0.format(barca)}</b> of Barcelona's ${nf0.format(seasons * 38)} league matches, 2004/05–2020/21: the matches Lionel Messi played, which is what StatsBomb released.`],
+      [`The complete <b>2015/16</b> season: all <b>${nf0.format(ids((r) => r.season_name === '2015/2016'))}</b> matches of all 20 clubs. It is the only season where other clubs can be compared with each other.`],
+      ['Real Madrid appears outside the Clásicos only in 2015/16, so Real Madrid has no league trend of its own.'],
+      ['Event data, not tracking data: tempo comes from event times and the ball\'s position, not from player or ball speed.'],
+      [`Top-10 clubs: the 10 with the most top-10 finishes over the 17 seasons, from every league result: ${(meta().top_clubs || []).join(', ')}.`],
+    ];
+    el.replaceChildren(...items.map(([h]) => { const li = document.createElement('li'); li.innerHTML = h; return li; }));
+  });
+  dash.draw('lgteam15', (sel) => {
+    const L = data('league');
+    if (!L) return;
+    const teams = [...new Set(L.filter((r) => r.season_name === '2015/2016').map((r) => r.team))].sort(d3.ascending);
+    sel.replaceChildren(...teams.map((t) => new Option(t, t, false, t === G.team15)));
+  });
+  dash.draw('lgsidelbl', (el) => { el.textContent = focal(); });
+  dash.draw('lgdef', (el) => { el.textContent = M[G.metric].def; });
+
+  // ---- Is a Clásico different? ----
+  const groupsOf = (I, metric, side) => ['Real Madrid', 'Top-10 club', 'Other club'].map((g) => ({g, rows: PERIODS.map((p) => I.find((r) => r.kind === 'period' && r.group === g && r.side === side && r.period === p && r.metric === metric)).filter(Boolean)}));
+  const sideName = () => G.side === 'team' ? 'Barcelona' : 'Opponent';
+  dash.draw('lgcomptitle', (el) => { el.textContent = 'Is a Clásico different? ' + (G.side === 'team' ? "Barcelona's " : "Barcelona's opponents' ") + M[G.metric].label; });
+  dash.draw('lgcompare', (el) => {
+    const I = data('league_intervals');
+    if (!I) { el.textContent = '—'; return; }
+    const m = M[G.metric], series = groupsOf(I, G.metric, sideName());
+    const colors = {'Real Madrid': BLUE, 'Top-10 club': AMBER, 'Other club': GREY};
+    const all = series.flatMap((s) => s.rows.flatMap((r) => [r.lo, r.hi]));
+    const W = Math.max(300, el.clientWidth || 600), H = 300, mg = {t: 16, r: 16, b: 28, l: 44};
+    const [lo, hi] = d3.extent(all), pad = (hi - lo) * 0.12 || 1;
+    const y = d3.scaleLinear().domain([Math.max(0, lo - pad), hi + pad]).nice(5).range([H - mg.b, mg.t]);
+    const x = d3.scalePoint().domain(PERIODS).range([mg.l, W - mg.r]).padding(0.5);
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Barcelona ' + m.label + ' by period and kind of opponent');
+    const T = makeTip(el);
+    el.replaceChildren(svg.node(), T.tip);
+    yAxis(svg, y, W, mg, m.f);
+    svg.append('g').selectAll('text').data(PERIODS).join('text').attr('class', 'ec-tick').attr('x', (p) => x(p)).attr('y', H - 8).attr('text-anchor', 'middle').text((p) => p);
+    series.forEach((s, i) => {
+      const dx = (i - 1) * 12, c = colors[s.g];
+      svg.append('g').selectAll('rect').data(s.rows).join('rect').attr('x', (r) => x(r.period) + dx - 4).attr('width', 8)
+        .attr('y', (r) => y(r.hi)).attr('height', (r) => Math.max(1, y(r.lo) - y(r.hi))).attr('rx', 2).style('fill', c).style('fill-opacity', 0.2);
+      svg.append('path').datum(s.rows).attr('d', d3.line().x((r) => x(r.period) + dx).y((r) => y(r.value))).style('fill', 'none').style('stroke', c).style('stroke-width', s.g === 'Real Madrid' ? 2.5 : 1.5);
+      svg.append('g').selectAll('circle').data(s.rows).join('circle').attr('cx', (r) => x(r.period) + dx).attr('cy', (r) => y(r.value)).attr('r', s.g === 'Real Madrid' ? 4.5 : 3.5).style('fill', c);
+    });
+    const step = x.step();
+    svg.append('g').selectAll('rect').data(PERIODS).join('rect').attr('x', (p) => x(p) - step / 2).attr('width', step).attr('y', mg.t).attr('height', H - mg.t - mg.b).style('fill', 'transparent')
+      .on('pointermove pointerdown', (ev, p) => T.show(ev, [p + ' · ' + (G.side === 'team' ? 'Barcelona' : 'opponents')].concat(series.map((s) => { const r = s.rows.find((q) => q.period === p); return r ? `${s.g === 'Real Madrid' ? 'Clásicos' : s.g === 'Top-10 club' ? 'Top-10 clubs' : 'Other clubs'}: ${fmt(r.value, m.f)} [${fmt(r.lo, m.f)}–${fmt(r.hi, m.f)}], ${r.matches} matches` : ''; }))))
+      .on('pointerleave', () => T.hide());
+  });
+  const CONTRASTS = ['Real Madrid - Other club', 'Real Madrid - Top-10 club', 'Top-10 club - Other club'];
+  dash.draw('lgcontrast', (tb) => {
+    const I = data('league_intervals');
+    if (!I) return;
+    const f = M[G.metric].f;
+    tb.replaceChildren(...PERIODS.map((p) => tr([td(p, 'ec-l')].concat(CONTRASTS.map((g) => {
+      const r = I.find((q) => q.kind === 'contrast' && q.group === g && q.side === sideName() && q.period === p && q.metric === G.metric);
+      return r ? td(ival(r, f), r.clear ? 'lg-clear' : '') : td('—');
+    })))));
+  });
+  dash.draw('lgcompfind', (el) => {
+    const I = data('league_intervals');
+    if (!I) { el.textContent = '—'; return; }
+    const m = M[G.metric];
+    const rs = PERIODS.map((p) => I.find((q) => q.kind === 'contrast' && q.group === CONTRASTS[0] && q.side === sideName() && q.period === p && q.metric === G.metric)).filter(Boolean);
+    const clear = rs.filter((r) => r.clear);
+    const who = G.side === 'team' ? "Barcelona's " : "Barcelona's opponents' ";
+    el.textContent = clear.length
+      ? `${who}${m.label} in a Clásico differs clearly from matches against the other clubs in ${clear.length} of ${rs.length} periods: ` + clear.map((r) => `${r.period} ${ival(r, m.f)}`).join('; ') + '.'
+      : `${who}${m.label} in a Clásico is within what the match sample allows of the matches against other clubs in every period.`;
+  });
+
+  // ---- match by match in the chosen group ----
+  const sideRows = () => {
+    const L = data('league') || [], F = focal();
+    return L.filter((r) => inCat(r) && (G.side === 'team' ? r.team === F : r.opponent === F)).sort((a, b) => d3.ascending(a.match_date, b.match_date));
+  };
+  dash.draw('lgmhead', (el) => { el.textContent = `${CAT[G.cat]}: ${G.side === 'team' ? focal() : focal() + "'s opponents"}, ${M[G.metric].label}, match by match`; });
+  dash.draw('lgmatches', (el) => {
+    const rows = sideRows(), m = M[G.metric];
+    if (!rows.length) { el.textContent = '—'; return; }
+    const key = (r) => G.cat === 'season_2015_16' ? r.season_name : r.period;
+    const pts = rows.map((r, i) => ({r, i, v: perMatch(r, m)})).filter((q) => q.v != null);
+    const groups = d3.groups(rows.map((r, i) => ({r, i})), (q) => key(q.r)).map(([k, qs]) => {
+      const rs = qs.map((q) => q.r);
+      return {k, i0: qs[0].i, i1: qs[qs.length - 1].i, v: agg(rs, m), ci: boot(rs, m), n: rs.length};
+    });
+    const W = Math.max(300, el.clientWidth || 600), H = 300, mg = {t: 26, r: 10, b: 24, l: 44};
+    const vals = pts.map((q) => q.v).concat(groups.flatMap((g) => g.ci || []));
+    const top = d3.quantile(vals.slice().sort(d3.ascending), 0.98) * 1.08;
+    const y = d3.scaleLinear().domain([0, top]).nice(5).range([H - mg.b, mg.t]);
+    const yc = (v) => y(Math.min(v, y.domain()[1]));
+    const x = d3.scaleLinear().domain([-0.5, rows.length - 0.5]).range([mg.l, W - mg.r]);
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Match by match ' + m.label);
+    const T = makeTip(el);
+    el.replaceChildren(svg.node(), T.tip);
+    yAxis(svg, y, W, mg, m.f);
+    groups.forEach((g, j) => {
+      const x0 = x(g.i0 - 0.4), x1 = x(g.i1 + 0.4);
+      svg.append('text').attr('class', 'ec-tick').attr('x', (x0 + x1) / 2).attr('y', 12).attr('text-anchor', 'middle').text(g.k + ' · ' + g.n);
+      if (j > 0) svg.append('line').attr('x1', x0).attr('x2', x0).attr('y1', mg.t - 8).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-axis)').style('stroke-dasharray', '2 3');
+      if (g.ci) svg.append('rect').attr('x', x0).attr('width', x1 - x0).attr('y', yc(g.ci[1])).attr('height', Math.max(1, yc(g.ci[0]) - yc(g.ci[1]))).attr('rx', 3).style('fill', BLUE).style('fill-opacity', 0.13);
+    });
+    const r = Math.max(1.6, Math.min(4, (W - mg.l - mg.r) / rows.length / 2.2));
+    svg.append('g').selectAll('circle').data(pts).join('circle').attr('cx', (q) => x(q.i)).attr('cy', (q) => yc(q.v)).attr('r', (q) => q.r.match_id === G.match ? r + 2 : r)
+      .style('fill', BLUE).style('opacity', (q) => q.r.match_id === G.match ? 1 : 0.55);
+    groups.forEach((g) => {
+      if (g.v == null) return;
+      const x0 = x(g.i0 - 0.4), x1 = x(g.i1 + 0.4);
+      svg.append('line').attr('x1', x0).attr('x2', x1).attr('y1', yc(g.v)).attr('y2', yc(g.v)).style('stroke', BLUE).style('stroke-width', 3).style('stroke-linecap', 'round');
+      svg.append('text').attr('class', 'ec-val').attr('x', (x0 + x1) / 2).attr('y', yc(g.v) - 7).attr('text-anchor', 'middle').style('fill', BLUE).text(fmt(g.v, m.f));
+    });
+    const nearest = (ev) => { const i = Math.round(x.invert(d3.pointer(ev, svg.node())[0])); return rows[Math.max(0, Math.min(rows.length - 1, i))]; };
+    svg.append('rect').attr('x', mg.l).attr('y', mg.t).attr('width', W - mg.l - mg.r).attr('height', H - mg.t - mg.b).style('fill', 'transparent').style('cursor', 'pointer')
+      .on('pointermove pointerdown', (ev) => { const q = nearest(ev), g = groups.find((gg) => gg.k === key(q)); T.show(ev, [label(q), `${q.team}: ${fmt(perMatch(q, m), m.f)}`, g && g.ci ? `${g.k} average ${fmt(g.v, m.f)}, 90% interval ${fmt(g.ci[0], m.f)}–${fmt(g.ci[1], m.f)}` : '']); })
+      .on('pointerleave', () => T.hide())
+      .on('click', (ev) => { const q = nearest(ev), F = focal(); G.club = q.team === F ? q.opponent : q.team; G.match = q.match_id; redrawLeague(); document.getElementById('lg-explorer').scrollIntoView({behavior: 'smooth', block: 'start'}); });
+  });
+
+  // ---- opponent explorer ----
+  const versus = () => {
+    const L = data('league') || [], F = focal();
+    const own = L.filter((r) => inCat(r) && r.team === F), opp = new Map(L.filter((r) => inCat(r) && r.opponent === F).map((r) => [r.match_id, r]));
+    return d3.groups(own, (r) => r.opponent).map(([club, rs]) => ({club, rs, os: rs.map((r) => opp.get(r.match_id)).filter(Boolean)}));
+  };
+  const minMatches = () => G.cat === 'barcelona_all' ? 6 : G.cat === 'barcelona_vs_top10' ? 4 : 1;
+  dash.draw('lgrankhead', (el) => { el.textContent = `${focal()}'s opponents in ${CAT[G.cat].toLowerCase()}, toughest first (fewest points for ${focal()} per match)` + (minMatches() > 1 ? `; clubs with at least ${minMatches()} matches.` : '.') + ' Click a club to list its matches.'; });
+  dash.draw('lgrankthead', (el) => { const m = M[G.metric]; el.replaceChildren(tr([th('Club', 1), th('Matches'), th(focal() + ' pts/match'), th(focal() + ' ' + m.label), th('Club ' + m.label), th('Club possession'), th('Usual formation')])); });
+  dash.draw('lgrank', (tb) => {
+    const m = M[G.metric], P = M.possession_pct;
+    const list = versus().filter((v) => v.rs.length >= minMatches()).map((v) => ({...v, ppm: d3.mean(v.rs, points)})).sort((a, b) => d3.ascending(a.ppm, b.ppm) || d3.descending(a.rs.length, b.rs.length));
+    if (!G.club || !list.some((v) => v.club === G.club)) G.club = list.length ? list[0].club : null;
+    tb.replaceChildren(...list.map((v) => {
+      const form = d3.greatest(d3.rollups(v.os, (x) => x.length, (r) => r.formation), (d) => d[1]);
+      const row = tr([td(v.club, 'ec-l'), td(nf0.format(v.rs.length)), td(nf2.format(v.ppm)), td(fmt(agg(v.rs, m), m.f)), td(fmt(agg(v.os, m), m.f)), td(fmt(agg(v.os, P), 'pct')), td(form ? form[0] : '—')], 'lg-click' + (v.club === G.club ? ' lg-sel' : ''));
+      row.addEventListener('click', () => { G.club = v.club; G.match = null; redrawLeague(); });
+      return row;
+    }));
+  });
+  const clubMatches = () => { const v = versus().find((q) => q.club === G.club); return v ? v.rs.map((r) => ({r, o: v.os.find((x) => x.match_id === r.match_id)})) : []; };
+  dash.draw('lgohead', (el) => { el.textContent = G.club ? `${focal()} against ${G.club}: every match` : '—'; });
+  dash.draw('lgothead', (el) => { const m = M[G.metric]; el.replaceChildren(tr([th('Match', 1), th(G.club ? G.club + ' formation' : 'Formation', 1), th(G.club ? G.club + ' coach' : 'Coach', 1), th(focal() + ' ' + m.label), th('Club ' + m.label), th('Shifts')])); });
+  dash.draw('lgopp', (tb) => {
+    const m = M[G.metric], ms = clubMatches();
+    if (ms.length && (G.match == null || !ms.some((q) => q.r.match_id === G.match))) G.match = ms[ms.length - 1].r.match_id;
+    tb.replaceChildren(...ms.slice().reverse().map(({r, o}) => {
+      const row = tr([td(label(r), 'ec-l'), td(o ? o.formation || '—' : '—', 'ec-l'), td(o && o.coach ? o.coach : '—', 'ec-l'), td(fmt(perMatch(r, m), m.f)), td(o ? fmt(perMatch(o, m), m.f) : '—'), td(nf0.format(r.formation_changes) + ' / ' + (o ? nf0.format(o.formation_changes) : '—'))], 'lg-click' + (r.match_id === G.match ? ' lg-sel' : ''));
+      row.addEventListener('click', () => { G.match = r.match_id; ['lgopp', 'lgthead', 'lgtimeline', 'lgmatches'].forEach((n) => dash.draw(n)); });
+      return row;
+    }));
+  });
+  dash.draw('lgthead', (el) => { const q = clubMatches().find((x) => x.r.match_id === G.match); el.textContent = q ? 'Formations during the match: ' + label(q.r) : '—'; });
+  dash.draw('lgtimeline', (el) => {
+    const S = data('tactical_shifts'), q = clubMatches().find((x) => x.r.match_id === G.match);
+    if (!S || !q) { el.textContent = '—'; return; }
+    const lanes = [q.r.team, q.r.opponent];
+    // a shift that keeps the formation (players swap roles) is not a new segment
+    const sh = S.filter((s) => s.match_id === G.match).filter((s, i, a) => s.starting || a.slice(0, i).reverse().find((p) => p.team === s.team).formation !== s.formation);
+    const end = Math.max(93, d3.max(sh, (s) => s.minute) + 3);
+    const W = Math.max(300, el.clientWidth || 600), laneH = 34, mg = {t: 8, r: 10, b: 22, l: Math.min(150, W * 0.28)};
+    const H = mg.t + lanes.length * (laneH + 8) + mg.b;
+    const x = d3.scaleLinear().domain([0, end]).range([mg.l, W - mg.r]);
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Formations during ' + label(q.r));
+    el.replaceChildren(svg.node());
+    [0, 15, 30, 45, 60, 75, 90].forEach((t) => {
+      svg.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', mg.t).attr('y2', H - mg.b).style('stroke', t === 45 ? 'var(--cds-chart-axis)' : 'var(--cds-chart-grid)').style('stroke-dasharray', t === 45 ? '2 3' : null);
+      svg.append('text').attr('class', 'ec-tick').attr('x', x(t)).attr('y', H - 6).attr('text-anchor', 'middle').style('fill', 'var(--cds-text-secondary)').text(t + "'");
+    });
+    lanes.forEach((team, i) => {
+      const y0 = mg.t + i * (laneH + 8), segs = sh.filter((s) => s.team === team);
+      svg.append('text').attr('x', mg.l - 8).attr('y', y0 + laneH / 2).attr('dy', '0.32em').attr('text-anchor', 'end').style('fill', 'var(--color-fg)').text(team.length > 20 ? team.slice(0, 19) + '…' : team);
+      segs.forEach((s, j) => {
+        const a = x(s.minute), b = x(j + 1 < segs.length ? segs[j + 1].minute : end);
+        svg.append('rect').attr('x', a).attr('y', y0).attr('width', Math.max(1, b - a - 1)).attr('height', laneH).attr('rx', 4)
+          .style('fill', i === 0 ? BLUE : GREY).style('fill-opacity', 0.18 + 0.5 * (j % 2)).style('stroke', i === 0 ? BLUE : GREY);
+        if (b - a > 44) svg.append('text').attr('x', a + 6).attr('y', y0 + laneH / 2).attr('dy', '0.32em').style('fill', 'var(--color-fg)').style('font-weight', 600).text(s.formation + (j ? ' (' + s.minute + "')" : ''));
+      });
+    });
+  });
+
+  // ---- formations of the opponents ----
+  dash.draw('lgfhead', (el) => { el.textContent = `How ${focal()}'s opponents lined up: ${CAT[G.cat].toLowerCase()}`; });
+  dash.draw('lgfgrouprow', (el) => { el.hidden = G.cat !== 'barcelona_all'; });
+  const oppStarts = () => {
+    const L = data('league') || [], F = focal(), top = new Set(meta().top_clubs || []);
+    return L.filter((r) => inCat(r) && r.opponent === F && r.formation && (G.cat !== 'barcelona_all' || G.fg === 'all' || (G.fg === 'top') === top.has(r.team)));
+  };
+  const fKey = (r) => G.cat === 'season_2015_16' ? r.season_name : r.period;
+  dash.draw('lgheathead', (el) => {
+    const cols = [...new Set(oppStarts().map(fKey))].sort();
+    el.replaceChildren(tr([th('Formation', 1)].concat(cols.map((c) => th(c)))));
+  });
+  dash.draw('lgheat', (tb) => {
+    const rows = oppStarts();
+    const cols = [...new Set(rows.map(fKey))].sort();
+    const byCol = d3.group(rows, fKey);
+    const forms = d3.rollups(rows, (v) => v.length, (r) => r.formation).sort((a, b) => b[1] - a[1]).slice(0, 8).map((d) => d[0]);
+    const share = (col, pred) => { const rs = byCol.get(col) || []; return rs.length ? 100 * rs.filter(pred).length / rs.length : null; };
+    const cell = (v) => { const c = td(v == null ? '—' : nf0.format(v) + '%', 'lg-cell'); if (v != null) c.style.background = `rgba(37,99,235,${(Math.min(v, 60) / 60 * 0.55).toFixed(3)})`; return c; };
+    const body = forms.map((f) => tr([td(f, 'ec-l')].concat(cols.map((c) => cell(share(c, (r) => r.formation === f))))));
+    body.push(tr([td('Back three or five', 'ec-l')].concat(cols.map((c) => cell(share(c, (r) => [3, 5].includes(backLine(r.formation))))))));
+    body.push(tr([td('Matches', 'ec-l')].concat(cols.map((c) => td(nf0.format((byCol.get(c) || []).length), 'lg-cell')))));
+    tb.replaceChildren(...body);
+  });
+
+  // ---- special seasons ----
+  dash.draw('ssdef', (el) => { el.textContent = M[G.ssMetric].def; });
+  const ssRows = (s) => (data('league') || []).filter((r) => r.team === s.team && s.seasons.includes(r.season_name) && s.coaches.includes(r.coach)).sort((a, b) => d3.ascending(a.match_date, b.match_date));
+  const ssI = (s, kind, side, metric) => (data('league_intervals') || []).find((r) => r.kind === kind && r.period === 'special' && (kind === 'period' ? r.group === s.group && r.side === side : r.group === s.diff) && r.metric === metric);
+  dash.draw('sscov', (el) => {
+    const s = SS[el.dataset.s], rs = ssRows(s);
+    const n = s.coaches.map((c) => rs.filter((r) => r.coach === c).length);
+    el.textContent = s.team === 'Barcelona'
+      ? `Matches in the data: ${n[0]} of 38 under Rijkaard (2007/08) and ${n[1]} of 38 under Guardiola (2008/09); StatsBomb released the matches Messi played.`
+      : `All 38 league matches: ${n[0]} under Benítez (to 3 January 2016) and ${n[1]} under Zidane.`;
+  });
+  dash.draw('ssfind', (el) => {
+    const s = SS[el.dataset.s];
+    if (!data('league_intervals')) { el.textContent = '—'; return; }
+    const rs = ssRows(s), ppm = s.coaches.map((c) => d3.mean(rs.filter((r) => r.coach === c), points));
+    const clear = Object.keys(M).map((k) => [k, ssI(s, 'contrast', null, k)]).filter(([, r]) => r && r.clear);
+    el.textContent = `${s.team} took ${nf2.format(ppm[0])} points per match under ${s.short[0]} and ${nf2.format(ppm[1])} under ${s.short[1]}. `
+      + (clear.length ? 'Clear changes in how the team played: ' + clear.map(([k, r]) => `${M[k].label} ${ival(r, M[k].f)}`).join('; ') + '.' : 'None of the metrics changed by more than the match sample allows.');
+  });
+  dash.draw('sschart', (el) => {
+    const s = SS[el.dataset.s], m = M[G.ssMetric], rows = ssRows(s);
+    if (!rows.length || !data('league_intervals')) { el.textContent = '—'; return; }
+    const pts = rows.map((r, i) => ({r, i, v: perMatch(r, m)})).filter((q) => q.v != null);
+    const cut = rows.findIndex((r) => r.coach === s.coaches[1]);
+    const bands = s.coaches.map((c, j) => ({c, j, i0: j ? cut : 0, i1: j ? rows.length - 1 : cut - 1, iv: ssI(s, 'period', c, G.ssMetric)}));
+    const W = Math.max(300, el.clientWidth || 600), H = 280, mg = {t: 26, r: 10, b: 24, l: 44};
+    const vals = pts.map((q) => q.v).concat(bands.flatMap((b) => b.iv ? [b.iv.lo, b.iv.hi] : []));
+    const y = d3.scaleLinear().domain([0, d3.quantile(vals.slice().sort(d3.ascending), 0.98) * 1.1]).nice(5).range([H - mg.b, mg.t]);
+    const yc = (v) => y(Math.min(v, y.domain()[1]));
+    const x = d3.scaleLinear().domain([-0.5, rows.length - 0.5]).range([mg.l, W - mg.r]);
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', `${s.team} ${m.label}, ${s.short.join(' and ')}`);
+    const T = makeTip(el);
+    el.replaceChildren(svg.node(), T.tip);
+    yAxis(svg, y, W, mg, m.f);
+    bands.forEach((b) => {
+      const x0 = x(b.i0 - 0.45), x1 = x(b.i1 + 0.45), c = b.j ? BLUE : GREY;
+      svg.append('text').attr('class', 'ec-tick').attr('x', (x0 + x1) / 2).attr('y', 12).attr('text-anchor', 'middle').text(`${s.short[b.j]} · ${b.i1 - b.i0 + 1} matches`);
+      if (b.iv) {
+        svg.append('rect').attr('x', x0).attr('width', x1 - x0).attr('y', yc(b.iv.hi)).attr('height', Math.max(1, yc(b.iv.lo) - yc(b.iv.hi))).attr('rx', 3).style('fill', c).style('fill-opacity', 0.15);
+        svg.append('line').attr('x1', x0).attr('x2', x1).attr('y1', yc(b.iv.value)).attr('y2', yc(b.iv.value)).style('stroke', c).style('stroke-width', 3).style('stroke-linecap', 'round');
+        svg.append('text').attr('class', 'ec-val').attr('x', (x0 + x1) / 2).attr('y', yc(b.iv.hi) - 6).attr('text-anchor', 'middle').style('fill', b.j ? BLUE : 'var(--cds-text-secondary)').text(fmt(b.iv.value, m.f));
+      }
+    });
+    svg.append('line').attr('x1', x(cut - 0.5)).attr('x2', x(cut - 0.5)).attr('y1', mg.t - 8).attr('y2', H - mg.b).style('stroke', 'var(--cds-chart-reference)').style('stroke-dasharray', '3 3');
+    svg.append('g').selectAll('circle').data(pts).join('circle').attr('cx', (q) => x(q.i)).attr('cy', (q) => yc(q.v)).attr('r', 3.5)
+      .style('fill', (q) => q.r.coach === s.coaches[1] ? BLUE : GREY).style('opacity', 0.75);
+    const years = d3.groups(rows.map((r, i) => ({r, i})), (q) => q.r.match_date.slice(0, 7)).filter((d, k) => k % 2 === 0);
+    years.forEach(([ym, qs]) => svg.append('text').attr('class', 'ec-tick').attr('x', x(qs[0].i)).attr('y', H - 6).attr('text-anchor', 'middle').text(new Date(ym + '-15').toLocaleString('en-US', {month: 'short'}) + (ym.endsWith('-01') || qs[0].i === 0 ? ' ' + ym.slice(2, 4) : '')));
+    const nearest = (ev) => rows[Math.max(0, Math.min(rows.length - 1, Math.round(x.invert(d3.pointer(ev, svg.node())[0]))))];
+    svg.append('rect').attr('x', mg.l).attr('y', mg.t).attr('width', W - mg.l - mg.r).attr('height', H - mg.t - mg.b).style('fill', 'transparent')
+      .on('pointermove pointerdown', (ev) => { const r = nearest(ev); T.show(ev, [label(r), `${r.coach}: ${fmt(perMatch(r, m), m.f)}`, `Formation ${r.formation || '—'}`]); })
+      .on('pointerleave', () => T.hide());
+  });
+  dash.draw('sstable', (tb) => {
+    const s = SS[tb.dataset.s], rs = ssRows(s);
+    if (!rs.length || !data('league_intervals')) return;
+    const body = Object.entries(M).map(([k, m]) => {
+      const a = ssI(s, 'period', s.coaches[0], k), b = ssI(s, 'period', s.coaches[1], k), d = ssI(s, 'contrast', null, k);
+      return tr([td(m.label[0].toUpperCase() + m.label.slice(1), 'ec-l'), td(a ? fmt(a.value, m.f) : '—'), td(b ? fmt(b.value, m.f) : '—'), td(d ? ival(d, m.f) : '—', d && d.clear ? 'lg-clear' : '')], k === G.ssMetric ? 'lg-sel' : '');
+    });
+    const by = s.coaches.map((c) => rs.filter((r) => r.coach === c));
+    body.push(tr([td('Points per match', 'ec-l')].concat(by.map((x) => td(nf2.format(d3.mean(x, points))))).concat([td('no interval: results, not play', 'ec-avg')])));
+    tb.replaceChildren(...body);
+  });
+
+  // ---- wiring ----
+  const LG = ['lgteam15', 'lgsidelbl', 'lgdef', 'lgcomptitle', 'lgcompare', 'lgcontrast', 'lgcompfind', 'lgmhead', 'lgmatches', 'lgrankhead', 'lgrankthead', 'lgrank', 'lgohead', 'lgothead', 'lgopp', 'lgthead', 'lgtimeline', 'lgfhead', 'lgfgrouprow', 'lgheathead', 'lgheat'];
+  const SSD = ['ssdef', 'sschart', 'sstable', 'ssfind', 'sscov'];
+  function redrawLeague() { applyLeague(); LG.forEach((n) => dash.draw(n)); }
+  function applyLeague() {
+    document.querySelectorAll('.lg-cat').forEach((b) => b.setAttribute('aria-pressed', b.dataset.cat === G.cat ? 'true' : 'false'));
+    document.querySelectorAll('.lg-side').forEach((b) => b.setAttribute('aria-pressed', b.dataset.side === G.side ? 'true' : 'false'));
+    document.querySelectorAll('.lg-fg').forEach((b) => b.setAttribute('aria-pressed', b.dataset.fg === G.fg ? 'true' : 'false'));
+    document.querySelectorAll('.lg-metric').forEach((s) => { s.value = G.metric; });
+    document.querySelectorAll('.lg-team15').forEach((s) => { s.style.display = G.cat === 'season_2015_16' ? '' : 'none'; });
+    document.querySelectorAll('.ss-metric').forEach((s) => { s.value = G.ssMetric; });
+  }
+  document.querySelectorAll('.lg-cat').forEach((b) => b.addEventListener('click', () => { G.cat = b.dataset.cat; G.club = null; G.match = null; redrawLeague(); }));
+  document.querySelectorAll('.lg-side').forEach((b) => b.addEventListener('click', () => { G.side = b.dataset.side; redrawLeague(); }));
+  document.querySelectorAll('.lg-fg').forEach((b) => b.addEventListener('click', () => { G.fg = b.dataset.fg; redrawLeague(); }));
+  document.querySelectorAll('.lg-metric').forEach((s) => s.addEventListener('change', () => { G.metric = s.value; redrawLeague(); }));
+  document.querySelectorAll('.lg-team15').forEach((s) => s.addEventListener('change', () => { G.team15 = s.value; G.club = null; G.match = null; redrawLeague(); }));
+  document.querySelectorAll('.ss-metric').forEach((s) => s.addEventListener('change', () => { G.ssMetric = s.value; applyLeague(); SSD.forEach((n) => dash.draw(n)); }));
+
+  // Tabs (only in the published single-file site, which adds the tab bar and the [data-tab] containers)
+  const TABS = ['clasico', 'league', 'seasons'];
+  function showTab(t, push) {
+    if (!TABS.includes(t)) t = 'clasico';
+    document.querySelectorAll('[data-tab]').forEach((d) => { d.hidden = d.dataset.tab !== t; });
+    document.querySelectorAll('.lg-tabbtn').forEach((b) => b.setAttribute('aria-selected', b.dataset.go === t ? 'true' : 'false'));
+    if (push) history.replaceState(null, '', t === 'clasico' ? location.pathname : '#' + t);
+  }
+  document.querySelectorAll('.lg-tabbtn').forEach((b) => b.addEventListener('click', () => { showTab(b.dataset.go, true); window.scrollTo({top: 0}); }));
+  window.addEventListener('hashchange', () => showTab(location.hash.slice(1)));
+  applyLeague();
+  showTab(location.hash.slice(1));
+})();
+</script>
