@@ -44,3 +44,39 @@ jobs:
             cmp "$f" "/tmp/rebuilt/$(basename "$f")" || { echo "differs: $f"; exit 1; }
           done
           echo "all outputs reproduced"
+
+  database:
+    name: PostgreSQL + pandas metrics match the reference
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: clasico
+          POSTGRES_PASSWORD: clasico
+          POSTGRES_DB: clasico
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U clasico -d clasico"
+          --health-interval 2s
+          --health-retries 30
+    env:
+      DATABASE_URL: postgresql+psycopg://clasico:clasico@localhost:5432/clasico
+      REQUIRE_DB: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Cache raw data
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: statsbomb-raw-clasico-v1
+      - name: Load the Clásicos into PostgreSQL
+        run: python scripts/load_db.py clasico
+      - name: pandas metrics equal the reference pipeline's
+        run: python -m unittest tests.test_frames -v
